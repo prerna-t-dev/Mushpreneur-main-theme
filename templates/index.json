@@ -33,6 +33,56 @@
       "type": "mush__image-with-text",
       "settings": {}
     },
+    "mush_usp_marquee_scroll_Xit33t": {
+      "type": "mush__usp-marquee-scroll",
+      "blocks": {
+        "usp_pEgdhM": {
+          "type": "usp",
+          "settings": {
+            "usp": "Super Potent Blend"
+          }
+        },
+        "usp_rcEb9z": {
+          "type": "usp",
+          "settings": {
+            "usp": "All Natural Ingredient"
+          }
+        },
+        "usp_yWxKDy": {
+          "type": "usp",
+          "settings": {
+            "usp": "Nootropics"
+          }
+        },
+        "usp_kTmhNf": {
+          "type": "usp",
+          "settings": {
+            "usp": "Adaptogens"
+          }
+        },
+        "usp_K3Qy3b": {
+          "type": "usp",
+          "settings": {
+            "usp": "Fruiting Body Mushrooms"
+          }
+        },
+        "usp_hzRB6b": {
+          "type": "usp",
+          "settings": {
+            "usp": "Vitamin B12"
+          }
+        }
+      },
+      "block_order": [
+        "usp_pEgdhM",
+        "usp_rcEb9z",
+        "usp_yWxKDy",
+        "usp_kTmhNf",
+        "usp_K3Qy3b",
+        "usp_hzRB6b"
+      ],
+      "settings": {}
+    },
     "mush_social_proof_ijRYeV": {
       "type": "mush__social-proof",
       "settings": {}
@@ -53,6 +103,7 @@
     "mush_comparison_table_cmDJGq",
     "mush_lifestyle_section_QmgCm6",
     "mush_image_with_text_gLBtzW",
+    "mush_usp_marquee_scroll_Xit33t",
     "mush_social_proof_ijRYeV",
     "mush_active_ingredients_tmfGGh",
     "mush_how_it_works_HkMDpw"
