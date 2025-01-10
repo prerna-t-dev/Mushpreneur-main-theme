@@ -433,6 +433,19 @@ class MenuDrawer extends HTMLElement {
     this.querySelectorAll('summary').forEach((summary) =>
       summary.addEventListener('click', this.onSummaryClick.bind(this))
     );
+
+
+    //Custom Code
+
+    // Loop through all elements with the class 'header-icon-close'
+    this.querySelectorAll('.header-icon--close').forEach((element) => {
+      element.addEventListener('click', () => {
+        this.querySelector('summary.header__icon--menu').click();
+      });
+    });
+
+
+
     this.querySelectorAll(
       'button:not(.localization-selector):not(.country-selector__close-button):not(.country-filter__reset-button)'
     ).forEach((button) => button.addEventListener('click', this.onCloseButtonClick.bind(this)));

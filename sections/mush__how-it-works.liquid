@@ -1,0 +1,104 @@
+<style>
+
+    .section--grid-list::before{
+        content: '';
+        height: 100%;
+        width: 1.5px;
+        background: linear-gradient(90deg, #FF9067 14.54%, #E74639 100%);
+        left: 50%;
+        bottom:100%;
+        z-index: 0;
+        position: absolute;
+    }
+
+    .section--grid-list::after{
+        content: '';
+        height: 100%;
+        width: 1.5px;
+        background: linear-gradient(90deg, #FF9067 14.54%, #E74639 100%);
+        left: 50%;
+        top: 100%;
+        z-index: 0;
+        position: absolute;
+    }
+
+    @media (min-width: 1280px) {
+        .section--grid-list::before,
+        .section--grid-list::after{
+            width: 3px;
+        }
+    }
+
+</style>
+
+<section id="mush--how-it-works">
+    <div class="section-wrapper pt-[42px] lg:pt-[64px] px-7 lg:px-[94px] relative z-2 bg-skyblue">
+
+        <h2 class="text-2xl lg:text-[42px] xl::text-[64px] font-medium mb-6 lg:mb-20 text-center tracking-[-1.206px] lg:tracking-[-2.1px] xl:tracking-[-3.2px] leading-none {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
+            How <span class="font-bold tracking-[-1.206px] lg:tracking-[-3.2px]">Day Shrooms</span> Fits Your Life.
+            <br/>
+            One Cup. All the Benefits.
+        </h2>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-9 lg:gap-[92px] mb-6 lg:mb-[120px]">
+            <img class="px-9 lg:px-0" src="https://cdn.shopify.com/s/files/1/0569/9217/0159/files/mush--benefits.png?v=1736149870" alt="">
+
+            <div class="flex flex-col gap-6 lg:gap-12">
+                <div class="flex gap-5 items-center">
+                    <div class="w-[52px] h-[52px] xl:w-[108px] xl:h-[108px] rounded-full bg-orange flex-shrink-0 relative z-[2]">
+                        <img src="https://cdn.shopify.com/s/files/1/0569/9217/0159/files/mush--icon-spoon.png?v=1736150293" alt="Spoon">
+                    </div>
+                    <div>
+                        <h4 class="uppercase text-xl xl:text-[40px] font-semibold leading-tight tracking-[-0.991px] xl:tracking-[-2px]">spoon</h4>
+                        <p class="text-[12px] xl:text-2xl leading-none tracking-[-0.594px] xl:tracking-[-1.2px]">Add Day Shrooms to your favorite mug.</p>
+                    </div>
+                </div>
+                <div class="flex gap-5 items-center">
+                    <div class="w-[52px] h-[52px] xl:w-[108px] xl:h-[108px] rounded-full bg-orange flex-shrink-0 relative section--grid-list">
+                        <img src="https://cdn.shopify.com/s/files/1/0569/9217/0159/files/mush--icon-stir.png?v=1736150293" alt="Stir">
+                    </div>
+                    <div>
+                        <h4 class="uppercase text-xl xl:text-[40px] font-semibold leading-tight tracking-[-0.991px] xl:tracking-[-2px]">stir</h4>
+                        <p class="text-[12px] xl:text-2xl leading-none tracking-[-0.594px] xl:tracking-[-1.2px]">With 6-8oz water, if desired add milk & sweetener</p>
+                    </div>
+                </div>
+                <div class="flex gap-5 items-center">
+                    <div class="w-[52px] h-[52px] xl:w-[108px] xl:h-[108px] rounded-full bg-orange flex-shrink-0 relative z-[2]">
+                        <img src="https://cdn.shopify.com/s/files/1/0569/9217/0159/files/mush--icon-sip.png?v=1736150293" alt="Sip">
+                    </div>
+                    <div>
+                        <h4 class="uppercase text-xl xl:text-[40px] font-semibold leading-tight tracking-[-0.991px] xl:tracking-[-2px]">sip</h4>
+                        <p class="text-[12px] xl:text-2xl leading-none tracking-[-0.594px] xl:tracking-[-1.2px]">Enjoy hot or iced and feel the flow in minutes
+                            </p>
+                    </div>
+                </div>
+
+                <a href="#" class="btn btn-secondary mx-auto block mb-9 lg:mb-0">
+                    order now
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <img src="https://cdn.shopify.com/s/files/1/0569/9217/0159/files/Call_To_Action_1.png?v=1736150294" alt="Call to Action">
+
+</section>
+
+
+{%  schema  %} 
+    {
+        "name": "How it Works",
+        "class": "section--how-it-works",
+        "settings": [
+
+        ],
+        "presets": [
+            {
+                "name": "How it Works"
+            }
+        ]
+    } 
+{% endschema %}
