@@ -5,29 +5,87 @@
   {% render 'header-drawer' %}
 {% endcomment %}
 
-<header-drawer data-breakpoint="{% if section.settings.menu_type_desktop == 'drawer' %}desktop{% else %}tablet{% endif %}">
+
+<style>
+  .js .menu-drawer{
+    height: 100dvh !important;
+  }
+
+
+  .menu-drawer {
+    position: fixed !important;
+    top: 0 !important;
+    z-index: 100;
+
+  }
+
+  .menu-drawer__navigation{
+    padding: 24px 0 !important;
+  }
+</style>
+
+<header-drawer class="w-full" data-breakpoint="{% if section.settings.menu_type_desktop == 'drawer' %}desktop{% else %}tablet{% endif %}">
   <details id="Details-menu-drawer-container" class="menu-drawer-container">
     <summary
       class="header__icon header__icon--menu header__icon--summary link focus-inset"
       aria-label="{{ 'sections.header.menu' | t }}"
-    >
+      >
       <span>
-        {{- 'icon-hamburger.svg' | inline_asset_content -}}
-        {{- 'icon-close.svg' | inline_asset_content -}}
+        {% comment %} {{- 'icon-hamburger.svg' | inline_asset_content -}} {% endcomment %}
+
+        <svg  class="icon icon-hamburger" xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+          <path d="M16.8836 15.1949H3.37695M16.8836 10.1299H3.37695M16.8836 5.06494H3.37695" stroke="black" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+
+
+
+        {% comment %} {{- 'icon-close.svg' | inline_asset_content -}} {% endcomment %}
+        <svg class="icon icon-close" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+          <path d="M23.8336 14.2877C24.4194 13.7019 24.4194 12.7522 23.8336 12.1664C23.2478 11.5806 22.2981 11.5806 21.7123 12.1664L23.8336 14.2877ZM12.1664 21.7123C11.5806 22.2981 11.5806 23.2478 12.1664 23.8336C12.7522 24.4194 13.7019 24.4194 14.2877 23.8336L12.1664 21.7123ZM21.7123 23.8336C22.2981 24.4194 23.2478 24.4194 23.8336 23.8336C24.4194 23.2478 24.4194 22.2981 23.8336 21.7123L21.7123 23.8336ZM14.2877 12.1664C13.7019 11.5806 12.7522 11.5806 12.1664 12.1664C11.5806 12.7522 11.5806 13.7019 12.1664 14.2877L14.2877 12.1664ZM30 18C30 24.6274 24.6274 30 18 30V33C26.2843 33 33 26.2843 33 18H30ZM18 30C11.3726 30 6 24.6274 6 18H3C3 26.2843 9.71573 33 18 33V30ZM6 18C6 11.3726 11.3726 6 18 6V3C9.71573 3 3 9.71573 3 18H6ZM18 6C24.6274 6 30 11.3726 30 18H33C33 9.71573 26.2843 3 18 3V6ZM21.7123 12.1664L16.9393 16.9393L19.0607 19.0607L23.8336 14.2877L21.7123 12.1664ZM16.9393 16.9393L12.1664 21.7123L14.2877 23.8336L19.0607 19.0607L16.9393 16.9393ZM23.8336 21.7123L19.0607 16.9393L16.9393 19.0607L21.7123 23.8336L23.8336 21.7123ZM19.0607 16.9393L14.2877 12.1664L12.1664 14.2877L16.9393 19.0607L19.0607 16.9393Z" fill="url(#paint0_linear_19_3122)"/>
+          <defs>
+            <linearGradient id="paint0_linear_19_3122" x1="4.5" y1="18" x2="31.5" y2="18" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#F2008C"/>
+              <stop offset="1" stop-color="#E74936"/>
+            </linearGradient>
+          </defs>
+        </svg>
       </span>
     </summary>
-    <div id="menu-drawer" class="gradient menu-drawer motion-reduce color-{{ section.settings.menu_color_scheme }}">
+
+
+    <div id="menu-drawer" class="gradient menu-drawer motion-reduce !bg-black !text-white">
       <div class="menu-drawer__inner-container">
         <div class="menu-drawer__navigation-container">
+        
           <nav class="menu-drawer__navigation">
-            <ul class="menu-drawer__menu has-submenu list-menu" role="list">
+
+            <div
+              class="menu-drawer__menu-item header-icon--close focus-inset cursor-pointer"
+              aria-label="{{ 'sections.header.menu' | t }}"
+              >
+              <span>
+                <!-- Close Icon -->
+                <svg class="icon icon-close" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                  <path d="M23.8336 14.2877C24.4194 13.7019 24.4194 12.7522 23.8336 12.1664C23.2478 11.5806 22.2981 11.5806 21.7123 12.1664L23.8336 14.2877ZM12.1664 21.7123C11.5806 22.2981 11.5806 23.2478 12.1664 23.8336C12.7522 24.4194 13.7019 24.4194 14.2877 23.8336L12.1664 21.7123ZM21.7123 23.8336C22.2981 24.4194 23.2478 24.4194 23.8336 23.8336C24.4194 23.2478 24.4194 22.2981 23.8336 21.7123L21.7123 23.8336ZM14.2877 12.1664C13.7019 11.5806 12.7522 11.5806 12.1664 12.1664C11.5806 12.7522 11.5806 13.7019 12.1664 14.2877L14.2877 12.1664ZM30 18C30 24.6274 24.6274 30 18 30V33C26.2843 33 33 26.2843 33 18H30ZM18 30C11.3726 30 6 24.6274 6 18H3C3 26.2843 9.71573 33 18 33V30ZM6 18C6 11.3726 11.3726 6 18 6V3C9.71573 3 3 9.71573 3 18H6ZM18 6C24.6274 6 30 11.3726 30 18H33C33 9.71573 26.2843 3 18 3V6ZM21.7123 12.1664L16.9393 16.9393L19.0607 19.0607L23.8336 14.2877L21.7123 12.1664ZM16.9393 16.9393L12.1664 21.7123L14.2877 23.8336L19.0607 19.0607L16.9393 16.9393ZM23.8336 21.7123L19.0607 16.9393L16.9393 19.0607L21.7123 23.8336L23.8336 21.7123ZM19.0607 16.9393L14.2877 12.1664L12.1664 14.2877L16.9393 19.0607L19.0607 16.9393Z" fill="url(#paint0_linear_19_3122)"/>
+                  <defs>
+                    <linearGradient id="paint0_linear_19_3122" x1="4.5" y1="18" x2="31.5" y2="18" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#F2008C"/>
+                      <stop offset="1" stop-color="#E74936"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </span>
+            </div>
+
+
+            <ul class="menu-drawer__menu has-submenu list-menu !text-white" role="list">
               {%- for link in section.settings.menu.links -%}
                 <li>
                   {%- if link.links != blank -%}
                     <details id="Details-menu-drawer-menu-item-{{ forloop.index }}">
                       <summary
                         id="HeaderDrawer-{{ link.handle }}"
-                        class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.child_active %} menu-drawer__menu-item--active{% endif %}"
+                        class="menu-drawer__menu-item list-menu__item link link--text focus-inset !text-white{% if link.child_active %} menu-drawer__menu-item--active{% endif %}"
                       >
                         {{ link.title | escape }}
                         <span class="svg-wrapper">
@@ -123,7 +181,7 @@
                     <a
                       id="HeaderDrawer-{{ link.handle }}"
                       href="{{ link.url }}"
-                      class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.current %} menu-drawer__menu-item--active{% endif %}"
+                      class="menu-drawer__menu-item list-menu__item link link--text focus-inset !text-white{% if link.current %} menu-drawer__menu-item--active{% endif %}"
                       {% if link.current %}
                         aria-current="page"
                       {% endif %}
@@ -135,7 +193,7 @@
               {%- endfor -%}
             </ul>
           </nav>
-          <div class="menu-drawer__utility-links">
+          {% comment %} <div class="menu-drawer__utility-links">
             {%- if shop.customer_accounts_enabled -%}
               <a
                 href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
@@ -287,7 +345,7 @@
                 </li>
               {%- endif -%}
             </ul>
-          </div>
+          </div> {% endcomment %}
         </div>
       </div>
     </div>

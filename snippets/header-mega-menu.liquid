@@ -5,8 +5,8 @@
   {% render 'header-mega-menu' %}
 {% endcomment %}
 
-<nav class="header__inline-menu">
-  <ul class="list-menu list-menu--inline" role="list">
+<nav class="header__inline-menu_ hidden lg:block custom--header--child w-full">
+  <ul class="list-menu list-menu--inline gap-5" role="list">
     {%- for link in section.settings.menu.links -%}
       <li>
         {%- if link.links != blank -%}
@@ -74,7 +74,7 @@
           <a
             id="HeaderMenu-{{ link.handle }}"
             href="{{ link.url }}"
-            class="header__menu-item list-menu__item link link--text focus-inset"
+            class="header__menu-item_ list-menu__item_ link_ link--text_ focus-inset_ leading-none uppercase text-lg xl:text-xl font-semibold xl:tracking-[-1px]"
             {% if link.current %}
               aria-current="page"
             {% endif %}

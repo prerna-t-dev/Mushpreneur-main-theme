@@ -1,7 +1,7 @@
 :root {
   --alpha-button-background: 1;
   --alpha-button-border: 1;
-  --alpha-link: 0.85;
+  --alpha-link: 1;
   --alpha-badge-border: 0.1;
   --focused-base-outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
   --focused-base-outline-offset: 0.3rem;
@@ -192,7 +192,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 }
 
 .hidden {
-  display: none !important;
+  display: none ;
 }
 
 .visually-hidden {
@@ -3595,3 +3595,5 @@ details-disclosure > details {
     transform: translateX(100%) scaleX(0);
   }
 }
+
+
