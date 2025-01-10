@@ -115,12 +115,22 @@
             "reviewer_name": "Jason C.",
             "reviewer_verified": true
           }
+        },
+        "review_8UPTdw": {
+          "type": "review",
+          "settings": {
+            "review_header": "Lorem Ipsum",
+            "review_desc": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation\"",
+            "reviewer_name": "Lorem I.",
+            "reviewer_verified": true
+          }
         }
       },
       "block_order": [
         "review_GweNjc",
         "review_K7VFUQ",
-        "review_hJcPq4"
+        "review_hJcPq4",
+        "review_8UPTdw"
       ],
       "settings": {}
     },
