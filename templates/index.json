@@ -85,6 +85,43 @@
     },
     "mush_social_proof_ijRYeV": {
       "type": "mush__social-proof",
+      "blocks": {
+        "review_GweNjc": {
+          "type": "review",
+          "settings": {
+            "review_img": "shopify://shop_images/review-user-1.png",
+            "review_header": "Feeling transformed.",
+            "review_desc": "Since incorporating Day Shrooms into my daily routine, I’ve experienced more sustained focus and clarity than with just coffee or tea. Day Shrooms helps me to stay focused, and get into the zone, so I can accomplish more in less time.",
+            "reviewer_name": "Erica B.",
+            "reviewer_verified": true
+          }
+        },
+        "review_K7VFUQ": {
+          "type": "review",
+          "settings": {
+            "review_img": "shopify://shop_images/review-user-2.png",
+            "review_header": "It's like a café mocha!",
+            "review_desc": "“This stuff is actually good. It tastes like a café mocha. While I typically drink a lot of coffee, the feeling from Day Shrooms is a bit different. It provides a sustainable energy buzz throughout the day. It’s my new go-to drink.” ",
+            "reviewer_name": "Kareem B.",
+            "reviewer_verified": true
+          }
+        },
+        "review_hJcPq4": {
+          "type": "review",
+          "settings": {
+            "review_img": "shopify://shop_images/review-user-3.png",
+            "review_header": " This drink is awesome",
+            "review_desc": "Finally, a coffee alternative that feels like coffee! It’s versatile too, great on its own or as a boost for shakes or espresso. Even my wife loves it. This is my new\nfavorite drink!",
+            "reviewer_name": "Jason C.",
+            "reviewer_verified": true
+          }
+        }
+      },
+      "block_order": [
+        "review_GweNjc",
+        "review_K7VFUQ",
+        "review_hJcPq4"
+      ],
       "settings": {}
     },
     "mush_active_ingredients_tmfGGh": {
