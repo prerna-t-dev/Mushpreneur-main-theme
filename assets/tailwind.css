@@ -797,6 +797,9 @@ body {
 .h-full {
   height: 100%;
 }
+.h-\[66px\] {
+  height: 66px;
+}
 .w-1\/2 {
   width: 50%;
 }
@@ -918,6 +921,9 @@ body {
 .gap-\[74px\] {
   gap: 74px;
 }
+.gap-4 {
+  gap: 1rem;
+}
 .overflow-hidden {
   overflow: hidden;
 }
@@ -940,6 +946,9 @@ body {
 }
 .rounded-full {
   border-radius: 9999px;
+}
+.rounded-\[70px\] {
+  border-radius: 70px;
 }
 .rounded-t-\[45px\] {
   border-top-left-radius: 45px;
@@ -1123,6 +1132,15 @@ body {
 .pt-\[42px\] {
   padding-top: 42px;
 }
+.pr-3 {
+  padding-right: 0.75rem;
+}
+.pr-4 {
+  padding-right: 1rem;
+}
+.pt-4 {
+  padding-top: 1rem;
+}
 .text-center {
   text-align: center;
 }
@@ -1196,6 +1214,9 @@ body {
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
+}
+.text-\[18\.534px\] {
+  font-size: 18.534px;
 }
 .font-bold {
   font-weight: 700;
@@ -1316,6 +1337,9 @@ body {
 }
 .tracking-\[-1\.8px\] {
   letter-spacing: -1.8px;
+}
+.tracking-\[-0\.927px\] {
+  letter-spacing: -0.927px;
 }
 .\!text-white {
   --tw-text-opacity: 1 !important;
@@ -2052,6 +2076,10 @@ body {
 
   .xl\:pt-\[78px\] {
     padding-top: 78px;
+  }
+
+  .xl\:pl-\[104px\] {
+    padding-left: 104px;
   }
 
   .xl\:text-2xl {
