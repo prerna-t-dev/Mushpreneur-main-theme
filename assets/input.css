@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer components {
+    /* ================ MUSHPRENEUR CUSTOM SETTINGS ================= */
+
+
+    html {
+        color: #000000 !important;
+        /* overflow: overlay; 
+        scrollbar-gutter: stable;  */
+      }
+      
+   
+
+    body {
+        -webkit-font-smoothing: antialiased;
+        color: #000000 !important;
+        /* overflow-x: hidden; */
+      }
+
+    .text-white {
+        color: #FFFFFF !important;
+    }
+
+
+    /* ===== Buttons ===== */
+    .btn{
+        @apply px-7 py-3 w-fit text-white font-extrabold rounded-[32px] cursor-pointer whitespace-nowrap uppercase;
+        font-size: 12px;
+        letter-spacing: -0.578px;
+    }
+
+    .btn-primary{
+        background: var(--Primary-CTA-BG, linear-gradient(90deg, #F2008C 0%, #E74936 100%));
+        color: #ffffff !important;
+    }
+
+    .btn-secondary{
+        background: #000000;
+        color: #ffffff !important;
+    }
+
+    .btn-tertiary{
+        @apply bg-orange;
+        color: #ffffff !important;
+    }
+
+    @media (min-width: 990px) {
+
+        .btn{
+            @apply px-8 py-4 text-base rounded-[32px];
+            letter-spacing: -0.8px;
+        }
+
+
+    }
+
+    @media (min-width: 1280px) {
+
+        .btn{
+            @apply px-12 py-5 text-xl rounded-[32px];
+            letter-spacing: -0.8px;
+        }
+
+
+    }
+
+
+
+    /* ===== Footer Newsletter ===== */
+    .footer-newsletter-input{
+        appearance: none !important;
+    }
+
+    .footer-newsletter-input:active,
+    .footer-newsletter-input:focus,
+    .footer-newsletter-input:focus-visible{
+        border: 0.579px solid #FFD4DB !important;
+        outline: none !important;
+        box-shadow: none !important; 
+        -webkit-box-shadow: none !important;
+    }
+
+    .footer-newsletter-input::placeholder {
+        color: #ffffff !important;
+    }
+
+    
+
+    @media (min-width:1280px) {
+        .footer-newsletter-input:active,
+        .footer-newsletter-input:focus,
+        .footer-newsletter-input:focus-visible{
+            border: none !important;
+            outline: none !important;
+            box-shadow: none !important; 
+            -webkit-box-shadow: none !important;
+        }
+    }
+   
+
+    .space-dot{
+        width: 4px;
+        height: 4px;
+        background-color: white;
+        border-radius: 50%;
+    }
+
+
+    @media (min-width: 990px) {
+        .space-dot{
+            width: 6px;
+            height: 6px;
+        }
+    }
+}
+
+
+
+.border-half-width{
+    border-width: 0.5px;
+}
+
+.border-b-half-width{
+    border-bottom-width: 0.5px;
+}
