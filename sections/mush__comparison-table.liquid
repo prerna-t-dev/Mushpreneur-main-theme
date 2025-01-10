@@ -7,7 +7,7 @@
                 <span class="font-semibold tracking-[-1.1px] lg:tracking-[-2.4px] xl:tracking-[-3.2px]">Compare?</span>
             </h2>
 
-            <div class="grid grid-cols-4 xl:gap-2 items-end mb-5 xl:mb-[86px]">
+            <div class="grid grid-cols-4 xl:gap-2 items-end mb-5 xl:mb-[86px] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
                 <div class="flex flex-col py-[22px] xl:py-[64px] gap-[18px] xl:gap-[56px] text-[8.8px] lg:text-lg xl:text-[30px] font-medium tracking-[-0.439px] lg:tracking-[-0.8px] xl:tracking-[-1.535px]">
                     <div class="text-[10.6px] lg:text-[18px] xl:text-[36px] font-bold tracking-[-0.5px] lg:tracking-[-0.9px] xl:tracking-[-1.752px] opacity-0">Comparison</div>
                     <p class="h-[18px] lg:h-8 xl:h-14">Energy Duration</p>
@@ -83,7 +83,7 @@
             </div>
 
 
-            <a href="#" class="btn btn-secondary mx-auto block">
+            <a href="#" class="btn btn-secondary mx-auto block {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
                 switch to day shrooms
             </a>
 
