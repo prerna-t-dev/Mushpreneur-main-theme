@@ -2161,3 +2161,14 @@ body {
     letter-spacing: -1px;
   }
 }
+
+@media (min-width: 1800px) {
+
+  .\33xl\:pb-\[380px\] {
+    padding-bottom: 380px;
+  }
+
+  .\33xl\:pt-\[220px\] {
+    padding-top: 220px;
+  }
+}
