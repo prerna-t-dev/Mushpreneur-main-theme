@@ -1875,6 +1875,10 @@ body {
     margin-top: 62px;
   }
 
+  .xl\:mb-\[24px\] {
+    margin-bottom: 24px;
+  }
+
   .xl\:block {
     display: block;
   }
