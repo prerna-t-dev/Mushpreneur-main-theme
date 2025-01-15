@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "sections": {
     "main": {
       "type": "main-product",
@@ -148,10 +148,88 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "mush_coffee_vs_shrooms_Y7fqLP": {
+      "type": "mush__coffee-vs-shrooms",
+      "settings": {}
+    },
+    "mush_product_usp_pbw4zb": {
+      "type": "mush__product-usp",
+      "settings": {}
+    },
+    "mush_power_of_mushrooms_YjPi9h": {
+      "type": "mush__power-of-mushrooms",
+      "settings": {}
+    },
+    "mush_coffee_benefits_wX6jrx": {
+      "type": "mush__coffee-benefits",
+      "settings": {}
+    },
+    "mush_day_shrooms_quotation_ThXhRn": {
+      "type": "mush__day-shrooms-quotation",
+      "settings": {}
+    },
+    "mush_supercharged_ingredients_xjpMg9": {
+      "type": "mush__supercharged-ingredients",
+      "settings": {}
+    },
+    "mush_how_to_prepare_EDMqkg": {
+      "type": "mush__how-to-prepare",
+      "settings": {}
+    },
+    "mush_product_faqs_8t4HWQ": {
+      "type": "mush__product-faqs",
+      "blocks": {
+        "faq_dTXAPt": {
+          "type": "faq",
+          "settings": {
+            "question": "How is Day Shrooms different from coffee?",
+            "answer": "<p>Day Shrooms is a natural coffee alternative designed to enhance productivity and focus. With its unique blend of all-natural ingredients, including nootropics, adaptogens, and vitamins, Day Shrooms offers a cacao coffee taste experience while providing unparalleled benefits.  Enjoy as a coffee alternative or enhance your coffee, shake, or smoothie and experience a whole new level of synergy</p>"
+          }
+        },
+        "faq_KabWHQ": {
+          "type": "faq",
+          "settings": {
+            "question": "Will Day Shrooms give me the jitters or a crash?",
+            "answer": "<p>No way! Day Shrooms is designed to provide sustained energy without the jitters or crashes commonly associated with coffee. Our blend of natural ingredients supports a smooth and focused energy flow throughout the day.</p>"
+          }
+        },
+        "faq_bUMKRP": {
+          "type": "faq",
+          "settings": {
+            "question": "Are the mushrooms used in Day Shrooms safe to consume?",
+            "answer": "<p>Of course! Functional mushrooms are accepted as superfoods and are typically added to your favorite beverages to add loads of benefits beyond basic nutrition. Mushrooms are optimized to help to increase energy, clear brain fog, reduce stress, and much more.</p>"
+          }
+        },
+        "faq_kknUQM": {
+          "type": "faq",
+          "settings": {
+            "question": "How long does it take to experience the benefits of Day Shrooms?",
+            "answer": "<p>The effects of Day Shrooms may vary depending on the individual. Some users notice enhanced focus and energy within a few days, while others may experience the benefits gradually over time. Consistency is key, so we recommend incorporating Day Shrooms into your daily routine for optimal results.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_dTXAPt",
+        "faq_KabWHQ",
+        "faq_bUMKRP",
+        "faq_kknUQM"
+      ],
+      "settings": {
+        "header": "Frequently Asked Questions"
+      }
     }
   },
   "order": [
     "main",
-    "related-products"
+    "related-products",
+    "mush_coffee_vs_shrooms_Y7fqLP",
+    "mush_product_usp_pbw4zb",
+    "mush_power_of_mushrooms_YjPi9h",
+    "mush_coffee_benefits_wX6jrx",
+    "mush_day_shrooms_quotation_ThXhRn",
+    "mush_supercharged_ingredients_xjpMg9",
+    "mush_how_to_prepare_EDMqkg",
+    "mush_product_faqs_8t4HWQ"
   ]
 }

@@ -1,0 +1,47 @@
+<section id="mush--product-faqs">
+    <div class="section-wrapper bg-pinkorange px-[195px] pt-[72px] pb-[132px] rounded-b-[96px] relative">
+        <h2 class="text-white font-bold text-[62.019px] tracking-[-3.101px]">
+            {{ section.settings.header }}
+        </h2>
+
+    </div>
+</section>
+
+
+{%  schema  %} 
+    {
+        "name": "Product FAQs",
+        "class": "section--product-faqs",
+        "settings": [
+            {
+                "type": "text",
+                "id": "header",
+                "label": "Header",
+                "default": "Frequently Asked Questions"
+            }
+        ],
+        "blocks": [
+            {
+                "name": "FAQ",
+                "type": "faq",
+                "settings": [
+                    {
+                        "type": "textarea",
+                        "id": "question",
+                        "label": "Question"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "answer",
+                        "label": "Answer"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Product FAQs"
+            }
+        ]
+    } 
+{% endschema %}
