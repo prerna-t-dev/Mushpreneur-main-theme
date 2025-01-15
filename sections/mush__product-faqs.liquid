@@ -3,7 +3,26 @@
         <h2 class="text-white font-bold text-[62.019px] tracking-[-3.101px]">
             {{ section.settings.header }}
         </h2>
-        <p>FAQs</p>
+        <div class="product__accordion accordion !border-none">
+            {% for block in section.blocks %}
+            <details class="border-b border-white pb-3" id="Details-{{ block.id }}-{{ section.id }}" {% if forloop.first %} open {% endif %}>
+                    <summary class=" !pt-[42px] !pb-7 flex justify-between items-center">
+                        <p class="text-[34.407px] text-white font-semibold tracking-[-1.72px] leading-none">
+                            {{ block.settings.question }}
+                        </p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" fill="none" transform="rotate(180)">
+                            <path d="M16 33.6947L27.6686 23L39.3333 33.6947" stroke="white" stroke-width="4.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+
+                    </summary>
+                    <div class="accordion__content  py-4_ !px-0 !overflow-visible hide-scrollbar" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
+                        <div class="text-white text-2xl tracking-[-1.2px] font-light leading-[1.1]">
+                            {{ block.settings.answer }}
+                        </div>
+                    </div>
+                </details>
+            {% endfor %}
+        </div>
 
     </div>
 </section>
