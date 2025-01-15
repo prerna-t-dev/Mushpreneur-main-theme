@@ -1,4 +1,13 @@
-{
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+ {
   "sections": {
     "main": {
       "type": "main-product",
@@ -11,7 +20,8 @@
           }
         },
         "title": {
-          "type": "title"
+          "type": "title",
+          "settings": {}
         },
         "caption": {
           "type": "text",
@@ -21,16 +31,19 @@
           }
         },
         "price": {
-          "type": "price"
+          "type": "price",
+          "settings": {}
         },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
-            "picker_type": "button"
+            "picker_type": "button",
+            "swatch_shape": "circle"
           }
         },
         "quantity_selector": {
-          "type": "quantity_selector"
+          "type": "quantity_selector",
+          "settings": {}
         },
         "buy_buttons": {
           "type": "buy_buttons",
@@ -40,7 +53,8 @@
           }
         },
         "description": {
-          "type": "description"
+          "type": "description",
+          "settings": {}
         },
         "collapsible-row-0": {
           "type": "collapsible_tab",
@@ -102,9 +116,13 @@
       ],
       "settings": {
         "enable_sticky_info": true,
-        "gallery_layout": "stacked",
+        "color_scheme": "",
         "media_size": "large",
         "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "stacked",
+        "media_position": "left",
+        "image_zoom": "lightbox",
         "mobile_thumbnails": "hide",
         "hide_variants": true,
         "enable_video_looping": false,
@@ -112,92 +130,17 @@
         "padding_bottom": 12
       }
     },
-    "image-with-text": {
-      "type": "image-with-text",
-      "blocks": {
-        "image-with-text-0": {
-          "type": "heading",
-          "settings": {
-            "heading": "Image with text",
-            "heading_size": "h1"
-          }
-        },
-        "image-with-text-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "text_style": "body"
-          }
-        }
-      },
-      "block_order": [
-        "image-with-text-0",
-        "image-with-text-1"
-      ],
-      "settings": {
-        "height": "small",
-        "desktop_image_width": "medium",
-        "layout": "text_first",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "color_scheme": "scheme-2",
-        "mobile_content_alignment": "left",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "multicolumn": {
-      "type": "multicolumn",
-      "blocks": {
-        "column-0": {
-          "type": "column",
-          "settings": {
-            "title": "Free Shipping",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column-1": {
-          "type": "column",
-          "settings": {
-            "title": "Hassle-Free Exchanges",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column-0",
-        "column-1"
-      ],
-      "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "columns_desktop": 2,
-        "column_alignment": "left",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "swipe_on_mobile": false,
-        "color_scheme": "scheme-1",
-        "columns_mobile": "1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "related-products": {
       "type": "related-products",
+      "disabled": true,
       "settings": {
         "heading": "You may also like",
         "heading_size": "h2",
+        "products_to_show": 4,
         "columns_desktop": 4,
         "color_scheme": "scheme-1",
         "image_ratio": "square",
+        "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
@@ -205,12 +148,88 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "mush_coffee_vs_shrooms_Y7fqLP": {
+      "type": "mush__coffee-vs-shrooms",
+      "settings": {}
+    },
+    "mush_product_usp_pbw4zb": {
+      "type": "mush__product-usp",
+      "settings": {}
+    },
+    "mush_power_of_mushrooms_YjPi9h": {
+      "type": "mush__power-of-mushrooms",
+      "settings": {}
+    },
+    "mush_coffee_benefits_wX6jrx": {
+      "type": "mush__coffee-benefits",
+      "settings": {}
+    },
+    "mush_day_shrooms_quotation_ThXhRn": {
+      "type": "mush__day-shrooms-quotation",
+      "settings": {}
+    },
+    "mush_supercharged_ingredients_xjpMg9": {
+      "type": "mush__supercharged-ingredients",
+      "settings": {}
+    },
+    "mush_how_to_prepare_EDMqkg": {
+      "type": "mush__how-to-prepare",
+      "settings": {}
+    },
+    "mush_product_faqs_8t4HWQ": {
+      "type": "mush__product-faqs",
+      "blocks": {
+        "faq_dTXAPt": {
+          "type": "faq",
+          "settings": {
+            "question": "How is Day Shrooms different from coffee?",
+            "answer": "<p>Day Shrooms is a natural coffee alternative designed to enhance productivity and focus. With its unique blend of all-natural ingredients, including nootropics, adaptogens, and vitamins, Day Shrooms offers a cacao coffee taste experience while providing unparalleled benefits.  Enjoy as a coffee alternative or enhance your coffee, shake, or smoothie and experience a whole new level of synergy</p>"
+          }
+        },
+        "faq_KabWHQ": {
+          "type": "faq",
+          "settings": {
+            "question": "Will Day Shrooms give me the jitters or a crash?",
+            "answer": "<p>No way! Day Shrooms is designed to provide sustained energy without the jitters or crashes commonly associated with coffee. Our blend of natural ingredients supports a smooth and focused energy flow throughout the day.</p>"
+          }
+        },
+        "faq_bUMKRP": {
+          "type": "faq",
+          "settings": {
+            "question": "Are the mushrooms used in Day Shrooms safe to consume?",
+            "answer": "<p>Of course! Functional mushrooms are accepted as superfoods and are typically added to your favorite beverages to add loads of benefits beyond basic nutrition. Mushrooms are optimized to help to increase energy, clear brain fog, reduce stress, and much more.</p>"
+          }
+        },
+        "faq_kknUQM": {
+          "type": "faq",
+          "settings": {
+            "question": "How long does it take to experience the benefits of Day Shrooms?",
+            "answer": "<p>The effects of Day Shrooms may vary depending on the individual. Some users notice enhanced focus and energy within a few days, while others may experience the benefits gradually over time. Consistency is key, so we recommend incorporating Day Shrooms into your daily routine for optimal results.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_dTXAPt",
+        "faq_KabWHQ",
+        "faq_bUMKRP",
+        "faq_kknUQM"
+      ],
+      "settings": {
+        "header": "Frequently Asked Questions"
+      }
     }
   },
   "order": [
     "main",
-    "image-with-text",
-    "multicolumn",
-    "related-products"
+    "related-products",
+    "mush_coffee_vs_shrooms_Y7fqLP",
+    "mush_product_usp_pbw4zb",
+    "mush_power_of_mushrooms_YjPi9h",
+    "mush_coffee_benefits_wX6jrx",
+    "mush_day_shrooms_quotation_ThXhRn",
+    "mush_supercharged_ingredients_xjpMg9",
+    "mush_how_to_prepare_EDMqkg",
+    "mush_product_faqs_8t4HWQ"
   ]
 }

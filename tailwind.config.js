@@ -20,6 +20,7 @@ module.exports = {
       colors: {
         pink: '#FF3EAD',
         orange: '#E45825',
+        pinkorange: '#E74639',
         lightorange: '#FEA30C',
         yellow: '#FFC107',
         skyblue: '#98E1FF'
