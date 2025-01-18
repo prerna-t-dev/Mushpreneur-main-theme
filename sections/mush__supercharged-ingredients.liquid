@@ -5,29 +5,101 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
+
+    .swiper-container.swiper-supercharged-ingredients{
+        padding-left: 15% !important;
+        padding-right: 15% !important;
+        width: 100%; /* Ensure the Swiper spans the full width */
+        /* overflow: hidden; */
+    }
+/* 
+
+    .swiper-supercharged-ingredients .swiper-wrapper {
+        overflow: visible !important;
+    } */
+
+    .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: auto; 
+        overflow-y: visible;
+        height: auto;
+        transition: transform 0.3s ease-in-out; /* Smooth animation */
+    }
+
+    .swiper-content {
+        height: 100% !important
+    }
+
+
+
+/* 
+    .main-slider .swiper-slide img {
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.05);
+    height: 150px;
+    width: 100%;
+    }
+
+    .swiper {
+    padding: 0 15% !important;
+    } */
 </style>
 
 
-<section id="mush--supercharged-ingredients">
-    <div class="section-wrapper bg-black px-0 pt-[88px] pb-[236px] relative">
+<section id="mush--supercharged-ingredients" class="overflow-hidden">
+    <div class="section-wrapper bg-black px-0 pt-[36px] xl:pt-[88px] pb-[108px] xl:pb-[236px] relative">
 
         <div class="text-white">
-            <h3 class="text-white text-center font-bold text-[51.682px] tracking-[-2.584px] mb-3">
-                <span class="ingredients-header-color tracking-[-2.584px]">Supercharged ingredients </span>
+            <h3 class="text-white text-center font-bold text-2xl xl:text-[51.682px] tracking-[-1.2px] xl:tracking-[-2.584px] leading-[1.1] mb-3 px-6">
+                <span class="ingredients-header-color tracking-[-1.2px] xl:tracking-[-2.584px]">Supercharged ingredients </span>
                 for Mood, Energy & Focus
             </h3>
-            <p class="w-2/3 mx-auto font-medium text-center text-[30px] tracking-[-1.5px] px-10">
+            <p class="w-2/3 mx-auto font-medium text-center text-sm xl:text-[30px] tracking-[-0.7px] xl:tracking-[-1.5px] px-4 xl:px-10 leading-[1.1]">
                 We prioritize clean, natural ingredients. Day Shrooms harnesses the power of nature's finest ingredients to fuel your day.
             </p>
 
 
-            <!-- TODO: Add Ingredients Slider -->
+            <!-- Ingredients Slider -->
+            <div class="swiper-container swiper-supercharged-ingredients relative w-full mt-[38px] xl:mt-[64px] z-2">
+                <div class="swiper-wrapper">
+                    {% for block in section.blocks %}
+                        <div class="swiper-slide w-full h-full">
+                            <div class="w-full h-full bg-white px-4 xl:px-7 py-4 xl:py-8 rounded-[20px] xl:rounded-[38px] cursor-pointer" style="background-image: url({{ block.settings.image | img_url: 'master' }});">
+                                <h4 class="font-bold text-[26px] xl:text-[46px] tracking-[-1.3px] xl:tracking-[-2.3px] leading-[1.1] mb-1 xl:mb-3">
+                                    {{ block.settings.name | newline_to_br }}
+                                </h4>
+                                <p class="font-light text-[12px] xl:text-xl tracking-[-0.6px] xl:tracking-[-1px] leading-[1.1] text-black">
+                                    {{ block.settings.description | newline_to_br }}
+                                </p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+
+            {% comment %} <div class="slider-container swiper main-slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="./img/slider-1.png" alt=""></div>
+                    <div class="swiper-slide"><img src="./img/slider-2.png" alt=""></div>
+                    <div class="swiper-slide"><img src="./img/slider-3.png" alt=""></div>
+                    <div class="swiper-slide"><img src="./img/slider-4.png" alt=""></div>    
+                    <div class="swiper-slide"><img src="./img/slider-5.png" alt=""></div>
+                </div>
+            </div> {% endcomment %}
+           
         </div>
 
 
         <div class="absolute left-0 bottom-0 w-full overflow-hidden">
-            <svg class="w-full translate-y-[1px] h-auto" xmlns="http://www.w3.org/2000/svg" width="1440" height="171" viewBox="0 0 1440 171" fill="none">
+            <!-- Desktop SVG -->
+            <svg class="w-full translate-y-[1px] h-auto hidden xl:block" xmlns="http://www.w3.org/2000/svg" width="1440" height="171" viewBox="0 0 1440 171" fill="none">
                 <path d="M1091.25 122.201C793.5 98.0025 809.625 -26.6183 521.25 55.2522C232.875 137.123 0 55.2522 0 55.2522V171H1440V0C1440 0 1389 146.399 1091.25 122.201Z" fill="#E74639"/>
+            </svg>
+            <!-- Mobile SVG -->
+            <svg class="w-full translate-y-[1px] h-auto xl:hidden" xmlns="http://www.w3.org/2000/svg" width="392" height="72" viewBox="0 0 392 72" fill="none">
+                <path d="M296.482 52.1127C215.586 41.9558 219.967 -10.3524 141.618 24.0118C63.2694 58.3761 -0.000640869 24.0118 -0.000640869 24.0118V72.5958H391.234V0.820312C391.234 0.820312 377.378 62.2696 296.482 52.1127Z" fill="#E74639"/>
             </svg>
         </div>
 
@@ -36,12 +108,78 @@
 </section>
 
 
+{% comment %} https://stackoverflow.com/questions/78430795/swiperjs-im-displaying-groups-of-2-slides-they-should-be-centered-but-i-cant {% endcomment %}
+<script>
+
+    var swiperIngredients = new Swiper(".swiper-supercharged-ingredients", {
+    slidesPerView: 1, 
+    spaceBetween: 20, 
+    initialSlide: 1,
+    centeredSlides: true,
+    loop: true,
+    allowTouchMove: true, // Enable touch interaction for manual navigation
+    breakpoints: {
+        768: { 
+            slidesPerView: 2,
+            spaceBetween: 22,
+            centeredSlides: true,
+            initialSlide: 2,
+        },
+        1024: { 
+            slidesPerView: 2.5,
+            spaceBetween: 34,
+            centeredSlides: true,
+            initialSlide: 2,
+        },
+    }
+    
+    });
+
+
+    // const swipertest = new Swiper(".main-slider", {
+    //     loop: true,
+    //     slidesPerView: 2,
+    //     centeredSlides: false,
+    //     spaceBetween: 30,
+    //     initialSlide: 2,
+    // });
+
+
+
+
+
+</script>
+
+
 {%  schema  %} 
     {
         "name": "Supercharged Ingredients",
         "class": "section--supercharged-ingredients",
         "settings": [
 
+        ],
+        "blocks": [
+            {
+                "name": "Ingredient",
+                "type": "ingredient",
+                "settings": [
+                    {
+                        "type": "textarea",
+                        "id": "name",
+                        "label": "Name"
+                    },
+                    {
+                        "type": "textarea",
+                        "id": "description",
+                        "label": "Description"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image"
+                    }
+                ]
+            }
         ],
         "presets": [
             {

@@ -1,3 +1,83 @@
+
+<style>
+
+
+    .swiper-container.swiper-social-proof {
+        width: 100%;
+        /* overflow-x: hidden; */
+        padding-bottom: 30px;
+        /* overflow-y: visible; */
+        overflow: hidden; /* Keep the overflow hidden */
+        clip-path: inset(0px 0px -10px 0px); /* Allow vertical overflow to show */
+    }
+
+
+    @media (max-width:768px ) {
+        .swiper-container.swiper-social-proof{
+            padding-left: 15% !important;
+            padding-right: 15% !important;
+            padding-bottom: 18px;
+        }
+        
+    }
+   
+
+    .swiper-social-proof .swiper-wrapper {
+        overflow: visible !important; /* Make the overflow visible */
+    }
+
+    .swiper-slide {
+        overflow: visible; /* Ensures the content inside each slide is not clipped */
+    }
+
+    .swiper-content {
+        height: 100% !important
+    }
+
+
+    .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: auto; /* Allow the slides to size based on their content */
+        /* font-size: 16px; */
+        overflow-y: visible;
+        height: auto;
+    }
+
+    .swiper-pagination {
+        text-align: center;
+        margin-top: 10px; /* Adjust based on your design */
+        position: relative; /* Keep it separate from the Swiper */
+        z-index: 10;
+    }
+
+    /* Default Swiper pagination dots */
+    .swiper-social-proof .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+        background: #ccc;
+        opacity: 1; /* Ensure visible dots */
+        margin: 0 5px;
+        transition: background 0.3s;
+    }
+
+    .swiper-pagination-bullet-active {
+        background: #E74936; /* Highlight active dot */
+    }
+
+
+    /* .swiper-container.swiper-social-proof{
+        padding-bottom: 40px;
+    }
+
+    .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal{
+        bottom: -20px !important;
+    } */
+
+
+</style>
+
 <section id="mush--social-proof">
     <div class="section-wrapper py-[32px] xl:py-[90px] px-0 lg:px-12 xl:px-[86px] text-center">
         <div class="{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
@@ -78,28 +158,28 @@
 
 <script>
 
-var swipernew = new Swiper(".swiper-social-proof", {
-  slidesPerView: 1, 
-  spaceBetween: 22, 
-  initialSlide: 1,
-  centeredSlides: true,
-  loop: true,
-  allowTouchMove: true, // Enable touch interaction for manual navigation
-  breakpoints: {
-    768: { 
-      slidesPerView: 2,
-      spaceBetween: 30,
+    var swipernew = new Swiper(".swiper-social-proof", {
+    slidesPerView: 1, 
+    spaceBetween: 22, 
+    initialSlide: 1,
+    centeredSlides: true,
+    loop: true,
+    allowTouchMove: true, // Enable touch interaction for manual navigation
+    breakpoints: {
+        768: { 
+        slidesPerView: 2,
+        spaceBetween: 30,
+        },
+        1024: { 
+        slidesPerView: 3,
+        spaceBetween: 35,
+        },
+        },
+    pagination: {
+        el: ".swiper-pagination", // Pagination container
+        clickable: true, // Allow users to click on dots
     },
-    1024: { 
-      slidesPerView: 3,
-      spaceBetween: 35,
-    },
-    },
-  pagination: {
-    el: ".swiper-pagination", // Pagination container
-    clickable: true, // Allow users to click on dots
-  },
-});
+    });
 
 
 
@@ -108,84 +188,7 @@ var swipernew = new Swiper(".swiper-social-proof", {
 </script>
 
 
-<style>
 
-
-    .swiper-container.swiper-social-proof {
-        width: 100%;
-        /* overflow-x: hidden; */
-        padding-bottom: 30px;
-        /* overflow-y: visible; */
-        overflow: hidden; /* Keep the overflow hidden */
-        clip-path: inset(0px 0px -10px 0px); /* Allow vertical overflow to show */
-    }
-
-
-    @media (max-width:768px ) {
-        .swiper-container.swiper-social-proof{
-            padding-left: 15% !important;
-            padding-right: 15% !important;
-            padding-bottom: 18px;
-        }
-        
-    }
-   
-
-    .swiper-social-proof .swiper-wrapper {
-        overflow: visible !important; /* Make the overflow visible */
-    }
-
-    .swiper-slide {
-        overflow: visible; /* Ensures the content inside each slide is not clipped */
-    }
-
-    .swiper-content {
-        height: 100% !important
-    }
-
-
-    .swiper-slide {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: auto; /* Allow the slides to size based on their content */
-        /* font-size: 16px; */
-        overflow-y: visible;
-        height: auto;
-    }
-
-    .swiper-pagination {
-        text-align: center;
-        margin-top: 10px; /* Adjust based on your design */
-        position: relative; /* Keep it separate from the Swiper */
-        z-index: 10;
-    }
-
-    /* Default Swiper pagination dots */
-    .swiper-social-proof .swiper-pagination-bullet {
-        width: 10px;
-        height: 10px;
-        background: #ccc;
-        opacity: 1; /* Ensure visible dots */
-        margin: 0 5px;
-        transition: background 0.3s;
-    }
-
-    .swiper-pagination-bullet-active {
-        background: #E74936; /* Highlight active dot */
-    }
-
-
-    /* .swiper-container.swiper-social-proof{
-        padding-bottom: 40px;
-    }
-
-    .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal{
-        bottom: -20px !important;
-    } */
-
-
-</style>
 
 
 

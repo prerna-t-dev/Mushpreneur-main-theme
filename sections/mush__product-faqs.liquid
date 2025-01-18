@@ -1,22 +1,60 @@
+<style>
+    #mush--product-faqs .faq-section--padding{
+        padding-top: 28px !important;
+        padding-bottom: 12px !important;
+    }
+
+    #mush--product-faqs .accordion__content p{
+        letter-spacing: -0.7px;
+        line-height: 120%;
+    }
+
+    #mush--product-faqs .accordion{
+        margin-top: 0 !important
+    }
+
+    @media (min-width: 990px) {
+        #mush--product-faqs .faq-section--padding{
+            padding-top: 42px !important;
+            padding-bottom: 28px !important;
+        }
+
+        #mush--product-faqs .accordion__content p{
+            letter-spacing: -1.2px;
+        }
+
+        #mush--product-faqs .accordion{
+            margin-top: 2.5rem !important
+        }
+    }
+
+    
+
+</style>
+
+
 <section id="mush--product-faqs">
-    <div class="section-wrapper bg-pinkorange px-[195px] pt-[72px] pb-[132px] rounded-b-[96px] relative">
-        <h2 class="text-white font-bold text-[62.019px] tracking-[-3.101px]">
+    <div class="section-wrapper bg-pinkorange px-8 xl:px-[195px] pt-12 xl:pt-[72px] pb-[52px] xl:pb-[132px] rounded-b-[42px] xl:rounded-b-[96px] relative">
+        <h2 class="text-white font-bold text-[26.84px] xl:text-[62.019px] tracking-[-1.342px] xl:tracking-[-3.101px]">
             {{ section.settings.header }}
         </h2>
         <div class="product__accordion accordion !border-none">
             {% for block in section.blocks %}
-            <details class="border-b border-white pb-3" id="Details-{{ block.id }}-{{ section.id }}" {% if forloop.first %} open {% endif %}>
-                    <summary class=" !pt-[42px] !pb-7 flex justify-between items-center">
-                        <p class="text-[34.407px] text-white font-semibold tracking-[-1.72px] leading-none">
+            <details class="border-b border-white pb-2 xl:pb-3" id="Details-{{ block.id }}-{{ section.id }}" {% if forloop.first %} open {% endif %}>
+                    <summary class="faq-section--padding !pt-7 !xl:pt-[42px] !pb-3 !xl:pb-7 flex justify-between gap-2">
+                        <p class="text-base xl:text-[34.407px] text-white font-semibold tracking-[-0.8px] xl:tracking-[-1.72px] leading-[1.1]">
                             {{ block.settings.question }}
                         </p>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" fill="none" transform="rotate(180)">
-                            <path d="M16 33.6947L27.6686 23L39.3333 33.6947" stroke="white" stroke-width="4.66667" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+                        <div class="flex-shrink-0 w-[28px] xl:w-[56px]">
+                            <svg class="w-full h-auto" xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" fill="none" transform="rotate(180)">
+                                <path d="M16 33.6947L27.6686 23L39.3333 33.6947" stroke="white" stroke-width="4.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        
 
                     </summary>
-                    <div class="accordion__content  py-4_ !px-0 !overflow-visible hide-scrollbar" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
-                        <div class="text-white text-2xl tracking-[-1.2px] font-light leading-[1.1]">
+                    <div class="accordion__content py-4_ !px-0 !overflow-visible hide-scrollbar" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
+                        <div class="text-white text-sm xl:text-2xl tracking-[-0.7px] xl:tracking-[-1.2px] font-light leading-[1.1]">
                             {{ block.settings.answer }}
                         </div>
                     </div>
