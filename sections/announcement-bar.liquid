@@ -37,14 +37,14 @@
           {%- if section.blocks.first.settings.link != blank -%}
             <a
               href="{{ section.blocks.first.settings.link }}"
-              class="announcement-bar__link link link--text focus-inset animate-arrow"
+              class="announcement-bar__link_ no-underline link link--text focus-inset animate-arrow_"
             >
           {%- endif -%}
-          <p class="announcement-bar__message h5">
-            <span>{{ section.blocks.first.settings.text | escape }}</span>
-            {%- if section.blocks.first.settings.link != blank -%}
+          <p class="announcement-bar__message h5_ text-base xl:text-xl tracking-[-0.8px] xl:tracking-[-1px] leading-[1.1] uppercase font-extrabold">
+            <span class="tracking-[-0.8px] xl:tracking-[-1.2px]">{{ section.blocks.first.settings.text | escape }}</span>
+            {% comment %} {%- if section.blocks.first.settings.link != blank -%}
               {{- 'icon-arrow.svg' | inline_asset_content -}}
-            {%- endif -%}
+            {%- endif -%} {% endcomment %}
           </p>
           {%- if section.blocks.first.settings.link != blank -%}
             </a>

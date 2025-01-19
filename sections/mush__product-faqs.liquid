@@ -35,7 +35,7 @@
 
 <section id="mush--product-faqs">
     <div class="section-wrapper bg-pinkorange px-8 xl:px-[195px] pt-12 xl:pt-[72px] pb-[52px] xl:pb-[132px] rounded-b-[42px] xl:rounded-b-[96px] relative">
-        <h2 class="text-white font-bold text-[26.84px] xl:text-[62.019px] tracking-[-1.342px] xl:tracking-[-3.101px]">
+        <h2 class="text-white font-bold text-[26.84px] xl:text-[62.019px] tracking-[-1.342px] xl:tracking-[-3.101px] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
             {{ section.settings.header }}
         </h2>
         <div class="product__accordion accordion !border-none">

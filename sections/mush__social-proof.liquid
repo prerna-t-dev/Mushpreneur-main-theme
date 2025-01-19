@@ -84,7 +84,7 @@
             <h2 class="text-[28px] lg:text-[48px] font-bold leading-[1.1] tracking-[-1.4px] lg:tracking-[-2.4px] mb-2 lg:mb-2.5 px-5 lg:px-0" >
                 Why Doers Love Day Shrooms.
             </h2>
-            <p class="text-sm lg:text-[28px] tracking-[-0.689px]  mb-7 lg:mb-12 lg:tracking-[-1.4px] leading-[1.1] px-5 lg:px-0">
+            <p class="text-[15px] lg:text-[28px] tracking-[-0.689px]  mb-7 lg:mb-12 lg:tracking-[-1.4px] leading-[1.1] px-5 lg:px-0">
                 Join the thinkers, creators, and achievers who have discovered the smarter way to power their day.
             </p>
         </div>
@@ -95,7 +95,7 @@
             <div class="swiper-wrapper">
                 {% for block in section.blocks %}
                     <div class="swiper-slide h-full">
-                        <div class="relative w-full h-full flex flex-col justify-between px-6 lg:px-[32px] pt-[34px] lg:pt-[54px] pb-5 lg:pb-[30px] text-white text-center" style="border-radius: 18.716px; background: var(--e-458252-paints, linear-gradient(178deg, rgba(238, 26, 110, 0.00) 39.14%, #EE1A6E 245.11%), #E45825);">
+                        <div class="relative w-full h-full flex flex-col justify-between px-6 lg:px-[32px] pt-[34px] lg:pt-[54px] pb-5 lg:pb-[30px] text-white text-center cursor-pointer" style="border-radius: 18.716px; background: var(--e-458252-paints, linear-gradient(178deg, rgba(238, 26, 110, 0.00) 39.14%, #EE1A6E 245.11%), #E45825);">
                             
 
                             <div>
@@ -120,7 +120,7 @@
 
                                 <h4 class="text-[17.087px] lg:text-[28px] font-semibold tracking-[-0.854px] lg:tracking-[-1.361px] text-white mb-1">{{ block.settings.review_header }}</h4>
 
-                                <p class="text-[8.227px] lg:text-sm font-light tracking-[-0.411px] lg:tracking-[-0.681px] mb-4">
+                                <p class="text-[10px] lg:text-sm font-light tracking-[-0.5px] lg:tracking-[-0.681px] mb-4">
                                     {{ block.settings.review_desc }}
                                 </p>
 
@@ -128,11 +128,11 @@
                             
 
                             <div>
-                                <p class="text-[6.328px] lg:text-[10.192px] tracking-[-0.316px] lg:tracking-[-0.51px]">
+                                <p class="text-[9px] lg:text-[10.192px] tracking-[-0.45px] lg:tracking-[-0.51px]">
                                     {{ block.settings.reviewer_name }}
                                 </p>
                                 {% if block.settings.reviewer_verified %}
-                                    <p class="text-[5.696px] lg:text-[8.507px] tracking-[-0.285px] lg:tracking-[-0.425px]">
+                                    <p class="text-[8px] lg:text-[8.507px] tracking-[-0.4px] lg:tracking-[-0.425px]">
                                         Verified Buyer
                                     </p>
                                 {% endif %}
@@ -157,7 +157,7 @@
 
 
 <script>
-
+document.addEventListener("DOMContentLoaded", function () {
     var swipernew = new Swiper(".swiper-social-proof", {
     slidesPerView: 1, 
     spaceBetween: 22, 
@@ -167,12 +167,13 @@
     allowTouchMove: true, // Enable touch interaction for manual navigation
     breakpoints: {
         768: { 
-        slidesPerView: 2,
-        spaceBetween: 30,
+            slidesPerView: 2,
+            spaceBetween: 30,
+            centeredSlides: false
         },
         1024: { 
-        slidesPerView: 3,
-        spaceBetween: 35,
+            slidesPerView: 3,
+            spaceBetween: 35,
         },
         },
     pagination: {
@@ -180,6 +181,51 @@
         clickable: true, // Allow users to click on dots
     },
     });
+
+});
+
+
+
+// document.addEventListener("DOMContentLoaded", function () {
+//     const swiperContainer = document.querySelector(".swiper-social-proof");
+//     const swiperWrapper = swiperContainer.querySelector(".swiper-wrapper");
+
+//     // Count the number of slides
+//     const slides = swiperWrapper.children.length;
+
+//     // Initialize Swiper for mobile view only (<1024px)
+//     function initSwiper() {
+//         if (window.innerWidth < 1024) {
+//             // Check if Swiper is already initialized
+//             if (!swiperContainer.classList.contains("swiper-initialized")) {
+//                 new Swiper(".swiper-social-proof", {
+//                     slidesPerView: 1,
+//                     spaceBetween: 22,
+//                     centeredSlides: true,
+//                     loop: true, // Loop only if more than 1 slide
+//                     allowTouchMove: true,
+//                     pagination: {
+//                         el: ".swiper-pagination",
+//                         clickable: true,
+//                     },
+//                 });
+//             }
+//         } else {
+//             // Destroy Swiper if initialized on desktop
+//             if (swiperContainer.classList.contains("swiper-initialized")) {
+//                 const swiperInstance = swiperContainer.swiper;
+//                 swiperInstance.destroy(true, true);
+//             }
+//         }
+//     }
+
+//     // Run on page load
+//     initSwiper();
+
+//     // Reinitialize on window resize
+//     window.addEventListener("resize", initSwiper);
+// });
+
 
 
 

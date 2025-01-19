@@ -1,13 +1,5 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
-{
+
+ {
   "sections": {
     "mush_hero_banner_tMVcCA": {
       "type": "mush__hero-banner",
@@ -91,7 +83,7 @@
           "settings": {
             "review_img": "shopify://shop_images/review-user-1.png",
             "review_header": "Feeling transformed.",
-            "review_desc": "Since incorporating Day Shrooms into my daily routine, I’ve experienced more sustained focus and clarity than with just coffee or tea. Day Shrooms helps me to stay focused, and get into the zone, so I can accomplish more in less time.",
+            "review_desc": "“Since incorporating Day Shrooms into my daily routine, I’ve experienced more sustained focus and clarity than with just coffee or tea. Day Shrooms helps me to stay focused, and get into the zone, so I can accomplish more in less time.“",
             "reviewer_name": "Erica B.",
             "reviewer_verified": true
           }
@@ -102,7 +94,7 @@
             "review_img": "shopify://shop_images/review-user-2.png",
             "review_header": "It's like a café mocha!",
             "review_desc": "“This stuff is actually good. It tastes like a café mocha. While I typically drink a lot of coffee, the feeling from Day Shrooms is a bit different. It provides a sustainable energy buzz throughout the day. It’s my new go-to drink.” ",
-            "reviewer_name": "Kareem B.",
+            "reviewer_name": "Michelle J.",
             "reviewer_verified": true
           }
         },
@@ -110,18 +102,9 @@
           "type": "review",
           "settings": {
             "review_img": "shopify://shop_images/review-user-3.png",
-            "review_header": " This drink is awesome",
-            "review_desc": "Finally, a coffee alternative that feels like coffee! It’s versatile too, great on its own or as a boost for shakes or espresso. Even my wife loves it. This is my new\nfavorite drink!",
+            "review_header": " This drink is awesome.",
+            "review_desc": "“Finally, a coffee alternative that feels like coffee! It’s versatile too, great on its own or as a boost for shakes or espresso. Even my girlfriend loves it. This is my new\nfavorite drink!“",
             "reviewer_name": "Jason C.",
-            "reviewer_verified": true
-          }
-        },
-        "review_8UPTdw": {
-          "type": "review",
-          "settings": {
-            "review_header": "Lorem Ipsum",
-            "review_desc": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation\"",
-            "reviewer_name": "Lorem I.",
             "reviewer_verified": true
           }
         }
@@ -129,8 +112,7 @@
       "block_order": [
         "review_GweNjc",
         "review_K7VFUQ",
-        "review_hJcPq4",
-        "review_8UPTdw"
+        "review_hJcPq4"
       ],
       "settings": {}
     },
