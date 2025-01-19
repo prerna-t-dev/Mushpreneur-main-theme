@@ -1,0 +1,79 @@
+<style>
+
+    #mush--all-faqs .faq-answer p{
+        letter-spacing: -1.2px;
+    }
+
+</style>
+
+
+<section id="mush--all-faqs">
+     <div class="section-wrapper mt-[120px] text-black">
+        <h1 class="text-[80px] tracking-[-4px] font-bold leading-[1.1] mb-[102px] text-center">
+            {{ section.settings.header  }}
+        </h1>
+       
+        {% assign faq_categories = shop.metaobjects.faq_category.values %}
+        {% assign ordered_metaobjects = faq_categories | sort_natural: 'order' %}
+
+        {% for faq_category in ordered_metaobjects  %}
+            {% assign normalized_color = faq_category.color | downcase %}
+            {% assign categoryIndex = forloop.index %}
+            <div class="" style="background-color: {{ faq_category.bg_color }};">
+                <div class="rounded-t-[96px] px-[75px] pt-[110px] pb-[130px] flex gap-[54px] {% if normalized_color == '#ffffff' %} text-black {% else %} text-white {% endif %}" style="background-color: {{ faq_category.color }};">
+                    <p class="w-[25%] text-[56px] tracking-[-2.8px] font-bold leading-[1.1]">
+                        {{ faq_category.title }}
+                    </p>
+                    <div class="w-[75%]">
+                        {% assign associatedQuestions = faq_category.associated_questions.value %}
+                        {% for faq in associatedQuestions %}
+                        {% assign faqIndex = forloop.index %}
+                        <details class="border-b {% if normalized_color == '#ffffff' %} border-black {% else %} border-white {% endif %} pb-2 xl:pb-3" id="Details-{{ categoryIndex }}-{{ faqIndex }}" {% if forloop.first %} open {% endif %}>
+                            <summary class="faq-section--padding !pt-7 !xl:pt-[42px] !pb-3 !xl:pb-7 flex justify-between gap-2">
+                                <p class="text-base xl:text-[34.407px] {% if normalized_color == '#ffffff' %} text-black {% else %} text-white {% endif %} font-semibold tracking-[-0.8px] xl:tracking-[-1.72px] leading-[1.1]">
+                                    {{ faq.question }}
+                                </p>
+                                <div class="flex-shrink-0 w-[28px] xl:w-[56px]">
+                                    <svg class="w-full h-auto" xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" fill="none" transform="rotate(180)">
+                                        <path d="M16 33.6947L27.6686 23L39.3333 33.6947" stroke="{% if normalized_color == '#ffffff' %}black{% else %}white{% endif %}" stroke-width="4.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                            </summary>
+                            <div class="accordion__content py-4_ !px-0 !overflow-visible hide-scrollbar" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
+                                <div class="faq-answer {% if normalized_color == '#ffffff' %} text-black {% else %} text-white {% endif %} text-sm xl:text-2xl tracking-[-0.7px] xl:tracking-[-1.2px] font-light leading-[1.1] mb-5">
+                                    {% assign faq_answer = faq.answer | metafield_tag %}
+                                    {{ faq_answer }}
+                                </div>
+                            </div>
+                        </details>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div> 
+            
+        {% endfor %}
+     </div> 
+
+</section>
+
+
+
+{%  schema  %} 
+    {
+        "name": "All FAQs",
+        "class": "section--all-faqs",
+        "settings": [
+            {
+                "type": "text",
+                "id": "header",
+                "label": "Header",
+                "default": "Frequently Asked Questions"
+            }
+        ],
+        "presets": [
+            {
+                "name": "All FAQs"
+            }
+        ]
+    } 
+{% endschema %}

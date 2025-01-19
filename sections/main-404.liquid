@@ -1,23 +1,41 @@
 <style type="text/css">
-  .template-404 .title + * {
-    margin-top: 1rem;
+ 
+  .template-404 .title{
+    background: linear-gradient(90deg, #F2008C 0%, #E74936 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
-  @media screen and (min-width: 750px) {
-    .template-404 .title + * {
-      margin-top: 2rem;
-    }
-  }
 </style>
 
 <div class="template-404 page-width page-margin center">
-  <p>
+  <p class="title text-[192px] tracking-[-9.607px] font-extrabold leading-none">
     {{ 'templates.404.subtext' | t }}
   </p>
-  <h1 class="title">
-    {{ 'templates.404.title' | t }}
+  <h1 class="mb-5 uppercase font-bold text-[64px] tracking-[-3.2px]">
+    Oops! Page not found!
   </h1>
-  <a href="{{ routes.all_products_collection_url }}" class="button">
+  <p class="mb-5 text-[32px] tracking-[-1.6px] leading-none">
+    The page you are looking for has been moved, removed, <br /> or might never have existed.
+  </p>
+
+
+  {% comment %} <a href="{{ routes.all_products_collection_url }}" class="button">
     {{ 'general.continue_shopping' | t }}
+  </a> {% endcomment %}
+
+
+
+
+
+  <a href="/products/organic-ground-coffee-with-lions-mane-chaga-mushrooms" class="btn btn-primary block w-fit mx-auto">
+      Continue Shopping
   </a>
+</div>
+
+<div class="w-full">
+  <svg class="w-full translate-y-[1px] h-auto" xmlns="http://www.w3.org/2000/svg" width="1440" height="159" viewBox="0 0 1440 159" fill="none">
+    <path d="M1091.25 113.619C793.5 91.3128 809.625 -23.5651 521.25 51.9048C232.875 127.375 0 51.9048 0 51.9048V158.603H1440V0.972168C1440 0.972168 1389 135.925 1091.25 113.619Z" fill="#111111"/>
+  </svg>
 </div>
