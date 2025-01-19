@@ -41,24 +41,24 @@
         <div class="product__accordion accordion !border-none">
             {% for block in section.blocks %}
             <details class="border-b border-white pb-2 xl:pb-3" id="Details-{{ block.id }}-{{ section.id }}" {% if forloop.first %} open {% endif %}>
-                    <summary class="faq-section--padding !pt-7 !xl:pt-[42px] !pb-3 !xl:pb-7 flex justify-between gap-2">
-                        <p class="text-base xl:text-[34.407px] text-white font-semibold tracking-[-0.8px] xl:tracking-[-1.72px] leading-[1.1]">
-                            {{ block.settings.question }}
-                        </p>
-                        <div class="flex-shrink-0 w-[28px] xl:w-[56px]">
-                            <svg class="w-full h-auto" xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" fill="none" transform="rotate(180)">
-                                <path d="M16 33.6947L27.6686 23L39.3333 33.6947" stroke="white" stroke-width="4.66667" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        
-
-                    </summary>
-                    <div class="accordion__content py-4_ !px-0 !overflow-visible hide-scrollbar" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
-                        <div class="text-white text-sm xl:text-2xl tracking-[-0.7px] xl:tracking-[-1.2px] font-light leading-[1.1]">
-                            {{ block.settings.answer }}
-                        </div>
+                <summary class="faq-section--padding !pt-7 !xl:pt-[42px] !pb-3 !xl:pb-7 flex justify-between gap-2">
+                    <p class="text-base xl:text-[34.407px] text-white font-semibold tracking-[-0.8px] xl:tracking-[-1.72px] leading-[1.1]">
+                        {{ block.settings.question }}
+                    </p>
+                    <div class="flex-shrink-0 w-[28px] xl:w-[56px]">
+                        <svg class="w-full h-auto" xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" fill="none" transform="rotate(180)">
+                            <path d="M16 33.6947L27.6686 23L39.3333 33.6947" stroke="white" stroke-width="4.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
                     </div>
-                </details>
+                    
+
+                </summary>
+                <div class="accordion__content py-4_ !px-0 !overflow-visible hide-scrollbar" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
+                    <div class="text-white text-sm xl:text-2xl tracking-[-0.7px] xl:tracking-[-1.2px] font-light leading-[1.1] mb-5">
+                        {{ block.settings.answer }}
+                    </div>
+                </div>
+            </details>
             {% endfor %}
         </div>
 

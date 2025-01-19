@@ -1,0 +1,24 @@
+
+ {
+    "sections": {
+      "main": {
+        "type": "main-page",
+        "disabled": true,
+        "settings": {
+          "padding_top": 28,
+          "padding_bottom": 28
+        }
+      },
+      "main_faq_CcBxxm": {
+        "type": "main-faq",
+        "settings": {
+          "header": "Frequently Asked Questions"
+        }
+      }
+    },
+    "order": [
+      "main",
+      "main_faq_CcBxxm"
+    ]
+  }
+  
