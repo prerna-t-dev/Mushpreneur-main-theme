@@ -68,9 +68,12 @@
     {%- endform -%}
   </div>
 
-  <h1 id="login" tabindex="-1">
+  <h1 id="login" class="text-[46px] tracking-[-2.3px] font-semibold mb-2" tabindex="-1">
     {{ 'customer.login_page.title' | t }}
   </h1>
+  <p class="py-0 !my-0 text-2xl tracking-[-1.2px]">
+    Please enter your e-mail and password:
+  </p>
   <div>
     {%- if recover_success == true -%}
       <h3 class="form__message" tabindex="-1" autofocus>
@@ -82,17 +85,17 @@
     {%- endif -%}
     {%- form 'customer_login', novalidate: 'novalidate' -%}
       {%- if form.errors -%}
-        <h2 class="form__message" tabindex="-1" autofocus>
+        {% comment %} <p class="form__message" tabindex="-1" autofocus>
           <span class="visually-hidden">{{ 'accessibility.error' | t }} </span>
           <span class="svg-wrapper">
             {{- 'icon-error.svg' | inline_asset_content -}}
           </span>
           {{ 'templates.contact.form.error_heading' | t }}
-        </h2>
+        </p> {% endcomment %}
         {{ form.errors | default_errors }}
       {%- endif -%}
 
-      {%- if shop.features.login_with_shop_classic_customer_accounts? -%}
+      {% comment %} {%- if shop.features.login_with_shop_classic_customer_accounts? -%}
         <section name="sign-in-with-shop-provider">
           {{ shop | login_button: hide_button: hide_shop_login_button }}
 
@@ -102,7 +105,7 @@
             </p>
           {%- endunless -%}
         </section>
-      {%- endif -%}
+      {%- endif -%} {% endcomment %}
 
       <div class="field">
         <input
@@ -116,6 +119,7 @@
             aria-invalid="true"
           {% endif %}
           placeholder="{{ 'customer.login_page.email' | t }}"
+          class="rounded-[84px]"
         >
         <label for="CustomerEmail">
           {{ 'customer.login_page.email' | t }}
@@ -140,18 +144,27 @@
           </label>
         </div>
 
-        <a href="#recover">
+       <a href="#recover">
           {{ 'customer.login_page.forgot_password' | t }}
         </a>
       {%- endif -%}
 
-      <button>
-        {{ 'customer.login_page.sign_in' | t }}
+      <button class="btn btn-tertiary w-full block mx-auto lg:mx-unset">
+       Login
       </button>
 
-      <a href="{{ routes.account_register_url }}">
-        {{ 'customer.login_page.create_account' | t }}
-      </a>
+
+      <div class="text-2xl tracking-[-1.2px] mb-2">
+        Don't have an account?
+        <a class="!inline-block text-2xl tracking-[-1.2px]" href="{{ routes.account_register_url }}">
+          Create One
+        </a>
+      </div>
+
+      <p class="!my-0 text-2xl tracking-[-1.2px]">
+        Manage subscriptions without password
+      </p>
+      
     {%- endform -%}
   </div>
 
@@ -167,6 +180,16 @@
       {%- endform -%}
     </div>
   {%- endif -%}
+
+
+
+
+  
+</div>
+<div class="w-full">
+  <svg class="w-full translate-y-[1px] h-auto" xmlns="http://www.w3.org/2000/svg" width="1440" height="159" viewBox="0 0 1440 159" fill="none">
+    <path d="M1091.25 113.619C793.5 91.3128 809.625 -23.5651 521.25 51.9048C232.875 127.375 0 51.9048 0 51.9048V158.603H1440V0.972168C1440 0.972168 1389 135.925 1091.25 113.619Z" fill="#111111"/>
+  </svg>
 </div>
 
 {% schema %}

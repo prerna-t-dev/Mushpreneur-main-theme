@@ -143,3 +143,57 @@
 .border-b-half-width{
     border-bottom-width: 0.5px;
 }
+
+
+
+/* ===== Account Pages ===== */
+.field__input, .select__select, .customer .field input, .customer select{
+    border-radius: 84px !important;
+    border: 2px solid black;
+    font-size: 24px !important;
+    letter-spacing: -1.2px !important;
+}
+
+
+.field__input:focus, .field__input:not(:placeholder-shown), .field__input:-webkit-autofill, .customer .field input:focus, .customer .field input:not(:placeholder-shown), .customer .field input:-webkit-autofill{
+    padding: 1.5rem !important;
+}
+
+.field__label, .customer .field label{
+    font-size: 24px !important;
+    letter-spacing: -1.2px !important;
+    display: none  !important;
+}
+
+
+.customer .field input::placeholder{
+    font-size: 24px !important;
+    letter-spacing: -1.2px !important;
+    color: black !important;
+    opacity: 50% !important;
+}
+
+
+
+.customer button{
+    @apply bg-orange;
+        color: #ffffff !important;
+        border: 1px solid #E45825;
+        width: 100%;
+        border-radius: 84.13px;
+        font-weight: 600;
+        font-size: 24px !important;
+        letter-spacing: -1.2px !important;
+}
+
+
+.errors ul{
+    padding-left: 0 !important;
+    margin-bottom: 1rem !important;
+}
+
+.errors li,
+.errors li a{
+    font-size: 16px !important;
+    letter-spacing: -0.8px !important;
+}

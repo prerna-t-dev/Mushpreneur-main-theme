@@ -15,33 +15,39 @@
 {%- endstyle -%}
 
 <div class="customer register section-{{ section.id }}-padding">
-  <h1>
-    {{ 'customer.register.title' | t }}
+  <h1 class="text-[46px] tracking-[-2.3px] font-semibold mb-2" >
+    Register
   </h1>
+  <p class="py-0 !my-0 text-2xl tracking-[-1.2px]">
+    Please fill in the information below:
+  </p>
   {%- form 'create_customer', novalidate: 'novalidate' -%}
     {%- if form.errors -%}
-      <h2 class="form__message" tabindex="-1" autofocus>
+      {% comment %} <h2 class="form__message" tabindex="-1" autofocus>
         <span class="svg-wrapper">
           {{- 'icon-error.svg' | inline_asset_content -}}
         </span>
         {{ 'templates.contact.form.error_heading' | t }}
-      </h2>
-      <ul>
-        {%- for field in form.errors -%}
-          <li>
-            {%- if field == 'form' -%}
-              {{ form.errors.messages[field] }}
-            {%- else -%}
-              <a href="#RegisterForm-{{ field }}">
-                {{ form.errors.translated_fields[field] | capitalize }}
+      </h2> {% endcomment %}
+      <div class="errors">
+        <ul>
+          {%- for field in form.errors -%}
+            <li>
+              {%- if field == 'form' -%}
                 {{ form.errors.messages[field] }}
-              </a>
-            {%- endif -%}
-          </li>
-        {%- endfor -%}
-      </ul>
+              {%- else -%}
+                <a href="#RegisterForm-{{ field }}">
+                  {{ form.errors.translated_fields[field] | capitalize }}
+                  {{ form.errors.messages[field] }}
+                </a>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+      
     {%- endif -%}
-    <div class="field">
+    {% comment %} <div class="field">
       <input
         type="text"
         name="customer[first_name]"
@@ -70,7 +76,7 @@
       <label for="RegisterForm-LastName">
         {{ 'customer.register.last_name' | t }}
       </label>
-    </div>
+    </div> {% endcomment %}
     <div class="field">
       <input
         type="email"
@@ -93,7 +99,7 @@
         {{ 'customer.register.email' | t }}
       </label>
     </div>
-    {%- if form.errors contains 'email' -%}
+    {% comment %} {%- if form.errors contains 'email' -%}
       <span id="RegisterForm-email-error" class="form__message">
         <span class="svg-wrapper">
           {{- 'icon-error.svg' | inline_asset_content -}}
@@ -101,7 +107,7 @@
         {{ form.errors.translated_fields.email | capitalize }}
         {{ form.errors.messages.email }}.
       </span>
-    {%- endif -%}
+    {%- endif -%} {% endcomment %}
     <div class="field">
       <input
         type="password"
@@ -118,7 +124,7 @@
         {{ 'customer.register.password' | t }}
       </label>
     </div>
-    {%- if form.errors contains 'password' -%}
+    {% comment %} {%- if form.errors contains 'password' -%}
       <span id="RegisterForm-password-error" class="form__message">
         <span class="svg-wrapper">
           {{- 'icon-error.svg' | inline_asset_content -}}
@@ -126,11 +132,24 @@
         {{ form.errors.translated_fields.password | capitalize }}
         {{ form.errors.messages.password }}.
       </span>
-    {%- endif -%}
-    <button>
-      {{ 'customer.register.submit' | t }}
+    {%- endif -%} {% endcomment %}
+    <button class="uppercase">
+      Create my account
     </button>
+
+    <div class="text-2xl tracking-[-1.2px] mb-2">
+      Already have an account?
+      <a class="!inline-block text-2xl tracking-[-1.2px]" href="{{ routes.account_login_url }}">
+        Log In
+      </a>
+    </div>
   {%- endform -%}
+</div>
+
+<div class="w-full">
+  <svg class="w-full translate-y-[1px] h-auto" xmlns="http://www.w3.org/2000/svg" width="1440" height="159" viewBox="0 0 1440 159" fill="none">
+    <path d="M1091.25 113.619C793.5 91.3128 809.625 -23.5651 521.25 51.9048C232.875 127.375 0 51.9048 0 51.9048V158.603H1440V0.972168C1440 0.972168 1389 135.925 1091.25 113.619Z" fill="#111111"/>
+  </svg>
 </div>
 
 {% schema %}
