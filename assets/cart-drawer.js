@@ -99,9 +99,9 @@ class CartDrawer extends HTMLElement {
         id: 'cart-drawer',
         selector: '#CartDrawer',
       },
-      {
-        id: 'cart-icon-bubble',
-      },
+      // {
+      //   id: 'cart-icon-bubble',
+      // },
     ];
   }
 
@@ -124,11 +124,11 @@ class CartDrawerItems extends CartItems {
         section: 'cart-drawer',
         selector: '.drawer__inner',
       },
-      {
-        id: 'cart-icon-bubble',
-        section: 'cart-icon-bubble',
-        selector: '.shopify-section',
-      },
+      // {
+      //   id: 'cart-icon-bubble',
+      //   section: 'cart-icon-bubble',
+      //   selector: '.shopify-section',
+      // },
     ];
   }
 }
