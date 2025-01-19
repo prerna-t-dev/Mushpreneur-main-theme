@@ -9,7 +9,18 @@
   "market": [],
   "order": [],
   "page": [],
-  "product": [],
+  "product": [
+    {
+      "key": "subtitle",
+      "namespace": "descriptors",
+      "name": "Product subtitle",
+      "description": "Used as a shorthand for a product name",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    }
+  ],
   "variant": [],
   "shop": []
 }
