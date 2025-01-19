@@ -31,13 +31,13 @@ module.exports = {
     },
   },
   plugins: [
-    function({ addBase }) {
-      addBase({
-        '*': {
-          'letter-spacing': 'calc(0.05 * 1em)',
-        },
-      });
-    },
+    // function({ addBase }) {
+    //   addBase({
+    //     '*': {
+    //       'letter-spacing': 'calc(0.05 * 1em)',
+    //     },
+    //   });
+    // },
     function ({ addUtilities }) {
       addUtilities({
         '.scrollbar-gutter-overlay': { scrollbarGutter: 'overlay' },

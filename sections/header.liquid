@@ -94,6 +94,9 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+
+
 {%- endstyle -%}
 
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
@@ -137,7 +140,7 @@ class="header-wrapper {% if section.settings.show_line_separator %}header-wrappe
     
 
 
-    <div class="flex gap-3 xl:gap-5 justify-end w-full">
+    <div class="flex gap-3 xl:gap-5 justify-end w-full custom-header-icons">
 
       {%- if shop.customer_accounts_enabled -%}
         <a

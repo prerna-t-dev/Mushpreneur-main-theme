@@ -5,7 +5,7 @@
 }
 
 .totals > * {
-  font-size: 1.6rem;
+  /* font-size: 1.6rem; */
   margin: 0;
 }
 
@@ -14,7 +14,7 @@
 }
 
 .totals * {
-  line-height: 1;
+  /* line-height: 1; */
 }
 
 .totals > * + * {
