@@ -105,7 +105,7 @@
 class="header-wrapper {% if section.settings.show_line_separator %}header-wrapper--border-bottom{% endif %}">
 
 
-  <header class="custom--header main-theme-header header_ flex xl:grid grid-cols-3 items-center justify-between px-5 xl:px-20 py-[24px] xl:py-[28px] text-black">
+  <header class="custom--header main-theme-header header_ flex xl:grid grid-cols-3 items-center justify-between px-5 xl:px-20 py-[12px] xl:py-[28px] text-black">
 
     {%- liquid
       if section.settings.menu != blank
@@ -176,7 +176,7 @@ class="header-wrapper {% if section.settings.show_line_separator %}header-wrappe
         </a>
       {%- endif -%}
 
-      <a href="{{ routes.cart_url }}" class="" id="cart-icon-bubble">
+      <a href="{{ routes.cart_url }}" class="relative" id="cart-icon-bubble">
           {% if cart == empty %}
             <span class="svg-wrapper--custom block w-5 xl:w-9">
               <svg class="w-full h-auto" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
@@ -192,7 +192,7 @@ class="header-wrapper {% if section.settings.show_line_separator %}header-wrappe
           {% endif %}
         <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
         {%- if cart != empty -%}
-          <div class="cart-count-bubble">
+          <div class="cart-count-bubble hidden">
             {%- if cart.item_count < 100 -%}
               <span aria-hidden="true">{{ cart.item_count }}</span>
             {%- endif -%}
