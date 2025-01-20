@@ -140,6 +140,10 @@
     border-width: 0.5px;
 }
 
+.border-double-width{
+    border-width: 2px;
+}
+
 .border-b-half-width{
     border-bottom-width: 0.5px;
 }
@@ -202,4 +206,71 @@
 .errors li a{
     font-size: 16px !important;
     letter-spacing: -0.8px !important;
+}
+
+
+
+
+/* Product Page - CSS */
+.product__description h2{
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -1.3px;
+    margin-bottom: 6px;
+}
+
+.product__description p{
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: -0.9px;
+    margin-bottom: 32px;
+}
+
+.product__description ul{
+    padding-bottom: 18px;
+    padding-left: 0;
+}
+
+.product__description ul li{
+    font-size: 20.913px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -1.046px;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity--atc .quantity{
+    border-radius: 28.372px;
+    border: 2.389px solid #000;
+    min-height: 56px
+}
+
+.quantity--atc .quantity:before,
+.quantity--atc .quantity:after{
+    opacity: 0 !important;
+}
+
+
+.quantity--atc .product-form__buttons{
+    width: 100%;
+    max-width: 100%;
+}
+
+.quantity--atc .product-form__submit{
+    min-height: 56px;
+    height: 56px;
+    border-radius: 28.372px;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -1px;
 }

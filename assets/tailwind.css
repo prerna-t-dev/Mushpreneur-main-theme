@@ -737,6 +737,22 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+.my-10 {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+.\!mb-2 {
+  margin-bottom: 0.5rem !important;
+}
+.\!mb-3 {
+  margin-bottom: 0.75rem !important;
+}
+.\!mb-6 {
+  margin-bottom: 1.5rem !important;
+}
+.\!mt-0 {
+  margin-top: 0px !important;
+}
 .mb-0 {
   margin-bottom: 0px;
 }
@@ -791,14 +807,14 @@ body {
 .mt-6 {
   margin-top: 1.5rem;
 }
+.mt-7 {
+  margin-top: 1.75rem;
+}
 .mt-\[120px\] {
   margin-top: 120px;
 }
 .mt-\[38px\] {
   margin-top: 38px;
-}
-.\!mb-3 {
-  margin-bottom: 0.75rem !important;
 }
 .block {
   display: block;
@@ -818,11 +834,11 @@ body {
 .grid {
   display: grid;
 }
-.hidden {
-  display: none;
-}
 .\!hidden {
   display: none !important;
+}
+.hidden {
+  display: none;
 }
 .h-12 {
   height: 3rem;
@@ -838,6 +854,9 @@ body {
 }
 .h-\[2px\] {
   height: 2px;
+}
+.h-\[50px\] {
+  height: 50px;
 }
 .h-\[52px\] {
   height: 52px;
@@ -883,6 +902,9 @@ body {
 }
 .w-\[18px\] {
   width: 18px;
+}
+.w-\[22px\] {
+  width: 22px;
 }
 .w-\[25\%\] {
   width: 25%;
@@ -1066,6 +1088,9 @@ body {
 .rounded-\[20px\] {
   border-radius: 20px;
 }
+.rounded-\[32px\] {
+  border-radius: 32px;
+}
 .rounded-\[45px\] {
   border-radius: 45px;
 }
@@ -1169,6 +1194,9 @@ body {
   -o-object-fit: cover;
      object-fit: cover;
 }
+.p-7 {
+  padding: 1.75rem;
+}
 .\!px-0 {
   padding-left: 0px !important;
   padding-right: 0px !important;
@@ -1233,6 +1261,10 @@ body {
   padding-top: 0px;
   padding-bottom: 0px;
 }
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
 .py-12 {
   padding-top: 3rem;
   padding-bottom: 3rem;
@@ -1252,6 +1284,10 @@ body {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+.py-\[1\.5rem\] {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 .py-\[12px\] {
   padding-top: 12px;
@@ -1276,14 +1312,6 @@ body {
 .py-\[66px\] {
   padding-top: 66px;
   padding-bottom: 66px;
-}
-.py-\[34px\] {
-  padding-top: 34px;
-  padding-bottom: 34px;
-}
-.py-\[1\.5rem\] {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
 }
 .\!pb-3 {
   padding-bottom: 0.75rem !important;
@@ -1433,6 +1461,9 @@ body {
 .text-\[26px\] {
   font-size: 26px;
 }
+.text-\[27px\] {
+  font-size: 27px;
+}
 .text-\[28px\] {
   font-size: 28px;
 }
@@ -1445,6 +1476,9 @@ body {
 .text-\[36px\] {
   font-size: 36px;
 }
+.text-\[40px\] {
+  font-size: 40px;
+}
 .text-\[46px\] {
   font-size: 46px;
 }
@@ -1453,6 +1487,9 @@ body {
 }
 .text-\[64px\] {
   font-size: 64px;
+}
+.text-\[67px\] {
+  font-size: 67px;
 }
 .text-\[8\.8px\] {
   font-size: 8.8px;
@@ -1602,6 +1639,9 @@ body {
 .tracking-\[-1\.342px\] {
   letter-spacing: -1.342px;
 }
+.tracking-\[-1\.35px\] {
+  letter-spacing: -1.35px;
+}
 .tracking-\[-1\.3px\] {
   letter-spacing: -1.3px;
 }
@@ -1610,6 +1650,9 @@ body {
 }
 .tracking-\[-1\.539px\] {
   letter-spacing: -1.539px;
+}
+.tracking-\[-1\.5px\] {
+  letter-spacing: -1.5px;
 }
 .tracking-\[-1\.649px\] {
   letter-spacing: -1.649px;
@@ -1629,20 +1672,20 @@ body {
 .tracking-\[-2\.8px\] {
   letter-spacing: -2.8px;
 }
+.tracking-\[-2px\] {
+  letter-spacing: -2px;
+}
 .tracking-\[-3\.2px\] {
   letter-spacing: -3.2px;
+}
+.tracking-\[-3\.35px\] {
+  letter-spacing: -3.35px;
 }
 .tracking-\[-4px\] {
   letter-spacing: -4px;
 }
 .tracking-\[-9\.607px\] {
   letter-spacing: -9.607px;
-}
-.tracking-\[\] {
-  letter-spacing: ;
-}
-.tracking-\[-1\.5px\] {
-  letter-spacing: -1.5px;
 }
 .\!text-white {
   --tw-text-opacity: 1 !important;
@@ -1656,6 +1699,10 @@ body {
   --tw-text-opacity: 1;
   color: rgb(254 163 12 / var(--tw-text-opacity, 1));
 }
+.text-orange {
+  --tw-text-opacity: 1;
+  color: rgb(228 88 37 / var(--tw-text-opacity, 1));
+}
 .text-pinkorange {
   --tw-text-opacity: 1;
   color: rgb(231 70 57 / var(--tw-text-opacity, 1));
@@ -1663,6 +1710,9 @@ body {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+.underline {
+  text-decoration-line: underline;
 }
 .line-through {
   text-decoration-line: line-through;
@@ -1700,6 +1750,10 @@ body {
 
 .border-half-width{
     border-width: 0.5px;
+}
+
+.border-double-width{
+    border-width: 2px;
 }
 
 .border-b-half-width{
@@ -1773,6 +1827,73 @@ body {
 .errors li a{
     font-size: 16px !important;
     letter-spacing: -0.8px !important;
+}
+
+
+
+
+/* Product Page - CSS */
+.product__description h2{
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -1.3px;
+    margin-bottom: 6px;
+}
+
+.product__description p{
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: -0.9px;
+    margin-bottom: 32px;
+}
+
+.product__description ul{
+    padding-bottom: 18px;
+    padding-left: 0;
+}
+
+.product__description ul li{
+    font-size: 20.913px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -1.046px;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity--atc .quantity{
+    border-radius: 28.372px;
+    border: 2.389px solid #000;
+    min-height: 56px
+}
+
+.quantity--atc .quantity:before,
+.quantity--atc .quantity:after{
+    opacity: 0 !important;
+}
+
+
+.quantity--atc .product-form__buttons{
+    width: 100%;
+    max-width: 100%;
+}
+
+.quantity--atc .product-form__submit{
+    min-height: 56px;
+    height: 56px;
+    border-radius: 28.372px;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -1px;
 }
 
 @media (min-width: 990px) {
