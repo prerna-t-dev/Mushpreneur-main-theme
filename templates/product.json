@@ -23,57 +23,65 @@
             "text_style": "subtitle"
           }
         },
-        "text_iqVNQk": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.metafields.custom.servings.value }}",
-            "text_style": "body"
-          }
-        },
-        "description_TyLD3Y": {
+        "description_MpYtep": {
           "type": "description",
           "settings": {}
         },
-        "option_selector_PG6Ne6": {
+        "option_selector_ArQ3nW": {
           "type": "option_selector",
           "settings": {}
         },
-        "quantity_and_atc_FGezcx": {
+        "quantity_and_atc_Gawhyw": {
           "type": "quantity_and_atc",
           "settings": {}
         },
-        "price": {
-          "type": "price",
-          "disabled": true,
-          "settings": {}
-        },
-        "variant_picker": {
-          "type": "variant_picker",
-          "disabled": true,
+        "collapsible_tab_3igxNW": {
+          "type": "collapsible_tab",
           "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle"
+            "heading": "Product Features",
+            "icon": "none",
+            "content": "<p>Each serving delivers 2000mg of fruiting body mushrooms, 850mg of natural nootropics, 200mg of L-theanine, and 60mg of clean caffeine from green tea. Designed for sustained energy and all-day flow, Day Shrooms is vegan, non-GMO, gluten-free, and free of sugar alcohols. With a hint of sweet from maple and monk fruit, it’s a clean, satisfying boost to fuel your day.<br/></p>",
+            "page": ""
           }
         },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "disabled": true,
+        "collapsible_tab_d7mQ9P": {
+          "type": "collapsible_tab",
           "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
+            "heading": "Ingredients",
+            "icon": "none",
+            "content": "<p>Organic Raw Cacao Powder, Organic Maple Sugar, Organic Lions Mane Extract (Fruiting Body), Organic Cordyceps Militaris Extract (Fruiting Body), Organic Raw Black Maca Powder, L-theanine , Organic Biologically Active Vitamin B12 (From Quinoa Sprouts) [PANMOL®], Rhodiola Rosea Root Powder, Ashwagandha Root Extract [KSM-66®], Bacopa Monnieri Extract, Organic Rice Fiber, Natural Caffeine (from Green Tea), Baja Gold Sea Salt , Organic Luo Han Guo (Monk Fruit) Extract, Organic Vitamin D2 (From Mushrooms).</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_RaEGKa": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Shipping",
+            "icon": "none",
+            "content": "<p>Orders arrive in 2–5 business days anywhere in the U.S., including AK and HI. Free Shipping for all subscription orders. Flat rate of $4.99 for one-time purchases.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_AknDAD": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Guarantee",
+            "icon": "none",
+            "content": "<p>We’re passionate about delivering quality and satisfaction. Feel more focused and productive or Day Shrooms is on us! Just let us know within 30 days of your first purchase.</p>",
+            "page": ""
           }
         }
       },
       "block_order": [
         "title",
         "caption",
-        "text_iqVNQk",
-        "description_TyLD3Y",
-        "option_selector_PG6Ne6",
-        "quantity_and_atc_FGezcx",
-        "price",
-        "variant_picker",
-        "buy_buttons"
+        "description_MpYtep",
+        "option_selector_ArQ3nW",
+        "quantity_and_atc_Gawhyw",
+        "collapsible_tab_3igxNW",
+        "collapsible_tab_d7mQ9P",
+        "collapsible_tab_RaEGKa",
+        "collapsible_tab_AknDAD"
       ],
       "settings": {
         "enable_sticky_info": true,
