@@ -1,79 +1,54 @@
+<style>
+    .marquee3k {
+        white-space: nowrap;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .marquee3k p {
+        display: inline-block;
+        margin: 0;
+    }
+
+    .marquee-container {
+        background: linear-gradient(90deg, #E74937 0%, #F2008C 100%);
+    }
+
+    .marquee3k span{
+        padding: 0 4px 0 4px;
+    }
+
+    @media (min-width: 990px) {
+        .marquee3k span{
+            padding: 0 1.5rem 0 1.5rem;
+        }
+    }
+</style>
+
 <section id="mush--usp-marquee-scroll">
-
-
-
-
-    <div class="swiper-container swiper-usp-marquee py-3 lg:py-7" style="background: linear-gradient(90deg, #E74937 0%, #F2008C 100%), #E74936;">
-            <div class="swiper-wrapper text-white uppercase">
+    <div class="marquee-container pt-1 pb-3 lg:py-7">
+        <div class="marquee3k" data-speed="0.5" data-reverse="L to R">
+            <div class="wrapper">
                 {% for block in section.blocks %}
-                    <p class="swiper-slide text-[10.97px] lg:text-2xl font-medium tracking-[-0.548px] lg:tracking-[-1.2px] leading-none">
+                    <span class="text-white uppercase inline-block text-[12px] lg:text-2xl font-medium tracking-[-0.6px] lg:tracking-[-1.2px] leading-none">
                         {{ block.settings.usp }}
-                    </p>
-                {% endfor %}
-                {% for block in section.blocks %}
-                    <p class="swiper-slide text-[10.97px] lg:text-2xl font-medium tracking-[-0.548px] lg:tracking-[-1.2px] leading-none">
-                        {{ block.settings.usp }}
-                    </p>
+                    </span>
                 {% endfor %}
             </div>
         </div>
-
+    </div>
 </section>
 
 
-
-
 <script>
-   
-    // Marquee Type Scroll
     document.addEventListener('DOMContentLoaded', function () {
-    const swiperMarquee = new Swiper('.swiper-usp-marquee', {
-        loop: true, 
-        speed: 5000, 
-        autoplay: {
-            delay: 0, 
-            disableOnInteraction: false, 
-        },
-        slidesPerView: 'auto', 
-        spaceBetween: 30, 
+        Marquee3k.init();
+
+        console.log('instances: ', Marquee3k.instances); 
     });
-    });
-
-
-    // document.addEventListener('DOMContentLoaded', function () {
-    //     const swiperContainer = document.querySelector('.swiper-usp-marquee .swiper-wrapper');
-    //     const slides = [...swiperContainer.children];
-
-    //     // Ensure at least 6 slides by duplicating dynamically
-    //     while (swiperContainer.children.length < 6) {
-    //         slides.forEach(slide => {
-    //             const clone = slide.cloneNode(true);
-    //             swiperContainer.appendChild(clone);
-    //         });
-    //     }
-
-    //     const swiperMarquee = new Swiper('.swiper-usp-marquee', {
-    //         loop: true, 
-    //         speed: 5000, 
-    //         autoplay: {
-    //             delay: 0, 
-    //             disableOnInteraction: false, 
-    //         },
-    //         slidesPerView: 'auto', 
-    //         spaceBetween: 30, 
-    //     });
-    // });
-
-
 </script>
 
 
-<style>
-     .swiper-container.swiper-usp-marquee {
-        width: 100%;
-        overflow: hidden; /* Keep the overflow hidden */
-    }
-</style>
 
 {%  schema  %} 
     {
