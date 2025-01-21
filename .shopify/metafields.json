@@ -19,6 +19,16 @@
         "name": "single_line_text_field",
         "category": "TEXT"
       }
+    },
+    {
+      "key": "servings",
+      "namespace": "custom",
+      "name": "Servings",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
     }
   ],
   "variant": [],

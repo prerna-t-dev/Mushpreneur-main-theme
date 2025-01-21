@@ -270,12 +270,8 @@
       {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
     {%- endif -%}
 
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
-    <!-- Swiper JS -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
+    
 
     {%- unless settings.type_body_font.system? -%}
       {% comment %}theme-check-disable AssetPreload{% endcomment %}
@@ -307,6 +303,29 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
+
+
+
+
+    <!-- SLIDER LIBRARIES -->
+
+ 
+   
+    <!-- Slick JS -->
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <!-- Slick CSS -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+
+
+    <!-- Marquee3k Library -->
+    {% comment %} <script src="https://cdn.jsdelivr.net/npm/marquee3000@1.1.1/marquee3k.min.js"></script> {% endcomment %}
+    <script src="{{  'marquee3k.min.js' | asset_url }}"></script>
+
   </head>
 
   <body class="scrollbar-gutter-overlay_ gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
