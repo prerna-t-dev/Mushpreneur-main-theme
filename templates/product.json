@@ -53,6 +53,21 @@
             "page": ""
           }
         },
+        "c_tab_nutrition_info_VwhXqy": {
+          "type": "c_tab_nutrition_info",
+          "settings": {
+            "heading": "Nutrition Facts"
+          }
+        },
+        "collapsible_tab_bDDAw8": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Easy To Make",
+            "icon": "none",
+            "content": "<p>Your productivity ritual, your way:</p><p></p><ul><li><strong>Straight Up</strong>: Mix with hot or cold water, stir or froth, and drink straight.</li><li><strong>Iced Latte</strong>: Froth it, pour over ice, and add your favorite milk.</li><li><strong>Supercharged Boos</strong>t: Mix into your instant espresso or coffee to curb midday slumps.</li><li><strong>Multipurpose</strong>: Mix with anything from baked goods to smoothies</li><li><strong>Start Slow</strong>: New to functional mushrooms? Begin with half a serving for a gentle boost.</li></ul>",
+            "page": ""
+          }
+        },
         "collapsible_tab_RaEGKa": {
           "type": "collapsible_tab",
           "settings": {
@@ -67,7 +82,7 @@
           "settings": {
             "heading": "Guarantee",
             "icon": "none",
-            "content": "<p>We’re passionate about delivering quality and satisfaction. Feel more focused and productive or Day Shrooms is on us! Just let us know within 30 days of your first purchase.</p>",
+            "content": "<p>We’re passionate about delivering quality and satisfaction. Feel more focused and productive or Day Shrooms is on us! Just let us know within 30 days of your first purchase.</p><p></p><p><a href=\"mailto:hey@mushpreneur.com\" title=\"mailto:hey@mushpreneur.com\">Contact Us</a></p>",
             "page": ""
           }
         }
@@ -80,6 +95,8 @@
         "quantity_and_atc_Gawhyw",
         "collapsible_tab_3igxNW",
         "collapsible_tab_d7mQ9P",
+        "c_tab_nutrition_info_VwhXqy",
+        "collapsible_tab_bDDAw8",
         "collapsible_tab_RaEGKa",
         "collapsible_tab_AknDAD"
       ],
