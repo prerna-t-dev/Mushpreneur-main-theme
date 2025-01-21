@@ -270,6 +270,24 @@ a.product__text {
   padding: 0 1rem;
 } */
 
+.product__accordion .accordion__content ul{
+  padding-left: 0;
+  margin-top: 8px;
+}
+
+.product__accordion .accordion__content li{
+  list-style-type: disc;
+  padding-bottom: 6px;
+}
+
+.product__accordion .accordion__content li::marker{
+  margin-right: 8px;
+}
+
+.product__accordion .accordion__content a{
+  text-decoration: underline;
+}
+
 .product .price .badge {
   margin-bottom: 0.5rem;
 }

@@ -225,26 +225,63 @@
                 {{ block.settings.custom_liquid }}
               {%- when 'collapsible_tab' -%}
                 <div class="product__accordion accordion quick-add-hidden" {{ block.shopify_attributes }}>
-                  <details id="Details-{{ block.id }}-{{ section.id }}">
-                    <summary>
+                  <details class="border-t border-black" id="Details-{{ block.id }}-{{ section.id }}">
+                    <summary class="py-4 flex justify-between gap-2 items-center">
                       <div class="summary__title">
                         {% render 'icon-accordion', icon: block.settings.icon %}
-                        <h2 class="h4 accordion__title inline-richtext">
+                        <h2 class="accordion__title inline-richtext text-[22px] tracking-[-1.1px] font-semibold">
                           {{ block.settings.heading | default: block.settings.page.title | escape }}
                         </h2>
                       </div>
                       {% comment %} {{- 'icon-caret.svg' | inline_asset_content -}} {% endcomment %}
-                      <svg class="icon icon-caret" xmlns="http://www.w3.org/2000/svg" width="20" height="11" viewBox="0 0 20 11" fill="none" transform="rotate(180)">
+                      <svg class="w-[18px] h-auto" xmlns="http://www.w3.org/2000/svg" width="20" height="11" viewBox="0 0 20 11" fill="none" transform="rotate(180)">
                         <path d="M10.0501 0.433101C10.3792 0.433101 10.7083 0.558758 10.9592 0.809543L18.8547 8.7052C19.357 9.20746 19.357 10.0218 18.8547 10.5238C18.3527 11.0259 17.5385 11.0259 17.0362 10.5238L10.0501 3.53734L3.06397 10.5236C2.56171 11.0257 1.74762 11.0257 1.2456 10.5236C0.743097 10.0215 0.743097 9.20721 1.2456 8.70495L9.14105 0.809299C9.39208 0.558473 9.72114 0.433101 10.0501 0.433101Z" fill="#FF3EAD"/>
                       </svg>
                     
                     </summary>
-                    <div class="accordion__content rte" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
+                    <div class="accordion__content text-base tracking-[-0.8px] mb-3 rte" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
                       {{ block.settings.content }}
                       {{ block.settings.page.content }}
                     </div>
                   </details>
                 </div>
+                {%- when 'c_tab_nutrition_info' -%}
+                  <div class="product__accordion accordion quick-add-hidden" {{ block.shopify_attributes }}>
+                    <details class="border-t border-black" id="Details-{{ block.id }}-{{ section.id }}">
+                      <summary class="py-4 flex justify-between gap-2 items-center">
+                        <div class="summary__title">
+                          {% comment %} {% render 'icon-accordion', icon: block.settings.icon %} {% endcomment %}
+                          <h2 class="accordion__title inline-richtext text-[22px] tracking-[-1.1px] font-semibold">
+                            {{ block.settings.heading | default: block.settings.page.title | escape }}
+                          </h2>
+                        </div>
+                        {% comment %} {{- 'icon-caret.svg' | inline_asset_content -}} {% endcomment %}
+                        <svg class="w-[18px] h-auto" xmlns="http://www.w3.org/2000/svg" width="20" height="11" viewBox="0 0 20 11" fill="none" transform="rotate(180)">
+                          <path d="M10.0501 0.433101C10.3792 0.433101 10.7083 0.558758 10.9592 0.809543L18.8547 8.7052C19.357 9.20746 19.357 10.0218 18.8547 10.5238C18.3527 11.0259 17.5385 11.0259 17.0362 10.5238L10.0501 3.53734L3.06397 10.5236C2.56171 11.0257 1.74762 11.0257 1.2456 10.5236C0.743097 10.0215 0.743097 9.20721 1.2456 8.70495L9.14105 0.809299C9.39208 0.558473 9.72114 0.433101 10.0501 0.433101Z" fill="#FF3EAD"/>
+                        </svg>
+                      
+                      </summary>
+                      <div class="accordion__content text-base tracking-[-0.8px] mb-3 rte" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
+                        {% assign nutrition_categories = shop.metaobjects.day_shrooms_nutritional_info_category.values %}
+                        {% assign ordered_metaobjects = nutrition_categories | sort_natural: 'order' %}
+                        {% for nutrition_order in ordered_metaobjects  %}
+                          {% assign nutritionalInfo = nutrition_order.nutritional_info.value %}
+                          <div class="{% unless forloop.last %} border-b border-[#00000038] {% endunless %} py-2">
+                            {% for nutritionLabel in nutritionalInfo %}
+                              <div class="flex items-center justify-between gap-3 py-[6px]">
+                                  <p class="text-base tracking-[-0.8px]">
+                                    {{ nutritionLabel.label }}
+                                  </p>
+                                  <p>
+                                    {{ nutritionLabel.value }}
+                                  </p>
+                              </div>
+                            {% endfor %}
+                          </div>
+                        {% endfor %}
+                      </div>
+                    </details>
+                  </div>
               {%- when 'quantity_selector' -%}
                 <div
                   id="Quantity-Form-{{ section.id }}"
@@ -1032,6 +1069,18 @@
           "id": "custom_liquid",
           "label": "t:sections.custom-liquid.settings.custom_liquid.label",
           "info": "t:sections.custom-liquid.settings.custom_liquid.info"
+        }
+      ]
+    },
+    {
+      "type": "c_tab_nutrition_info",
+      "name": "Tab - Nutritional Info",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "info": "Include a heading that explains the content.",
+          "label": "Heading"
         }
       ]
     },
