@@ -30,8 +30,8 @@
     /* ===== Buttons ===== */
     .btn{
         @apply px-7 py-3 w-fit text-white font-extrabold rounded-[32px] cursor-pointer whitespace-nowrap uppercase;
-        font-size: 12px;
-        letter-spacing: -0.578px;
+        font-size: 14px;
+        letter-spacing: -0.7px;
         /* transition: background 0.3s ease-in-out; */
     }
 
