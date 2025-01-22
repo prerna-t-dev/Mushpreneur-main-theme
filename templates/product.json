@@ -23,6 +23,13 @@
             "text_style": "subtitle"
           }
         },
+        "text_3NdDUA": {
+          "type": "text",
+          "settings": {
+            "text": "20 Servings",
+            "text_style": "body"
+          }
+        },
         "description_MpYtep": {
           "type": "description",
           "settings": {}
@@ -90,6 +97,7 @@
       "block_order": [
         "title",
         "caption",
+        "text_3NdDUA",
         "description_MpYtep",
         "option_selector_ArQ3nW",
         "quantity_and_atc_Gawhyw",
