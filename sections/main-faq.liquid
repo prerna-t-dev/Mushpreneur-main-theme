@@ -26,8 +26,8 @@
 
 
 <section id="mush--all-faqs">
-     <div class="section-wrapper mt-[120px] text-black">
-        <h1 class="text-[80px] tracking-[-4px] font-bold leading-[1.1] mb-[102px] text-center">
+     <div class="section-wrapper mt-6 xl:mt-[120px] text-black">
+        <h1 class="text-[38px] xl:text-[80px] tracking-[-1.9px] xl:tracking-[-4px] font-bold leading-[1.1] mb-[38px] xl:mb-[102px] text-center">
             {{ section.settings.header  }}
         </h1>
        
@@ -38,16 +38,16 @@
             {% assign normalized_color = faq_category.color | downcase %}
             {% assign categoryIndex = forloop.index %}
             <div class="" style="background-color: {{ faq_category.bg_color }};">
-                <div class="rounded-t-[96px] px-[75px] pt-[110px] pb-[130px] flex gap-[54px] {% if normalized_color == '#ffffff' %} text-black {% else %} text-white {% endif %}" style="background-color: {{ faq_category.color }};">
-                    <p class="w-[25%] text-[56px] tracking-[-2.8px] font-bold leading-[1.1]">
+                <div class="rounded-t-[26px] xl:rounded-t-[96px] px-[26px] xl:px-[75px] py-[30px] xl:pt-[110px] xl:pb-[130px] flex flex-col xl:flex-row gap-[12px] xl:gap-[54px] {% if normalized_color == '#ffffff' %} text-black {% else %} text-white {% endif %}" style="background-color: {{ faq_category.color }};">
+                    <p class="xl:w-[25%] text-xl xl:text-[56px] tracking-[-1px] xl:tracking-[-2.8px] font-bold leading-[1.1]">
                         {{ faq_category.title }}
                     </p>
-                    <div class="w-[75%]">
+                    <div class="xl:w-[75%]">
                         {% assign associatedQuestions = faq_category.associated_questions.value %}
                         {% for faq in associatedQuestions %}
                         {% assign faqIndex = forloop.index %}
                         <details class="border-b {% if normalized_color == '#ffffff' %} border-black {% else %} border-white {% endif %} pb-2 xl:pb-3" id="Details-{{ categoryIndex }}-{{ faqIndex }}" {% if forloop.first %} open {% endif %}>
-                            <summary class="faq-section--padding !pt-7 !xl:pt-[42px] !pb-3 !xl:pb-7 flex justify-between gap-2">
+                            <summary class="faq-section--padding !pt-5 !xl:pt-[42px] !pb-2 !xl:pb-7 flex justify-between gap-2">
                                 <p class="text-base xl:text-[34.407px] {% if normalized_color == '#ffffff' %} text-black {% else %} text-white {% endif %} font-semibold tracking-[-0.8px] xl:tracking-[-1.72px] leading-[1.1]">
                                     {{ faq.question }}
                                 </p>
@@ -58,7 +58,7 @@
                                 </div>
                             </summary>
                             <div class="accordion__content py-4_ !px-0 !overflow-visible hide-scrollbar" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
-                                <div class="faq-answer {% if normalized_color == '#ffffff' %} text-black {% else %} text-white {% endif %} text-sm xl:text-2xl tracking-[-0.7px] xl:tracking-[-1.2px] font-light leading-[1.1] mb-5">
+                                <div class="faq-answer {% if normalized_color == '#ffffff' %} text-black {% else %} text-white {% endif %} text-sm xl:text-2xl tracking-[-0.7px] xl:tracking-[-1.2px] font-light leading-[1.1] mb-2 xl:mb-5">
                                     {% assign faq_answer = faq.answer | metafield_tag %}
                                     {{ faq_answer }}
                                 </div>
