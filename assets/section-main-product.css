@@ -271,7 +271,7 @@ a.product__text {
 } */
 
 .product__accordion .accordion__content ul{
-  padding-left: 0;
+  padding-left: 16px;
   margin-top: 8px;
 }
 

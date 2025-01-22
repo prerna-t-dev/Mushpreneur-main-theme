@@ -78,7 +78,7 @@
       <div class="grid__item_ product__media-wrapper_">
         {% render 'product-media-gallery', variant_images: variant_images %}
       </div>
-      <div class="product__info-wrapper_ grid__item_ lg:ml-[64px] {% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      <div class="product__info-wrapper_ grid__item_ mt-3 xl:mt-0 xl:ml-[64px] {% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <!-- Product Info -->
         <section
           id="ProductInfo-{{ section.id }}"
@@ -86,15 +86,15 @@
         >
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
-            <div class="product--reviews flex gap-1 mb-2 text-black">
+            <div class="product--reviews flex items-center gap-1 mb-2 text-black">
               <div class="flex">
                 {% for i in (1..5) %}
-                  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+                  <svg class="scale-[0.7] xl:scale-[1]" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
                     <path d="M12.4514 2.94017C12.6752 2.48674 13.3218 2.48674 13.5456 2.94017L16.4424 8.8098C16.5313 8.98986 16.703 9.11466 16.9017 9.14353L23.3793 10.0848C23.8796 10.1575 24.0794 10.7724 23.7174 11.1253L19.0302 15.6942C18.8864 15.8344 18.8208 16.0363 18.8547 16.2342L19.9612 22.6856C20.0467 23.1839 19.5236 23.564 19.0761 23.3287L13.2824 20.2827C13.1047 20.1893 12.8923 20.1893 12.7146 20.2827L6.92093 23.3287C6.47337 23.564 5.95029 23.1839 6.03576 22.6856L7.14226 16.2342C7.1762 16.0363 7.11059 15.8344 6.96681 15.6942L2.27962 11.1253C1.91754 10.7724 2.11734 10.1575 2.61773 10.0848L9.09525 9.14353C9.29396 9.11466 9.46573 8.98986 9.55459 8.8098L12.4514 2.94017Z" fill="black" stroke="black" stroke-width="2.16667" stroke-linejoin="round"/>
                   </svg>
                 {% endfor %}
               </div>
-              <p class="text-2xl tracking-[-1.2px] uppercase">
+              <p class="text-sm tracking-[-0.7px] xl:text-2xl xl:tracking-[-1.2px] uppercase">
                 350+ Reviews
               </p>
             </div>
@@ -105,14 +105,14 @@
                 {% render block %}
               {%- when 'text' -%}
                 <p
-                  class="product__text inline-richtext text-black !mt-0 leading-[1.1] mb-2 {% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} text-[40px] !mb-2 tracking-[-2px] font-medium subtitle{% endif %} {% if block.settings.text_style == 'body' %} text-[27px] tracking-[-1.35px] font-medium pb-2 !mb-6 border-b border-black {% endif %}"
+                  class="product__text inline-richtext text-black !mt-0 leading-[1.1] mb-2 {% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} text-2xl xl:text-[40px] !mb-2 tracking-[-1.2px] xl:tracking-[-2px] font-medium subtitle{% endif %} {% if block.settings.text_style == 'body' %} text-base tracking-[-0.8px] xl:text-[26px] xl:tracking-[-1.3px] font-medium pb-2 !mb-4 xl:mb-6 border-b border-black {% endif %}"
                   {{ block.shopify_attributes }}
                 >
                   {{- block.settings.text -}}
                 </p>
               {%- when 'title' -%}
                 <div class="product__title !mb-2" {{ block.shopify_attributes }}>
-                  <h1 class="text-[67px] tracking-[-3.35px] font-bold text-orange leading-none">{{ product.title | escape }}</h1>
+                  <h1 class="text-[40px] xl:text-[67px] tracking-[-2px] xl:tracking-[-3.35px] font-bold text-orange leading-none">{{ product.title | escape }}</h1>
                   {% comment %} <a href="{{ product.url }}" class="product__title">
                     <h2 class="h1">
                       {{ product.title | escape }}
@@ -207,7 +207,7 @@
                 </p>
               {%- when 'description' -%}
                 {%- if product.description != blank -%}
-                  <div class="product__description rte quick-add-hidden text-black mt-6" {{ block.shopify_attributes }}>
+                  <div class="product__description rte quick-add-hidden text-black mt-4 xl:mt-6" {{ block.shopify_attributes }}>
                     {{ product.description }}
                   </div>
                 {%- endif -%}
@@ -226,10 +226,10 @@
               {%- when 'collapsible_tab' -%}
                 <div class="product__accordion accordion quick-add-hidden" {{ block.shopify_attributes }}>
                   <details class="border-t border-black" id="Details-{{ block.id }}-{{ section.id }}">
-                    <summary class="py-4 flex justify-between gap-2 items-center">
+                    <summary class="py-3 xl:py-4 flex justify-between gap-2 items-center">
                       <div class="summary__title">
                         {% render 'icon-accordion', icon: block.settings.icon %}
-                        <h2 class="accordion__title inline-richtext text-[22px] tracking-[-1.1px] font-semibold">
+                        <h2 class="accordion__title inline-richtext text-lg xl:text-[22px] tracking-[-0.8px] xl:tracking-[-1.1px] font-semibold">
                           {{ block.settings.heading | default: block.settings.page.title | escape }}
                         </h2>
                       </div>
@@ -239,7 +239,7 @@
                       </svg>
                     
                     </summary>
-                    <div class="accordion__content text-base tracking-[-0.8px] mb-3 rte" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
+                    <div class="accordion__content text-base tracking-[-0.8px] mb-3" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
                       {{ block.settings.content }}
                       {{ block.settings.page.content }}
                     </div>
@@ -248,10 +248,10 @@
                 {%- when 'c_tab_nutrition_info' -%}
                   <div class="product__accordion accordion quick-add-hidden" {{ block.shopify_attributes }}>
                     <details class="border-t border-black" id="Details-{{ block.id }}-{{ section.id }}">
-                      <summary class="py-4 flex justify-between gap-2 items-center">
+                      <summary class="py-3 xl:py-4 flex justify-between gap-2 items-center">
                         <div class="summary__title">
                           {% comment %} {% render 'icon-accordion', icon: block.settings.icon %} {% endcomment %}
-                          <h2 class="accordion__title inline-richtext text-[22px] tracking-[-1.1px] font-semibold">
+                          <h2 class="accordion__title inline-richtext text-lg xl:text-[22px] tracking-[-0.8px] xl:tracking-[-1.1px] font-semibold">
                             {{ block.settings.heading | default: block.settings.page.title | escape }}
                           </h2>
                         </div>
@@ -261,7 +261,7 @@
                         </svg>
                       
                       </summary>
-                      <div class="accordion__content text-base tracking-[-0.8px] mb-3 rte" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
+                      <div class="accordion__content text-base tracking-[-0.8px] mb-3" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
                         {% assign nutrition_categories = shop.metaobjects.day_shrooms_nutritional_info_category.values %}
                         {% assign ordered_metaobjects = nutrition_categories | sort_natural: 'order' %}
                         {% for nutrition_order in ordered_metaobjects  %}
@@ -719,7 +719,7 @@
                 {% render 'pdp-option-selector'%}
               {%- when 'quantity_and_atc' -%}
                 {% comment %} {% render 'quantity-and-atc'%} {% endcomment %}
-                <div class="quantity--atc my-10">
+                <div class="quantity--atc my-8 xl:my-10">
                   <div class="flex gap-4">
                       <!-- Quantity Selector -->
                       <div class="price-per-item__container">
