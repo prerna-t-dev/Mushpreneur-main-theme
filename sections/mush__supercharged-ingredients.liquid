@@ -39,7 +39,7 @@
     }
 
 
-    @media (max-width:1024px ) {
+    @media (max-width:990px ) {
         .slick--supercharged-ingredients .slick-list .slick-slide{
             padding: 0 10px;
             height: inherit !important;
@@ -52,9 +52,9 @@
 
 
 <section id="mush--supercharged-ingredients" class="overflow-hidden">
-    <div class="section-wrapper bg-black px-0 pt-[36px] xl:pt-[88px] pb-[108px] xl:pb-[236px] relative">
+    <div class="section-wrapper bg-black px-0 pt-[36px] xl:pt-[88px] pb-[108px] lg:pb-[236px] relative">
 
-        <div class="text-white {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
+        <div class="text-white relative z-[10] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
             <h3 class="text-white text-center font-bold text-2xl xl:text-[51.682px] tracking-[-1.2px] xl:tracking-[-2.584px] leading-[1.1] mb-3 px-6">
                 <span class="ingredients-header-color tracking-[-1.2px] xl:tracking-[-2.584px]">Supercharged ingredients </span>
                 for Mood, Energy & Focus
@@ -65,7 +65,7 @@
 
 
             <!-- Ingredients Slider -->
-            <div class="swiper-container swiper-supercharged-ingredients relative w-full mt-[38px] xl:mt-[64px] z-2">
+            <div class="swiper-container swiper-supercharged-ingredients relative w-full mt-[38px] xl:mt-[64px] z-[10]">
                 <div class="swiper-wrapper slick--supercharged-ingredients">
                     {% for block in section.blocks %}
                         <div class="w-full h-full">
@@ -87,7 +87,7 @@
         </div>
 
 
-        <div class="absolute left-0 bottom-0 w-full overflow-hidden">
+        <div class="absolute z-1 left-0 bottom-0 w-full overflow-hidden">
             <!-- Desktop SVG -->
             <svg class="w-full translate-y-[1px] h-auto hidden xl:block" xmlns="http://www.w3.org/2000/svg" width="1440" height="171" viewBox="0 0 1440 171" fill="none">
                 <path d="M1091.25 122.201C793.5 98.0025 809.625 -26.6183 521.25 55.2522C232.875 137.123 0 55.2522 0 55.2522V171H1440V0C1440 0 1389 146.399 1091.25 122.201Z" fill="#E74639"/>
@@ -121,7 +121,7 @@
             mobileFirst: true,
             responsive: [
                 {
-                    breakpoint: 1024,
+                    breakpoint: 990,
                     settings: {
                         slidesToShow: 3,
                         slidesToScroll: 1,

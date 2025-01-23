@@ -28,8 +28,8 @@
 <cart-items class="gradient color-{{ section.settings.color_scheme }} isolate{% if cart == empty %} is-empty{% else %} section-{{ section.id }}-padding{% endif %}">
   <div class="page-width">
     <div class="title-wrapper-with-link">
-      <h1 class="title title--primary">{{ 'sections.cart.title' | t }}</h1>
-      <a href="{{ routes.all_products_collection_url }}" class="underlined-link">
+      <h1 class="title title--primary text-2xl xl:text-[40px] tracking-[-1.2px] xl:tracking-[-2px] font-semibold">{{ 'sections.cart.title' | t }}</h1>
+      <a href="{{ routes.all_products_collection_url }}" class="underlined-link text-2xl xl:text-[32px] tracking-[-1.2px] xl:tracking-[-1.6px] font-medium">
         {{- 'general.continue_shopping' | t -}}
       </a>
     </div>
@@ -84,10 +84,10 @@
                       {% if item.image %}
                         {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
                         <a href="{{ item.url }}" class="cart-item__link" aria-hidden="true" tabindex="-1"> </a>
-                        <div class="cart-item__image-container gradient global-media-settings">
+                        <div class="cart-item__image-container gradient global-media-settings w-[100px] xl:w-[200px]">
                           <img
                             src="{{ item.image | image_url: width: 300 }}"
-                            class="cart-item__image"
+                            class="cart-item__image w-full"
                             alt="{{ item.image.alt | escape }}"
                             loading="lazy"
                             width="150"
@@ -102,7 +102,7 @@
                         <p class="caption-with-letter-spacing">{{ item.product.vendor }}</p>
                       {%- endif -%}
 
-                      <a href="{{ item.url }}" class="cart-item__name h4 break">{{ item.product.title | escape }}</a>
+                      <a href="{{ item.url }}" class="cart-item__name h4_ break text-base xl:text-[32px] tracking-[-0.8px] xl:tracking-[-1.6px] font-semibold">{{ item.product.title | escape }}</a>
 
                       {%- if item.original_price != item.final_price -%}
                         <div class="cart-item__discounted-prices">

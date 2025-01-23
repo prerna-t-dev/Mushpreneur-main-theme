@@ -355,8 +355,19 @@
         </div>
 
         <!-- CTAs -->
+        
+
+        <div class="mt-4 hidden">
+          {%- if additional_checkout_buttons -%}
+            <div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
+              {{ content_for_additional_checkout_buttons }}
+            </div>
+          {%- endif -%}
+        </div>
+        
 
         <div class="cart__ctas" {{ block.shopify_attributes }}>
+        
           <button
             type="submit"
             id="CartDrawer-Checkout"

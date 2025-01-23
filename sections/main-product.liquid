@@ -73,12 +73,12 @@
   {%- endif -%}
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
-  <div class="page-width product--first-fold">
+  <div class="page-width product--first-fold px-7 lg:px-20">
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid-cols-1 {% if product.media.size > 0 %}xl:grid-cols-2{% else %}product--no-media{% endif %}">
       <div class="grid__item_ product__media-wrapper_">
         {% render 'product-media-gallery', variant_images: variant_images %}
       </div>
-      <div class="product__info-wrapper_ grid__item_ mt-3 xl:mt-0 xl:ml-[64px] {% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      <div class="product__info-wrapper_ grid__item_ mt-3 lg:mt-8 xl:mt-0 xl:ml-[64px] {% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <!-- Product Info -->
         <section
           id="ProductInfo-{{ section.id }}"
@@ -89,12 +89,12 @@
             <div class="product--reviews flex items-center gap-1 mb-2 text-black">
               <div class="flex">
                 {% for i in (1..5) %}
-                  <svg class="scale-[0.7] xl:scale-[1]" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+                  <svg class="scale-[0.7] lg:scale-[1]" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
                     <path d="M12.4514 2.94017C12.6752 2.48674 13.3218 2.48674 13.5456 2.94017L16.4424 8.8098C16.5313 8.98986 16.703 9.11466 16.9017 9.14353L23.3793 10.0848C23.8796 10.1575 24.0794 10.7724 23.7174 11.1253L19.0302 15.6942C18.8864 15.8344 18.8208 16.0363 18.8547 16.2342L19.9612 22.6856C20.0467 23.1839 19.5236 23.564 19.0761 23.3287L13.2824 20.2827C13.1047 20.1893 12.8923 20.1893 12.7146 20.2827L6.92093 23.3287C6.47337 23.564 5.95029 23.1839 6.03576 22.6856L7.14226 16.2342C7.1762 16.0363 7.11059 15.8344 6.96681 15.6942L2.27962 11.1253C1.91754 10.7724 2.11734 10.1575 2.61773 10.0848L9.09525 9.14353C9.29396 9.11466 9.46573 8.98986 9.55459 8.8098L12.4514 2.94017Z" fill="black" stroke="black" stroke-width="2.16667" stroke-linejoin="round"/>
                   </svg>
                 {% endfor %}
               </div>
-              <p class="text-sm tracking-[-0.7px] xl:text-2xl xl:tracking-[-1.2px] uppercase">
+              <p class="text-sm tracking-[-0.7px] lg:text-2xl lg:tracking-[-1.2px] uppercase">
                 350+ Reviews
               </p>
             </div>
@@ -112,7 +112,7 @@
                 </p>
               {%- when 'title' -%}
                 <div class="product__title !mb-2" {{ block.shopify_attributes }}>
-                  <h1 class="text-[40px] xl:text-[67px] tracking-[-2px] xl:tracking-[-3.35px] font-bold text-orange leading-none">{{ product.title | escape }}</h1>
+                  <h1 class="text-[40px] lg:text-[67px] tracking-[-2px] lg:tracking-[-3.35px] font-bold text-orange leading-none">{{ product.title | escape }}</h1>
                   {% comment %} <a href="{{ product.url }}" class="product__title">
                     <h2 class="h1">
                       {{ product.title | escape }}
@@ -229,7 +229,7 @@
                     <summary class="py-3 xl:py-4 flex justify-between gap-2 items-center">
                       <div class="summary__title">
                         {% render 'icon-accordion', icon: block.settings.icon %}
-                        <h2 class="accordion__title inline-richtext text-lg xl:text-[22px] tracking-[-0.8px] xl:tracking-[-1.1px] font-semibold">
+                        <h2 class="accordion__title inline-richtext text-lg lg:text-[22px] tracking-[-0.8px] lg:tracking-[-1.1px] font-semibold">
                           {{ block.settings.heading | default: block.settings.page.title | escape }}
                         </h2>
                       </div>
@@ -251,7 +251,7 @@
                       <summary class="py-3 xl:py-4 flex justify-between gap-2 items-center">
                         <div class="summary__title">
                           {% comment %} {% render 'icon-accordion', icon: block.settings.icon %} {% endcomment %}
-                          <h2 class="accordion__title inline-richtext text-lg xl:text-[22px] tracking-[-0.8px] xl:tracking-[-1.1px] font-semibold">
+                          <h2 class="accordion__title inline-richtext text-lg lg:text-[22px] tracking-[-0.8px] lg:tracking-[-1.1px] font-semibold">
                             {{ block.settings.heading | default: block.settings.page.title | escape }}
                           </h2>
                         </div>
