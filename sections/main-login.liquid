@@ -19,11 +19,11 @@
 {%- endif -%}
 
 <div class="customer login section-{{ section.id }}-padding">
-  <h1 id="recover" tabindex="-1">
+  <h1 id="recover" class="text-2xl xl:text-[46px] tracking-[-1.2px] xl:tracking-[-2.3px] font-semibold mb-1 xl:mb-2 leading-tight" tabindex="-1">
     {{ 'customer.recover_password.title' | t }}
   </h1>
   <div>
-    <p>
+    <p class="py-0 !my-0 text-base xl:text-2xl tracking-[-0.8px] xl:tracking-[-1.2px]">
       {{ 'customer.recover_password.subtext' | t }}
     </p>
 
@@ -62,19 +62,20 @@
         {{ 'customer.login_page.submit' | t }}
       </button>
 
-      <a href="#login">
+      <a class="py-0 !my-0 text-base xl:text-2xl tracking-[-0.8px] xl:tracking-[-1.2px]" href="#login">
         {{ 'customer.login_page.cancel' | t }}
       </a>
     {%- endform -%}
   </div>
 
-  <h1 id="login" class="text-2xl xl:text-[46px] tracking-[-1.2px] xl:tracking-[-2.3px] font-semibold mb-2" tabindex="-1">
+  <h1 id="login" class="text-2xl xl:text-[46px] tracking-[-1.2px] xl:tracking-[-2.3px] font-semibold mb-1 xl:mb-2 leading-tight" tabindex="-1">
     {{ 'customer.login_page.title' | t }}
   </h1>
-  <p class="py-0 !my-0 text-2xl tracking-[-1.2px]">
-    Please enter your e-mail and password:
-  </p>
+  
   <div>
+    <p class="py-0 !my-0 text-base xl:text-2xl tracking-[-0.8px] xl:tracking-[-1.2px]">
+      Please enter your e-mail and password:
+    </p>
     {%- if recover_success == true -%}
       <h3 class="form__message" tabindex="-1" autofocus>
         <span class="svg-wrapper">
@@ -144,9 +145,11 @@
           </label>
         </div>
 
-       {% comment %} <a href="#recover">
+        <!-- Forgot Password Link -->
+        <a class="!text-sm !tracking-[-0.7px] xl:!text-xl xl:!tracking-[-1px] text-center !w-full block" href="#recover">
           {{ 'customer.login_page.forgot_password' | t }}
-        </a> {% endcomment %}
+        </a> 
+
       {%- endif -%}
 
       <button class="btn btn-tertiary w-full block mx-auto lg:mx-unset">
@@ -154,14 +157,14 @@
       </button>
 
 
-      <div class="text-2xl tracking-[-1.2px] mb-2">
+      <div class="text-base xl:text-2xl tracking-[-0.8px] xl:tracking-[-1.2px] mb-1 xl:mb-2">
         Don't have an account?
-        <a class="!inline-block text-2xl tracking-[-1.2px]" href="{{ routes.account_register_url }}">
+        <a class="!inline-block !text-base xl:!text-2xl !tracking-[-0.8px] xl:!tracking-[-1.2px]" href="{{ routes.account_register_url }}">
           Create One
         </a>
       </div>
 
-      <p class="!my-0 text-2xl tracking-[-1.2px]">
+      <p class="!my-0 text-base xl:text-2xl tracking-[-0.8px] xl:tracking-[-1.2px]">
         Manage subscriptions without password
       </p>
       

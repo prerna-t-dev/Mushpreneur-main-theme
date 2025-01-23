@@ -15,10 +15,10 @@
 {%- endstyle -%}
 
 <div class="customer register section-{{ section.id }}-padding">
-  <h1 class="text-[46px] tracking-[-2.3px] font-semibold mb-2" >
+  <h1 class="text-2xl xl:text-[46px] tracking-[-1.2px] xl:tracking-[-2.3px] font-semibold mb-1 xl:mb-2 leading-tight" >
     Register
   </h1>
-  <p class="py-0 !my-0 text-2xl tracking-[-1.2px]">
+  <p class="py-0 !my-0 text-base xl:text-2xl tracking-[-0.8px] xl:tracking-[-1.2px]">
     Please fill in the information below:
   </p>
   {%- form 'create_customer', novalidate: 'novalidate' -%}
@@ -137,9 +137,9 @@
       Create my account
     </button>
 
-    <div class="text-2xl tracking-[-1.2px] mb-2">
+    <div class="text-base xl:text-2xl tracking-[-0.8px] xl:tracking-[-1.2px] mb-1 xl:mb-2">
       Already have an account?
-      <a class="!inline-block text-2xl tracking-[-1.2px]" href="{{ routes.account_login_url }}">
+      <a class="!inline-block !text-base xl:!text-2xl !tracking-[-0.8px] xl:!tracking-[-1.2px]" href="{{ routes.account_login_url }}">
         Log In
       </a>
     </div>
