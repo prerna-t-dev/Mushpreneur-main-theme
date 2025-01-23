@@ -372,7 +372,8 @@
 }
 
 #recover:target ~ #login,
-#recover:target ~ #login + div {
+#recover:target ~ #login + div,
+#recover:target ~ #login + p {
   display: none;
 }
 

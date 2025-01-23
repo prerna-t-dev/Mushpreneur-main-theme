@@ -193,6 +193,7 @@
         font-weight: 600;
         font-size: 24px !important;
         letter-spacing: -1.2px !important;
+        margin: 32px 0 1.5rem !important;
 }
 
 
@@ -208,6 +209,51 @@
     letter-spacing: -0.8px !important;
 }
 
+
+
+/* Account Pages Mobile */
+@media (max-width: 1280px) {
+    .field__input, .select__select, .customer .field input, .customer select{
+        border-radius: 36px !important;
+        border: 1px solid black;
+        font-size: 16px !important;
+        letter-spacing: -0.8px !important;
+        height: 48px !important;
+        /* max-width: 230px !important; */
+        margin: auto;
+    }
+
+    .field__label, .customer .field label{
+        font-size: 16px !important;
+        letter-spacing: -0.8px !important;
+        display: none  !important;
+    }
+    
+    
+    .customer .field input::placeholder{
+        font-size: 16px !important;
+        letter-spacing: -0.8px !important;
+        color: black !important;
+        opacity: 50% !important;
+    }
+
+    .customer .field{
+        margin: 16px 0 0 0 !important;
+    }
+
+
+    .customer button{
+        margin: 16px 0 1.5rem !important;
+        height: 48px !important;
+        min-height: 48px !important;
+        padding: 1.5rem !important;
+        font-size: 16px !important;
+        letter-spacing: -0.8px !important;
+        border-radius: 36px !important;
+        /* max-width: 230px !important; */
+    }
+    
+}
 
 
 
