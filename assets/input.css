@@ -355,7 +355,7 @@
 
 
 /* Product Mobile */
-@media (max-width: 1280px) {
+@media (max-width: 990px) {
     .product__description h2{
         font-size: 18px;
         letter-spacing: -0.9px;
@@ -408,4 +408,15 @@
         line-height: normal;
         letter-spacing: -0.8px;
     }
+}
+
+
+
+/* Cart Drawer */
+#CartDrawer shopify-paypal-button{
+    display:  none;
+}
+
+#CartDrawer shop-pay-wallet-button{
+
 }
