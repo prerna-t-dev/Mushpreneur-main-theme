@@ -1685,7 +1685,7 @@ details[open] > .share-button__fallback {
   pointer-events: none;
   position: absolute;
   top: calc(50% - 0.2rem);
-  right: 0;
+  right: 20px;
 }
 
 .select__select,

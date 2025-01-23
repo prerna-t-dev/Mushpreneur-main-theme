@@ -18,8 +18,8 @@
 
 {%- paginate customer.addresses by 5 -%}
   <div class="customer addresses section-{{ section.id }}-padding" data-customer-addresses>
-    <h1>{{ 'customer.addresses.title' | t }}</h1>
-    <a href="{{ routes.account_url }}">
+    <h1 class="!text-2xl xl:!text-[46px] !tracking-[-1.2px] xl:!tracking-[-2.3px] font-semibold mb-1 xl:mb-2 leading-tight">{{ 'customer.addresses.title' | t }}</h1>
+    <a href="{{ routes.account_url }}" class="text-2xl tracking-[-1.2px] font-medium">
       {{ 'customer.account.return' | t }}
     </a>
 
@@ -32,7 +32,7 @@
         {{ 'customer.addresses.add_new' | t }}
       </button>
       <div id="AddAddress">
-        <h2 id="AddressNewHeading">{{ 'customer.addresses.add_new' | t }}</h2>
+        <h2 id="AddressNewHeading" class="text-[32px] tracking-[-1.6px] font-semibold">{{ 'customer.addresses.add_new' | t }}</h2>
         {%- form 'customer_address', customer.new_address, aria-labelledBy: 'AddressNewHeading' -%}
           <div class="field">
             <input
@@ -155,7 +155,7 @@
           </div>
           <div>
             {{ form.set_as_default_checkbox }}
-            <label for="address_default_address_new">{{ 'customer.addresses.set_default' | t }}</label>
+            <label for="address_default_address_new" class="text-2xl tracking-[-1.2px]">{{ 'customer.addresses.set_default' | t }}</label>
           </div>
           <div>
             <button>{{ 'customer.addresses.add' | t }}</button>
@@ -169,9 +169,12 @@
       {%- for address in customer.addresses -%}
         <li data-address>
           {%- if address == customer.default_address -%}
-            <h2>{{ 'customer.addresses.default' | t }}</h2>
+            <h2 class="text-[32px] tracking-[-1.6px] font-semibold">{{ 'customer.addresses.default' | t }}</h2>
           {%- endif -%}
-          {{ address | format_address }}
+          <div class="customer--address">
+            {{ address | format_address }}
+          </div>
+          
           <button
             type="button"
             id="EditFormButton_{{ address.id }}"
@@ -179,6 +182,7 @@
             aria-controls="EditAddress_{{ address.id }}"
             aria-expanded="false"
             data-address-id="{{ address.id }}"
+            class="!btn !btn-tertiary"
           >
             {{ 'customer.addresses.edit' | t }}
           </button>
@@ -191,7 +195,7 @@
             {{ 'customer.addresses.delete' | t }}
           </button>
           <div id="EditAddress_{{ address.id }}">
-            <h2>{{ 'customer.addresses.edit_address' | t }}</h2>
+            <h2 class="text-[32px] tracking-[-1.6px] font-semibold">{{ 'customer.addresses.edit_address' | t }}</h2>
             {%- form 'customer_address', address -%}
               <div class="field">
                 <input
@@ -320,7 +324,7 @@
               </div>
               <div>
                 {{ form.set_as_default_checkbox }}
-                <label for="address_default_address_{{ form.id }}">
+                <label for="address_default_address_{{ form.id }}" class="text-2xl tracking-[-1.2px]">
                   {{ 'customer.addresses.set_default' | t }}
                 </label>
               </div>
