@@ -1,0 +1,51 @@
+
+
+<section id="mush--why-mushroom-hero">
+    <div class="section-wrapper bg-black text-white relative">
+        <img src="{{ section.settings.image |  img_url: 'master' }}" alt="Why Mushroom">
+
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 text-center w-2/3 px-8">
+            <h1 class="text-[48px] tracking-[-2.4px] !text-white font-bold text-center mb-2">
+                {{ section.settings.header }}
+            </h1>
+            <p class="text-[28px] tracking-[-1.4px] mb-8">
+                {{ section.settings.subheader }}
+            </p>
+            <a href="#" class="btn btn-secondary mx-auto block {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
+                Explore Day Shrooms
+            </a>
+        </div>
+    </div>
+</section>
+
+
+{%  schema  %} 
+    {
+        "name": "Why Mushroom - Hero",
+        "class": "section--why-mushroom-hero",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            },
+            {
+                "type": "text",
+                "id": "header",
+                "label": "Header",
+                "default": "Drink Mushrooms. Get Sh*t Done."
+            },
+            {
+                "type": "text",
+                "id": "subheader",
+                "label": "Subheader",
+                "default": "Fuel your focus, energy, and creativity with functional mushrooms—no crashes, no excuses. The next-level upgrade your busy day demands."
+            }
+        ],
+        "presets": [
+            {
+                "name": "Why Mushroom - Hero"
+            }
+        ]
+    } 
+{% endschema %}

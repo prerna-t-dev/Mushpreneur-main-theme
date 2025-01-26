@@ -1420,6 +1420,14 @@ body {
   padding-top: 6px;
   padding-bottom: 6px;
 }
+.px-32 {
+  padding-left: 8rem;
+  padding-right: 8rem;
+}
+.px-24 {
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
 .\!pb-2 {
   padding-bottom: 0.5rem !important;
 }
@@ -1630,6 +1638,9 @@ body {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
+.text-\[48px\] {
+  font-size: 48px;
+}
 .font-bold {
   font-weight: 700;
 }
@@ -1791,6 +1802,9 @@ body {
 }
 .tracking-\[-4px\] {
   letter-spacing: -4px;
+}
+.tracking-\[-2\.4px\] {
+  letter-spacing: -2.4px;
 }
 .\!text-white {
   --tw-text-opacity: 1 !important;
@@ -2257,10 +2271,6 @@ body {
     margin-top: 2rem;
   }
 
-  .lg\:mb-\[102px\] {
-    margin-bottom: 102px;
-  }
-
   .lg\:mt-\[120px\] {
     margin-top: 120px;
   }
@@ -2325,14 +2335,6 @@ body {
     width: 56px;
   }
 
-  .lg\:w-\[25\%\] {
-    width: 25%;
-  }
-
-  .lg\:w-\[75\%\] {
-    width: 75%;
-  }
-
   .lg\:scale-\[1\] {
     --tw-scale-x: 1;
     --tw-scale-y: 1;
@@ -2345,10 +2347,6 @@ body {
 
   .lg\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .lg\:flex-row {
-    flex-direction: row;
   }
 
   .lg\:justify-start {
@@ -2375,6 +2373,10 @@ body {
     gap: 5rem;
   }
 
+  .lg\:gap-\[54px\] {
+    gap: 54px;
+  }
+
   .lg\:gap-\[56px\] {
     gap: 56px;
   }
@@ -2383,26 +2385,12 @@ body {
     gap: 92px;
   }
 
-  .lg\:gap-\[54px\] {
-    gap: 54px;
-  }
-
   .lg\:rounded-\[38\.973px\] {
     border-radius: 38.973px;
   }
 
   .lg\:rounded-\[46px\] {
     border-radius: 46px;
-  }
-
-  .lg\:rounded-t-\[96px\] {
-    border-top-left-radius: 96px;
-    border-top-right-radius: 96px;
-  }
-
-  .lg\:rounded-t-\[56px\] {
-    border-top-left-radius: 56px;
-    border-top-right-radius: 56px;
   }
 
   .lg\:rounded-t-\[42px\] {
@@ -2474,6 +2462,11 @@ body {
     padding-right: 56px;
   }
 
+  .lg\:px-\[75px\] {
+    padding-left: 75px;
+    padding-right: 75px;
+  }
+
   .lg\:px-\[94px\] {
     padding-left: 94px;
     padding-right: 94px;
@@ -2499,6 +2492,11 @@ body {
     padding-bottom: 1.75rem;
   }
 
+  .lg\:py-\[22px\] {
+    padding-top: 22px;
+    padding-bottom: 22px;
+  }
+
   .lg\:py-\[34px\] {
     padding-top: 34px;
     padding-bottom: 34px;
@@ -2514,22 +2512,16 @@ body {
     padding-bottom: 64px;
   }
 
-  .lg\:px-\[75px\] {
-    padding-left: 75px;
-    padding-right: 75px;
-  }
-
-  .lg\:py-\[22px\] {
-    padding-top: 22px;
-    padding-bottom: 22px;
-  }
-
   .lg\:pb-3 {
     padding-bottom: 0.75rem;
   }
 
   .lg\:pb-\[110px\] {
     padding-bottom: 110px;
+  }
+
+  .lg\:pb-\[130px\] {
+    padding-bottom: 130px;
   }
 
   .lg\:pb-\[132px\] {
@@ -2592,6 +2584,10 @@ body {
     padding-top: 1.75rem;
   }
 
+  .lg\:pt-\[110px\] {
+    padding-top: 110px;
+  }
+
   .lg\:pt-\[128px\] {
     padding-top: 128px;
   }
@@ -2632,14 +2628,6 @@ body {
     padding-top: 76px;
   }
 
-  .lg\:pb-\[130px\] {
-    padding-bottom: 130px;
-  }
-
-  .lg\:pt-\[110px\] {
-    padding-top: 110px;
-  }
-
   .lg\:text-left {
     text-align: left;
   }
@@ -2659,6 +2647,10 @@ body {
 
   .lg\:text-\[20\.477px\] {
     font-size: 20.477px;
+  }
+
+  .lg\:text-\[22px\] {
+    font-size: 22px;
   }
 
   .lg\:text-\[25\.482px\] {
@@ -2717,6 +2709,10 @@ body {
     font-size: 48px;
   }
 
+  .lg\:text-\[56px\] {
+    font-size: 56px;
+  }
+
   .lg\:text-\[59\.62px\] {
     font-size: 59.62px;
   }
@@ -2761,18 +2757,6 @@ body {
     line-height: 1.75rem;
   }
 
-  .lg\:text-\[22px\] {
-    font-size: 22px;
-  }
-
-  .lg\:text-\[56px\] {
-    font-size: 56px;
-  }
-
-  .lg\:text-\[80px\] {
-    font-size: 80px;
-  }
-
   .lg\:font-medium {
     font-weight: 500;
   }
@@ -2799,6 +2783,10 @@ body {
 
   .lg\:tracking-\[-0\.9px\] {
     letter-spacing: -0.9px;
+  }
+
+  .lg\:tracking-\[-1\.1px\] {
+    letter-spacing: -1.1px;
   }
 
   .lg\:tracking-\[-1\.274px\] {
@@ -2869,6 +2857,10 @@ body {
     letter-spacing: -2.646px;
   }
 
+  .lg\:tracking-\[-2\.8px\] {
+    letter-spacing: -2.8px;
+  }
+
   .lg\:tracking-\[-2\.981px\] {
     letter-spacing: -2.981px;
   }
@@ -2895,18 +2887,6 @@ body {
 
   .lg\:tracking-\[-q\.2px\] {
     letter-spacing: -q.2px;
-  }
-
-  .lg\:tracking-\[-1\.1px\] {
-    letter-spacing: -1.1px;
-  }
-
-  .lg\:tracking-\[-2\.8px\] {
-    letter-spacing: -2.8px;
-  }
-
-  .lg\:tracking-\[-4px\] {
-    letter-spacing: -4px;
   }
 }
 
@@ -3015,10 +2995,6 @@ body {
     margin-top: 1.75rem;
   }
 
-  .xl\:mt-\[120px\] {
-    margin-top: 120px;
-  }
-
   .xl\:mt-\[62px\] {
     margin-top: 62px;
   }
@@ -3111,10 +3087,6 @@ body {
     width: 44px;
   }
 
-  .xl\:w-\[56px\] {
-    width: 56px;
-  }
-
   .xl\:w-\[75\%\] {
     width: 75%;
   }
@@ -3190,10 +3162,6 @@ body {
 
   .xl\:gap-7 {
     gap: 1.75rem;
-  }
-
-  .xl\:gap-\[54px\] {
-    gap: 54px;
   }
 
   .xl\:gap-\[56px\] {
@@ -3332,11 +3300,6 @@ body {
     padding-right: 74px;
   }
 
-  .xl\:px-\[75px\] {
-    padding-left: 75px;
-    padding-right: 75px;
-  }
-
   .xl\:px-\[86px\] {
     padding-left: 86px;
     padding-right: 86px;
@@ -3405,14 +3368,6 @@ body {
     padding-bottom: 5rem;
   }
 
-  .xl\:pb-3 {
-    padding-bottom: 0.75rem;
-  }
-
-  .xl\:pb-\[130px\] {
-    padding-bottom: 130px;
-  }
-
   .xl\:pb-\[132px\] {
     padding-bottom: 132px;
   }
@@ -3427,10 +3382,6 @@ body {
 
   .xl\:pr-0 {
     padding-right: 0px;
-  }
-
-  .xl\:pt-\[110px\] {
-    padding-top: 110px;
   }
 
   .xl\:pt-\[128px\] {
@@ -3508,10 +3459,6 @@ body {
     font-size: 32px;
   }
 
-  .xl\:text-\[34\.407px\] {
-    font-size: 34.407px;
-  }
-
   .xl\:text-\[34px\] {
     font-size: 34px;
   }
@@ -3542,10 +3489,6 @@ body {
 
   .xl\:text-\[52\.929px\] {
     font-size: 52.929px;
-  }
-
-  .xl\:text-\[56px\] {
-    font-size: 56px;
   }
 
   .xl\:text-\[58\.143px\] {
@@ -3647,10 +3590,6 @@ body {
     letter-spacing: -1.6px;
   }
 
-  .xl\:tracking-\[-1\.72px\] {
-    letter-spacing: -1.72px;
-  }
-
   .xl\:tracking-\[-1\.752px\] {
     letter-spacing: -1.752px;
   }
@@ -3681,10 +3620,6 @@ body {
 
   .xl\:tracking-\[-2\.584px\] {
     letter-spacing: -2.584px;
-  }
-
-  .xl\:tracking-\[-2\.8px\] {
-    letter-spacing: -2.8px;
   }
 
   .xl\:tracking-\[-2\.907px\] {
