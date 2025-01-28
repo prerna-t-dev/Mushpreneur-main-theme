@@ -1,0 +1,104 @@
+<section id="mush--why-mushroom-productivity">
+    <div class="section-wrapper text-white relative" style="background-color: {{ section.settings.background }};">
+        <div class="rounded-t-[26px] lg:rounded-t-[42px] xl:rounded-t-[96px] text-white text-center px-[26px] lg:px-[140px] py-[30px] lg:py-[110px]" style="background-color: {{ section.settings.foreground }};">
+
+            <h2 class="text-[48px] tracking-[-2.4px] !text-white leading-[1.1] font-bold mb-2">
+                {{ section.settings.header }}
+            </h2>
+            <p class="text-[28px] tracking-[-1.4px] leading-[1.2] mb-[110px]">
+                {{ section.settings.subheader }}
+            </p>
+
+
+
+            <div class="flex flex-col gap-8">
+                {% for block in section.blocks %}
+                    {% assign loopIndex = forloop.index %}
+                    {% assign isEvenBlock = loopIndex |  modulo: 2 %}
+                    <div class="grid grid-cols-2 gap-14 items-center">
+                        <img class="{% if isEvenBlock == 0 %} order-2 {% endif %}" src="{{ block.settings.image |  img_url: 'master'  }}" alt="{{ forloop.index }}--image-productivity">
+                        <div class="text-left text-white {% if isEvenBlock == 0 %} order-1 {% endif %}">
+                            <h5 class="text-white text-[32px] tracking-[-1.6px] font-semibold mb-6">
+                                {{ block.settings.title }}
+                            </h5>
+                            <p class="text-2xl tracking-[-1.2px] leading-[1.1] mb-6">
+                                {{ block.settings.description }}
+                            </p>
+                            <div class="text-2xl tracking-[-1.2px] leading-[1.1] font-bold">
+                                {{ block.settings.benefits |  newline_to_br }}
+                            </div>
+
+                        </div>
+
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{%  schema  %} 
+    {
+        "name": "Why Mushroom - Prod",
+        "class": "section--why-mushroom-productivity",
+        "settings": [
+            {
+                "type": "color",
+                "id": "background",
+                "label": "Background Color"
+            },
+            {
+                "type": "color",
+                "id": "foreground",
+                "label": "Foreground Color"
+            },
+            {
+                "type": "text",
+                "id": "header",
+                "label": "Header",
+                "default": "The Productivity Powerhouse: Mushrooms + More"
+            },
+            {
+                "type": "textarea",
+                "id": "subheader",
+                "label": "Subeader",
+                "default": "Productivity isn’t about working harder—it’s about working smarter. Functional mushrooms fuel focus, creativity, energy, and rest, making them the ultimate hack for your daily grind. Here’s how they make every moment count:"
+            }
+        
+        ],
+        "blocks": [
+            {
+                "name": "Productivity",
+                "type": "productivity",
+                "settings": [
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image"
+                    },
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Title"
+                    },
+                    {
+                        "type": "text",
+                        "id": "description",
+                        "label": "Description"
+                    },
+                    {
+                        "type": "textarea",
+                        "id": "benefits",
+                        "label": "Benefits"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Why Mushroom - Prod"
+            }
+        ]
+    } 
+{% endschema %}

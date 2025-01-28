@@ -1,7 +1,7 @@
 
 
 <section id="mush--why-mushroom-hero">
-    <div class="section-wrapper bg-black text-white relative">
+    <div class="section-wrapper text-white relative" style="background-color: {{ section.settings.background }};">
         <img src="{{ section.settings.image |  img_url: 'master' }}" alt="Why Mushroom">
 
         <div class="absolute bottom-0 left-1/2 -translate-x-1/2 text-center w-2/3 px-8">
@@ -16,6 +16,24 @@
             </a>
         </div>
     </div>
+    <div class="px-[180px] pt-[104px] pb-[184px] text-white " style="background-color: {{ section.settings.background }};">
+        <div class="flex gap-10 mb-8 {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
+            <h2 class="w-2/5 text-white text-[42px] tracking-[-2.1px] font-semibold leading-[1.1]">
+                Challenge the status <br /> quo. Mushrooms Are <br /> Changing the Game.
+            </h2>
+            <p class="w-3/5 text-[28px] tracking-[-1.4px] leading-[1.2]">
+                Why rely on coffee and energy drinks—the same tired tools that leave you crashing, jittery, and stressed? Functional mushrooms are flipping the script on productivity. These natural powerhouses fuel your focus, steady your energy, and calm your mind—all without the chaos.
+            </p>
+        </div>
+        <div class="flex gap-10 {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
+            <h2 class="w-2/5 text-white text-[42px] tracking-[-2.1px] font-semibold leading-[1.1]">
+                No jitters. No burnout. <br/> No compromises.
+            </h2>
+            <p class="w-3/5 text-[28px] tracking-[-1.4px] leading-[1.2]">
+                So, why stick to outdated habits when the future of productivity is already here? It’s Upgrade your routine and get sh*t done—the smarter way.
+            </p>
+        </div>
+    </div>
 </section>
 
 
@@ -24,6 +42,11 @@
         "name": "Why Mushroom - Hero",
         "class": "section--why-mushroom-hero",
         "settings": [
+            {
+                "type": "color",
+                "id": "background",
+                "label": "Background Color"
+            },
             {
                 "type": "image_picker",
                 "id": "image",

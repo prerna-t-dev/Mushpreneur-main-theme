@@ -1,0 +1,28 @@
+
+  
+<div class="text-block text-{{ block.settings.alignment }}">
+    {{ block.settings.text }}
+</div>
+  
+{% schema %}
+  {
+    "name": "Reference Link",
+    "settings": [
+      {
+        "type": "text",
+        "id": "label",
+        "label": "Reference Label"
+      },
+      {
+        "type": "url",
+        "id": "link",
+        "label": "Reference link"
+      }
+    ],
+    "presets": [
+      { "name": "Reference Link" }
+      
+    ]
+  }
+{% endschema %}
+  

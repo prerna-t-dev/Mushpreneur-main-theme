@@ -1,0 +1,69 @@
+<section id="mush--why-mushroom-usp">
+    <div class="section-wrapper text-white relative" style="background-color: {{ section.settings.background }};">
+        <div class="rounded-t-[26px] lg:rounded-t-[42px] xl:rounded-t-[96px] px-[26px] lg:px-[140px] py-[30px] lg:py-[110px]" style="background: {{ section.settings.foreground }};">
+            
+        </div>
+    </div>
+</section>
+
+
+{%  schema  %} 
+    {
+        "name": "Why Mushroom - USP",
+        "class": "section--why-mushroom-usp",
+        "settings": [
+            {
+                "type": "color",
+                "id": "background",
+                "label": "Background Color"
+            },
+            {
+                "type": "color_background",
+                "id": "foreground",
+                "label": "Foreground Color"
+            },
+            {
+                "type": "text",
+                "id": "header",
+                "label": "Header",
+                "default": "Mushrooms Are Smart. Day Shrooms Are Smarter."
+            },
+            {
+                "type": "text",
+                "id": "subheader",
+                "label": "Subheader",
+                "default": "You’ve met the mushrooms—now meet the drink that makes them unstoppable. Day Shrooms takes the power of functional mushrooms and levels up with adaptogens, nootropics, and essential vitamins, all working in synergy to create an all-in-one formula for focus, energy, and calm. Say goodbye to chaos and hello to productivity—the smarter way."
+            },
+            {
+                "type": "text",
+                "id": "prod_header",
+                "label": "Productivity Header",
+                "default": "What Can You Accomplish When You’re More Productive?"
+            }
+        ],
+        "blocks": [
+            {
+                "name": "USP",
+                "type": "usp",
+                "settings": [
+                    {
+                        "type": "html",
+                        "id": "svg",
+                        "label": "USP Icon"
+                    },
+                    {
+                        "type": "text",
+                        "id": "tex",
+                        "label": "USP Label"
+                    }
+                ]
+            }
+           
+        ],
+        "presets": [
+            {
+                "name": "Why Mushroom - USP"
+            }
+        ]
+    } 
+{% endschema %}

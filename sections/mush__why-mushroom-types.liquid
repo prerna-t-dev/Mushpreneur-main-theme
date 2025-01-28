@@ -1,0 +1,128 @@
+<style>
+    li:last-child:nth-child(3n - 1) {
+    grid-column-end: -2;
+    }
+
+    li:nth-last-child(2):nth-child(3n + 1) {
+    grid-column-end: 4;
+    }
+</style>
+
+
+<section id="mush--why-mushroom-types">
+    <div class="section-wrapper relative px-[26px] lg:px-[140px] py-[30px] lg:py-[110px]">
+        <div class="{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
+            <h2 class="text-[48px] tracking-[-2.4px] font-bold text-center mb-2">
+                {{ section.settings.header }}
+            </h2>
+            <p class="text-[28px] tracking-[-1.4px] leading-[1.2] text-center px-40 mb-20">
+                {{ section.settings.subheader }}
+            </p>
+        </div>
+        
+
+
+        <ul class="grid grid-cols-6 gap-14 mb-[140px] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
+            {% for block in section.blocks %}
+                <li class="mushroom-block-item rounded-[30px] shadow-lg p-9 text-center col-span-2">
+                    <p class="text-[22px] tracking-[-1.1px] font-semibold mb-8">
+                        {{ block.settings.subheader }}
+                    </p>
+                    <img class="mb-4" src="{{ block.settings.image |  img_url: 'master' }}" alt="{{ block.settings.name }}">
+
+                    <h4 class="text-[30px] tracking-[-1.5px] font-semibold mb-5 text-transparent bg-clip-text bg-[linear-gradient(90deg,#F2008C_0%,#E74936_100%)]">
+                        {{ block.settings.name }}
+                    </h4>
+                    <div class="text-base tracking-[-0.8px] font-medium leading-[1.1]">
+                        {{ block.settings.description | newline_to_br }}
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+
+
+        <div class="{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}" >
+            <h3 class="text-[48px] tracking-[-2.4px] font-bold text-center mb-2 text-transparent bg-clip-text bg-[linear-gradient(90deg,#F2008C_0%,#E74936_100%)]">
+                {{ section.settings.header_2 }}
+            </h3>
+            <p class="text-[28px] tracking-[-1.4px] leading-[1.2] text-center px-40 mb-20">
+                {{ section.settings.subheader_2 }}
+            </p>
+        </div>
+        
+
+        
+
+
+    </div>
+</section>
+
+
+
+{%  schema  %} 
+    {
+        "name": "Why Mushroom - Types",
+        "class": "section--why-mushroom-types",
+        "settings": [
+            {
+                "type": "text",
+                "id": "header",
+                "label": "Header",
+                "default": "Meet the Mushrooms: The Stars of Productivity"
+            },
+            {
+                "type": "textarea",
+                "id": "subheader",
+                "label": "Subheader",
+                "default": "Not all mushrooms are created equal—these powerhouses bring unique superpowers to fuel your focus, energy, and calm."
+            },
+            {
+                "type": "text",
+                "id": "header_2",
+                "label": "Header 2",
+                "default": "Why It Works"
+            },
+            {
+                "type": "textarea",
+                "id": "subheader_2",
+                "label": "Subheader 2",
+                "default": "Functional mushrooms bring focus, energy, calm, and resilience in one powerful package—designed to keep you productive and thriving."
+            }
+        ],
+        "blocks": [
+            {
+                "name": "Mushroom",
+                "type": "mushroom",
+                "limit": 5,
+                "settings": [
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Mushroom Image"
+                    },
+                    {
+                        "type": "text",
+                        "id": "name",
+                        "label": "Mushroom Name"
+                    },
+                    {
+                        "type": "text",
+                        "id": "subheader",
+                        "label": "Mushroom Subheader"
+                    },
+                    {
+                        "type": "textarea",
+                        "id": "description",
+                        "label": "Mushroom Description"
+                    }
+                    
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Why Mushroom - Types"
+            }
+        ]
+    } 
+{% endschema %}
