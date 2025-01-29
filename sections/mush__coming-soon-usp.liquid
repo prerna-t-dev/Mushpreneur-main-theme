@@ -1,0 +1,58 @@
+<section id="mush--coming-soon-usp">
+    <div class="section-wrapper text-white relative px-[36px] py-[120px]" style="background-color: {{ section.settings.background }};">
+        <div class="grid grid-cols-5 divide-x divide-pink text-white">
+            {% for block in section.blocks %}
+                <div class="flex flex-col gap-2 text-center items-center py-6 px-10">
+                    <p class="text-[26px] tracking-[-1.3px] font-semibold leading-none text-center">
+                        {{ block.settings.title | newline_to_br }}
+                    </p>
+                    <p class="text-xl tracking-[-1px]">
+                        {{ block.settings.subtext }}
+                    </p>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+</section>
+
+
+
+{%  schema  %} 
+    {
+        "name": "Coming Soon - USP",
+        "class": "section--coming-soon-usp",
+        "settings": [
+            {
+                "type": "color",
+                "id": "background",
+                "label": "Background Color"
+            }
+        ],
+        "blocks": [
+            {
+                "name": "USP",
+                "type": "usp",
+                "limit": 5,
+                "settings": [
+                    {
+                        "type": "textarea",
+                        "id": "title",
+                        "label": "Title"
+                    },
+                    {
+                        "type": "text",
+                        "id": "subtext",
+                        "label": "Subtext"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Coming Soon - USP"
+            }
+        ]
+    } 
+{% endschema %}

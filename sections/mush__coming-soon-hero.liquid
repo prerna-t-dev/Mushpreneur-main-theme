@@ -1,0 +1,99 @@
+<section id="mush--coming-soon-hero">
+    <div class="section-wrapper text-white relative px-[86px] bg-black py-[184px] min-h-screen" style="background-image: url({{ section.settings.image_desk |  img_url: 'master' }}); background-repeat: no-repeat; background-size: cover">
+        <div class="coming-soon--content w-3/5">
+            <h1 class="text-[70px] tracking-[-3.5px] font-bold mb-11 leading-[1.1] text-transparent bg-clip-text bg-gradient-to-r from-[#F2008C] to-[#E45825]">
+                {{ section.settings.header }}
+            </h1>
+            <p class="text-2xl tracking-[-1.2px] pr-20 mb-11">
+                {{ section.settings.subheader }}
+            </p>
+
+            <!-- Newsletter -->
+            <div class="mb-11">
+                <form method="post" action="/" accept-charset="UTF-8" class="newsletter-form footer--newsletter-form flex items-center gap-4 justify-center w-full">
+                    <input type="hidden" name="form_type" value="customer">
+                    <input type="hidden" name="utf8" value="✓">
+
+                    <input 
+                    type="email" 
+                    name="email" 
+                    placeholder="Email" 
+                    class="bg-transparent px-7 py-4 border border-white rounded-[62px] w-full text-sm xl:text-xl tracking-[-0.7px] xl:tracking-[-1.037px] font-light" 
+                    required>
+
+                    <button type="submit" class="newsletter--submit-btn btn bg-gradient-to-r from-[#F2008C] to-[#E74936] text-white uppercase cursor-pointer text-sm xl:text-xl font-semibold leading-[1.1] tracking-[-0.7px] xl:tracking-[-1.037px]">JOIN THE LIST</button>
+                </form>
+            </div>
+
+
+            <!-- Coming Soon USP -->
+            <div class="flex items-center gap-1">
+                {% for block in section.blocks %}
+                    <div class="inline-block flex items-center">
+                        <span>✓</span>
+                        <span class="text-base tracking-[-0.8px]">
+                            {{ block.settings.usp }}
+                        </span>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+{%  schema  %} 
+    {
+        "name": "Coming Soon - Hero",
+        "class": "section--coming-soon-hero",
+        "settings": [
+            {
+                "type": "color",
+                "id": "background",
+                "label": "Background Color"
+            },
+            {
+                "type": "image_picker",
+                "id": "image_desk",
+                "label": "Image Desktop"
+            },
+            {
+                "type": "image_picker",
+                "id": "image_mob",
+                "label": "Image Mobile"
+            },
+            {
+                "type": "textarea",
+                "id": "header",
+                "label": "Header",
+                "default": "Mushrooms are smart. <br/> Day Shrooms are smarter."
+            },
+            {
+                "type": "text",
+                "id": "subheader",
+                "label": "Subheader",
+                "default": "Meet Day Shrooms—a lifestyle upgrade for those tired of the midday slump. Challenge your morning joe with a smarter, better way to fuel productivity, focus, flow, and well-being. Join the launch list now for exclusive early access and updates."
+            }
+        ],
+        "blocks": [
+            {
+                "name": "USP",
+                "type": "usp",
+                "limit": 5,
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "usp",
+                        "label": "USP"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Coming Soon - Hero"
+            }
+        ]
+    } 
+{% endschema %}

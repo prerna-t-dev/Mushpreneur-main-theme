@@ -1,0 +1,77 @@
+<section id="mush--coming-soon-founders-note">
+    <div class="section-wrapper relative py-8" style="background-color: {{ section.settings.background }};">   
+        <div class="grid grid-cols-2 items-center">
+            <div class="relative mr-20">
+                <img src="{{ section.settings.mushroom_image |  img_url: 'master' }}" alt="Mushroom">
+
+                <h3 class="absolute right-0 top-1/2 -translate-y-1/2 text-[56px] tracking-[-2.8px] leading-none font-semibold">
+                    {{ section.settings.header }}
+                </h3>
+            </div>
+            <div class="mr-20">
+                <div class="text-2xl tracking-[-1.2px] mb-8">
+                    {{ section.settings.subtext |  newline_to_br }}
+                </div>
+
+                <div class="flex items-center gap-5">
+                    <div class="rounded-full w-16 ">
+                        <img src="{{ section.settings.founder_image |  img_url: 'master' }}" alt="{{ section.settings.founder_name }}">
+                    </div>
+                    <p class="text-[26px] tracking-[-1.3px]">
+                        <span class="tracking-[-1.3px] font-bold">
+                            {{ section.settings.founder_name }}
+                        </span>
+                        , Founder
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+{%  schema  %} 
+    {
+        "name": "Coming Soon - Note",
+        "class": "section--coming-soon-founders-note",
+        "settings": [
+            {
+                "type": "color",
+                "id": "background",
+                "label": "Background Color"
+            },
+            {
+                "type": "image_picker",
+                "id": "mushroom_image",
+                "label": "Mushroom BG Image"
+            },
+            {
+                "type": "textarea",
+                "id": "header",
+                "label": "Header",
+                "default": "Why I <br /> Created Day <br/> Shrooms"
+            },
+            {
+                "type": "textarea",
+                "id": "subtext",
+                "label": "Subtext"
+            },
+            {
+                "type": "image_picker",
+                "id": "founder_image",
+                "label": "Founder Image"
+            },
+            {
+                "type": "text",
+                "id": "founder_name",
+                "label": "Founder Name",
+                "default": "Julie"
+            }
+        ],
+        "presets": [
+            {
+                "name": "Coming Soon - Note"
+            }
+        ]
+    } 
+{% endschema %}
