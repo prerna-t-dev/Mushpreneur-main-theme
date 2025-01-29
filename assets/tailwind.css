@@ -816,6 +816,9 @@ body {
 .z-10 {
   z-index: 10;
 }
+.z-\[100\] {
+  z-index: 100;
+}
 .order-2 {
   order: 2;
 }
@@ -1108,6 +1111,9 @@ body {
 }
 .w-16 {
   width: 4rem;
+}
+.w-screen {
+  width: 100vw;
 }
 .max-w-\[198px\] {
   max-width: 198px;
@@ -1695,6 +1701,18 @@ body {
 .py-11 {
   padding-top: 2.75rem;
   padding-bottom: 2.75rem;
+}
+.py-\[94px\] {
+  padding-top: 94px;
+  padding-bottom: 94px;
+}
+.px-\[55px\] {
+  padding-left: 55px;
+  padding-right: 55px;
+}
+.py-\[46px\] {
+  padding-top: 46px;
+  padding-bottom: 46px;
 }
 .\!pb-2 {
   padding-bottom: 0.5rem !important;
@@ -2682,6 +2700,10 @@ body {
 
   .lg\:w-\[56px\] {
     width: 56px;
+  }
+
+  .lg\:w-\[430px\] {
+    width: 430px;
   }
 
   .lg\:scale-\[1\] {
@@ -3897,6 +3919,11 @@ body {
     line-height: 1.75rem;
   }
 
+  .xl\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
   .xl\:\!tracking-\[-1\.2px\] {
     letter-spacing: -1.2px !important;
   }
@@ -4019,6 +4046,10 @@ body {
 
   .xl\:tracking-\[-9\.607px\] {
     letter-spacing: -9.607px;
+  }
+
+  .xl\:tracking-\[-0\.9px\] {
+    letter-spacing: -0.9px;
   }
 }
 
