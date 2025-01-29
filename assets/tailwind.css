@@ -798,6 +798,9 @@ body {
 .left-\[-6px\] {
   left: -6px;
 }
+.top-1\/2 {
+  top: 50%;
+}
 .isolate {
   isolation: isolate;
 }
@@ -964,6 +967,15 @@ body {
 .mt-\[130px\] {
   margin-top: 130px;
 }
+.mb-11 {
+  margin-bottom: 2.75rem;
+}
+.mb-\[64px\] {
+  margin-bottom: 64px;
+}
+.mr-20 {
+  margin-right: 5rem;
+}
 .block {
   display: block;
 }
@@ -990,6 +1002,9 @@ body {
 }
 .hidden {
   display: none;
+}
+.aspect-\[1\/1\] {
+  aspect-ratio: 1/1;
 }
 .h-12 {
   height: 3rem;
@@ -1023,6 +1038,9 @@ body {
 }
 .h-full {
   height: 100%;
+}
+.min-h-screen {
+  min-height: 100vh;
 }
 .\!w-full {
   width: 100% !important;
@@ -1087,6 +1105,9 @@ body {
 }
 .w-\[4px\] {
   width: 4px;
+}
+.w-16 {
+  width: 4rem;
 }
 .max-w-\[198px\] {
   max-width: 198px;
@@ -1163,6 +1184,9 @@ body {
 }
 .grid-cols-6 {
   grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+.grid-cols-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 .flex-row {
   flex-direction: row;
@@ -1264,6 +1288,11 @@ body {
   border-right-width: calc(2px * var(--tw-divide-x-reverse));
   border-left-width: calc(2px * calc(1 - var(--tw-divide-x-reverse)));
 }
+.divide-x > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-x-reverse: 0;
+  border-right-width: calc(1px * var(--tw-divide-x-reverse));
+  border-left-width: calc(1px * calc(1 - var(--tw-divide-x-reverse)));
+}
 .divide-pink > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-opacity: 1;
   border-color: rgb(255 62 173 / var(--tw-divide-opacity, 1));
@@ -1321,6 +1350,9 @@ body {
 }
 .rounded-\[30px\] {
   border-radius: 30px;
+}
+.rounded-\[62px\] {
+  border-radius: 62px;
 }
 .rounded-b-\[42px\] {
   border-bottom-right-radius: 42px;
@@ -1430,6 +1462,9 @@ body {
 .bg-\[url\(\'\<path-to-image\>\'\)\] {
   background-image: url('<path-to-image>');
 }
+.bg-gradient-to-r {
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
 .from-\[\#F2008C\] {
   --tw-gradient-from: #F2008C var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(242 0 140 / 0) var(--tw-gradient-to-position);
@@ -1437,6 +1472,9 @@ body {
 }
 .to-\[\#E74936\] {
   --tw-gradient-to: #E74936 var(--tw-gradient-to-position);
+}
+.to-\[\#E45825\] {
+  --tw-gradient-to: #E45825 var(--tw-gradient-to-position);
 }
 .bg-\[length\:114\.938\%_53\.964\%\] {
   background-size: 114.938% 53.964%;
@@ -1466,6 +1504,9 @@ body {
 }
 .p-9 {
   padding: 2.25rem;
+}
+.p-11 {
+  padding: 2.75rem;
 }
 .\!px-0 {
   padding-left: 0px !important;
@@ -1615,6 +1656,46 @@ body {
   padding-left: 10rem;
   padding-right: 10rem;
 }
+.px-\[86px\] {
+  padding-left: 86px;
+  padding-right: 86px;
+}
+.py-\[184px\] {
+  padding-top: 184px;
+  padding-bottom: 184px;
+}
+.px-\[76px\] {
+  padding-left: 76px;
+  padding-right: 76px;
+}
+.py-\[120px\] {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+.px-\[36px\] {
+  padding-left: 36px;
+  padding-right: 36px;
+}
+.px-\[82px\] {
+  padding-left: 82px;
+  padding-right: 82px;
+}
+.py-\[150px\] {
+  padding-top: 150px;
+  padding-bottom: 150px;
+}
+.px-12 {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+.py-11 {
+  padding-top: 2.75rem;
+  padding-bottom: 2.75rem;
+}
 .\!pb-2 {
   padding-bottom: 0.5rem !important;
 }
@@ -1725,6 +1806,9 @@ body {
 }
 .pl-4 {
   padding-left: 1rem;
+}
+.pr-20 {
+  padding-right: 5rem;
 }
 .text-left {
   text-align: left;
@@ -1848,6 +1932,15 @@ body {
 }
 .text-\[34px\] {
   font-size: 34px;
+}
+.text-\[70px\] {
+  font-size: 70px;
+}
+.text-\[114px\] {
+  font-size: 114px;
+}
+.text-\[56px\] {
+  font-size: 56px;
 }
 .font-bold {
   font-weight: 700;
@@ -2025,6 +2118,24 @@ body {
 }
 .tracking-\[-1\.7px\] {
   letter-spacing: -1.7px;
+}
+.tracking-\[-3\.5px\] {
+  letter-spacing: -3.5px;
+}
+.tracking-\[1\.1\] {
+  letter-spacing: 1.1;
+}
+.tracking-\[5\.718px\] {
+  letter-spacing: 5.718px;
+}
+.tracking-\[-5\.718px\] {
+  letter-spacing: -5.718px;
+}
+.tracking-\[2\.8px\] {
+  letter-spacing: 2.8px;
+}
+.tracking-\[-2\.8px\] {
+  letter-spacing: -2.8px;
 }
 .\!text-white {
   --tw-text-opacity: 1 !important;

@@ -1,0 +1,81 @@
+<section id="mush--coming-soon-perks">
+    <div class="section-wrapper relative px-[82px] py-[150px]">
+        <h2 class="text-[114px] tracking-[-5.718px] uppercase text-center font-semibold leading-none text-orange mb-4">
+            {{ section.settings.header }}
+        </h2>
+        <p class="text-[40px] tracking-[-2px] text-center mb-[64px]">
+            {{ section.settings.subheader }}
+        </p>
+        <div class="grid grid-cols-4 gap-7 mb-[64px]">
+            {% for block in section.blocks %}
+                <div class="mushroom-block-item flex flex-col items-center rounded-[30px] shadow-lg px-12 py-11 text-center">
+                    <img class="px-6 aspect-[1/1] w-full mb-5" src="{{ block.settings.image |  img_url: 'master' }}" alt="{{ block.settings.title }}">
+                    <h4 class="text-[32px] tracking-[-1.6px] font-semibold leading-none mb-3 text-transparent bg-clip-text bg-gradient-to-r from-[#F2008C] to-[#E45825]">
+                        {{ block.settings.title |  newline_to_br }}
+                    </h4>
+                    <p class="text-xl tracking-[-1px] font-medium">
+                        {{ block.settings.subtext }}
+                    </p>
+                </div>
+                
+            {% endfor %}
+        </div>
+
+        <!-- CTA -->
+        <div class="btn btn-tertiary block mx-auto w-fit">
+            JOIN NOW
+        </div>
+    </div>
+</section>
+
+
+
+{%  schema  %} 
+    {
+        "name": "Coming Soon - perks",
+        "class": "section--coming-soon-perks",
+        "settings": [
+            {
+                "type": "textarea",
+                "id": "header",
+                "label": "Header",
+                "default": "perks for joining"
+            },
+            {
+                "type": "text",
+                "id": "subheader",
+                "label": "Subheader",
+                "default": "Secure your spot on the Launch List and get:"
+            }
+        ],
+        "blocks": [
+            {
+                "name": "Perk",
+                "type": "perk",
+                "limit": 4,
+                "settings": [
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image"
+                    },
+                    {
+                        "type": "textarea",
+                        "id": "title",
+                        "label": "Title"
+                    },
+                    {
+                        "type": "text",
+                        "id": "subtext",
+                        "label": "Subtext"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Coming Soon - perks"
+            }
+        ]
+    } 
+{% endschema %}
