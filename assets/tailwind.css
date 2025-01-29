@@ -952,6 +952,18 @@ body {
 .mb-\[140px\] {
   margin-bottom: 140px;
 }
+.mb-\[58px\] {
+  margin-bottom: 58px;
+}
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+.mt-12 {
+  margin-top: 3rem;
+}
+.mt-\[130px\] {
+  margin-top: 130px;
+}
 .block {
   display: block;
 }
@@ -1238,6 +1250,9 @@ body {
 }
 .gap-8 {
   gap: 2rem;
+}
+.gap-\[58px\] {
+  gap: 58px;
 }
 .divide-x-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-x-reverse: 0;
@@ -1708,11 +1723,17 @@ body {
 .pt-\[104px\] {
   padding-top: 104px;
 }
+.pl-4 {
+  padding-left: 1rem;
+}
 .text-left {
   text-align: left;
 }
 .text-center {
   text-align: center;
+}
+.text-right {
+  text-align: right;
 }
 .\!text-2xl {
   font-size: 1.5rem !important;
@@ -1824,6 +1845,9 @@ body {
 }
 .text-\[42px\] {
   font-size: 42px;
+}
+.text-\[34px\] {
+  font-size: 34px;
 }
 .font-bold {
   font-weight: 700;
@@ -1998,6 +2022,9 @@ body {
 }
 .tracking-\[-1\.1\] {
   letter-spacing: -1.1;
+}
+.tracking-\[-1\.7px\] {
+  letter-spacing: -1.7px;
 }
 .\!text-white {
   --tw-text-opacity: 1 !important;

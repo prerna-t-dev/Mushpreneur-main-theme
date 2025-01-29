@@ -1,8 +1,10 @@
 
   
-<div class="text-block text-{{ block.settings.alignment }}">
-    {{ block.settings.text }}
-</div>
+<li class="text-block list-disc">
+    <a class="text-[30px] tracking-[-1.5px] text-white mb-1 font-bold underline leading-none" target="_blank" href="{{ block.settings.link }}">
+        {{ block.settings.title }}
+    </a>
+</li>
   
 {% schema %}
   {
@@ -10,7 +12,7 @@
     "settings": [
       {
         "type": "text",
-        "id": "label",
+        "id": "title",
         "label": "Reference Label"
       },
       {

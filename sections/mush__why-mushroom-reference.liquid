@@ -1,0 +1,103 @@
+<section id="mush--why-mushroom-reference">
+    <div class="section-wrapper text-white relative px-[26px] lg:px-[140px] py-[30px] lg:py-[110px]" style="background: {{ section.settings.background }};">
+        <h3 class="text-[48px] tracking-[-2.4px] font-bold text-center text-white mb-2">
+            {{ section.settings.header }}
+        </h3>
+        <p class="text-[28px] tracking-[-1.4px] leading-[1.2] text-center px-40 mb-10">
+            {{ section.settings.subheader }}
+        </p>
+
+        <a class="btn btn-secondary block mx-auto" href="{{ section.settings.url }}">
+            {{ section.settings.cta }}
+        </a>
+
+        <!-- References -->
+        <div class="product__accordion accordion mt-[130px] !border-none">
+        <details class="pb-2 lg:pb-3" id="Details-{{ section.id }}" open>
+            <summary class="faq-section--padding border-b border-white  !pt-7 !lg:pt-[42px] !pb-3 !lg:pb-7 flex justify-between gap-2">
+                <p class="text-base lg:text-[34.407px] text-white font-semibold tracking-[-0.8px] lg:tracking-[-1.72px] leading-[1.1]">
+                    References
+                </p>
+                <div class="flex-shrink-0 w-[28px] lg:w-[56px]">
+                    <svg class="w-full h-auto" xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" fill="none" transform="rotate(180)">
+                        <path d="M16 33.6947L27.6686 23L39.3333 33.6947" stroke="white" stroke-width="4.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </summary>
+            <div class="accordion__content py-4_ !px-0 !overflow-visible hide-scrollbar" id="ProductAccordion-{{ section.id }}">
+                <div>
+                    {% content_for 'blocks' %}
+                </div>
+            </div>
+        </details>
+        </div>
+    </div>
+</section>
+
+
+
+{%  schema  %} 
+    {
+        "name": "Why Mushroom - reference",
+        "class": "section--why-mushroom-reference",
+        "settings": [
+            {
+                "type": "color_background",
+                "id": "background",
+                "label": "Background Color"
+            },
+            {
+                "type": "text",
+                "id": "header",
+                "label": "Header",
+                "default": "Your Productivity Toolbox Starts Here"
+            },
+            {
+                "type": "text",
+                "id": "subheader",
+                "label": "Subheader",
+                "default": "Day Shrooms does the hard work so you can focus on what matters most. Simplify your routine with one drink that fuels energy, creativity, and calm—all day long."
+            },
+            {
+                "type": "text",
+                "id": "cta",
+                "label": "CTA",
+                "default": "TRY DAY SHROOMS"
+            },
+            {
+                "type": "url",
+                "id": "url",
+                "label": "URL"
+            }
+        ],
+        "blocks": [{ "type": "@theme" }, { "type": "@app" }], 
+        "presets": [
+            {
+                "name": "Why Mushroom - Reference",
+                "blocks": [
+                    {
+                    "type": "group",
+                    "settings": {
+                        "color_scheme": "scheme-3"
+                    },
+                    "blocks": [
+                        {
+                        "type": "text",
+                        "settings": {
+                            "text": "<h1>Image with text</h1>"
+                        }
+                        },
+                        {
+                        "type": "text",
+                        "settings": {
+                            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post.</p>"
+                        }
+                        }
+                    ]
+                    }
+                ]
+                
+            }
+        ]
+    } 
+{% endschema %}
