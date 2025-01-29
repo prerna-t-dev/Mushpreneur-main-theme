@@ -195,6 +195,280 @@
         "subheader": "You’ve met the mushrooms—now meet the drink that makes them unstoppable. Day Shrooms takes the power of functional mushrooms and levels up with adaptogens, nootropics, and essential vitamins, all working in synergy to create an all-in-one formula for focus, energy, and calm. Say goodbye to chaos and hello to productivity—the smarter way.",
         "prod_header": "What Can You Accomplish When You’re More Productive?"
       }
+    },
+    "mush_why_mushroom_reference_EJXRyX": {
+      "type": "mush__why-mushroom-reference",
+      "blocks": {
+        "group_QVNkrc": {
+          "type": "group",
+          "settings": {
+            "color_scheme": "",
+            "title": "Functional Mushrooms"
+          },
+          "blocks": {
+            "reference_HTjUaF": {
+              "type": "reference",
+              "settings": {
+                "title": "Three Reasons Fungi Are Not Plants",
+                "link": "https://asm.org/Articles/2021/January/Three-Reasons-Fungi-Are-Not-Plants"
+              }
+            },
+            "reference_w768qg": {
+              "type": "reference",
+              "settings": {
+                "title": "Medicinal Mushrooms: Ancient Remedies Meet Modern Science",
+                "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4684114/"
+              }
+            },
+            "reference_fVEcXq": {
+              "type": "reference",
+              "settings": {
+                "title": "Medicinal Mushroom: Boon For Therapeutic Applications",
+                "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6056353/"
+              }
+            },
+            "reference_p3zB7J": {
+              "type": "reference",
+              "settings": {
+                "title": "Neuronal Health – Can Culinary And Medicinal Mushrooms Help?",
+                "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3924982/"
+              }
+            },
+            "reference_eAdUc6": {
+              "type": "reference",
+              "settings": {
+                "title": "Immune Modulation From Five Major Mushrooms: Application To Integrative Oncology",
+                "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4684115/"
+              }
+            }
+          },
+          "block_order": [
+            "reference_HTjUaF",
+            "reference_w768qg",
+            "reference_fVEcXq",
+            "reference_p3zB7J",
+            "reference_eAdUc6"
+          ]
+        },
+        "group_iVyHAM": {
+          "type": "group",
+          "settings": {
+            "color_scheme": "",
+            "title": "Adaptogens & Nootropics"
+          },
+          "blocks": {
+            "reference_djtCHc": {
+              "type": "reference",
+              "settings": {
+                "title": "Effects Of Adaptogens On The Central Nervous System And The Molecular Mechanisms Associated With Their Stress—Protective Activity",
+                "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3991026/"
+              }
+            },
+            "reference_PQfLA4": {
+              "type": "reference",
+              "settings": {
+                "title": "Nootropics As Cognitive Enhancers: Types, Dosage And Side Effects Of Smart Drugs",
+                "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9415189/"
+              }
+            },
+            "reference_qErEgF": {
+              "type": "reference",
+              "settings": {
+                "title": "Benefits And Harms Of 'Smart Drugs' (Nootropics) In Healthy Individuals",
+                "link": "https://pubmed.ncbi.nlm.nih.gov/35366192/"
+              }
+            }
+          },
+          "block_order": [
+            "reference_djtCHc",
+            "reference_PQfLA4",
+            "reference_qErEgF"
+          ]
+        },
+        "group_tNhVph": {
+          "type": "group",
+          "settings": {
+            "color_scheme": "",
+            "title": "Lion’s Mane Research"
+          },
+          "blocks": {
+            "reference_jRhyhx": {
+              "type": "reference",
+              "settings": {
+                "title": "Active Compound In Lion’s Mane Mushroom Improves Nerve Growth And Memory",
+                "link": "https://www.news-medical.net/news/20230213/Active-compound-in-Lione28099s-Mane-mushroom-improves-nerve-growth-and-memory.aspx"
+              }
+            },
+            "reference_QAc9V4": {
+              "type": "reference",
+              "settings": {
+                "title": "Chemistry, Nutrition, And Health-Promoting Properties Of Hericium Erinaceus (Lion's Mane) Mushroom Fruiting Bodies And Mycelia And Their Bioactive Compounds",
+                "link": "https://pubmed.ncbi.nlm.nih.gov/26244378/"
+              }
+            },
+            "reference_WGxxxN": {
+              "type": "reference",
+              "settings": {
+                "title": "Therapeutic Potential Of Hericium Erinaceus For Depressive Disorder",
+                "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6982118/"
+              }
+            },
+            "reference_frphEz": {
+              "type": "reference",
+              "settings": {
+                "title": "Reduction Of Depression And Anxiety By 4 Weeks Hericium Erinaceus Intake",
+                "link": "https://pubmed.ncbi.nlm.nih.gov/20834180/"
+              }
+            }
+          },
+          "block_order": [
+            "reference_jRhyhx",
+            "reference_QAc9V4",
+            "reference_WGxxxN",
+            "reference_frphEz"
+          ]
+        },
+        "group_GMwteA": {
+          "type": "group",
+          "settings": {
+            "color_scheme": "",
+            "title": "Cordyceps Research"
+          },
+          "blocks": {
+            "reference_V7WwTU": {
+              "type": "reference",
+              "settings": {
+                "title": "Pharmacological And Therapeutic Potential Of Cordyceps With Special Reference To Cordycepin",
+                "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3909570/"
+              }
+            },
+            "reference_8HFVCh": {
+              "type": "reference",
+              "settings": {
+                "title": "Improvement Of Learning And Memory Induced By Cordyceps Polypeptide Treatment And The Underlying Mechanism",
+                "link": "https://onlinelibrary.wiley.com/doi/10.1155/2018/9419264"
+              }
+            }
+          },
+          "block_order": [
+            "reference_V7WwTU",
+            "reference_8HFVCh"
+          ]
+        },
+        "group_HYB9zD": {
+          "type": "group",
+          "settings": {
+            "color_scheme": "",
+            "title": "Chaga Research"
+          },
+          "blocks": {
+            "reference_M6H3DF": {
+              "type": "reference",
+              "settings": {
+                "title": "Inonotus Obliquus Protects Against Oxidative Stress-Induced Apoptosis And Premature Senescence",
+                "link": "https://pubmed.ncbi.nlm.nih.gov/21359681/"
+              }
+            },
+            "reference_GkGkMf": {
+              "type": "reference",
+              "settings": {
+                "title": "Chaga Mushroom Extract Inhibits Oxidative DNA Damage In Human Lymphocytes As Assessed By Comet Assay ",
+                "link": "https://pubmed.ncbi.nlm.nih.gov/15630179/"
+              }
+            },
+            "reference_qfBw4F": {
+              "type": "reference",
+              "settings": {
+                "title": "High-Performance Biochar Derived From The Residue Of Chaga Mushroom (Inonotus Obliquus) For Pollutants Removal.",
+                "link": "https://read.qxmd.com/read/34737052/high-performance-biochar-derived-from-the-residue-of-chaga-mushroom-inonotus-obliquus-for-pollutants-removal"
+              }
+            }
+          },
+          "block_order": [
+            "reference_M6H3DF",
+            "reference_GkGkMf",
+            "reference_qfBw4F"
+          ]
+        },
+        "group_6zq4hH": {
+          "type": "group",
+          "settings": {
+            "color_scheme": "",
+            "title": "Reishi Research"
+          },
+          "blocks": {
+            "reference_LJyqba": {
+              "type": "reference",
+              "settings": {
+                "title": "A Randomized, Double-Blind And Placebo-Controlled Study Of A Ganoderma Lucidum Polysaccharide Extract In Neurasthenia",
+                "link": "https://pubmed.ncbi.nlm.nih.gov/15857210/"
+              }
+            },
+            "reference_63zUyg": {
+              "type": "reference",
+              "settings": {
+                "title": "Health-Promoting Of Polysaccharides Extracted From Ganoderma Lucidum",
+                "link": "https://www.mdpi.com/2072-6643/13/8/2725"
+              }
+            }
+          },
+          "block_order": [
+            "reference_LJyqba",
+            "reference_63zUyg"
+          ]
+        },
+        "group_iy44Gh": {
+          "type": "group",
+          "settings": {
+            "color_scheme": "",
+            "title": "Turkey Tail Research"
+          },
+          "blocks": {
+            "reference_9zQNhn": {
+              "type": "reference",
+              "settings": {
+                "title": "Immunomodulatory Properties Of Coriolus Versicolor: The Role Of Polysaccharopeptide",
+                "link": "https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2017.01087/full"
+              }
+            },
+            "reference_nPHhYh": {
+              "type": "reference",
+              "settings": {
+                "title": "Medicinal Mushrooms As An Attractive New Source Of Natural Compounds For Future Cancer Therapy",
+                "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6044372/"
+              }
+            },
+            "reference_ziQYTJ": {
+              "type": "reference",
+              "settings": {
+                "title": "In Vitro Bioactivity, Antimicrobial And Anti-Inflammatory Efficacy Of Modified Solvent Evaporation Assisted Trametes Versicolor Extract",
+                "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7447717/"
+              }
+            }
+          },
+          "block_order": [
+            "reference_9zQNhn",
+            "reference_nPHhYh",
+            "reference_ziQYTJ"
+          ]
+        }
+      },
+      "block_order": [
+        "group_QVNkrc",
+        "group_iVyHAM",
+        "group_tNhVph",
+        "group_GMwteA",
+        "group_HYB9zD",
+        "group_6zq4hH",
+        "group_iy44Gh"
+      ],
+      "settings": {
+        "background": "linear-gradient(90deg, rgba(242, 0, 140, 1), rgba(231, 73, 54, 1) 100%)",
+        "header": "Your Productivity Toolbox Starts Here",
+        "subheader": "Day Shrooms does the hard work so you can focus on what matters most. Simplify your routine with one drink that fuels energy, creativity, and calm—all day long.",
+        "cta": "TRY DAY SHROOMS",
+        "url": "shopify://products/day-shrooms"
+      }
     }
   },
   "order": [
@@ -203,6 +477,7 @@
     "mush_why_mushroom_facts_qgDcTk",
     "mush_why_mushroom_types_CFxVVb",
     "mush_why_mushroom_productivity_BA84wY",
-    "mush_why_mushroom_usp_XgyEcN"
+    "mush_why_mushroom_usp_XgyEcN",
+    "mush_why_mushroom_reference_EJXRyX"
   ]
 }
