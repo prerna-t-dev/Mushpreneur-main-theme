@@ -21,13 +21,22 @@
   <div class="section-wrapper"  style="background: {{ section.settings.background }};">
     <div class="px-[110px] py-[96px] rounded-t-[26px] lg:rounded-t-[42px] xl:rounded-t-[96px]"  style="background: {{ section.settings.foreground }};">
 
-      <!-- Blog Tags -->
+      <!-- Blog Tags: NOT AJAX -->
       <div class="flex items-center gap-5 mb-20">
-        <div class="btn border border-black text-black rounded-[28px] px-10 py-4">
+        <a href="{{ blog.url }}" class="btn border border-black rounded-[28px] px-10 py-3 
+                  {% if current_tags == empty or current_tags == nil  %} bg-black text-white {% else %} text-black {% endif %}">
           All Blogs
-        </div>
+        </a>
 
+        {% for tag in blog.all_tags %}
+          <a href="{{ blog.url }}/tagged/{{ tag | handleize }}" class="btn border border-black rounded-[28px] px-10 py-3 
+                    {% if current_tags contains tag %} bg-black text-white {% else %} text-black {% endif %}">
+            {{ tag }}
+          </a>
+        {% endfor %}
       </div>
+
+
 
 
       {%- paginate blog.articles by 6 -%}
@@ -36,7 +45,7 @@
           <div class="blog-articles_ grid grid-cols-3 gap-12">
             {%- for article in blog.articles -%}
               <div
-                class="blog-articles__article article{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                class="blog-articles__article_ article_{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
                 {% if settings.animations_reveal_on_scroll %}
                   data-cascade
                   style="--animation-order: {{ forloop.index }};"
