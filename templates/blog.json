@@ -1,12 +1,30 @@
-{
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+ {
   "sections": {
+    "main_blog_header_pXtT96": {
+      "type": "main-blog-header",
+      "settings": {
+        "background": "linear-gradient(90deg, rgba(242, 0, 140, 1), rgba(231, 73, 54, 1) 100%)",
+        "title": "The Mush Blog",
+        "Subtext": "<p>Welcome to <strong>The Mush Blog</strong>—your hub for exploring productivity hacks, nootropics, wellness trends, and culture shifts. Ready to flip the script on how you work, live, and thrive? Start reading.</p>"
+      }
+    },
     "main": {
       "type": "main-blog",
       "settings": {
-        "layout": "collage",
+        "background": "linear-gradient(90deg, rgba(242, 0, 140, 1), rgba(231, 73, 54, 1) 100%)",
+        "foreground": "#ffffff",
         "show_image": true,
         "image_height": "medium",
-        "show_date": true,
+        "show_date": false,
         "show_author": false,
         "padding_top": 36,
         "padding_bottom": 36
@@ -14,6 +32,7 @@
     }
   },
   "order": [
+    "main_blog_header_pXtT96",
     "main"
   ]
 }
