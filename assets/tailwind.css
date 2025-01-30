@@ -1284,6 +1284,9 @@ body {
 .gap-\[58px\] {
   gap: 58px;
 }
+.gap-12 {
+  gap: 3rem;
+}
 .divide-x-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-x-reverse: 0;
   border-right-width: calc(4px * var(--tw-divide-x-reverse));
@@ -1359,6 +1362,9 @@ body {
 }
 .rounded-\[62px\] {
   border-radius: 62px;
+}
+.rounded-\[28px\] {
+  border-radius: 28px;
 }
 .rounded-b-\[42px\] {
   border-bottom-right-radius: 42px;
@@ -1714,6 +1720,18 @@ body {
   padding-top: 46px;
   padding-bottom: 46px;
 }
+.px-\[110px\] {
+  padding-left: 110px;
+  padding-right: 110px;
+}
+.py-\[132px\] {
+  padding-top: 132px;
+  padding-bottom: 132px;
+}
+.py-\[96px\] {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
 .\!pb-2 {
   padding-bottom: 0.5rem !important;
 }
@@ -1960,6 +1978,9 @@ body {
 .text-\[56px\] {
   font-size: 56px;
 }
+.text-\[116px\] {
+  font-size: 116px;
+}
 .font-bold {
   font-weight: 700;
 }
@@ -2154,6 +2175,9 @@ body {
 }
 .tracking-\[-2\.8px\] {
   letter-spacing: -2.8px;
+}
+.tracking-\[-5\.813px\] {
+  letter-spacing: -5.813px;
 }
 .\!text-white {
   --tw-text-opacity: 1 !important;

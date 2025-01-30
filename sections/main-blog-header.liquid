@@ -1,0 +1,42 @@
+<section id="mush--main-blog-header">
+    <div class="section-wrapper px-[110px] py-[132px]"  style="background: {{ section.settings.background }};">
+        <h1 class="blog--title text-[116px] text-white tracking-[-5.813px] text-center uppercase font-extrabold mb-3">
+            {{ section.settings.title }}
+        </h1>
+        <div class="blog--subtext text-center text-white text-[32px] tracking-[-1.6px] leading-[1.1] px-24">
+            {{ section.settings.Subtext }}
+        </div>
+
+    </div>
+
+</section>
+
+{% schema %} 
+    {
+        "name": "Blog Header",
+        "class": "section--main-blog-header",
+        "settings": [
+            {
+                "type": "color_background",
+                "id": "background",
+                "label": "Background Color"
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title",
+                "default": "The Mush Blog"
+            },
+            {
+                "type": "richtext",
+                "id": "Subtext",
+                "label": "Subtext"
+            }
+        ],
+        "presets": [
+            {
+                "name": "Blog Header"
+            }
+        ]
+    } 
+{% endschema %}
