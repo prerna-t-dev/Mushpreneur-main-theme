@@ -1,0 +1,36 @@
+
+{%- if article and article != empty -%}
+    <div class="article-card">
+        <a href="{{ article.url }}" class="full-unstyled-link">
+            <!-- Featured Image -->
+            <div class="rounded-[10px] mb-6">
+                {% if article.image %}
+                    <img src="{{ article.image |  img_url: 'master' }}" alt=" {{ article.title | truncate: 50 | escape }}">
+                {% endif %}
+            </div>
+
+            <!-- Article Title -->
+            <h3 class="text-[26px] tracking-[-1.3px] font-bold mb-6">
+                {{ article.title }}
+            </h3>
+            
+            <!-- Article Excerpt -->
+            {%- if article.excerpt.size > 0 or article.content.size > 0 -%}
+                <p class="text-lg tracking-[-0.9px] leading-[1.1] mb-6">
+                    {%- if article.excerpt.size > 0 -%}
+                    {{ article.excerpt | strip_html}}
+                    {%- else -%}
+                    {{ article.content | strip_html | truncatewords: 30 }}
+                    {%- endif -%}
+                </p>
+            {%- endif -%}
+       
+            <!-- Read More Link -->
+            <p class="text-base tracking-[-0.8px] font-medium underline">
+                Read More
+            </p>
+
+
+        </a>
+    </div>
+{%- endif -%}

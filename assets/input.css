@@ -420,3 +420,61 @@
 #CartDrawer shop-pay-wallet-button{
 
 }
+
+
+
+/* ===== Article Page ===== */
+.mush--article-content p,
+.mush--article-content span{
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: -1.2px;
+
+}
+.mush--article-content p{
+    margin-bottom: 18px;
+}
+
+.mush--article-content h2,
+.mush--article-content h2 span{
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -1.6px;
+}
+
+.mush--article-content h2{
+    margin-bottom: 16px;
+    margin-top: 8px;
+}
+
+.mush--article-content h3,
+.mush--article-content h3 span{
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -1.4px;
+}
+
+.mush--article-content h3{
+    margin-bottom: 8px;
+}
+
+.mush--article-content ul,
+.mush--article-content ol{
+    padding-left: 24px;
+}
+
+.mush--article-content ul li{
+    list-style: disc;
+}
+
+
+.mush--article-content ul li strong,
+.mush--article-content ol li strong{
+    font-weight: 600;
+}
