@@ -135,6 +135,11 @@
 }
 
 
+.accordion details[open]>summary .mush-icon-caret {
+    transform: rotate(180deg);
+}
+
+
 
 .border-half-width{
     border-width: 0.5px;
@@ -518,4 +523,36 @@
         margin-top: 1rem !important;
       }
 
+}
+
+
+
+/* 404 Template Background */
+body[data-template="404"]{
+    background-image: url(https://cdn.shopify.com/s/files/1/0569/9217/0159/files/Hero_Banner_Mobile_-_404_--_new.jpg?v=1738505248);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body[data-template="404"] sticky-header{
+    background-color: transparent;
+}
+
+
+
+
+/* Why Mushroom Header */
+body[data-template-suffix="why-mushroom"] sticky-header{
+    /* background-color: #121212; */
+}
+
+
+
+body[data-template="blog"] sticky-header{
+    background: linear-gradient(90deg, rgba(242, 0, 140, 1), rgba(231, 73, 54, 1) 100%);
+    color: #FFFFFF;
+}
+
+body[data-template="blog"] sticky-header header{
+    color: #FFFFFF !important
 }

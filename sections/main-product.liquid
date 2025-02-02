@@ -105,14 +105,14 @@
                 {% render block %}
               {%- when 'text' -%}
                 <p
-                  class="product__text inline-richtext text-black !mt-0 leading-[1.1] mb-2 {% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} text-2xl xl:text-[40px] !mb-2 tracking-[-1.2px] xl:tracking-[-2px] font-medium subtitle{% endif %} {% if block.settings.text_style == 'body' %} text-base tracking-[-0.8px] xl:text-[26px] xl:tracking-[-1.3px] font-medium pb-2 !mb-4 xl:mb-6 border-b border-black {% endif %}"
+                  class="product__text inline-richtext text-black !mt-0 leading-[1.1] mb-2 {% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} text-2xl xl:text-[32px] !mb-2 tracking-[-1.2px] xl:tracking-[-1.6px] font-medium subtitle{% endif %} {% if block.settings.text_style == 'body' %} text-base tracking-[-0.8px] xl:text-[22px] xl:tracking-[-1.1px] font-medium pb-2 !mb-4 xl:mb-6 border-b border-black {% endif %}"
                   {{ block.shopify_attributes }}
                 >
                   {{- block.settings.text -}}
                 </p>
               {%- when 'title' -%}
                 <div class="product__title !mb-2" {{ block.shopify_attributes }}>
-                  <h1 class="text-[40px] lg:text-[67px] tracking-[-2px] lg:tracking-[-3.35px] font-bold text-orange leading-none">{{ product.title | escape }}</h1>
+                  <h1 class="text-[40px] lg:text-[48px] tracking-[-2px] lg:tracking-[-2.4px] font-bold text-orange leading-none">{{ product.title | escape }}</h1>
                   {% comment %} <a href="{{ product.url }}" class="product__title">
                     <h2 class="h1">
                       {{ product.title | escape }}
@@ -234,9 +234,12 @@
                         </h2>
                       </div>
                       {% comment %} {{- 'icon-caret.svg' | inline_asset_content -}} {% endcomment %}
-                      <svg class="w-[18px] h-auto" xmlns="http://www.w3.org/2000/svg" width="20" height="11" viewBox="0 0 20 11" fill="none" transform="rotate(180)">
-                        <path d="M10.0501 0.433101C10.3792 0.433101 10.7083 0.558758 10.9592 0.809543L18.8547 8.7052C19.357 9.20746 19.357 10.0218 18.8547 10.5238C18.3527 11.0259 17.5385 11.0259 17.0362 10.5238L10.0501 3.53734L3.06397 10.5236C2.56171 11.0257 1.74762 11.0257 1.2456 10.5236C0.743097 10.0215 0.743097 9.20721 1.2456 8.70495L9.14105 0.809299C9.39208 0.558473 9.72114 0.433101 10.0501 0.433101Z" fill="#FF3EAD"/>
-                      </svg>
+                       
+                      <div class="mush-icon-caret">
+                        <svg class="w-[18px] h-auto" xmlns="http://www.w3.org/2000/svg" width="20" height="11" viewBox="0 0 20 11" fill="none" transform="rotate(180)">
+                          <path d="M10.0501 0.433101C10.3792 0.433101 10.7083 0.558758 10.9592 0.809543L18.8547 8.7052C19.357 9.20746 19.357 10.0218 18.8547 10.5238C18.3527 11.0259 17.5385 11.0259 17.0362 10.5238L10.0501 3.53734L3.06397 10.5236C2.56171 11.0257 1.74762 11.0257 1.2456 10.5236C0.743097 10.0215 0.743097 9.20721 1.2456 8.70495L9.14105 0.809299C9.39208 0.558473 9.72114 0.433101 10.0501 0.433101Z" fill="#FF3EAD"/>
+                        </svg>
+                      </div>
                     
                     </summary>
                     <div class="accordion__content text-base tracking-[-0.8px] mb-3" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
@@ -256,9 +259,11 @@
                           </h2>
                         </div>
                         {% comment %} {{- 'icon-caret.svg' | inline_asset_content -}} {% endcomment %}
-                        <svg class="w-[18px] h-auto" xmlns="http://www.w3.org/2000/svg" width="20" height="11" viewBox="0 0 20 11" fill="none" transform="rotate(180)">
-                          <path d="M10.0501 0.433101C10.3792 0.433101 10.7083 0.558758 10.9592 0.809543L18.8547 8.7052C19.357 9.20746 19.357 10.0218 18.8547 10.5238C18.3527 11.0259 17.5385 11.0259 17.0362 10.5238L10.0501 3.53734L3.06397 10.5236C2.56171 11.0257 1.74762 11.0257 1.2456 10.5236C0.743097 10.0215 0.743097 9.20721 1.2456 8.70495L9.14105 0.809299C9.39208 0.558473 9.72114 0.433101 10.0501 0.433101Z" fill="#FF3EAD"/>
-                        </svg>
+                        <div class="mush-icon-caret">
+                          <svg class="w-[18px] h-auto" xmlns="http://www.w3.org/2000/svg" width="20" height="11" viewBox="0 0 20 11" fill="none" transform="rotate(180)">
+                            <path d="M10.0501 0.433101C10.3792 0.433101 10.7083 0.558758 10.9592 0.809543L18.8547 8.7052C19.357 9.20746 19.357 10.0218 18.8547 10.5238C18.3527 11.0259 17.5385 11.0259 17.0362 10.5238L10.0501 3.53734L3.06397 10.5236C2.56171 11.0257 1.74762 11.0257 1.2456 10.5236C0.743097 10.0215 0.743097 9.20721 1.2456 8.70495L9.14105 0.809299C9.39208 0.558473 9.72114 0.433101 10.0501 0.433101Z" fill="#FF3EAD"/>
+                          </svg>
+                        </div>
                       
                       </summary>
                       <div class="accordion__content text-base tracking-[-0.8px] mb-3" id="ProductAccordion-{{ block.id }}-{{ section.id }}">

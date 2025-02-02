@@ -801,6 +801,15 @@ body {
 .top-1\/2 {
   top: 50%;
 }
+.left-\[0\.5rem\] {
+  left: 0.5rem;
+}
+.top-\[0\.5rem\] {
+  top: 0.5rem;
+}
+.right-\[-8px\] {
+  right: -8px;
+}
 .isolate {
   isolation: isolate;
 }
@@ -830,6 +839,14 @@ body {
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+.my-12 {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+.my-6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 .my-8 {
   margin-top: 2rem;
@@ -1899,6 +1916,9 @@ body {
 .italic {
   font-style: italic;
 }
+.\!leading-none {
+  line-height: 1 !important;
+}
 .leading-\[1\.1\] {
   line-height: 1.1;
 }
@@ -2108,6 +2128,11 @@ body {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+}
+
+
+.accordion details[open]>summary .mush-icon-caret {
+    transform: rotate(180deg);
 }
 
 
@@ -2513,6 +2538,37 @@ body {
 
 }
 
+
+
+/* 404 Template Background */
+body[data-template="404"]{
+    background-image: url(https://cdn.shopify.com/s/files/1/0569/9217/0159/files/Hero_Banner_Mobile_-_404_--_new.jpg?v=1738505248);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body[data-template="404"] sticky-header{
+    background-color: transparent;
+}
+
+
+
+
+/* Why Mushroom Header */
+body[data-template-suffix="why-mushroom"] sticky-header{
+    /* background-color: #121212; */
+}
+
+
+
+body[data-template="blog"] sticky-header{
+    background: linear-gradient(90deg, rgba(242, 0, 140, 1), rgba(231, 73, 54, 1) 100%);
+    color: #FFFFFF;
+}
+
+body[data-template="blog"] sticky-header header{
+    color: #FFFFFF !important
+}
 
 @media (min-width: 990px) {
 
@@ -3088,10 +3144,6 @@ body {
     font-size: 64px;
   }
 
-  .lg\:text-\[67px\] {
-    font-size: 67px;
-  }
-
   .lg\:text-\[8\.507px\] {
     font-size: 8.507px;
   }
@@ -3236,10 +3288,6 @@ body {
     letter-spacing: -3.2px;
   }
 
-  .lg\:tracking-\[-3\.35px\] {
-    letter-spacing: -3.35px;
-  }
-
   .lg\:tracking-\[-3px\] {
     letter-spacing: -3px;
   }
@@ -3248,7 +3296,6 @@ body {
     letter-spacing: -q.2px;
   }
 }
-
 
 @media (min-width: 1280px) {
 
@@ -3267,6 +3314,26 @@ body {
 
   .xl\:bottom-\[40px\] {
     bottom: 40px;
+  }
+
+  .xl\:bottom-0 {
+    bottom: 0px;
+  }
+
+  .xl\:left-auto {
+    left: auto;
+  }
+
+  .xl\:right-0 {
+    right: 0px;
+  }
+
+  .xl\:\!left-auto {
+    left: auto !important;
+  }
+
+  .xl\:\!right-0 {
+    right: 0px !important;
   }
 
   .xl\:order-1 {
@@ -3293,6 +3360,11 @@ body {
   .xl\:my-10 {
     margin-top: 2.5rem;
     margin-bottom: 2.5rem;
+  }
+
+  .xl\:my-16 {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
   }
 
   .xl\:\!mb-2 {
@@ -3487,6 +3559,14 @@ body {
     height: 98px;
   }
 
+  .xl\:h-8 {
+    height: 2rem;
+  }
+
+  .xl\:h-6 {
+    height: 1.5rem;
+  }
+
   .xl\:min-h-screen {
     min-height: 100vh;
   }
@@ -3567,6 +3647,10 @@ body {
     width: 100%;
   }
 
+  .xl\:w-6 {
+    width: 1.5rem;
+  }
+
   .xl\:max-w-\[430px\] {
     max-width: 430px;
   }
@@ -3583,6 +3667,21 @@ body {
 
   .xl\:translate-x-full {
     --tw-translate-x: 100%;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .xl\:-translate-x-1\/2 {
+    --tw-translate-x: -50%;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .xl\:translate-x-1\/2 {
+    --tw-translate-x: 50%;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .xl\:translate-y-1\/2 {
+    --tw-translate-y: 50%;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 
@@ -3688,6 +3787,12 @@ body {
     --tw-divide-x-reverse: 0;
     border-right-width: calc(1px * var(--tw-divide-x-reverse));
     border-left-width: calc(1px * calc(1 - var(--tw-divide-x-reverse)));
+  }
+
+  .xl\:divide-y-0 > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-y-reverse: 0;
+    border-top-width: calc(0px * calc(1 - var(--tw-divide-y-reverse)));
+    border-bottom-width: calc(0px * var(--tw-divide-y-reverse));
   }
 
   .xl\:rounded-\[114px\] {
@@ -4081,8 +4186,8 @@ body {
     font-size: 116px;
   }
 
-  .xl\:text-\[192px\] {
-    font-size: 192px;
+  .xl\:text-\[162px\] {
+    font-size: 162px;
   }
 
   .xl\:text-\[22px\] {
@@ -4341,11 +4446,10 @@ body {
     letter-spacing: -5.813px;
   }
 
-  .xl\:tracking-\[-9\.607px\] {
-    letter-spacing: -9.607px;
+  .xl\:tracking-\[-8\.1px\] {
+    letter-spacing: -8.1px;
   }
 }
-
 
 @media (min-width: 1800px) {
 

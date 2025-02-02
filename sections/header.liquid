@@ -131,10 +131,17 @@ class="header-wrapper {% if section.settings.show_line_separator %}header-wrappe
     {%  render 'header-mega-menu'  %}
 
 
+   
     <div class="flex justify-center custom--header--child w-full">
-      <a href="/">
-      <img src="https://cdn.shopify.com/s/files/1/0569/9217/0159/files/Mushpreneur_Logo_--_Black.png?v=1736221902" class="w-[148px] lg:w-[250px]" alt="Mushpreneur Logo">
-    </a>
+      {% if template.name == "blog" %}
+        <a href="/">
+          <img src="https://cdn.shopify.com/s/files/1/0569/9217/0159/files/Mushpreneur_Logo--White.png?v=1738159833" class="mush--logo-white w-[148px] lg:w-[250px]" alt="Mushpreneur Logo">
+        </a>
+      {% else %}
+        <a href="/">
+          <img src="https://cdn.shopify.com/s/files/1/0569/9217/0159/files/Mushpreneur_Logo_--_Black.png?v=1736221902" class="mush--logo-black w-[148px] lg:w-[250px]" alt="Mushpreneur Logo">
+        </a>
+      {% endif %}
 
     </div>
     
@@ -154,17 +161,25 @@ class="header-wrapper {% if section.settings.show_line_separator %}header-wrappe
                 {{ customer | avatar }}
               {%- else -%}
                 <span class="svg-wrappe--customr block w-5 xl:w-9">
-                  <svg class="w-full h-auto" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
-                    <path d="M7.875 28C8.54754 27.2468 11.6974 23.7806 12.6204 23.7806H22.3802C23.7178 23.7806 26.4483 26.6538 27.125 27.6666M31.5 17.5C31.5 25.232 25.232 31.5 17.5 31.5C9.76801 31.5 3.5 25.232 3.5 17.5C3.5 9.76801 9.76801 3.5 17.5 3.5C25.232 3.5 31.5 9.76801 31.5 17.5ZM22.515 12.7283C22.515 10.0573 20.2602 7.875 17.5004 7.875C14.7407 7.875 12.4859 10.0573 12.4859 12.7283C12.4859 15.3992 14.7407 17.5815 17.5004 17.5815C20.2601 17.5815 22.515 15.3992 22.515 12.7283Z" stroke="black" stroke-width="3"/>
-                  </svg>
+                  {% if template.name == "blog" %}
+                    <svg class="w-full h-auto" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+                      <path d="M7.875 28C8.54754 27.2468 11.6974 23.7806 12.6204 23.7806H22.3802C23.7178 23.7806 26.4483 26.6538 27.125 27.6666M31.5 17.5C31.5 25.232 25.232 31.5 17.5 31.5C9.76801 31.5 3.5 25.232 3.5 17.5C3.5 9.76801 9.76801 3.5 17.5 3.5C25.232 3.5 31.5 9.76801 31.5 17.5ZM22.515 12.7283C22.515 10.0573 20.2602 7.875 17.5004 7.875C14.7407 7.875 12.4859 10.0573 12.4859 12.7283C12.4859 15.3992 14.7407 17.5815 17.5004 17.5815C20.2601 17.5815 22.515 15.3992 22.515 12.7283Z" stroke="white" stroke-width="3"/>
+                    </svg>
+                  {% else %}
+                    <svg class="w-full h-auto" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+                      <path d="M7.875 28C8.54754 27.2468 11.6974 23.7806 12.6204 23.7806H22.3802C23.7178 23.7806 26.4483 26.6538 27.125 27.6666M31.5 17.5C31.5 25.232 25.232 31.5 17.5 31.5C9.76801 31.5 3.5 25.232 3.5 17.5C3.5 9.76801 9.76801 3.5 17.5 3.5C25.232 3.5 31.5 9.76801 31.5 17.5ZM22.515 12.7283C22.515 10.0573 20.2602 7.875 17.5004 7.875C14.7407 7.875 12.4859 10.0573 12.4859 12.7283C12.4859 15.3992 14.7407 17.5815 17.5004 17.5815C20.2601 17.5815 22.515 15.3992 22.515 12.7283Z" stroke="black" stroke-width="3"/>
+                    </svg>
+                  {% endif %}
                 </span>
               {%- endif -%}
             </account-icon>
           {%- else -%}
             <span class="svg-wrapper--custom block w-5 xl:w-9">
-              <svg class="w-full h-auto" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
-                <path d="M7.875 28C8.54754 27.2468 11.6974 23.7806 12.6204 23.7806H22.3802C23.7178 23.7806 26.4483 26.6538 27.125 27.6666M31.5 17.5C31.5 25.232 25.232 31.5 17.5 31.5C9.76801 31.5 3.5 25.232 3.5 17.5C3.5 9.76801 9.76801 3.5 17.5 3.5C25.232 3.5 31.5 9.76801 31.5 17.5ZM22.515 12.7283C22.515 10.0573 20.2602 7.875 17.5004 7.875C14.7407 7.875 12.4859 10.0573 12.4859 12.7283C12.4859 15.3992 14.7407 17.5815 17.5004 17.5815C20.2601 17.5815 22.515 15.3992 22.515 12.7283Z" stroke="black" stroke-width="3"/>
-              </svg>
+              
+                <svg class="w-full h-auto" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+                  <path d="M7.875 28C8.54754 27.2468 11.6974 23.7806 12.6204 23.7806H22.3802C23.7178 23.7806 26.4483 26.6538 27.125 27.6666M31.5 17.5C31.5 25.232 25.232 31.5 17.5 31.5C9.76801 31.5 3.5 25.232 3.5 17.5C3.5 9.76801 9.76801 3.5 17.5 3.5C25.232 3.5 31.5 9.76801 31.5 17.5ZM22.515 12.7283C22.515 10.0573 20.2602 7.875 17.5004 7.875C14.7407 7.875 12.4859 10.0573 12.4859 12.7283C12.4859 15.3992 14.7407 17.5815 17.5004 17.5815C20.2601 17.5815 22.515 15.3992 22.515 12.7283Z" stroke="black" stroke-width="3"/>
+                </svg>
+
             </span>
           {%- endif -%}
           <span class="visually-hidden">
@@ -179,29 +194,41 @@ class="header-wrapper {% if section.settings.show_line_separator %}header-wrappe
         </a>
       {%- endif -%}
 
-      <a href="{{ routes.cart_url }}" class="relative" id="cart-icon-bubble">
+      <a href="{{ routes.cart_url }}" class="relative cart-icon-bubble--header" id="cart-icon-bubble">
           {% if cart == empty %}
             <span class="svg-wrapper--custom block w-5 xl:w-9">
+              {% if template.name == "blog" %}
+                <svg class="w-full h-auto" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+                  <path d="M22.75 12.1654C22.75 15.0649 20.3995 17.4154 17.5 17.4154C14.6005 17.4154 12.25 15.0649 12.25 12.1654M6.89394 30.5404H28.1061C29.9805 30.5404 31.5 29.0491 31.5 27.2095L29.3258 7.79033C29.3258 5.95075 27.8062 4.45947 25.9318 4.45947H8.64394C6.76952 4.45947 5.25 5.95075 5.25 7.79033L3.5 27.2095C3.5 29.0491 5.01952 30.5404 6.89394 30.5404Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              {% else %}
               <svg class="w-full h-auto" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
                 <path d="M22.75 12.1654C22.75 15.0649 20.3995 17.4154 17.5 17.4154C14.6005 17.4154 12.25 15.0649 12.25 12.1654M6.89394 30.5404H28.1061C29.9805 30.5404 31.5 29.0491 31.5 27.2095L29.3258 7.79033C29.3258 5.95075 27.8062 4.45947 25.9318 4.45947H8.64394C6.76952 4.45947 5.25 5.95075 5.25 7.79033L3.5 27.2095C3.5 29.0491 5.01952 30.5404 6.89394 30.5404Z" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
+              {% endif %}
             </span>
           {% else %}
             <span class="svg-wrapper--custom block w-5 xl:w-9">
+              {% if template.name == "blog" %}
+                <svg class="w-full h-auto" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+                  <path d="M22.75 12.1654C22.75 15.0649 20.3995 17.4154 17.5 17.4154C14.6005 17.4154 12.25 15.0649 12.25 12.1654M6.89394 30.5404H28.1061C29.9805 30.5404 31.5 29.0491 31.5 27.2095L29.3258 7.79033C29.3258 5.95075 27.8062 4.45947 25.9318 4.45947H8.64394C6.76952 4.45947 5.25 5.95075 5.25 7.79033L3.5 27.2095C3.5 29.0491 5.01952 30.5404 6.89394 30.5404Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              {% else %}
               <svg class="w-full h-auto" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
                 <path d="M22.75 12.1654C22.75 15.0649 20.3995 17.4154 17.5 17.4154C14.6005 17.4154 12.25 15.0649 12.25 12.1654M6.89394 30.5404H28.1061C29.9805 30.5404 31.5 29.0491 31.5 27.2095L29.3258 7.79033C29.3258 5.95075 27.8062 4.45947 25.9318 4.45947H8.64394C6.76952 4.45947 5.25 5.95075 5.25 7.79033L3.5 27.2095C3.5 29.0491 5.01952 30.5404 6.89394 30.5404Z" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
+              {% endif %}
             </span>
           {% endif %}
         <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
-        {% comment %} {%- if cart != empty -%}
-          <div class="cart-count-bubble hidden">
+        {%- if cart != empty -%}
+          <div class="cart-count-bubble hidden_ w-5 h-5 xl:w-6 xl:h-6 text-sm xl:text-base top-[0.5rem] right-[-8px] xl:bottom-0 xl:!right-0 xl:translate-x-1/2 xl:translate-y-1/2">
             {%- if cart.item_count < 100 -%}
               <span aria-hidden="true">{{ cart.item_count }}</span>
             {%- endif -%}
             <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
           </div>
-        {%- endif -%} {% endcomment %}
+        {%- endif -%}
       </a>
 
     </div>
