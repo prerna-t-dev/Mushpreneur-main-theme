@@ -1,55 +1,60 @@
 <section id="mush--why-mushroom-facts">
     <div class="section-wrapper text-white relative" style="background-color: {{ section.settings.background }};">
-        <div class="rounded-t-[26px] lg:rounded-t-[42px] xl:rounded-t-[96px] px-[26px] lg:px-[140px] py-[30px] lg:py-[110px]" style="background-color: {{ section.settings.foreground }};">
-            <div class="grid grid-cols-2 gap-24 items-center relative mb-[62px] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
+        <div class="rounded-t-[26px] lg:rounded-t-[42px] xl:rounded-t-[96px] px-[40px] lg:px-[140px] py-[60px] lg:py-[110px]" style="background-color: {{ section.settings.foreground }};">
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-[56px] xl:gap-24 items-center relative mb-[62px] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
                 <div class="">
-                    <h3 class="text-[48px] tracking-[-2.4px] leading-[1.1] font-bold mb-[52px] text-transparent bg-clip-text bg-[linear-gradient(90deg,#F2008C_0%,#E74936_100%)]">
+                    <h3 class="text-[28px] xl:text-[48px] tracking-[-1.4px] xl:tracking-[-2.4px] leading-[1.1] font-bold mb-6 xl:mb-[52px] text-transparent bg-clip-text bg-[linear-gradient(90deg,#F2008C_0%,#E74936_100%)]">
                         Mushrooms Are Not <br />Plants or Animals— <br />They’re Powerhouses
                     </h3>
-                    <p class="text-[28px] tracking-[-1.4px] leading-[1.2] text-black">
+                    <p class="text-sm xl:text-[28px] tracking-[-0.7px] xl:tracking-[-1.4px] leading-[1.2] text-black">
                         Think mushrooms are plants? Wrong. These fungi play by their own rules. They belong to the Kingdom of Fungi and share more DNA with humans than the plants that surround us. For centuries, mushrooms were the secret weapon of healers and royalty—called “plants of immortality” in ancient Egypt. Today, science confirms what they already knew: mushrooms fuel your body, sharpen your mind, and help you stay stress free.
                     </p>
                 </div>
                 <div class="relative">
                     <img src="{{ section.settings.image |  img_url: 'master' }}" alt="Mushroom Facts">
+
+                    <!-- Divider: Mobile  -->
+                    <div class="xl:hidden absolute left-1/2 -translate-x-1/2 -top-[28px] h-[2px] w-full bg-gradient-to-b from-[#F2008C] to-[#E74936]">
+
+                    </div>
                 </div>
 
-                <!-- Divider -->
-                <div class="absolute inset-y-0 left-1/2 w-[4px]  bg-gradient-to-b from-[#F2008C] to-[#E74936]">
+                <!-- Divider: Desk  -->
+                <div class="hidden xl:block absolute inset-y-0 left-1/2 w-[4px]  bg-gradient-to-b from-[#F2008C] to-[#E74936]">
 
                 </div>
             </div>
 
 
-            <div class="rounded-[60px] border-[4.522px] border-transparent bg-[linear-gradient(90deg,#F2008C_0%,#E74936_100%)] bg-clip-border {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
-                <div class="rounded-[55px] bg-white h-full w-full p-[70px]">
-                    <div class="grid grid-cols-2 items-center gap-20 text-black">
+            <div class="rounded-[28px] xl:rounded-[60px] border-[2px] xl:border-[4.522px] border-transparent bg-[linear-gradient(90deg,#F2008C_0%,#E74936_100%)] bg-clip-border {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
+                <div class="rounded-[25px] xl:rounded-[55px] bg-white h-full w-full px-6 py-11 xl:p-[70px]">
+                    <div class="grid grid-cols-1 xl:grid-cols-2 items-center gap-5 xl:gap-20 text-black">
                         <div>
-                            <h4 class="text-[36px] tracking-[-1.8px] font-semibold text-transparent bg-clip-text bg-[linear-gradient(90deg,#F2008C_0%,#E74936_100%)]">
+                            <h4 class="text-xl xl:text-[36px] tracking-[-1px] xl:tracking-[-1.8px] font-semibold text-transparent bg-clip-text bg-[linear-gradient(90deg,#F2008C_0%,#E74936_100%)]">
                                 Fun Facts About Mushrooms
                             </h4>
-                            <p class="text-[28px] tracking-[-1.4px] leading-[1.2] font-bold mb-5">
+                            <p class="text-base xl:text-[28px] tracking-[-0.8px]xl: tracking-[-1.4px] leading-[1.2] font-bold xl:mb-5">
                                 Prepare to be amazed:
                             </p>
 
-                            <p class="text-orange text-2xl tracking-[-1.2px] leading-[1.1] font-semibold">
+                            <p class="hidden xl:block text-orange text-2xl tracking-[-1.2px] leading-[1.1] font-semibold">
                                 Ready to meet the mushrooms that make this all possible? Let’s dive in.
                             </p>
                         </div>
-                        <ul class="flex flex-col gap-4">
-                            <li class="text-2xl tracking-[-1.2px] leading-[1.1] font-semibold list-disc">
+                        <ul class="flex flex-col gap-4 pl-4">
+                            <li class="text-sm xl:text-2xl tracking-[-0.7px] xl:tracking-[-1.2px] leading-[1.1] font-semibold list-disc">
                                 Mushrooms share more DNA with humans than plants.
                             </li>
-                            <li class="text-2xl tracking-[-1.2px] leading-[1.1] font-semibold list-disc">
+                            <li class="text-sm xl:text-2xl tracking-[-0.7px] xl:tracking-[-1.2px] leading-[1.1] font-semibold list-disc">
                                 Over 70 species of mushrooms glow in the dark.
                             </li>
-                            <li class="text-2xl tracking-[-1.2px] leading-[1.1] font-semibold list-disc">
+                            <li class="text-sm xl:text-2xl tracking-[-0.7px] xl:tracking-[-1.2px] leading-[1.1] font-semibold list-disc">
                                 When exposed to sunlight, mushrooms can produce vitamin D.
                             </li>
-                            <li class="text-2xl tracking-[-1.2px] leading-[1.1] font-semibold list-disc">
+                            <li class="text-sm xl:text-2xl tracking-[-0.7px] xl:tracking-[-1.2px] leading-[1.1] font-semibold list-disc">
                                 Mushroom mycelium can be used as a sustainable building material.
                             </li>
-                            <li class="text-2xl tracking-[-1.2px] leading-[1.1] font-semibold list-disc">
+                            <li class="text-sm xl:text-2xl tracking-[-0.7px] xl:tracking-[-1.2px] leading-[1.1] font-semibold list-disc">
                                 Over 270 mushroom species have therapeutic properties.  
                             </li>
 

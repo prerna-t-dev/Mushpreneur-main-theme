@@ -14,7 +14,7 @@
             {{ block.shopify_attributes }}
           >
             <div
-              class="article-template__hero-{{ block.settings.image_height }}_ media aspect-[2.25/1] overflow-hidden"
+              class="article-template__hero-{{ block.settings.image_height }}_ media aspect-[4/3] xl:aspect-[2.25/1] overflow-hidden"
             >
               <img
                 srcset="
@@ -40,11 +40,11 @@
 
       {%- when 'title' -%}
         <section
-          class="px-20 pb-[72px] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+          class="px-[26px] xl:px-20 pb-9 xl:pb-[72px] !mt-2 xl:!mt-8 {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
           {{ block.shopify_attributes }}
         >
           <h1
-            class="text-[60px] tracking-[-3px] font-semibold leading-[1.1] xl:pr-40 mb-10"
+            class="text-[32px] xl:text-[60px] tracking-[-1.6px] xl:tracking-[-3px] font-semibold leading-[1.1] xl:pr-40 mb-5 xl:mb-10"
           >
             {{ article.title | escape }}
           </h1>
@@ -53,14 +53,14 @@
               <span class="flex items-center gap-3">
                 <div>
                   {% if article.metafields.custom.author_image != blank   %}
-                    <img class="w-11 h-11 rounded-full" src="{{ article.metafields.custom.author_image |  img_url: 'master' }}" alt="{{ article.author }}">
+                    <img class="w-8 h-8 xl:w-11 xl:h-11 rounded-full" src="{{ article.metafields.custom.author_image |  img_url: 'master' }}" alt="{{ article.author }}">
                   {% else %}
-                    <img class="w-11 h-11 rounded-full" src="https://cdn.shopify.com/s/files/1/0569/9217/0159/files/Founder_Julie.png?v=1738157196" alt="{{ article.author }}">
+                    <img class="w-8 h-8 xl:w-11 xl:h-11 rounded-full" src="https://cdn.shopify.com/s/files/1/0569/9217/0159/files/Founder_Julie.png?v=1738157196" alt="{{ article.author }}">
                   {% endif %}
                 </div>
                 <div>
-                  <p class="text-xl tracking-[-1px] leading-[1.1]">Posted By</p>
-                  <p class="text-xl tracking-[-1px] leading-[1.1]">
+                  <p class="text-sm xl:text-xl tracking-[-0.7px] xl:tracking-[-1px] leading-[1.1]">Posted By</p>
+                  <p class="text-sm xl:text-xl tracking-[-0.7px] xl:tracking-[-1px] leading-[1.1]">
                     {{ article.author }}
                   </p>
                 </div>
@@ -68,7 +68,7 @@
             {%- endif -%}
 
             {%- if block.settings.blog_show_date -%}
-                <div>
+                <div class="hidden xl:block">
                   <p class="text-xl tracking-[-1px] leading-[1.1] text-right">Date</p>
                   <p class="text-xl tracking-[-1px] leading-[1.1] text-right">
                     {{- article.published_at | time_tag: format: 'date' -}}
@@ -83,7 +83,7 @@
 
       {%- when 'content' -%}
         <div
-          class="mush--article-content px-20 mx-auto mt-20 max-w-[1024px] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          class="mush--article-content px-[26px] xl:px-20 mx-auto mt-10 xl:mt-20 max-w-[1024px] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
           {{ block.shopify_attributes }}
         >
           {{ article.content }}
@@ -91,7 +91,7 @@
 
       {%- when 'share' -%}
         <div
-          class="article-template__social-sharing px-20 mx-auto max-w-[1024px] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          class="article-template__social-sharing px-[26px] xl:px-20 mx-auto max-w-[1024px] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
           {{ block.shopify_attributes }}
         >
           {% assign share_url = request.origin | append: article.url %}
@@ -99,10 +99,10 @@
           {% assign article_title = article.title | url_encode %}
           {% assign article_image = article.image | default: shop.url | append: article.image.src | url_encode %}
 
-          <div class="share-links flex items-center gap-9">
-            <p class="text-[32px] tracking-[-1.6px] font-medium">Share: </p>
+          <div class="share-links flex items-center gap-5 xl:gap-9">
+            <p class="text-base xl:text-[32px] tracking-[-0.8px] xl:tracking-[-1.6px] font-medium">Share: </p>
 
-            <div class="flex items-center gap-6">
+            <div class="flex items-center scale-[0.7] xl:scale-[1] gap-6">
               <!-- Facebook -->
               <a href="https://www.facebook.com/sharer/sharer.php?u={{ article_url }}" target="_blank" rel="noopener noreferrer">
                 <svg xmlns="http://www.w3.org/2000/svg" width="108" height="39" viewBox="0 0 108 39" fill="none">
@@ -148,7 +148,7 @@
     {% endif %}
   {% endfor %}
 
-  <div class="article-navigation element-margin-top flex justify-between items-center px-20 mx-auto mb-20 max-w-[1024px] center{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+  <div class="article-navigation element-margin-top flex justify-between items-center px-[26px] xl:px-20 mx-auto mb-20 max-w-[1024px] center{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
     
     {% if prev_article %}
       <a href="{{ prev_article.url }}" class="flex items-center gap-1 animate-arrow">
@@ -157,13 +157,13 @@
             <path d="M10.2322 18.7163L3.83594 12.0002M3.83594 12.0002L10.2322 5.28418M3.83594 12.0002L19.1869 12.0002" stroke="black" stroke-width="1.3545" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </span>
-       <span class="text-xl tracking-[-1px]">Older Posts</span>
+       <span class="text-base xl:text-xl tracking-[-0.8px] xl:tracking-[-1px]">Older Posts</span>
       </a>
     {% endif %}
     
     {% if next_article %}
       <a href="{{ next_article.url }}" class="flex items-center gap-1 animate-arrow">
-        <span class="text-xl tracking-[-1px] font-semibold">Newer Posts</span>
+        <span class="text-base xl:text-xl tracking-[-0.8px] xl:tracking-[-1px] font-semibold">Newer Posts</span>
         <span class="icon-wrap">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path d="M12.7952 18.23L19.1914 11.5139M19.1914 11.5139L12.7952 4.79785M19.1914 11.5139L3.84044 11.5139" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>

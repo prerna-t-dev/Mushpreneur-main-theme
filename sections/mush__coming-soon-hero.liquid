@@ -1,16 +1,34 @@
+<style>
+    /* #mush--coming-soon-hero .section-wrapper{
+        background-image: url({{ section.settings.image_mob |  img_url: 'master' }});
+        background-repeat: no-repeat; 
+        background-size: 100%;
+        background-position: bottom;
+    } */
+
+    @media (min-width: 1280px){
+        #mush--coming-soon-hero .section-wrapper{
+            background-image: url({{ section.settings.image_desk |  img_url: 'master' }});
+            background-size: cover;
+        }
+    }
+    
+</style>
+
+
 <section id="mush--coming-soon-hero">
-    <div class="section-wrapper text-white relative px-[86px] bg-black py-[184px] min-h-screen" style="background-image: url({{ section.settings.image_desk |  img_url: 'master' }}); background-repeat: no-repeat; background-size: cover">
-        <div class="coming-soon--content w-3/5">
-            <h1 class="text-[70px] tracking-[-3.5px] font-bold mb-11 leading-[1.1] text-transparent bg-clip-text bg-gradient-to-r from-[#F2008C] to-[#E45825]">
+    <div class="section-wrapper text-white relative px-6 xl:px-[86px] bg-black pt-[126px] pb-11 xl:py-[184px] xl:min-h-screen">
+        <div class="coming-soon--content xl:w-3/5 relative z-2">
+            <h1 class="text-[32px] xl:text-[70px] tracking-[-1.6px] xl:tracking-[-3.5px] font-bold text-center xl:text-left mb-3 xl:mb-11 leading-[1.1] text-transparent bg-clip-text bg-gradient-to-r from-[#F2008C] to-[#E45825]">
                 {{ section.settings.header }}
             </h1>
-            <p class="text-2xl tracking-[-1.2px] pr-20 mb-11">
+            <p class="text-sm xl:text-2xl tracking-[-0.7px] xl:tracking-[-1.2px] text-center xl:text-left xl:pr-20 mb-6 xl:mb-11">
                 {{ section.settings.subheader }}
             </p>
 
             <!-- Newsletter -->
-            <div class="mb-11">
-                <form method="post" action="/" accept-charset="UTF-8" class="newsletter-form footer--newsletter-form flex items-center gap-4 justify-center w-full">
+            <div class="mb-5 xl:mb-11 relative z-[2]">
+                <form method="post" action="/" accept-charset="UTF-8" class="newsletter-form footer--newsletter-form flex flex flex-col xl:flex-row items-center gap-4 justify-center w-full">
                     <input type="hidden" name="form_type" value="customer">
                     <input type="hidden" name="utf8" value="✓">
 
@@ -18,24 +36,30 @@
                     type="email" 
                     name="email" 
                     placeholder="Email" 
-                    class="bg-transparent px-7 py-4 border border-white rounded-[62px] w-full text-sm xl:text-xl tracking-[-0.7px] xl:tracking-[-1.037px] font-light" 
+                    class="bg-transparent w-full px-7 py-4 border border-white rounded-[62px] w-full text-sm xl:text-xl tracking-[-0.7px] xl:tracking-[-1.037px] font-light" 
                     required>
 
-                    <button type="submit" class="newsletter--submit-btn btn bg-gradient-to-r from-[#F2008C] to-[#E74936] text-white uppercase cursor-pointer text-sm xl:text-xl font-semibold leading-[1.1] tracking-[-0.7px] xl:tracking-[-1.037px]">JOIN THE LIST</button>
+                    <button type="submit" class="newsletter--submit-btn w-full min-h-[54px] btn bg-gradient-to-r from-[#F2008C] to-[#E74936] text-white uppercase cursor-pointer text-sm xl:text-xl font-semibold leading-[1.1] tracking-[-0.7px] xl:tracking-[-1.037px]">JOIN THE LIST</button>
                 </form>
             </div>
 
 
             <!-- Coming Soon USP -->
-            <div class="flex items-center gap-1">
+            <div class="flex items-center justify-center xl:justify-start flex-wrap gap-1 xl:gap-3 relative z-[2]">
                 {% for block in section.blocks %}
                     <div class="inline-block flex items-center">
-                        <span>✓</span>
-                        <span class="text-base tracking-[-0.8px]">
+                        <span class="text-base xl:text-lg">✓</span>
+                        <span class="text-[12px] xl:text-base tracking-[-0.6px] xl:tracking-[-0.8px] whitespace-nowrap leading-none">
                             {{ block.settings.usp }}
                         </span>
                     </div>
                 {% endfor %}
+            </div>
+
+
+            <!-- Coming Soon Image Banner: Mobile-->
+            <div class="xl:hidden -mt-12 relative z-0">
+                <img src="{{ section.settings.image_mob |  img_url: 'master' }}" alt="Coming Soon">
             </div>
         </div>
     </div>

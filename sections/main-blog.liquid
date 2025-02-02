@@ -19,17 +19,17 @@
 
 <section class="mush--main-blog">
   <div class="section-wrapper"  style="background: {{ section.settings.background }};">
-    <div class="px-[110px] py-[96px] rounded-t-[26px] lg:rounded-t-[42px] xl:rounded-t-[96px]"  style="background: {{ section.settings.foreground }};">
+    <div class="xl:px-[110px] py-[56px] xl:py-[96px] rounded-t-[26px] lg:rounded-t-[42px] xl:rounded-t-[96px] overflow-hidden"  style="background: {{ section.settings.foreground }};">
 
       <!-- Blog Tags: NOT AJAX -->
-      <div class="flex items-center gap-5 mb-20">
-        <a href="{{ blog.url }}" class="btn border border-black rounded-[28px] px-10 py-3 
+      <div class="flex items-center gap-3 xl:gap-5 mb-10 xl:mb-20 overflow-scroll">
+        <a href="{{ blog.url }}" class="btn border border-black rounded-[28px] px-6 xl:px-10 py-2 xl:py-3 
                   {% if current_tags == empty or current_tags == nil  %} bg-black text-white {% else %} text-black {% endif %}">
           All Blogs
         </a>
 
         {% for tag in blog.all_tags %}
-          <a href="{{ blog.url }}/tagged/{{ tag | handleize }}" class="btn border border-black rounded-[28px] px-10 py-3 
+          <a href="{{ blog.url }}/tagged/{{ tag | handleize }}" class="btn border border-black rounded-[28px] px-6 xl:px-10 py-2 xl:py-3 
                     {% if current_tags contains tag %} bg-black text-white {% else %} text-black {% endif %}">
             {{ tag }}
           </a>
@@ -39,10 +39,10 @@
 
 
 
-      {%- paginate blog.articles by 6 -%}
-        <div class="main-blog">
+      {%- paginate blog.articles by 9 -%}
+        <div class="main-blog px-8 xl:px-0">
         
-          <div class="blog-articles_ grid grid-cols-3 gap-12">
+          <div class="blog-articles_ grid grid-cols-1 xl:grid-cols-3 gap-10 xl:gap-12">
             {%- for article in blog.articles -%}
               <div
                 class="blog-articles__article_ article_{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
