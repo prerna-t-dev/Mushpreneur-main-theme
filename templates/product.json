@@ -171,7 +171,7 @@
           "settings": {
             "name": "Organic Raw \nBlack Maca",
             "description": "Stamina boost, \nincreased energy, and \nmood-enhancing\nproperties",
-            "image": "shopify://shop_images/1--organic--maca.png"
+            "image": "shopify://shop_images/Organic_Raw_Black_Maca_1.png"
           }
         },
         "ingredient_NBMenV": {
@@ -179,29 +179,23 @@
           "settings": {
             "name": "Organic \nLion’s Mane",
             "description": "Promotes creativity, \nproductivity, focus, \nand improved \nmood.",
-            "image": "shopify://shop_images/2--organic-lions-mane.png"
+            "image": "shopify://shop_images/Organic_Lion_s_Mane_1.png"
           }
         },
         "ingredient_bXfFKF": {
           "type": "ingredient",
           "settings": {
             "name": "Organic \nCordyceps",
-            "description": "All-day energy \nboost and \nendurance to power \nthrough the day. "
+            "description": "All-day energy \nboost and \nendurance to power \nthrough the day. ",
+            "image": "shopify://shop_images/Organic_Cordyceps_1.png"
           }
         },
         "ingredient_d8ttdw": {
           "type": "ingredient",
           "settings": {
-            "name": "Lorem\nIpsum",
-            "description": "Lorem Ipsum,\ndolor sit,\namet",
-            "image": "shopify://shop_images/tree-stump.png"
-          }
-        },
-        "ingredient_rnRUxc": {
-          "type": "ingredient",
-          "settings": {
-            "name": "Lorem\nI",
-            "description": "Lorem \nI"
+            "name": "Organic \nRaw Cacao",
+            "description": "Mood-enhancing and \nknown to improve \ngeneral overall \ncognition.",
+            "image": "shopify://shop_images/Organic_Raw_Cacao_1.png"
           }
         }
       },
@@ -209,8 +203,7 @@
         "ingredient_F7Tn8c",
         "ingredient_NBMenV",
         "ingredient_bXfFKF",
-        "ingredient_d8ttdw",
-        "ingredient_rnRUxc"
+        "ingredient_d8ttdw"
       ],
       "settings": {}
     },
@@ -257,7 +250,8 @@
         "faq_kknUQM"
       ],
       "settings": {
-        "header": "Frequently Asked Questions"
+        "header": "Frequently Asked Questions",
+        "rounded_bottom": true
       }
     }
   },
