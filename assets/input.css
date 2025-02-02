@@ -478,3 +478,44 @@
 .mush--article-content ol li strong{
     font-weight: 600;
 }
+
+
+@media (max-width: 1280px) {
+    .mush--article-content p,
+    .mush--article-content span{
+        font-size: 16px;
+        letter-spacing: -0.8px;
+
+    }
+    .mush--article-content p{
+        margin-bottom: 12px;
+    }
+
+
+    .mush--article-content h2,
+    .mush--article-content h2 span{
+        font-size: 24px;
+        letter-spacing: -1.2px;
+    }
+
+    .mush--article-content h2{
+        margin-bottom: 8px;
+        margin-top: 8px;
+    }
+
+    .mush--article-content h3,
+    .mush--article-content h3 span{
+        font-size: 20px;
+        letter-spacing: -1px;
+    }
+
+    .mush--article-content h3{
+        margin-bottom: 4px;
+    }
+
+
+    .article-template__social-sharing {
+        margin-top: 1rem !important;
+      }
+
+}

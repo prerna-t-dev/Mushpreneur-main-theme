@@ -2,9 +2,9 @@
   class="group-block mt-12"
 >
   {% if block.settings.title != blank %}
-    <h4 class="group-header text-[30px] tracking-[-1.5px] text-white mb-1 font-semibold">{{ block.settings.title }}</h4>
+    <h4 class="group-header text-base xl:text-[30px] tracking-[-0.8px] xl:tracking-[-1.5px] text-white mb-1 font-semibold">{{ block.settings.title }}</h4>
   {% endif %}
-  <ul class="pl-4">
+  <ul class="pl-6">
     {% content_for 'blocks' %}
   </ul>
   

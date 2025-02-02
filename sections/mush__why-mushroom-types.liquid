@@ -1,39 +1,42 @@
 <style>
-    li:last-child:nth-child(3n - 1) {
-    grid-column-end: -2;
-    }
+    @media (min-width: 1280px) {
+        li:last-child:nth-child(3n - 1) {
+        grid-column-end: -2;
+        }
 
-    li:nth-last-child(2):nth-child(3n + 1) {
-    grid-column-end: 4;
+        li:nth-last-child(2):nth-child(3n + 1) {
+        grid-column-end: 4;
+        }
     }
+    
 </style>
 
 
 <section id="mush--why-mushroom-types">
-    <div class="section-wrapper relative px-[26px] lg:px-[140px] py-[30px] lg:py-[110px]">
+    <div class="section-wrapper relative px-6 lg:px-[140px] py-[30px] lg:py-[110px]">
         <div class="{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
-            <h2 class="text-[48px] tracking-[-2.4px] font-bold text-center mb-2">
+            <h2 class="text-[28px] xl:text-[48px] tracking-[-1.4px] xl:tracking-[-2.4px] font-bold text-center mb-2">
                 {{ section.settings.header }}
             </h2>
-            <p class="text-[28px] tracking-[-1.4px] leading-[1.2] text-center px-40 mb-20">
+            <p class="text-base xl:text-[28px] tracking-[-0.8px] xl:tracking-[-1.4px] leading-[1.2] text-center xl:px-40 mb-5 xl:mb-20">
                 {{ section.settings.subheader }}
             </p>
         </div>
         
 
 
-        <ul class="grid grid-cols-6 gap-14 mb-[140px] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
+        <ul class="grid grid-cols-1 xl:grid-cols-6 gap-9 xl:gap-14 mb-[52px] xl:mb-[140px] px-6 xl:px-0 {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
             {% for block in section.blocks %}
-                <li class="mushroom-block-item rounded-[30px] shadow-lg p-9 text-center col-span-2">
-                    <p class="text-[22px] tracking-[-1.1px] font-semibold mb-8">
+                <li class="mushroom-block-item rounded-[30px] shadow-lg p-9 text-center xl:col-span-2">
+                    <p class="text-lg xl:text-[22px] tracking-[-0.9px] xl:tracking-[-1.1px] font-semibold mb-3 xl:mb-8">
                         {{ block.settings.subheader }}
                     </p>
                     <img class="mb-4" src="{{ block.settings.image |  img_url: 'master' }}" alt="{{ block.settings.name }}">
 
-                    <h4 class="text-[30px] tracking-[-1.5px] font-semibold mb-5 text-transparent bg-clip-text bg-[linear-gradient(90deg,#F2008C_0%,#E74936_100%)]">
+                    <h4 class="text-2xl xl:text-[30px] tracking-[-1.2px] xl:tracking-[-1.5px] font-semibold mb-2 xl:mb-5 text-transparent bg-clip-text bg-[linear-gradient(90deg,#F2008C_0%,#E74936_100%)]">
                         {{ block.settings.name }}
                     </h4>
-                    <div class="text-base tracking-[-0.8px] font-medium leading-[1.1]">
+                    <div class="text-sm xl:text-base tracking-[-0.7px] xl:tracking-[-0.8px] font-medium leading-[1.1]">
                         {{ block.settings.description | newline_to_br }}
                     </div>
                 </li>
@@ -42,10 +45,10 @@
 
 
         <div class="{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}" >
-            <h3 class="text-[48px] tracking-[-2.4px] font-bold text-center mb-2 text-transparent bg-clip-text bg-[linear-gradient(90deg,#F2008C_0%,#E74936_100%)]">
+            <h3 class="text-[28px] xl:text-[48px] tracking-[-1.4px] xl:tracking-[-2.4px] font-bold text-center mb-2 text-transparent bg-clip-text bg-[linear-gradient(90deg,#F2008C_0%,#E74936_100%)]">
                 {{ section.settings.header_2 }}
             </h3>
-            <p class="text-[28px] tracking-[-1.4px] leading-[1.2] text-center px-40 mb-20">
+            <p class="text-base xl:text-[28px] tracking-[-0.8px] xl:tracking-[-1.4px] leading-[1.2] text-center xl:px-40 mb-8 xl:mb-20">
                 {{ section.settings.subheader_2 }}
             </p>
         </div>

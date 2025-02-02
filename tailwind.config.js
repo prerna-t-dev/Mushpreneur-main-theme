@@ -27,7 +27,10 @@ module.exports = {
       },
       letterSpacing: {
         '50': '0.5em'
-      }
+      },
+      minHeight: {
+        'screen-plus-120': 'calc(100vh + 120px)',
+      },
     },
   },
   plugins: [

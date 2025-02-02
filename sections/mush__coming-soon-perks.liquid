@@ -1,19 +1,19 @@
 <section id="mush--coming-soon-perks">
-    <div class="section-wrapper bg-white relative px-[82px] py-[150px]">
-        <h2 class="text-[114px] tracking-[-5.718px] uppercase text-center font-semibold leading-none text-orange mb-4">
+    <div class="section-wrapper bg-white relative px-6 xl:px-[82px] py-[112px] xl:py-[150px]">
+        <h2 class="text-[56px] xl:text-[114px] tracking-[-2.8px] xl:tracking-[-5.718px] uppercase text-center font-semibold leading-none text-orange mb-3 xl:mb-4">
             {{ section.settings.header }}
         </h2>
-        <p class="text-[40px] tracking-[-2px] text-center mb-[64px]">
+        <p class="text-base xl:text-[40px] tracking-[-0.8px] xl:tracking-[-2px] text-center mb-[64px]">
             {{ section.settings.subheader }}
         </p>
-        <div class="grid grid-cols-4 gap-7 mb-[64px]">
+        <div class="grid grid-cols-1 xl:grid-cols-4 gap-7 mb-[64px] px-12 xl:px-0">
             {% for block in section.blocks %}
-                <div class="mushroom-block-item flex flex-col items-center rounded-[30px] shadow-lg px-12 py-11 text-center">
-                    <img class="px-6 aspect-[1/1] w-full mb-5" src="{{ block.settings.image |  img_url: 'master' }}" alt="{{ block.settings.title }}">
-                    <h4 class="text-[32px] tracking-[-1.6px] font-semibold leading-none mb-3 text-transparent bg-clip-text bg-gradient-to-r from-[#F2008C] to-[#E45825]">
+                <div class="mushroom-block-item flex flex-col items-center rounded-[30px] shadow-lg px-12 py-9 xl:py-11 text-center">
+                    <img class="px-6 aspect-[1/1] w-full mb-3 xl:mb-5" src="{{ block.settings.image |  img_url: 'master' }}" alt="{{ block.settings.title }}">
+                    <h4 class="text-[26px] xl:text-[32px] tracking-[-1.3px] xl:tracking-[-1.6px] font-semibold leading-none mb-2 xl:mb-3 text-transparent bg-clip-text bg-gradient-to-r from-[#F2008C] to-[#E45825]">
                         {{ block.settings.title |  newline_to_br }}
                     </h4>
-                    <p class="text-xl tracking-[-1px] font-medium">
+                    <p class="text-sm xl:text-xl tracking-[-0.7px] xl:tracking-[-1px] font-medium">
                         {{ block.settings.subtext }}
                     </p>
                 </div>
