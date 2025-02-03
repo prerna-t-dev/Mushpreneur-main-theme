@@ -326,6 +326,7 @@
     {% comment %} <script src="https://cdn.jsdelivr.net/npm/marquee3000@1.1.1/marquee3k.min.js"></script> {% endcomment %}
     <script src="{{  'marquee3k.min.js' | asset_url }}"></script>
 
+
   </head>
 
   <body {{ template.suffix }} data-template-suffix="{{ template.suffix }}" data-template="{{ template.name }}" class="scrollbar-gutter-overlay_ gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
