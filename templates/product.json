@@ -169,7 +169,7 @@
         "ingredient_F7Tn8c": {
           "type": "ingredient",
           "settings": {
-            "name": "Organic Raw \nBlack Maca",
+            "name": "<p>Organic Raw \nBlack Maca</p>",
             "description": "Stamina boost, \nincreased energy, and \nmood-enhancing\nproperties",
             "image": "shopify://shop_images/Organic_Raw_Black_Maca_1.png"
           }
@@ -177,7 +177,7 @@
         "ingredient_NBMenV": {
           "type": "ingredient",
           "settings": {
-            "name": "Organic \nLion’s Mane",
+            "name": "<p>Organic \nLion’s Mane</p>",
             "description": "Promotes creativity, \nproductivity, focus, \nand improved \nmood.",
             "image": "shopify://shop_images/Organic_Lion_s_Mane_1.png"
           }
@@ -185,7 +185,7 @@
         "ingredient_bXfFKF": {
           "type": "ingredient",
           "settings": {
-            "name": "Organic \nCordyceps",
+            "name": "<p>Organic \nCordyceps</p>",
             "description": "All-day energy \nboost and \nendurance to power \nthrough the day. ",
             "image": "shopify://shop_images/Organic_Cordyceps_1.png"
           }
@@ -193,9 +193,65 @@
         "ingredient_d8ttdw": {
           "type": "ingredient",
           "settings": {
-            "name": "Organic \nRaw Cacao",
+            "name": "<p>Organic \nRaw Cacao</p>",
             "description": "Mood-enhancing and \nknown to improve \ngeneral overall \ncognition.",
             "image": "shopify://shop_images/Organic_Raw_Cacao_1.png"
+          }
+        },
+        "ingredient_tniWKi": {
+          "type": "ingredient",
+          "settings": {
+            "name": "<p>L-theanine</p>",
+            "description": "Promotes wakeful \nrelaxation for \ncreativity \nand productivity."
+          }
+        },
+        "ingredient_KirPJf": {
+          "type": "ingredient",
+          "settings": {
+            "name": "<p>Rhodiola \nRosea Root</p>",
+            "description": "Optimizes mental \nenergy and regulates \nthe body’s stress \nresponses."
+          }
+        },
+        "ingredient_taKPAb": {
+          "type": "ingredient",
+          "settings": {
+            "name": "<p>Ashwagandha \nKSM-66</p>",
+            "description": "Helps to support \ncognitive function, \nmemory & focus and \nreduces anxiety."
+          }
+        },
+        "ingredient_W7t9Pz": {
+          "type": "ingredient",
+          "settings": {
+            "name": "<p>Organic \nVitamin B12</p>",
+            "description": "Essential for the \ndevelopment of the central\n nervous system, \ngreat for vegan diets."
+          }
+        },
+        "ingredient_tycPVE": {
+          "type": "ingredient",
+          "settings": {
+            "name": "<p>Organic Vitamin D2</p><h6>(From Mushrooms)</h6>",
+            "description": "Made exclusively from \nmushrooms and essential \nfor bone health, strong teeth, \nand resistance to certain diseases."
+          }
+        },
+        "ingredient_bcJ9Vm": {
+          "type": "ingredient",
+          "settings": {
+            "name": "<p>Natural Caffeine </p><h6>(from Green Tea)</h6>",
+            "description": "Works in synergy \nwith l-theanine to reduce \njitters and boost \nmood."
+          }
+        },
+        "ingredient_WnnK4g": {
+          "type": "ingredient",
+          "settings": {
+            "name": "<p>Bacopa Monnieri \nExtract</p>",
+            "description": "Brain-boosting effects \nfor attention and \nmanaging stress."
+          }
+        },
+        "ingredient_tydtQq": {
+          "type": "ingredient",
+          "settings": {
+            "name": "<p>Baja Gold \nSea Salt</p>",
+            "description": "Packed with essential \nminerals, low sodium, \nand electrolytes for \nbalanced wellness."
           }
         }
       },
@@ -203,7 +259,15 @@
         "ingredient_F7Tn8c",
         "ingredient_NBMenV",
         "ingredient_bXfFKF",
-        "ingredient_d8ttdw"
+        "ingredient_d8ttdw",
+        "ingredient_tniWKi",
+        "ingredient_KirPJf",
+        "ingredient_taKPAb",
+        "ingredient_W7t9Pz",
+        "ingredient_tycPVE",
+        "ingredient_bcJ9Vm",
+        "ingredient_WnnK4g",
+        "ingredient_tydtQq"
       ],
       "settings": {}
     },
