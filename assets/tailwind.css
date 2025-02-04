@@ -2676,12 +2676,12 @@ body[data-template="blog"] sticky-header header{
     margin-top: 120px;
   }
 
-  .lg\:block {
-    display: block;
-  }
-
   .lg\:\!block {
     display: block !important;
+  }
+
+  .lg\:block {
+    display: block;
   }
 
   .lg\:flex {
@@ -3495,12 +3495,12 @@ body[data-template="blog"] sticky-header header{
     margin-top: 64px;
   }
 
-  .xl\:block {
-    display: block;
-  }
-
   .xl\:\!block {
     display: block !important;
+  }
+
+  .xl\:block {
+    display: block;
   }
 
   .xl\:flex {
@@ -3511,12 +3511,12 @@ body[data-template="blog"] sticky-header header{
     display: grid;
   }
 
-  .xl\:hidden {
-    display: none;
-  }
-
   .xl\:\!hidden {
     display: none !important;
+  }
+
+  .xl\:hidden {
+    display: none;
   }
 
   .xl\:aspect-\[2\.25\/1\] {
