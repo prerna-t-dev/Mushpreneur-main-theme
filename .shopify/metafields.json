@@ -9,6 +9,16 @@
         "name": "file_reference",
         "category": "REFERENCE"
       }
+    },
+    {
+      "key": "references",
+      "namespace": "custom",
+      "name": "references",
+      "description": "List of references for the blog",
+      "type": {
+        "name": "rich_text_field",
+        "category": "TEXT"
+      }
     }
   ],
   "blog": [],

@@ -912,9 +912,6 @@ body {
 .mb-\[110px\] {
   margin-bottom: 110px;
 }
-.mb-\[32px\] {
-  margin-bottom: 32px;
-}
 .mb-\[38px\] {
   margin-bottom: 38px;
 }
@@ -996,11 +993,11 @@ body {
 .aspect-\[1\/1\] {
   aspect-ratio: 1/1;
 }
-.aspect-\[4\/3\] {
-  aspect-ratio: 4/3;
-}
 .aspect-\[3\/2\] {
   aspect-ratio: 3/2;
+}
+.aspect-\[4\/3\] {
+  aspect-ratio: 4/3;
 }
 .h-12 {
   height: 3rem;
@@ -1807,9 +1804,6 @@ body {
   font-size: 1.5rem;
   line-height: 2rem;
 }
-.text-\[10\.6px\] {
-  font-size: 10.6px;
-}
 .text-\[10px\] {
   font-size: 10px;
 }
@@ -1873,12 +1867,6 @@ body {
 .text-\[80px\] {
   font-size: 80px;
 }
-.text-\[8px\] {
-  font-size: 8px;
-}
-.text-\[9px\] {
-  font-size: 9px;
-}
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
@@ -1934,12 +1922,6 @@ body {
 .leading-tight {
   line-height: 1.25;
 }
-.leading-loose {
-  line-height: 2;
-}
-.leading-\[1\.3\] {
-  line-height: 1.3;
-}
 .\!tracking-\[-0\.7px\] {
   letter-spacing: -0.7px !important;
 }
@@ -1955,14 +1937,8 @@ body {
 .tracking-\[-0\.439px\] {
   letter-spacing: -0.439px;
 }
-.tracking-\[-0\.45px\] {
-  letter-spacing: -0.45px;
-}
 .tracking-\[-0\.473px\] {
   letter-spacing: -0.473px;
-}
-.tracking-\[-0\.4px\] {
-  letter-spacing: -0.4px;
 }
 .tracking-\[-0\.577px\] {
   letter-spacing: -0.577px;
@@ -1975,9 +1951,6 @@ body {
 }
 .tracking-\[-0\.63px\] {
   letter-spacing: -0.63px;
-}
-.tracking-\[-0\.674px\] {
-  letter-spacing: -0.674px;
 }
 .tracking-\[-0\.684px\] {
   letter-spacing: -0.684px;
@@ -2456,7 +2429,7 @@ body {
     font-size: 24px;
     font-style: normal;
     font-weight: 300;
-    line-height: normal;
+    line-height: 1.2;
     letter-spacing: -1.2px;
 
 }
@@ -2468,7 +2441,7 @@ body {
 .mush--article-content h2 span{
     font-size: 32px;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 500;
     line-height: normal;
     letter-spacing: -1.6px;
 }
@@ -2482,7 +2455,7 @@ body {
 .mush--article-content h3 span{
     font-size: 28px;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 500;
     line-height: normal;
     letter-spacing: -1.4px;
 }
@@ -2503,8 +2476,44 @@ body {
 
 .mush--article-content ul li strong,
 .mush--article-content ol li strong{
-    font-weight: 600;
+    font-weight: 500;
 }
+
+.mush--article-content strong{
+    font-weight: 500;
+}
+
+
+.article-references .article-reference-content p{
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -1.4px;
+    margin-bottom: 4px;
+    margin-top: 8px;
+}
+
+.article-references .article-reference-content ul {
+    padding-left: 32px;
+}
+
+.article-references .article-reference-content ul li{
+    list-style: disc;
+}
+
+
+.article-references .article-reference-content ul li,
+.article-references .article-reference-content ul li a{
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -1.4px;
+    text-decoration: underline;
+}
+
+
 
 
 @media (max-width: 1280px) {
@@ -2544,6 +2553,22 @@ body {
     .article-template__social-sharing {
         margin-top: 1rem !important;
       }
+
+    .article-references .article-reference-content p{
+        font-size: 16px;
+        letter-spacing: -0.8px;
+        margin-bottom: 4px;
+    }
+    
+    .article-references .article-reference-content ul {
+        padding-left: 20px;
+    }
+
+    .article-references .article-reference-content ul li,
+    .article-references .article-reference-content ul li a{
+        font-size: 16px;
+        letter-spacing: -0.8px;
+    }
 
 }
 
@@ -2642,6 +2667,10 @@ body[data-template="blog"] sticky-header header{
     margin-bottom: 120px;
   }
 
+  .lg\:mb-\[24px\] {
+    margin-bottom: 24px;
+  }
+
   .lg\:mb-\[32px\] {
     margin-bottom: 32px;
   }
@@ -2674,6 +2703,10 @@ body[data-template="blog"] sticky-header header{
     margin-left: 3rem;
   }
 
+  .lg\:ml-24 {
+    margin-left: 6rem;
+  }
+
   .lg\:ml-\[110px\] {
     margin-left: 110px;
   }
@@ -2688,14 +2721,6 @@ body[data-template="blog"] sticky-header header{
 
   .lg\:mt-\[120px\] {
     margin-top: 120px;
-  }
-
-  .lg\:mb-\[24px\] {
-    margin-bottom: 24px;
-  }
-
-  .lg\:ml-24 {
-    margin-left: 6rem;
   }
 
   .lg\:mt-\[62px\] {
@@ -2714,12 +2739,12 @@ body[data-template="blog"] sticky-header header{
     display: flex;
   }
 
-  .lg\:hidden {
-    display: none;
-  }
-
   .lg\:\!hidden {
     display: none !important;
+  }
+
+  .lg\:hidden {
+    display: none;
   }
 
   .lg\:h-14 {
@@ -2774,12 +2799,12 @@ body[data-template="blog"] sticky-header header{
     width: 430px;
   }
 
-  .lg\:w-\[56px\] {
-    width: 56px;
-  }
-
   .lg\:w-\[44px\] {
     width: 44px;
+  }
+
+  .lg\:w-\[56px\] {
+    width: 56px;
   }
 
   .lg\:max-w-\[430px\] {
@@ -2836,6 +2861,10 @@ body[data-template="blog"] sticky-header header{
     gap: 5rem;
   }
 
+  .lg\:gap-3 {
+    gap: 0.75rem;
+  }
+
   .lg\:gap-\[54px\] {
     gap: 54px;
   }
@@ -2846,10 +2875,6 @@ body[data-template="blog"] sticky-header header{
 
   .lg\:gap-\[92px\] {
     gap: 92px;
-  }
-
-  .lg\:gap-3 {
-    gap: 0.75rem;
   }
 
   .lg\:rounded-\[38\.973px\] {
@@ -2916,6 +2941,11 @@ body[data-template="blog"] sticky-header header{
   .lg\:px-\[105px\] {
     padding-left: 105px;
     padding-right: 105px;
+  }
+
+  .lg\:px-\[115px\] {
+    padding-left: 115px;
+    padding-right: 115px;
   }
 
   .lg\:px-\[140px\] {
@@ -2998,9 +3028,12 @@ body[data-template="blog"] sticky-header header{
     padding-bottom: 64px;
   }
 
-  .lg\:px-\[115px\] {
-    padding-left: 115px;
-    padding-right: 115px;
+  .lg\:pb-12 {
+    padding-bottom: 3rem;
+  }
+
+  .lg\:pb-20 {
+    padding-bottom: 5rem;
   }
 
   .lg\:pb-3 {
@@ -3119,14 +3152,6 @@ body[data-template="blog"] sticky-header header{
     padding-top: 76px;
   }
 
-  .lg\:pb-12 {
-    padding-bottom: 3rem;
-  }
-
-  .lg\:pb-20 {
-    padding-bottom: 5rem;
-  }
-
   .lg\:pt-\[78px\] {
     padding-top: 78px;
   }
@@ -3140,8 +3165,8 @@ body[data-template="blog"] sticky-header header{
     line-height: 2rem;
   }
 
-  .lg\:text-\[10\.192px\] {
-    font-size: 10.192px;
+  .lg\:text-\[12px\] {
+    font-size: 12px;
   }
 
   .lg\:text-\[18px\] {
@@ -3178,6 +3203,10 @@ body[data-template="blog"] sticky-header header{
 
   .lg\:text-\[31\.21px\] {
     font-size: 31.21px;
+  }
+
+  .lg\:text-\[32px\] {
+    font-size: 32px;
   }
 
   .lg\:text-\[34\.407px\] {
@@ -3232,10 +3261,6 @@ body[data-template="blog"] sticky-header header{
     font-size: 64px;
   }
 
-  .lg\:text-\[8\.507px\] {
-    font-size: 8.507px;
-  }
-
   .lg\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
@@ -3256,14 +3281,6 @@ body[data-template="blog"] sticky-header header{
     line-height: 1.75rem;
   }
 
-  .lg\:text-\[32px\] {
-    font-size: 32px;
-  }
-
-  .lg\:text-\[12px\] {
-    font-size: 12px;
-  }
-
   .lg\:font-medium {
     font-weight: 500;
   }
@@ -3272,16 +3289,12 @@ body[data-template="blog"] sticky-header header{
     font-weight: 600;
   }
 
-  .lg\:tracking-\[-0\.425px\] {
-    letter-spacing: -0.425px;
+  .lg\:tracking-\[-0\.722px\] {
+    letter-spacing: -0.722px;
   }
 
-  .lg\:tracking-\[-0\.51px\] {
-    letter-spacing: -0.51px;
-  }
-
-  .lg\:tracking-\[-0\.681px\] {
-    letter-spacing: -0.681px;
+  .lg\:tracking-\[-0\.7px\] {
+    letter-spacing: -0.7px;
   }
 
   .lg\:tracking-\[-0\.8px\] {
@@ -3290,6 +3303,10 @@ body[data-template="blog"] sticky-header header{
 
   .lg\:tracking-\[-0\.9px\] {
     letter-spacing: -0.9px;
+  }
+
+  .lg\:tracking-\[-1\.037px\] {
+    letter-spacing: -1.037px;
   }
 
   .lg\:tracking-\[-1\.1px\] {
@@ -3326,6 +3343,10 @@ body[data-template="blog"] sticky-header header{
 
   .lg\:tracking-\[-1\.5px\] {
     letter-spacing: -1.5px;
+  }
+
+  .lg\:tracking-\[-1\.6px\] {
+    letter-spacing: -1.6px;
   }
 
   .lg\:tracking-\[-1\.72px\] {
@@ -3391,22 +3412,6 @@ body[data-template="blog"] sticky-header header{
   .lg\:tracking-\[-q\.2px\] {
     letter-spacing: -q.2px;
   }
-
-  .lg\:tracking-\[-0\.722px\] {
-    letter-spacing: -0.722px;
-  }
-
-  .lg\:tracking-\[-1\.037px\] {
-    letter-spacing: -1.037px;
-  }
-
-  .lg\:tracking-\[-1\.6px\] {
-    letter-spacing: -1.6px;
-  }
-
-  .lg\:tracking-\[-0\.7px\] {
-    letter-spacing: -0.7px;
-  }
 }
 
 @media (min-width: 1280px) {
@@ -3452,11 +3457,6 @@ body[data-template="blog"] sticky-header header{
     grid-column: span 2 / span 2;
   }
 
-  .xl\:mx-0 {
-    margin-left: 0px;
-    margin-right: 0px;
-  }
-
   .xl\:my-10 {
     margin-top: 2.5rem;
     margin-bottom: 2.5rem;
@@ -3473,10 +3473,6 @@ body[data-template="blog"] sticky-header header{
 
   .xl\:\!mt-8 {
     margin-top: 2rem !important;
-  }
-
-  .xl\:mb-0 {
-    margin-bottom: 0px;
   }
 
   .xl\:mb-10 {
@@ -3535,10 +3531,6 @@ body[data-template="blog"] sticky-header header{
     margin-bottom: 140px;
   }
 
-  .xl\:mb-\[24px\] {
-    margin-bottom: 24px;
-  }
-
   .xl\:mb-\[52px\] {
     margin-bottom: 52px;
   }
@@ -3557,10 +3549,6 @@ body[data-template="blog"] sticky-header header{
 
   .xl\:ml-0 {
     margin-left: 0px;
-  }
-
-  .xl\:ml-24 {
-    margin-left: 6rem;
   }
 
   .xl\:ml-\[102px\] {
@@ -3595,16 +3583,8 @@ body[data-template="blog"] sticky-header header{
     margin-top: 130px;
   }
 
-  .xl\:mt-\[62px\] {
-    margin-top: 62px;
-  }
-
   .xl\:mt-\[64px\] {
     margin-top: 64px;
-  }
-
-  .xl\:\!block {
-    display: block !important;
   }
 
   .xl\:block {
@@ -3617,10 +3597,6 @@ body[data-template="blog"] sticky-header header{
 
   .xl\:grid {
     display: grid;
-  }
-
-  .xl\:\!hidden {
-    display: none !important;
   }
 
   .xl\:hidden {
@@ -3657,10 +3633,6 @@ body[data-template="blog"] sticky-header header{
 
   .xl\:h-\[2px\] {
     height: 2px;
-  }
-
-  .xl\:h-\[44px\] {
-    height: 44px;
   }
 
   .xl\:h-\[50px\] {
@@ -3739,10 +3711,6 @@ body[data-template="blog"] sticky-header header{
     width: 25%;
   }
 
-  .xl\:w-\[44px\] {
-    width: 44px;
-  }
-
   .xl\:w-\[75\%\] {
     width: 75%;
   }
@@ -3753,10 +3721,6 @@ body[data-template="blog"] sticky-header header{
 
   .xl\:w-full {
     width: 100%;
-  }
-
-  .xl\:max-w-\[430px\] {
-    max-width: 430px;
   }
 
   .xl\:-translate-x-full {
@@ -3794,10 +3758,6 @@ body[data-template="blog"] sticky-header header{
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .xl\:grid-cols-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
   .xl\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
@@ -3814,16 +3774,8 @@ body[data-template="blog"] sticky-header header{
     flex-direction: row;
   }
 
-  .xl\:items-start {
-    align-items: flex-start;
-  }
-
   .xl\:justify-start {
     justify-content: flex-start;
-  }
-
-  .xl\:justify-end {
-    justify-content: flex-end;
   }
 
   .xl\:justify-between {
@@ -3945,15 +3897,6 @@ body[data-template="blog"] sticky-header header{
     border-width: 4.522px;
   }
 
-  .xl\:border-b {
-    border-bottom-width: 1px;
-  }
-
-  .xl\:border-white {
-    --tw-border-opacity: 1;
-    border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
-  }
-
   .xl\:p-7 {
     padding: 1.75rem;
   }
@@ -3980,11 +3923,6 @@ body[data-template="blog"] sticky-header header{
   .xl\:px-20 {
     padding-left: 5rem;
     padding-right: 5rem;
-  }
-
-  .xl\:px-24 {
-    padding-left: 6rem;
-    padding-right: 6rem;
   }
 
   .xl\:px-40 {
@@ -4025,11 +3963,6 @@ body[data-template="blog"] sticky-header header{
   .xl\:px-\[114px\] {
     padding-left: 114px;
     padding-right: 114px;
-  }
-
-  .xl\:px-\[115px\] {
-    padding-left: 115px;
-    padding-right: 115px;
   }
 
   .xl\:px-\[125px\] {
@@ -4082,6 +4015,11 @@ body[data-template="blog"] sticky-header header{
     padding-right: 86px;
   }
 
+  .xl\:px-\[8rem\] {
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+
   .xl\:px-\[94px\] {
     padding-left: 94px;
     padding-right: 94px;
@@ -4100,11 +4038,6 @@ body[data-template="blog"] sticky-header header{
   .xl\:py-4 {
     padding-top: 1rem;
     padding-bottom: 1rem;
-  }
-
-  .xl\:py-5 {
-    padding-top: 1.25rem;
-    padding-bottom: 1.25rem;
   }
 
   .xl\:py-8 {
@@ -4182,21 +4115,8 @@ body[data-template="blog"] sticky-header header{
     padding-bottom: 96px;
   }
 
-  .xl\:px-\[8rem\] {
-    padding-left: 8rem;
-    padding-right: 8rem;
-  }
-
   .xl\:pb-0 {
     padding-bottom: 0px;
-  }
-
-  .xl\:pb-12 {
-    padding-bottom: 3rem;
-  }
-
-  .xl\:pb-20 {
-    padding-bottom: 5rem;
   }
 
   .xl\:pb-\[132px\] {
@@ -4245,10 +4165,6 @@ body[data-template="blog"] sticky-header header{
 
   .xl\:pt-\[66px\] {
     padding-top: 66px;
-  }
-
-  .xl\:pt-\[78px\] {
-    padding-top: 78px;
   }
 
   .xl\:pt-\[88px\] {
