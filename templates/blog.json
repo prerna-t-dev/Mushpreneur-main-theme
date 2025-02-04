@@ -1,13 +1,5 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
- {
+
+{
   "sections": {
     "main_blog_header_pXtT96": {
       "type": "main-blog-header",
@@ -19,6 +11,45 @@
     },
     "main": {
       "type": "main-blog",
+      "blocks": {
+        "tags_nzHCEy": {
+          "type": "tags",
+          "settings": {
+            "title": "productivity"
+          }
+        },
+        "tags_PLUD4m": {
+          "type": "tags",
+          "settings": {
+            "title": "wellness"
+          }
+        },
+        "tags_Kf9kEj": {
+          "type": "tags",
+          "settings": {
+            "title": "nootropics"
+          }
+        },
+        "tags_zyG6cM": {
+          "type": "tags",
+          "settings": {
+            "title": "mushpreneur"
+          }
+        },
+        "tags_GMrq4V": {
+          "type": "tags",
+          "settings": {
+            "title": "culture"
+          }
+        }
+      },
+      "block_order": [
+        "tags_nzHCEy",
+        "tags_PLUD4m",
+        "tags_Kf9kEj",
+        "tags_zyG6cM",
+        "tags_GMrq4V"
+      ],
       "settings": {
         "background": "linear-gradient(90deg, rgba(242, 0, 140, 1), rgba(231, 73, 54, 1) 100%)",
         "foreground": "#ffffff",
