@@ -1,5 +1,13 @@
-
- {
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
   "sections": {
     "mush_hero_banner_tMVcCA": {
       "type": "mush__hero-banner",
@@ -31,13 +39,13 @@
         "usp_pEgdhM": {
           "type": "usp",
           "settings": {
-            "usp": "Super Potent Blend"
+            "usp": "Super Potent Blends"
           }
         },
         "usp_rcEb9z": {
           "type": "usp",
           "settings": {
-            "usp": "All Natural Ingredient"
+            "usp": "All Natural Ingredients"
           }
         },
         "usp_yWxKDy": {
