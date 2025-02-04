@@ -23,8 +23,8 @@
       border: 0.579px solid #FFD4DB;
       border-radius: 25.651px;
       padding: 8px 12px;
-      font-size: 7.833px;
-      letter-spacing: -0.392px;
+      font-size: 12px;
+      letter-spacing: -0.6px;
       color: #FFD4DB;
       height: 30px;
     }
@@ -34,8 +34,8 @@
       border-radius: 25.651px;
       background: #111;
       color: white;
-      font-size: 7.833px;
-      letter-spacing: -0.392px;
+      font-size: 12px;
+      letter-spacing: -0.6px; 
       padding: 8px 25.065px;
       height: 100%;
       height: 30px;
@@ -47,7 +47,7 @@
 <footer class="footer text-white bg-[#111111] gradient section-{{ section.id }}-padding">
   <div class="section-wrapper py-[44px] xl:pt-[78px] xl:pb-12 px-0 px-[62px]_ xl:px-[115px]">
 
-    <div class="footer--grid-layout grid grid-cols-1 xl:grid-cols-2 pb-7 xl:pb-20 mb-0_ xl:border-b xl:border-white mx-10 xl:mx-0">
+    <div class="footer--grid-layout grid grid-cols-1 xl:grid-cols-2 pb-7 xl:pb-20 mb-0 xl:border-b xl:border-white mx-10 xl:mx-0">
       <div class="flex flex-col items-center justify-between xl:items-start xl:justify-start">
         <img class="max-w-[198px] xl:max-w-[430px] mb-4 xl:mb-9" src="https://cdn.shopify.com/s/files/1/0569/9217/0159/files/Mushpreneur_Logo.png?v=1736151357" alt="Logo">
 
@@ -55,7 +55,7 @@
         <!-- Shop Links: Desktop -->
         <div class="flex gap-[74px] text-white mb-[110px] hidden xl:flex">
           <div class="">
-            <h5 class="uppercase text-white text-xl font-semibold tracking-[-1.037px] mb-[32px]">
+            <h5 class="uppercase text-white text-xl font-semibold tracking-[-1.037px] mb-5">
               SHOP
             </h5>
             <ul class="flex flex-col gap-2 text-base leading-[1.1] tracking-[-0.8px]">
@@ -68,7 +68,7 @@
             </ul>
           </div>
           <div class="">
-            <h5 class="uppercase text-white text-xl font-semibold tracking-[-1.037px] mb-[32px]">
+            <h5 class="uppercase text-white text-xl font-semibold tracking-[-1.037px] mb-5">
               Learn
             </h5>
             <ul class="flex flex-col gap-2 text-base leading-[1.1] tracking-[-0.8px]">
@@ -85,7 +85,7 @@
             </ul>
           </div>
           <div class="">
-            <h5 class="uppercase text-white text-xl font-semibold tracking-[-1.037px] mb-[32px]">
+            <h5 class="uppercase text-white text-xl font-semibold tracking-[-1.037px] mb-5">
               Support
             </h5>
             <ul class="flex flex-col gap-2 text-base leading-[1.1] tracking-[-0.8px]">
@@ -176,10 +176,10 @@
               type="email" 
               name="email" 
               placeholder="Email" 
-              class="footer-newsletter-input bg-transparent w-full text-sm xl:text-xl tracking-[-0.7px] xl:tracking-[-1.037px] font-light" 
+              class="footer-newsletter-input bg-transparent w-full text-base xl:text-xl tracking-[-0.8px] xl:tracking-[-1.037px] font-light" 
               required>
 
-            <button type="submit" class="newsletter--submit-btn uppercase cursor-pointer text-sm xl:text-xl font-semibold leading-[1.1] tracking-[-0.7px] xl:tracking-[-1.037px]">SEND</button>
+            <button type="submit" class="newsletter--submit-btn uppercase cursor-pointer text-base xl:text-xl font-semibold leading-[1.1] tracking-[-0.8px] xl:tracking-[-1.037px]">SEND</button>
           </form>
 
           <p class="mt-4 xl:mt-[62px] text-[10px] xl:text-xl tracking-[-0.473px] xl:tracking-[-1.037px] hidden xl:!block">
@@ -203,9 +203,9 @@
               
             </summary>
             <div class="accordion__content rte py-4" id="ProductAccordion-1-{{ section.id }}">
-              <ul class="text-[12px] !pl-0 flex flex-col gap-2">
-                <li class="leading-none">Day Shrooms</li>
-                <li class="leading-none">Wholesale</li>
+              <ul class="text-sm tracking[-0.7px] !pl-0 flex flex-col gap-2">
+                <li class="text-sm tracking[-0.7px] leading-none">Day Shrooms</li>
+                <li class="text-sm tracking[-0.7px] leading-none">Wholesale</li>
               </ul>
             </div>
           </details>
@@ -220,10 +220,10 @@
               </div>
             </summary>
             <div class="accordion__content rte py-4" id="ProductAccordion-2-{{ section.id }}">
-              <ul class="text-[12px] !pl-0 flex flex-col gap-2">
-                <li class="leading-none">Why Mushroom</li>
-                <li class="leading-none">About Us</li>
-                <li class="leading-none">Blog</li>
+              <ul class="text-sm tracking[-0.7px] !pl-0 flex flex-col gap-2">
+                <li class="text-sm tracking[-0.7px] leading-none">Why Mushroom</li>
+                <li class="text-sm tracking[-0.7px] leading-none">About Us</li>
+                <li class=" text-sm tracking[-0.7px]leading-none">Blog</li>
               </ul>
             </div>
           </details>
@@ -238,12 +238,12 @@
               </div>
             </summary>
             <div class="accordion__content rte py-4" id="ProductAccordion-3-{{ section.id }}">
-              <ul class="text-[12px] !pl-0 flex flex-col gap-2">
-                <li class="leading-none">Shipping Policy</li>
-                <li class="leading-none">Refund Policy</li>
-                <li class="leading-none">Account</li>
-                <li class="leading-none">FAQs</li>
-                <li class="leading-none">Contact</li>
+              <ul class="text-sm tracking[-0.7px] !pl-0 flex flex-col gap-2">
+                <li class="text-sm tracking[-0.7px] leading-none">Shipping Policy</li>
+                <li class="text-sm tracking[-0.7px] leading-none">Refund Policy</li>
+                <li class="text-sm tracking[-0.7px] leading-none">Account</li>
+                <li class="text-sm tracking[-0.7px] leading-none">FAQs</li>
+                <li class="text-sm tracking[-0.7px] leading-none">Contact</li>
               </ul>
             </div>
           </details>

@@ -28,12 +28,20 @@
           All Blogs
         </a>
 
-        {% for tag in blog.all_tags %}
-          <a href="{{ blog.url }}/tagged/{{ tag | handleize }}" class="btn border border-black rounded-[28px] px-6 xl:px-10 py-2 xl:py-3 
+        {% for block in section.blocks %}
+          {% assign tag = block.settings.title %}
+          <a href="{{ blog.url }}/tagged/{{ tag | handleize }}" class="block--tag btn border border-black rounded-[28px] px-6 xl:px-10 py-2 xl:py-3 
                     {% if current_tags contains tag %} bg-black text-white {% else %} text-black {% endif %}">
             {{ tag }}
           </a>
         {% endfor %}
+
+        {% comment %} {% for tag in blog.all_tags %}
+          <a href="{{ blog.url }}/tagged/{{ tag | handleize }}" class="btn border border-black rounded-[28px] px-6 xl:px-10 py-2 xl:py-3 
+                    {% if current_tags contains tag %} bg-black text-white {% else %} text-black {% endif %}">
+            {{ tag }}
+          </a>
+        {% endfor %} {% endcomment %}
       </div>
 
 
@@ -42,8 +50,9 @@
       {%- paginate blog.articles by 9 -%}
         <div class="main-blog px-8 xl:px-0">
         
-          <div class="blog-articles_ grid grid-cols-1 xl:grid-cols-3 gap-10 xl:gap-12">
-            {%- for article in blog.articles -%}
+          <div class="blog-articles_ grid grid-cols-1 lg:grid-cols-3 gap-10 xl:gap-12">
+            {%- assign sorted_articles = blog.articles | reverse -%}
+            {%- for article in sorted_articles -%}
               <div
                 class="blog-articles__article_ article_{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
                 {% if settings.animations_reveal_on_scroll %}
@@ -168,6 +177,19 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tags",
+      "name": "Tag",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Blog Tag"
+        }
+      ]
     }
   ]
 }

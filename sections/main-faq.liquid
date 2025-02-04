@@ -42,7 +42,7 @@
                     <p class="xl:w-[25%] text-xl lg:text-[56px] tracking-[-1px] lg:tracking-[-2.8px] font-bold leading-[1.1]">
                         {{ faq_category.title }}
                     </p>
-                    <div class="xl:w-[75%]">
+                    <div class="xl:w-[75%] accordion">
                         {% assign associatedQuestions = faq_category.associated_questions.value %}
                         {% for faq in associatedQuestions %}
                         {% assign faqIndex = forloop.index %}
@@ -51,7 +51,7 @@
                                 <p class="text-base lg:text-[34.407px] {% if normalized_color == '#ffffff' %} text-black {% else %} text-white {% endif %} font-semibold tracking-[-0.8px] lg:tracking-[-1.72px] leading-[1.1]">
                                     {{ faq.question }}
                                 </p>
-                                <div class="flex-shrink-0 w-[28px] lg:w-[56px]">
+                                <div class="flex-shrink-0 w-[28px] lg:w-[56px] mush-icon-caret">
                                     <svg class="w-full h-auto" xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" fill="none" transform="rotate(180)">
                                         <path d="M16 33.6947L27.6686 23L39.3333 33.6947" stroke="{% if normalized_color == '#ffffff' %}black{% else %}white{% endif %}" stroke-width="4.66667" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
