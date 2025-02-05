@@ -1,0 +1,78 @@
+<section class="min-h-screen">
+    <div class="page-wrapper ez-container p-5 max-w-[1200px] mx-auto">
+
+        <div class="px-3 py-4 text-sm">
+            {{ section.settings.header_text }}
+        </div>
+        <div class="accordion">
+            {% for block in section.blocks %}
+                <details class="border border-[#e5e7eb]" id="toc-{{ forloop.index }}-{{ block.id }}" open>
+                    <summary class="px-3 py-4 w-full flex justify-between items-center">
+                        <h4 class="text-xl font-medium">
+                            {{ block.settings.title }}
+                        </h4>
+                        <div class="icon">
+                            <svg class="minusIcon" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <line x1="5" y1="12" x2="19" y2="12" stroke="black" stroke-width="2"/>
+                            </svg>
+                            <div class="hidden">
+                                <svg class="plusIcon" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <line x1="12" y1="5" x2="12" y2="19" stroke="black" stroke-width="2"/>
+                                    <line x1="5" y1="12" x2="19" y2="12" stroke="black" stroke-width="2"/>
+                                </svg>
+
+                            </div>
+
+                        </div>
+                        
+                    </summary>
+                    <div class="px-3 py-4 text-sm">
+                        {{ block.settings.description }}
+                    </div>
+                </details>
+            {% endfor %}
+        </div>
+        
+
+    </div>
+
+</section>
+
+
+
+{%  schema  %} 
+    {
+        "name": "Terms of Service",
+        "class": "section--toc",
+        "settings": [
+            {
+                "type": "textarea",
+                "id": "header_text",
+                "label": "Header text"
+            }
+        ],
+        "blocks": [
+            {
+                "name": "Term",
+                "type": "term",
+                "settings": [
+                    {
+                        "type": "textarea",
+                        "id": "title",
+                        "label": "Title"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "description",
+                        "label": "Description"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Terms of Service"
+            }
+        ]
+    } 
+{% endschema %}
