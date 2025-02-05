@@ -1,0 +1,72 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+ {
+    "sections": {
+      "main": {
+        "type": "main-search",
+        "disabled": true,
+        "settings": {
+          "columns_desktop": 4,
+          "image_ratio": "adapt",
+          "image_shape": "default",
+          "show_secondary_image": false,
+          "show_vendor": false,
+          "show_rating": false,
+          "enable_filtering": true,
+          "filter_type": "horizontal",
+          "enable_sorting": true,
+          "article_show_date": true,
+          "article_show_author": false,
+          "columns_mobile": "2",
+          "padding_top": 36,
+          "padding_bottom": 36
+        }
+      },
+      "mush_terms_of_service_BEmkrX": {
+        "type": "mush__terms-of-service",
+        "blocks": {
+          "term_rLQ3pr": {
+            "type": "term",
+            "settings": {
+              "title": "PRIVACY POLICY",
+              "description": "<p>Our Privacy Policy is located at <a href=\"https://mushpreneur.com/pages/privacy-policy\" target=\"_blank\" title=\"https://mushpreneur.com/pages/privacy-policy\"><span style=\"text-decoration:underline\">https://mushpreneur.com/pages/privacy-policy</span></a></p><p>and is hereby incorporated into this Agreement by reference.  Please review the Privacy Policy to understand Our policies.</p>"
+            }
+          },
+          "term_nNMWT6": {
+            "type": "term",
+            "settings": {
+              "title": "USER NAME AND PASSWORDS",
+              "description": "<p>You hereby agree that all user registration for account will be true, accurate, current, and complete account information and that You will maintain the accuracy of such information and promptly update as it changes.</p><p>You hereby agree that You are responsible for all actions taken under Your User Name and Password.  Please remember it is Your responsibility to keep this data secure and You hereby agree that We are not liable for any loss or damage arising from Your failure to keep Your password secure.  Further, You agree to immediately notify Us of any unauthorized use of Your password or any breach of security.</p>"
+            }
+          },
+          "term_3PX3tT": {
+            "type": "term",
+            "settings": {
+              "title": "PURCHASES",
+              "description": "<p>To purchase any item on Our website You need only to click on the item and add it to Your shopping cart for check out. All fees will be shown before You checkout.</p>"
+            }
+          }
+        },
+        "block_order": [
+          "term_rLQ3pr",
+          "term_nNMWT6",
+          "term_3PX3tT"
+        ],
+        "settings": {
+          "header_text": "Welcome to a website of Mushpreneur LLC located at mushpreneur.com (hereinafter “We”, “Us”, “Our”).  We thank You (any visitor to Our web site and hereinafter \"You\" or \"Your\") for visiting Our site and considering Our products and services. \n\nBy using this website or by clicking the checkbox which states “I have read and agree to the Terms of Service and Privacy Policy of this website as well as the website’s use of cookies”; You hereby agree to the terms and conditions of this Terms of Service (hereinafter “Agreement”) which, along with the consideration of the mutual promises You and We make to each other, then becomes a binding contract between You and Us."
+        }
+      }
+    },
+    "order": [
+      "main",
+      "mush_terms_of_service_BEmkrX"
+    ]
+  }
+  
