@@ -608,3 +608,53 @@ body[data-template="blog"] sticky-header{
 body[data-template="blog"] sticky-header header{
     color: #FFFFFF !important
 }
+
+
+
+/* Terms of Service: Accordion */
+.toc--accordion details>summary .toc--icon.icon-minus{
+    display: none;
+}
+
+.toc--accordion details>summary .toc--icon.icon-plus{
+    display: block;
+}
+
+
+.toc--accordion details[open]>summary .toc--icon.icon-minus{
+    display: block;
+}
+
+
+.toc--accordion details[open]>summary .toc--icon.icon-plus{
+    display: none;
+}
+
+
+.toc--accordion-content ol,
+.toc--accordion-content ul{
+    list-style: auto;
+    padding-left: 24px;
+}
+
+
+/* Policy Pages: Shipping and Refund */
+.shopify-policy__container{
+    max-width: 1200px !important;
+    padding: 20px;
+    margin-bottom: 40px;
+}
+
+
+.shopify-policy__container h1{
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin-top: 18px;
+    margin-bottom: 18px;
+}
+
+.shopify-policy__body p{
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    margin-bottom: 15px;
+}
