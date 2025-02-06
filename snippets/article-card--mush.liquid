@@ -1,11 +1,11 @@
 
 {%- if article -%}
-    <div class="article-card">
+    <div class="article-card nocopy">
         <a href="{{ article.url }}" class="full-unstyled-link">
             <!-- Featured Image -->
             <div class="rounded-[10px] mb-5 xl:mb-6 aspect-[3/2]">
                 {% if article.image %}
-                    <img src="{{ article.image |  img_url: 'master' }}" alt=" {{ article.title | truncate: 50 | escape }}">
+                    <img class="w-full object-cover" src="{{ article.image |  img_url: 'master' }}" alt=" {{ article.title | truncate: 50 | escape }}">
                 {% endif %}
             </div>
 
