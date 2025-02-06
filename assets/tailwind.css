@@ -2671,6 +2671,16 @@ body[data-template="blog"] sticky-header header{
     margin-bottom: 15px;
 }
 
+
+
+
+/* Prevent text from being copied */
+.nocopy {
+    user-select: none; /* Prevent text selection */
+    -webkit-user-select: none; /* For Safari */
+    -moz-user-select: none; /* For Firefox */
+    -ms-user-select: none; /* For IE/Edge */
+}
 @media (min-width: 990px) {
 
   .lg\:bottom-\[20px\] {
@@ -3480,7 +3490,6 @@ body[data-template="blog"] sticky-header header{
     letter-spacing: -q.2px;
   }
 }
-
 @media (min-width: 1280px) {
 
   @media (min-width: 990px) {
@@ -4537,7 +4546,6 @@ body[data-template="blog"] sticky-header header{
     letter-spacing: -8.1px;
   }
 }
-
 @media (min-width: 1800px) {
 
   .\33xl\:pb-\[380px\] {
