@@ -40,7 +40,7 @@
 
       {%- when 'title' -%}
         <section
-          class="px-[26px] xl:px-20 pb-9 xl:pb-[72px] !mt-2 xl:!mt-8 {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+          class="px-[26px] xl:px-20 pb-9 xl:pb-[42px] !mt-2 xl:!mt-8 {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
           {{ block.shopify_attributes }}
         >
           <h1
@@ -180,7 +180,7 @@
   <!-- Article References -->
   {% if article.metafields.custom.references != blank   %}
     <div class="article-references element-margin-top px-[26px] xl:px-20_ mx-auto mb-20 max-w-[1024px] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-      <div class="article-reference-header text-[30px] tracking-[-1.5px] font-semibold mb-2 xl:mb-6">
+      <div class="article-reference-header text-2xl xl:text-[30px] tracking-[-1.2px] xl:tracking-[-1.5px] font-semibold mb-2 xl:mb-3">
         References
       </div>
       <div class="article-reference-content">
