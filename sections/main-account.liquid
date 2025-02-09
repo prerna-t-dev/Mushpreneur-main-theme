@@ -17,7 +17,7 @@
 <div class="customer account section-{{ section.id }}-padding">
   <div>
     <h1 class="customer__title text-[38px] xl:text-[60px] tracking-[-1.9px] xl:tracking-[-3px] font-semibold">{{ 'customer.account.title' | t }}</h1>
-    <a href="{{ routes.account_logout_url }}" class="!text-lg xl:!text-2xl !tracking-[-0.9px] xl:!tracking-[-1.2px] font-medium">
+    <a href="{{ routes.account_logout_url }}" class="!text-lg xl:!text-xl !tracking-[-0.9px] xl:!tracking-[-1px] font-medium">
       <span class="svg-wrapper">
         {{- 'icon-account.svg' | inline_asset_content -}}
       </span>
@@ -27,7 +27,7 @@
 
   <div>
     <div>
-      <h2 class="text-2xl xl:text-[32px] tracking-[-1.2px] xl:tracking-[-1.6px] font-semibold !mb-1 xl:!mb-2">{{ 'customer.orders.title' | t }}</h2>
+      <h2 class="text-2xl xl:text-[28px] tracking-[-1.2px] xl:tracking-[-1.4px] font-semibold !mb-1 xl:!mb-4">{{ 'customer.orders.title' | t }}</h2>
 
       {% paginate customer.orders by 20 %}
         {%- if customer.orders.size > 0 -%}
@@ -37,13 +37,13 @@
             </caption>
             <thead role="rowgroup">
               <tr role="row">
-                <th id="ColumnOrder" scope="col" role="columnheader">{{ 'customer.orders.order_number' | t }}</th>
-                <th id="ColumnDate" scope="col" role="columnheader">{{ 'customer.orders.date' | t }}</th>
-                <th id="ColumnPayment" scope="col" role="columnheader">{{ 'customer.orders.payment_status' | t }}</th>
-                <th id="ColumnFulfillment" scope="col" role="columnheader">
+                <th class="!text-base !tracking-[-0.8px] !p-5" id="ColumnOrder" scope="col" role="columnheader">{{ 'customer.orders.order_number' | t }}</th>
+                <th class="!text-base !tracking-[-0.8px] !p-5" id="ColumnDate" scope="col" role="columnheader">{{ 'customer.orders.date' | t }}</th>
+                <th class="!text-base !tracking-[-0.8px] !p-5" id="ColumnPayment" scope="col" role="columnheader">{{ 'customer.orders.payment_status' | t }}</th>
+                <th class="!text-base !tracking-[-0.8px] !p-5" id="ColumnFulfillment" scope="col" role="columnheader">
                   {{ 'customer.orders.fulfillment_status' | t }}
                 </th>
-                <th id="ColumnTotal" scope="col" role="columnheader">{{ 'customer.orders.total' | t }}</th>
+                <th class="!text-base !tracking-[-0.8px] !p-5" id="ColumnTotal" scope="col" role="columnheader">{{ 'customer.orders.total' | t }}</th>
               </tr>
             </thead>
             <tbody role="rowgroup">
@@ -54,6 +54,7 @@
                     role="cell"
                     headers="ColumnOrder"
                     data-label="{{ 'customer.orders.order_number' | t }}"
+                    class="!text-base !tracking-[-0.8px]"
                   >
                     <a
                       href="{{ order.customer_url }}"
@@ -62,11 +63,12 @@
                       {{ order.name }}
                     </a>
                   </td>
-                  <td headers="RowOrder ColumnDate" role="cell" data-label="{{ 'customer.orders.date' | t }}">
+                  <td headers="RowOrder ColumnDate" class="!text-base !tracking-[-0.8px]" role="cell" data-label="{{ 'customer.orders.date' | t }}">
                     {{ order.created_at | time_tag: format: 'date' }}
                   </td>
                   <td
                     headers="RowOrder ColumnPayment"
+                    class="!text-base !tracking-[-0.8px]"
                     role="cell"
                     data-label="{{ 'customer.orders.payment_status' | t }}"
                   >
@@ -74,12 +76,13 @@
                   </td>
                   <td
                     headers="RowOrder ColumnFulfillment"
+                    class="!text-base !tracking-[-0.8px]"
                     role="cell"
                     data-label="{{ 'customer.orders.fulfillment_status' | t }}"
                   >
                     {{ order.fulfillment_status_label }}
                   </td>
-                  <td headers="RowOrder ColumnTotal" role="cell" data-label="{{ 'customer.orders.total' | t }}">
+                  <td headers="RowOrder ColumnTotal" role="cell" data-label="{{ 'customer.orders.total' | t }}" class="!text-base !tracking-[-0.8px]">
                     {{ order.total_net_amount | money_with_currency }}
                   </td>
                 </tr>
@@ -139,14 +142,14 @@
     </div>
 
     <div>
-      <h2 class="text-2xl xl:text-[32px] tracking-[-1.2px] xl:tracking-[-1.6px] font-semibold !mb-1 xl:!mb-2">{{ 'customer.account.details' | t }}</h2>
+      <h2 class="text-2xl xl:text-[28px] tracking-[-1.2px] xl:tracking-[-1.4px] font-semibold !mb-1 xl:!mb-2">{{ 'customer.account.details' | t }}</h2>
 
       <div class="customer--address">
         {{ customer.default_address | format_address }}
       </div>
       
 
-      <a href="{{ routes.account_addresses_url }}" class="!text-lg xl:!text-2xl !tracking-[-0.9px] xl:!tracking-[-1.2px] font-medium">
+      <a href="{{ routes.account_addresses_url }}" class="!text-lg xl:!text-xl !tracking-[-0.9px] xl:!tracking-[-1px] font-medium">
         {{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})
       </a>
     </div>

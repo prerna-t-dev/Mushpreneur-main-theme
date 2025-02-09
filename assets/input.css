@@ -204,15 +204,81 @@
 
 :is(.account, .order) .customer--address p {
     margin: 0 0 2rem;
-    font-size: 1.6rem;
-    letter-spacing: -1.1px;
+    font-size: 18px;
+    letter-spacing: -0.8px;
   }
 
 [data-address] .customer--address p {
     margin: 0 0 2rem;
-    font-size: 1.6rem;
-    letter-spacing: -1.1px;
+    font-size: 18px;
+    letter-spacing: -0.8px;
   }
+
+
+.order>div:nth-of-type(2)>div:first-of-type h2{
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: -1.1px;
+}
+
+.order>div:nth-of-type(2)>div:first-of-type h2~p:last-of-type{
+    font-size: 16px;
+    letter-spacing: -0.8px;
+}
+
+
+.customer.order h2,
+.is-order h2 {
+    font-size: 1.5rem; /* text-2xl */
+    font-size: 28px; /* xl:text-[28px] */
+    letter-spacing: -1.2px; /* tracking-[-1.2px] */
+}
+
+@media (min-width: 1280px) { /* XL breakpoint */
+    .customer.order h2,
+    .is-order h2 {
+        letter-spacing: -1.4px; /* xl:tracking-[-1.4px] */
+        margin-bottom: 0.5rem !important; /* xl:!mb-2 */
+    }
+}
+
+.customer.order h2,
+.is-order h2 {
+    font-weight: 600; /* font-semibold */
+    margin-bottom: 0.25rem !important; /* !mb-1 */
+}
+
+.customer.order p,
+.order .regular-price,
+.order .fulfillment,
+.order .fulfillment span,
+.order .fulfillment a,
+.order .fulfillment time{
+    font-size: 16px !important;
+    letter-spacing: -0.8px !important;
+}
+
+
+.customer td:before{
+    font-size: 16px !important;
+    letter-spacing: -0.8px !important;
+}
+
+
+@media (max-width: 1280px) {
+    :is(.account,.order){
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+
+    .order .fulfillment,
+    .order .fulfillment span,
+    .order .fulfillment time{
+        font-size: 14px !important;
+        letter-spacing: -0.7px !important;
+    }
+}
 
 
 
@@ -356,6 +422,7 @@
     font-weight: 600;
     line-height: normal;
     letter-spacing: -1px;
+    margin-bottom: 0;
 }
 
 
@@ -668,4 +735,18 @@ body[data-template="blog"] sticky-header header{
     -webkit-user-select: none; /* For Safari */
     -moz-user-select: none; /* For Firefox */
     -ms-user-select: none; /* For IE/Edge */
+}
+
+
+
+
+/* DSAR Pages */
+[data-template-suffix="dsar"] .ez-container{
+    max-width: 600px !important;
+    border: 1px solid #e5e7eb !important;
+    margin-bottom: 40px;
+}
+
+[data-template-suffix="dsar"] [ez-locale=""]{
+    justify-content: center !important;
 }
