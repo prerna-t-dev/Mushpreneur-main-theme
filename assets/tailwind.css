@@ -2533,15 +2533,15 @@ body {
 /* ===== Article Page ===== */
 .mush--article-content p,
 .mush--article-content span{
-    font-size: 24px;
+    font-size: 22px;
     font-style: normal;
     font-weight: 300;
     line-height: 1.2;
-    letter-spacing: -1.2px;
+    letter-spacing: -1.1px;
 
 }
 .mush--article-content p{
-    margin-bottom: 18px;
+    margin-bottom: 16px;
 }
 
 .mush--article-content h2,
@@ -2576,6 +2576,12 @@ body {
     padding-left: 24px;
 }
 
+.mush--article-content ol{
+    list-style: auto !important;
+    padding-left: 32px;
+    margin-bottom: 16px;
+}
+
 .mush--article-content ul li{
     list-style: disc;
 }
@@ -2591,19 +2597,27 @@ body {
 }
 
 
-.article-references .article-reference-content p{
-    font-size: 28px;
+.article-references .article-reference-content p,
+.article-references .article-reference-content a{
+    font-size: 22px;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 400;
     line-height: normal;
-    letter-spacing: -1.4px;
+    letter-spacing: -1.1px;
     margin-bottom: 4px;
     margin-top: 8px;
 }
 
-.article-references .article-reference-content ul {
-    padding-left: 32px;
+.article-references .article-reference-content a{
+    text-decoration: underline;
 }
+
+.article-references .article-reference-content ul,
+.article-references .article-reference-content ol{
+    list-style: auto;
+    padding-left: 28px;
+}
+
 
 .article-references .article-reference-content ul li{
     list-style: disc;
@@ -2611,13 +2625,18 @@ body {
 
 
 .article-references .article-reference-content ul li,
-.article-references .article-reference-content ul li a{
-    font-size: 28px;
+.article-references .article-reference-content ol li,
+.article-references .article-reference-content ul li a,
+.article-references .article-reference-content ol li a{
+    font-size: 22px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    letter-spacing: -1.4px;
+    letter-spacing: -1.1px;
     text-decoration: underline;
+    padding-top: 4px;
+    padding-bottom: 4px;
+
 }
 
 
@@ -2661,7 +2680,8 @@ body {
         margin-top: 1rem !important;
       }
 
-    .article-references .article-reference-content p{
+    .article-references .article-reference-content p,
+    .article-references .article-reference-content a{
         font-size: 16px;
         letter-spacing: -0.8px;
         margin-bottom: 4px;
@@ -2672,7 +2692,9 @@ body {
     }
 
     .article-references .article-reference-content ul li,
-    .article-references .article-reference-content ul li a{
+    .article-references .article-reference-content ol li,
+    .article-references .article-reference-content ul li a,
+    .article-references .article-reference-content ol li a{
         font-size: 16px;
         letter-spacing: -0.8px;
     }
@@ -4367,6 +4389,10 @@ body[data-template="blog"] sticky-header header{
 
   .xl\:pt-\[94px\] {
     padding-top: 94px;
+  }
+
+  .xl\:pb-\[42px\] {
+    padding-bottom: 42px;
   }
 
   .xl\:text-left {
