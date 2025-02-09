@@ -819,6 +819,9 @@ body {
 .z-\[2\] {
   z-index: 2;
 }
+.order-1 {
+  order: 1;
+}
 .order-2 {
   order: 2;
 }
@@ -840,6 +843,10 @@ body {
 .my-12 {
   margin-top: 3rem;
   margin-bottom: 3rem;
+}
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 .my-6 {
   margin-top: 1.5rem;
@@ -1468,6 +1475,9 @@ body {
   -o-object-fit: cover;
      object-fit: cover;
 }
+.\!p-5 {
+  padding: 1.25rem !important;
+}
 .p-5 {
   padding: 1.25rem;
 }
@@ -1477,6 +1487,10 @@ body {
 .\!px-0 {
   padding-left: 0px !important;
   padding-right: 0px !important;
+}
+.\!py-5 {
+  padding-top: 1.25rem !important;
+  padding-bottom: 1.25rem !important;
 }
 .px-0 {
   padding-left: 0px;
@@ -1830,6 +1844,9 @@ body {
 .text-\[11\.5px\] {
   font-size: 11.5px;
 }
+.text-\[11px\] {
+  font-size: 11px;
+}
 .text-\[12px\] {
   font-size: 12px;
 }
@@ -1900,6 +1917,9 @@ body {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
+.\!font-semibold {
+  font-weight: 600 !important;
+}
 .font-bold {
   font-weight: 700;
 }
@@ -1956,6 +1976,9 @@ body {
 }
 .tracking-\[-0\.473px\] {
   letter-spacing: -0.473px;
+}
+.tracking-\[-0\.55px\] {
+  letter-spacing: -0.55px;
 }
 .tracking-\[-0\.577px\] {
   letter-spacing: -0.577px;
@@ -2208,15 +2231,81 @@ body {
 
 :is(.account, .order) .customer--address p {
     margin: 0 0 2rem;
-    font-size: 1.6rem;
-    letter-spacing: -1.1px;
+    font-size: 18px;
+    letter-spacing: -0.8px;
   }
 
 [data-address] .customer--address p {
     margin: 0 0 2rem;
-    font-size: 1.6rem;
-    letter-spacing: -1.1px;
+    font-size: 18px;
+    letter-spacing: -0.8px;
   }
+
+
+.order>div:nth-of-type(2)>div:first-of-type h2{
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: -1.1px;
+}
+
+.order>div:nth-of-type(2)>div:first-of-type h2~p:last-of-type{
+    font-size: 16px;
+    letter-spacing: -0.8px;
+}
+
+
+.customer.order h2,
+.is-order h2 {
+    font-size: 1.5rem; /* text-2xl */
+    font-size: 28px; /* xl:text-[28px] */
+    letter-spacing: -1.2px; /* tracking-[-1.2px] */
+}
+
+@media (min-width: 1280px) { /* XL breakpoint */
+    .customer.order h2,
+    .is-order h2 {
+        letter-spacing: -1.4px; /* xl:tracking-[-1.4px] */
+        margin-bottom: 0.5rem !important; /* xl:!mb-2 */
+    }
+}
+
+.customer.order h2,
+.is-order h2 {
+    font-weight: 600; /* font-semibold */
+    margin-bottom: 0.25rem !important; /* !mb-1 */
+}
+
+.customer.order p,
+.order .regular-price,
+.order .fulfillment,
+.order .fulfillment span,
+.order .fulfillment a,
+.order .fulfillment time{
+    font-size: 16px !important;
+    letter-spacing: -0.8px !important;
+}
+
+
+.customer td:before{
+    font-size: 16px !important;
+    letter-spacing: -0.8px !important;
+}
+
+
+@media (max-width: 1280px) {
+    :is(.account,.order){
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+
+    .order .fulfillment,
+    .order .fulfillment span,
+    .order .fulfillment time{
+        font-size: 14px !important;
+        letter-spacing: -0.7px !important;
+    }
+}
 
 
 
@@ -2368,6 +2457,7 @@ body {
     font-weight: 600;
     line-height: normal;
     letter-spacing: -1px;
+    margin-bottom: 0;
 }
 
 
@@ -2681,6 +2771,21 @@ body[data-template="blog"] sticky-header header{
     -moz-user-select: none; /* For Firefox */
     -ms-user-select: none; /* For IE/Edge */
 }
+
+
+
+
+/* DSAR Pages */
+[data-template-suffix="dsar"] .ez-container{
+    max-width: 600px !important;
+    border: 1px solid #e5e7eb !important;
+    margin-bottom: 40px;
+}
+
+[data-template-suffix="dsar"] [ez-locale=""]{
+    justify-content: center !important;
+}
+
 @media (min-width: 990px) {
 
   .lg\:bottom-\[20px\] {
@@ -2689,6 +2794,10 @@ body[data-template="blog"] sticky-header header{
 
   .lg\:order-1 {
     order: 1;
+  }
+
+  .lg\:order-2 {
+    order: 2;
   }
 
   .lg\:mx-0 {
@@ -3490,6 +3599,7 @@ body[data-template="blog"] sticky-header header{
     letter-spacing: -q.2px;
   }
 }
+
 @media (min-width: 1280px) {
 
   @media (min-width: 990px) {
@@ -3547,8 +3657,16 @@ body[data-template="blog"] sticky-header header{
     margin-bottom: 0.5rem !important;
   }
 
+  .xl\:\!mb-4 {
+    margin-bottom: 1rem !important;
+  }
+
   .xl\:\!mt-8 {
     margin-top: 2rem !important;
+  }
+
+  .xl\:mb-0 {
+    margin-bottom: 0px;
   }
 
   .xl\:mb-10 {
@@ -4546,6 +4664,7 @@ body[data-template="blog"] sticky-header header{
     letter-spacing: -8.1px;
   }
 }
+
 @media (min-width: 1800px) {
 
   .\33xl\:pb-\[380px\] {

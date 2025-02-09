@@ -16,8 +16,8 @@
 
 <div class="customer order section-{{ section.id }}-padding">
   <div>
-    <h1 class="customer__title">{{ 'customer.account.title' | t }}</h1>
-    <a href="{{ routes.account_url }}">{{ 'customer.account.return' | t }}</a>
+    <h1 class="customer__title text-2xl xl:text-[28px] tracking-[-1.2px] xl:tracking-[-1.4px] font-semibold">{{ 'customer.account.title' | t }}</h1>
+    <a class="!text-lg xl:!text-xl !tracking-[-0.9px] xl:!tracking-[-1px] font-medium" href="{{ routes.account_url }}">{{ 'customer.account.return' | t }}</a>
   </div>
 
   <div>
@@ -37,11 +37,11 @@
         </caption>
         <thead role="rowgroup">
           <tr role="row">
-            <th id="ColumnProduct" scope="col" role="columnheader">{{ 'customer.order.product' | t }}</th>
-            <th id="ColumnSku" scope="col" role="columnheader">{{ 'customer.order.sku' | t }}</th>
-            <th id="ColumnPrice" scope="col" role="columnheader">{{ 'customer.order.price' | t }}</th>
-            <th id="ColumnQuantity" scope="col" role="columnheader">{{ 'customer.order.quantity' | t }}</th>
-            <th id="ColumnTotal" scope="col" role="columnheader">{{ 'customer.order.total' | t }}</th>
+            <th class="!text-base !tracking-[-0.8px] !py-5"  id="ColumnProduct" scope="col" role="columnheader">{{ 'customer.order.product' | t }}</th>
+            <th class="!text-base !tracking-[-0.8px] !py-5"  id="ColumnSku" scope="col" role="columnheader">{{ 'customer.order.sku' | t }}</th>
+            <th class="!text-base !tracking-[-0.8px] !py-5"  id="ColumnPrice" scope="col" role="columnheader">{{ 'customer.order.price' | t }}</th>
+            <th class="!text-base !tracking-[-0.8px] !py-5"  id="ColumnQuantity" scope="col" role="columnheader">{{ 'customer.order.quantity' | t }}</th>
+            <th class="!text-base !tracking-[-0.8px] !py-5"  id="ColumnTotal" scope="col" role="columnheader">{{ 'customer.order.total' | t }}</th>
           </tr>
         </thead>
         <tbody role="rowgroup">
@@ -56,20 +56,20 @@
               >
                 <div>
                   {%- if line_item.url != blank -%}
-                    <a href="{{ line_item.url }}">{{ line_item.title | escape }}</a>
+                    <a class="!text-lg xl:!text-xl !tracking-[-0.9px] xl:!tracking-[-1px] font-medium" href="{{ line_item.url }}">{{ line_item.title | escape }}</a>
                   {%- else -%}
-                    <p>{{ line_item.title | escape }}</p>
+                    <p class="!text-lg xl:!text-xl !tracking-[-0.9px] xl:!tracking-[-1px] font-medium">{{ line_item.title | escape }}</p>
                   {%- endif -%}
                   {%- assign property_size = line_item.properties | size -%}
                   {%- unless line_item.selling_plan_allocation == null and property_size == 0 -%}
                     <div class="properties">
                       {%- unless line_item.product.has_only_default_variant -%}
-                        <span>
+                        <span class="!text-lg xl:!text-xl !tracking-[-0.9px] xl:!tracking-[-1px] font-medium">
                           {{ line_item.variant.title | escape }}
                         </span>
                       {%- endunless -%}
                       {%- unless line_item.selling_plan_allocation == null -%}
-                        <span>
+                        <span class="!text-lg xl:!text-xl !tracking-[-0.9px] xl:!tracking-[-1px] font-medium">
                           {{ line_item.selling_plan_allocation.selling_plan.name }}
                         </span>
                       {%- endunless -%}
@@ -77,12 +77,13 @@
                         {%- for property in line_item.properties -%}
                           {% assign property_first_char = property.first | slice: 0 %}
                           {%- if property.last != blank and property_first_char != '_' -%}
-                            <span>{{ property.first }}:</span>
-                            <span>
+                            <span class="!text-lg xl:!text-xl !tracking-[-0.9px] xl:!tracking-[-1px] font-medium">{{ property.first }}:</span>
+                            <span class="!text-lg xl:!text-xl !tracking-[-0.9px] xl:!tracking-[-1px] font-medium">
                               {%- if property.last contains '/uploads/' -%}
-                                <a href="{{ property.last }}">{{ property.last | split: '/' | last }}</a>
+                                <a class="!text-lg xl:!text-xl !tracking-[-0.9px] xl:!tracking-[-1px] font-medium" href="{{ property.last }}">{{ property.last | split: '/' | last }}</a>
                               {%- else -%}
-                                {{ property.last }}
+                              <span class="!text-lg xl:!text-xl !tracking-[-0.9px] xl:!tracking-[-1px] font-medium"> {{ property.last }}</span>
+                               
                               {%- endif -%}
                             </span>
                           {%- endif -%}
@@ -94,7 +95,7 @@
                   {%- if line_item.line_level_discount_allocations != blank -%}
                     <ul role="list" aria-label="{{ 'customer.order.discount' | t }}">
                       {%- for discount_allocation in line_item.line_level_discount_allocations -%}
-                        <li>
+                        <li class="!text-lg xl:!text-xl !tracking-[-0.9px] xl:!tracking-[-1px] font-medium">
                           <span class="svg-wrapper">
                             {{- 'icon-discount.svg' | inline_asset_content -}}
                           </span>
@@ -130,6 +131,7 @@
                 headers="Row{{ line_item.key }} ColumnSku"
                 role="cell"
                 data-label="{{ 'customer.order.sku' | t }}"
+                class="!text-base !tracking-[-0.8px]" 
               >
                 {{ line_item.sku }}
               </td>
@@ -142,34 +144,34 @@
                   <dl>
                     {%- if line_item.original_price != line_item.final_price -%}
                       <dt>
-                        <span class="visually-hidden">{{ 'products.product.price.regular_price' | t }}</span>
+                        <span class="visually-hidden !text-base !tracking-[-0.8px]">{{ 'products.product.price.regular_price' | t }}</span>
                       </dt>
                       <dd class="regular-price">
-                        <s>{{ line_item.original_price | money }}</s>
+                        <s class="!text-base !tracking-[-0.8px]">{{ line_item.original_price | money }}</s>
                       </dd>
-                      <dt>
-                        <span class="visually-hidden">{{ 'products.product.price.sale_price' | t }}</span>
+                      <dt class="!text-base !tracking-[-0.8px]" >
+                        <span class="visually-hidden !text-base !tracking-[-0.8px]">{{ 'products.product.price.sale_price' | t }}</span>
                       </dt>
                       <dd>
-                        <span>{{ line_item.final_price | money }}</span>
+                        <span class="!text-base !tracking-[-0.8px]">{{ line_item.final_price | money }}</span>
                       </dd>
                     {%- else -%}
-                      <dt>
-                        <span class="visually-hidden">{{ 'products.product.price.regular_price' | t }}</span>
+                      <dt class="!text-base !tracking-[-0.8px]">
+                        <span class="visually-hidden !text-base !tracking-[-0.8px]">{{ 'products.product.price.regular_price' | t }}</span>
                       </dt>
                       <dd>
                         {{ line_item.original_price | money }}
                       </dd>
                     {%- endif -%}
                     {%- if line_item.unit_price_measurement -%}
-                      <dt>
-                        <span class="visually-hidden">{{ 'products.product.price.unit_price' | t }}</span>
+                      <dt class="!text-base !tracking-[-0.8px]">
+                        <span class="visually-hidden !text-base !tracking-[-0.8px]">{{ 'products.product.price.unit_price' | t }}</span>
                       </dt>
-                      <dd class="unit-price">
-                        <span>
+                      <dd class="unit-price !text-base !tracking-[-0.8px]">
+                        <span class="!text-base !tracking-[-0.8px]">
                           {%- capture unit_price_separator -%}
-                            <span aria-hidden="true">/</span
-                            ><span class="visually-hidden">{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span>
+                            <span aria-hidden="true" class="!text-base !tracking-[-0.8px]">/</span
+                            ><span class="visually-hidden" class="!text-base !tracking-[-0.8px]">{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span>
                           {%- endcapture -%}
                           {%- capture unit_price_base_unit -%}
                             {%- if line_item.unit_price_measurement.reference_value != 1 -%}
@@ -177,7 +179,7 @@
                             {%- endif -%}
                             {{ line_item.unit_price_measurement.reference_unit }}
                           {%- endcapture -%}
-                          <span data-unit-price>{{ line_item.unit_price | money }}</span>
+                          <span data-unit-price class="!text-base !tracking-[-0.8px]">{{ line_item.unit_price | money }}</span>
                           {{- unit_price_separator -}}
                           {{- unit_price_base_unit -}}
                         </span>
@@ -185,13 +187,14 @@
                     {%- endif -%}
                   </dl>
                 {%- else -%}
-                  <span>{{ line_item.final_price | money }}</span>
+                  <span class="!text-base !tracking-[-0.8px]">{{ line_item.final_price | money }}</span>
                 {%- endif -%}
               </td>
               <td
                 headers="Row{{ line_item.key }} ColumnQuantity"
                 role="cell"
                 data-label="{{ 'customer.order.quantity' | t }}"
+                class="!text-base !tracking-[-0.8px] px-5"
               >
                 {{ line_item.quantity }}
               </td>
@@ -199,24 +202,28 @@
                 headers="Row{{ line_item.key }} ColumnTotal"
                 role="cell"
                 data-label="{{ 'customer.order.total' | t }}"
+                class="!text-base !tracking-[-0.8px]"
               >
                 {%- if line_item.original_line_price != line_item.final_line_price -%}
                   <dl>
                     <dt>
-                      <span class="visually-hidden">{{ 'products.product.price.regular_price' | t }}</span>
+                      <span class="visually-hidden !text-base !tracking-[-0.8px]">{{ 'products.product.price.regular_price' | t }}</span>
                     </dt>
                     <dd class="regular-price">
-                      <s>{{ line_item.original_line_price | money }}</s>
+                      <s class="!text-base !tracking-[-0.8px]">{{ line_item.original_line_price | money }}</s>
                     </dd>
                     <dt>
-                      <span class="visually-hidden">{{ 'products.product.price.sale_price' | t }}</span>
+                      <span class="visually-hidden !text-base !tracking-[-0.8px]">{{ 'products.product.price.sale_price' | t }}</span>
                     </dt>
                     <dd>
-                      <span>{{ line_item.final_line_price | money }}</span>
+                      <span class="!text-base !tracking-[-0.8px]">{{ line_item.final_line_price | money }}</span>
                     </dd>
                   </dl>
                 {%- else -%}
+                <span class="!text-base !tracking-[-0.8px]">
                   {{ line_item.original_line_price | money }}
+                </span>
+                 
                 {%- endif -%}
               </td>
             </tr>
@@ -224,33 +231,34 @@
         </tbody>
         <tfoot role="rowgroup">
           <tr role="row">
-            <td id="RowSubtotal" role="rowheader" scope="row" colspan="4">
+            <td id="RowSubtotal" class="!text-lg xl:!text-xl !tracking-[-0.9px] xl:!tracking-[-1px]" role="rowheader" scope="row" colspan="4">
               {{ 'customer.order.subtotal' | t }}
             </td>
-            <td headers="RowSubtotal" role="cell" data-label="{{ 'customer.order.subtotal' | t }}">
+            <td headers="RowSubtotal" class="!text-lg xl:!text-xl !tracking-[-0.9px] xl:!tracking-[-1px]" role="cell" data-label="{{ 'customer.order.subtotal' | t }}">
               {{ order.line_items_subtotal_price | money }}
             </td>
           </tr>
           {%- if order.cart_level_discount_applications != blank -%}
             <tr role="row">
               {%- for discount_application in order.cart_level_discount_applications -%}
-                <td id="RowDiscount" role="rowheader" scope="row" colspan="4">
+                <td id="RowDiscount" class="!text-lg xl:!text-xl !tracking-[-0.9px] xl:!tracking-[-1px]" role="rowheader" scope="row" colspan="4">
                   {{ 'customer.order.discount' | t }}
-                  <span class="cart-discount">
+                  <span class="cart-discount !text-lg xl:!text-xl !tracking-[-0.9px] xl:!tracking-[-1px]">
                     <span class="svg-wrapper">
                       {{- 'icon-discount.svg' | inline_asset_content -}}
                     </span>
                     {{- discount_application.title | escape -}}
                   </span>
                 </td>
-                <td headers="RowDiscount" role="cell" data-label="{{ 'customer.order.discount' | t }}">
+                <td headers="RowDiscount" class="!text-lg xl:!text-xl !tracking-[-0.9px] xl:!tracking-[-1px]" role="cell" data-label="{{ 'customer.order.discount' | t }}">
                   <div>
-                    <span>-{{ discount_application.total_allocated_amount | money }}</span>
-                    <span class="cart-discount">
+                    <span class="!text-lg xl:!text-xl !tracking-[-0.9px] xl:!tracking-[-1px]">-{{ discount_application.total_allocated_amount | money }}</span>
+                    <span class="cart-discount !text-lg xl:!text-xl !tracking-[-0.9px] xl:!tracking-[-1px]">
                       <span class="svg-wrapper">
                         {{- 'icon-discount.svg' | inline_asset_content -}}
                       </span>
-                      {{- discount_application.title | escape -}}
+                      <div class="!text-lg xl:!text-xl !tracking-[-0.9px] xl:!tracking-[-1px]"> {{- discount_application.title | escape -}}</div>
+                     
                     </span>
                   </div>
                 </td>
@@ -259,12 +267,13 @@
           {%- endif -%}
           {%- for shipping_method in order.shipping_methods -%}
             <tr role="row">
-              <td id="RowShipping" role="rowheader" scope="row" colspan="4">
+              <td id="RowShipping" class="!text-lg xl:!text-xl !tracking-[-0.9px] xl:!tracking-[-1px]" role="rowheader" scope="row" colspan="4">
                 {{ 'customer.order.shipping' | t }} ({{ shipping_method.title | escape }})
               </td>
               <td
                 headers="RowShipping"
                 role="cell"
+                class="!text-lg xl:!text-xl !tracking-[-0.9px] xl:!tracking-[-1px]"
                 data-label="{{ 'customer.order.shipping' | t }} ({{ shipping_method.title | escape }})"
               >
                 {{ shipping_method.price | money }}
@@ -273,13 +282,14 @@
           {%- endfor -%}
           {%- for tax_line in order.tax_lines -%}
             <tr role="row">
-              <td id="RowTax" role="rowheader" scope="row" colspan="4">
+              <td id="RowTax" role="rowheader" scope="row" colspan="4"  class="!text-lg xl:!text-xl !tracking-[-0.9px] xl:!tracking-[-1px]">
                 {{ 'customer.order.tax' | t }} ({{ tax_line.title | escape }}
                 {{ tax_line.rate | times: 100 }}%)
               </td>
               <td
                 headers="RowTax"
                 role="cell"
+                 class="!text-lg xl:!text-xl !tracking-[-0.9px] xl:!tracking-[-1px]"
                 data-label="{{ 'customer.order.tax' | t }} ({{ tax_line.title | escape }} {{ tax_line.rate | times: 100 }}%)"
               >
                 {{ tax_line.price | money }}
@@ -288,21 +298,22 @@
           {%- endfor -%}
           {%- if order.total_duties -%}
             <tr role="row">
-              <td id="RowDuties" role="rowheader" scope="row" colspan="4">{{ 'customer.order.total_duties' | t }}</td>
-              <td headers="RowDuties" role="cell" data-label="{{ 'customer.order.total_duties' | t }}">
+              <td id="RowDuties" role="rowheader" scope="row" colspan="4"  class="!text-lg xl:!text-xl !tracking-[-0.9px] xl:!tracking-[-1px]">{{ 'customer.order.total_duties' | t }}</td>
+              <td headers="RowDuties" role="cell" data-label="{{ 'customer.order.total_duties' | t }}"  class="!text-lg xl:!text-xl !tracking-[-0.9px] xl:!tracking-[-1px]">
                 {{ order.total_duties | money }}
               </td>
             </tr>
           {%- endif -%}
           {%- if order.total_refunded_amount > 0 -%}
             <tr role="row">
-              <td id="RowTotalRefund" role="rowheader" scope="row" colspan="3">
+              <td id="RowTotalRefund" role="rowheader" scope="row" colspan="3"  class="!text-lg xl:!text-xl !tracking-[-0.9px] xl:!tracking-[-1px]">
                 {{ 'customer.order.total_refunded' | t }}
               </td>
               <td
                 headers="RowTotalRefund"
                 role="cell"
                 colspan="2"
+                class="!text-lg xl:!text-xl !tracking-[-0.9px] xl:!tracking-[-1px]"
                 data-label="{{ 'customer.order.total_refunded' | t }}"
               >
                 -{{ order.total_refunded_amount | money_with_currency }}
@@ -310,8 +321,8 @@
             </tr>
           {%- endif -%}
           <tr role="row">
-            <td id="RowTotal" role="rowheader" scope="row" colspan="3">{{ 'customer.order.total' | t }}</td>
-            <td headers="RowTotal" role="cell" colspan="2" data-label="{{ 'customer.order.total' | t }}">
+            <td id="RowTotal" role="rowheader" scope="row" colspan="3" class="!text-lg xl:!text-xl !tracking-[-0.9px] xl:!tracking-[-1px] !font-semibold">{{ 'customer.order.total' | t }}</td>
+            <td headers="RowTotal" role="cell" colspan="2" data-label="{{ 'customer.order.total' | t }}" class="!text-lg xl:!text-xl !tracking-[-0.9px] xl:!tracking-[-1px] !font-semibold">
               {{ order.total_net_amount | money_with_currency }}
             </td>
           </tr>
