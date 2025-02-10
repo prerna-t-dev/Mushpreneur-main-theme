@@ -4343,8 +4343,8 @@ body[data-template="blog"] sticky-header header{
     padding-bottom: 184px;
   }
 
-  .xl\:pb-\[72px\] {
-    padding-bottom: 72px;
+  .xl\:pb-\[42px\] {
+    padding-bottom: 42px;
   }
 
   .xl\:pb-\[82px\] {
@@ -4389,10 +4389,6 @@ body[data-template="blog"] sticky-header header{
 
   .xl\:pt-\[94px\] {
     padding-top: 94px;
-  }
-
-  .xl\:pb-\[42px\] {
-    padding-bottom: 42px;
   }
 
   .xl\:text-left {
