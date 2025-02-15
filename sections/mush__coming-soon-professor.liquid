@@ -1,0 +1,43 @@
+<section id="mush--coming-soon-professor">
+
+</section>
+
+
+
+{%  schema  %} 
+    {
+        "name": "Coming Soon - Professor",
+        "class": "section--coming-soon-professor",
+        "settings": [
+            {
+                "type": "color",
+                "id": "background",
+                "label": "Background Color"
+            }
+        ],
+        "blocks": [
+            {
+                "name": "USP",
+                "type": "usp",
+                "limit": 5,
+                "settings": [
+                    {
+                        "type": "textarea",
+                        "id": "title",
+                        "label": "Title"
+                    },
+                    {
+                        "type": "text",
+                        "id": "subtext",
+                        "label": "Subtext"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Coming Soon - Professor"
+            }
+        ]
+    } 
+{% endschema %}
