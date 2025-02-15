@@ -1,5 +1,27 @@
 <section id="mush--coming-soon-professor">
+    <div class="section-wrapper text-white relative pt-[62px] xl:pt-[140px]" style="background: {{ section.settings.background }};">
+        <div class="px-[40px] xl:px-[120px] mb-10 xl:mb-[138px]">
+            <h2 class="text-white text-center text-[38px] xl:text-[60px] tracking-[-1.9px] xl:tracking-[-3px] font-semibold mb-3.5 mb-7 px-4 {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
+                {{ section.settings.title }}
+            </h2>
+            <p class="text-base xl:text-2xl tracking-[-0.8px] xl:tracking-[-1.2px] text-center xl:px-32 {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
+                {{ section.settings.subtitle }}
+            </p>
+        </div>
 
+
+        <!-- Professor Image: Desktop -->
+        <div class="hidden xl:block pl-8">
+            <img src="{{ section.settings.img_desk |  img_url: 'master' }}" alt="Professor Image">
+        </div>
+
+         <!-- Professor Image: Mobile -->
+         <div class="xl:hidden">
+            <img src="{{ section.settings.img_mob |  img_url: 'master' }}" alt="Professor Image">
+        </div>
+
+
+    </div>
 </section>
 
 
@@ -10,29 +32,33 @@
         "class": "section--coming-soon-professor",
         "settings": [
             {
-                "type": "color",
+                "type": "color_background",
                 "id": "background",
                 "label": "Background Color"
-            }
-        ],
-        "blocks": [
+            },
             {
-                "name": "USP",
-                "type": "usp",
-                "limit": 5,
-                "settings": [
-                    {
-                        "type": "textarea",
-                        "id": "title",
-                        "label": "Title"
-                    },
-                    {
-                        "type": "text",
-                        "id": "subtext",
-                        "label": "Subtext"
-                    }
-                ]
+                "type": "text",
+                "id": "title",
+                "label": "Title",
+                "default": "The Smarter Coffee Alternative"
+            },
+            {
+                "type": "textarea",
+                "id": "subtitle",
+                "label": "Sub",
+                "default": "Day Shrooms isn’t just a coffee alternative—it’s a no-BS upgrade for thinkers, creators, and doers. Powered by functional mushrooms, nootropics, and adaptogens, it’s crafted to deliver focus, energy, and calm without compromise. The future of productivity starts here."
+            },
+            {
+                "type": "image_picker",
+                "id": "img_desk",
+                "label": "Image - Desktop"
+            },
+            {
+                "type": "image_picker",
+                "id": "img_mob",
+                "label": "Image - Mobile"
             }
+
         ],
         "presets": [
             {
