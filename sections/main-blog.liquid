@@ -19,7 +19,7 @@
 
 <section class="mush--main-blog">
   <div class="section-wrapper"  style="background: {{ section.settings.background }};">
-    <div class="xl:px-[110px] py-[56px] xl:py-[96px] rounded-t-[26px] lg:rounded-t-[42px] xl:rounded-t-[96px] overflow-hidden"  style="background: {{ section.settings.foreground }};">
+    <div class="lg:px-12 xl:px-[110px] py-[56px] xl:py-[96px] rounded-t-[26px] lg:rounded-t-[42px] xl:rounded-t-[96px] overflow-hidden"  style="background: {{ section.settings.foreground }};">
 
       <!-- Blog Tags: NOT AJAX -->
       <div class="flex items-center gap-3 xl:gap-5 mb-10 xl:mb-20 overflow-scroll">
@@ -48,7 +48,7 @@
 
 
       {%- paginate blog.articles by 9 -%}
-        <div class="main-blog px-8 xl:px-0">
+        <div class="main-blog px-8 lg:px-0">
         
           <div class="blog-articles_ grid grid-cols-1 lg:grid-cols-3 gap-10 xl:gap-12">
             {%- assign sorted_articles = blog.articles | reverse -%}

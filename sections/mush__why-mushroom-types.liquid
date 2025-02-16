@@ -1,5 +1,5 @@
 <style>
-    @media (min-width: 1280px) {
+    @media (min-width: 990px) {
         li:last-child:nth-child(3n - 1) {
         grid-column-end: -2;
         }
@@ -13,7 +13,7 @@
 
 
 <section id="mush--why-mushroom-types">
-    <div class="section-wrapper relative px-6 lg:px-[140px] py-[30px] lg:py-[110px]">
+    <div class="section-wrapper relative px-6 lg:px-12 xl:px-[140px] py-[30px] xl:py-[110px]">
         <div class="{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
             <h2 class="text-[28px] xl:text-[48px] tracking-[-1.4px] xl:tracking-[-2.4px] font-bold text-center mb-2">
                 {{ section.settings.header }}
@@ -25,9 +25,9 @@
         
 
 
-        <ul class="grid grid-cols-1 xl:grid-cols-6 gap-9 xl:gap-14 mb-[52px] xl:mb-[140px] px-6 xl:px-0 {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
+        <ul class="grid grid-cols-1 lg:grid-cols-6 gap-9 lg:gap-14 mb-[52px] lg:mb-[90px] xl:mb-[140px] px-6 lg:px-0 {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
             {% for block in section.blocks %}
-                <li class="mushroom-block-item rounded-[30px] shadow-lg p-9 text-center xl:col-span-2">
+                <li class="mushroom-block-item rounded-[30px] shadow-lg p-9 text-center lg:col-span-2">
                     <p class="text-lg xl:text-[22px] tracking-[-0.9px] xl:tracking-[-1.1px] font-semibold mb-3 xl:mb-8">
                         {{ block.settings.subheader }}
                     </p>
@@ -48,7 +48,7 @@
             <h3 class="text-[28px] xl:text-[48px] tracking-[-1.4px] xl:tracking-[-2.4px] font-bold text-center mb-2 text-transparent bg-clip-text bg-[linear-gradient(90deg,#F2008C_0%,#E74936_100%)]">
                 {{ section.settings.header_2 }}
             </h3>
-            <p class="text-base xl:text-[28px] tracking-[-0.8px] xl:tracking-[-1.4px] leading-[1.2] text-center xl:px-40 mb-8 xl:mb-20">
+            <p class="text-base xl:text-[28px] tracking-[-0.8px] xl:tracking-[-1.4px] leading-[1.2] text-center xl:px-40 mb-8 xl:mb-20 lg:w-2/3 mx-auto xl:w-full">
                 {{ section.settings.subheader_2 }}
             </p>
         </div>
