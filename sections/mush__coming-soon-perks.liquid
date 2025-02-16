@@ -1,12 +1,12 @@
 <section id="mush--coming-soon-perks">
-    <div class="section-wrapper bg-white relative px-6 xl:px-[82px] py-[112px] xl:py-[150px]">
-        <h2 class="text-[56px] xl:text-[114px] tracking-[-2.8px] xl:tracking-[-5.718px] uppercase text-center font-semibold leading-none text-orange mb-3 xl:mb-4">
+    <div class="section-wrapper bg-white relative px-6 xl:px-[82px] py-[112px] lg:py-20 xl:py-[150px]">
+        <h2 class="text-[56px] xl:text-[114px] tracking-[-2.8px] xl:tracking-[-5.718px] uppercase text-center font-semibold leading-none text-orange mb-3 xl:mb-4 {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
             {{ section.settings.header }}
         </h2>
-        <p class="text-base xl:text-[40px] tracking-[-0.8px] xl:tracking-[-2px] text-center mb-[64px]">
+        <p class="text-base xl:text-[40px] tracking-[-0.8px] xl:tracking-[-2px] text-center mb-[64px] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
             {{ section.settings.subheader }}
         </p>
-        <div class="grid grid-cols-1 xl:grid-cols-4 gap-7 mb-[64px] px-12 xl:px-0">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-7 mb-[64px] px-12 lg:px-0 {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
             {% for block in section.blocks %}
                 <div class="mushroom-block-item flex flex-col items-center rounded-[30px] shadow-lg px-12 py-9 xl:py-11 text-center">
                     <img class="px-6 aspect-[1/1] w-full mb-3 xl:mb-5" src="{{ block.settings.image |  img_url: 'master' }}" alt="{{ block.settings.title }}">
@@ -22,7 +22,7 @@
         </div>
 
         <!-- CTA -->
-        <div class="btn btn-tertiary block mx-auto w-fit">
+        <div class="btn btn-tertiary block mx-auto w-fit {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
             JOIN NOW
         </div>
     </div>

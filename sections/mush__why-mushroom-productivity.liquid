@@ -1,6 +1,6 @@
 <section id="mush--why-mushroom-productivity">
     <div class="section-wrapper text-white relative" style="background-color: {{ section.settings.background }};">
-        <div class="rounded-t-[26px] lg:rounded-t-[42px] xl:rounded-t-[96px] text-white text-center px-[26px] lg:px-[140px] py-[30px] lg:py-[110px]" style="background-color: {{ section.settings.foreground }};">
+        <div class="rounded-t-[26px] lg:rounded-t-[42px] xl:rounded-t-[96px] text-white text-center px-[26px] lg:px-12 xl:px-[140px] py-[30px] lg:py-[90px] xl:py-[110px]" style="background-color: {{ section.settings.foreground }};">
 
             <h2 class="text-[28px] xl:text-[48px] tracking-[-1.4px] xl:tracking-[-2.4px] !text-white leading-[1.1] font-bold mb-2">
                 {{ section.settings.header }}
@@ -15,9 +15,9 @@
                 {% for block in section.blocks %}
                     {% assign loopIndex = forloop.index %}
                     {% assign isEvenBlock = loopIndex |  modulo: 2 %}
-                    <div class="grid grid-cols-1 xl:grid-cols-2 gap-8 xl:gap-14 mb-2 xl:mb-8 items-center">
-                        <img class="{% if isEvenBlock == 0 %} xl:order-2 {% endif %}" src="{{ block.settings.image |  img_url: 'master'  }}" alt="{{ forloop.index }}--image-productivity">
-                        <div class="text-left text-white {% if isEvenBlock == 0 %} xl:order-1 {% endif %}">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 mb-2 xl:mb-8 items-center">
+                        <img class="{% if isEvenBlock == 0 %} lg:order-2 {% endif %}" src="{{ block.settings.image |  img_url: 'master'  }}" alt="{{ forloop.index }}--image-productivity">
+                        <div class="text-left text-white {% if isEvenBlock == 0 %} lg:order-1 {% endif %} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
                             <h5 class="text-white text-base xl:text-[32px] tracking-[-0.8px] xl:tracking-[-1.6px] font-semibold mb-2 xl:mb-6">
                                 {{ block.settings.title }}
                             </h5>

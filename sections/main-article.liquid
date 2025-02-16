@@ -40,7 +40,7 @@
 
       {%- when 'title' -%}
         <section
-          class="px-[26px] xl:px-20 pb-9 xl:pb-[42px] !mt-2 xl:!mt-8 {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+          class="px-[26px] lg:px-12 xl:px-20 pb-9 lg:pb-[42px] !mt-2 lg:!mt-8 {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
           {{ block.shopify_attributes }}
         >
           <h1
@@ -83,7 +83,7 @@
 
       {%- when 'content' -%}
         <div
-          class="mush--article-content px-[26px] xl:px-20_ mx-auto mt-10 xl:mt-20 max-w-[1024px] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          class="mush--article-content px-[26px] lg:px-12 xl:px-20_ mx-auto mt-10 xl:mt-20 max-w-[1024px] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
           {{ block.shopify_attributes }}
         >
           {{ article.content }}

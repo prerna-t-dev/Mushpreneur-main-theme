@@ -2865,6 +2865,10 @@ body[data-template="blog"] sticky-header header{
     order: 2;
   }
 
+  .lg\:col-span-2 {
+    grid-column: span 2 / span 2;
+  }
+
   .lg\:mx-0 {
     margin-left: 0px;
     margin-right: 0px;
@@ -2978,6 +2982,22 @@ body[data-template="blog"] sticky-header header{
     margin-top: 62px;
   }
 
+  .lg\:mb-8 {
+    margin-bottom: 2rem;
+  }
+
+  .lg\:mb-\[140px\] {
+    margin-bottom: 140px;
+  }
+
+  .lg\:mb-\[90px\] {
+    margin-bottom: 90px;
+  }
+
+  .lg\:\!mt-8 {
+    margin-top: 2rem !important;
+  }
+
   .lg\:\!block {
     display: block !important;
   }
@@ -3058,6 +3078,14 @@ body[data-template="blog"] sticky-header header{
     width: 56px;
   }
 
+  .lg\:w-2\/5 {
+    width: 40%;
+  }
+
+  .lg\:w-3\/5 {
+    width: 60%;
+  }
+
   .lg\:max-w-\[430px\] {
     max-width: 430px;
   }
@@ -3074,6 +3102,18 @@ body[data-template="blog"] sticky-header header{
 
   .lg\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .lg\:flex-row {
@@ -3126,6 +3166,26 @@ body[data-template="blog"] sticky-header header{
 
   .lg\:gap-\[92px\] {
     gap: 92px;
+  }
+
+  .lg\:gap-14 {
+    gap: 3.5rem;
+  }
+
+  .lg\:gap-24 {
+    gap: 6rem;
+  }
+
+  .lg\:divide-x > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-x-reverse: 0;
+    border-right-width: calc(1px * var(--tw-divide-x-reverse));
+    border-left-width: calc(1px * calc(1 - var(--tw-divide-x-reverse)));
+  }
+
+  .lg\:divide-y-0 > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-y-reverse: 0;
+    border-top-width: calc(0px * calc(1 - var(--tw-divide-y-reverse)));
+    border-bottom-width: calc(0px * var(--tw-divide-y-reverse));
   }
 
   .lg\:rounded-\[38\.973px\] {
@@ -3279,6 +3339,56 @@ body[data-template="blog"] sticky-header header{
     padding-bottom: 64px;
   }
 
+  .lg\:px-32 {
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+
+  .lg\:px-\[90px\] {
+    padding-left: 90px;
+    padding-right: 90px;
+  }
+
+  .lg\:px-\[120px\] {
+    padding-left: 120px;
+    padding-right: 120px;
+  }
+
+  .lg\:py-\[90px\] {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
+  .lg\:py-\[60px\] {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .lg\:px-16 {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+
+  .lg\:py-\[184px\] {
+    padding-top: 184px;
+    padding-bottom: 184px;
+  }
+
+  .lg\:py-20 {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .lg\:px-\[232px\] {
+    padding-left: 232px;
+    padding-right: 232px;
+  }
+
+  .lg\:px-\[150px\] {
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+
   .lg\:pb-12 {
     padding-bottom: 3rem;
   }
@@ -3405,6 +3515,14 @@ body[data-template="blog"] sticky-header header{
 
   .lg\:pt-\[78px\] {
     padding-top: 78px;
+  }
+
+  .lg\:pt-\[184px\] {
+    padding-top: 184px;
+  }
+
+  .lg\:pb-\[42px\] {
+    padding-bottom: 42px;
   }
 
   .lg\:text-left {
@@ -4386,6 +4504,11 @@ body[data-template="blog"] sticky-header header{
   .xl\:px-\[120px\] {
     padding-left: 120px;
     padding-right: 120px;
+  }
+
+  .xl\:px-\[140px\] {
+    padding-left: 140px;
+    padding-right: 140px;
   }
 
   .xl\:pb-0 {
