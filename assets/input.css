@@ -10,6 +10,7 @@
 
     html {
         color: #000000 !important;
+        scroll-behavior: smooth;
         /* overflow: overlay; 
         scrollbar-gutter: stable;  */
       }
@@ -82,6 +83,10 @@
         }
 
 
+    }
+
+    .text-orange{
+       color: #E45825;
     }
 
 
