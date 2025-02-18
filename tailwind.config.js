@@ -23,7 +23,8 @@ module.exports = {
         pinkorange: '#E74639',
         lightorange: '#FEA30C',
         yellow: '#FFC107',
-        skyblue: '#98E1FF'
+        skyblue: '#98E1FF',
+        successgreen: '#81C784'
       },
       letterSpacing: {
         '50': '0.5em'

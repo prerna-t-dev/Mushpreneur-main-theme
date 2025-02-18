@@ -168,19 +168,23 @@
           <h5 class="text-white text-xl lg:text-[32px] font-semibold tracking-[-0.972px] lg:tracking-[-1.6px] mb-3 lg:mb-6">Want More Mushroom?</h5>
           <p class="text-[12px] lg:text-xl tracking-[-0.63px] lg:tracking-[-1.037px] pb-[32px] lg:mb-[24px] hidden lg:!block">Sign up for our emails and be the first to know about new products, promotions, and more!</p>
 
-          <form method="post" action="/contact#newsletter" accept-charset="UTF-8" class="newsletter-form footer--newsletter-form flex items-center justify-center w-full lg:border-b lg:border-white"  >
-            <input type="hidden" name="form_type" value="customer">
-            <input type="hidden" name="utf8" value="✓">
+          <div class="newsletter-form--wrapper relative">
+            <form id="klaviyo-signup-form--footer" method="post" accept-charset="UTF-8" class="newsletter-form footer--newsletter-form flex items-center justify-center w-full lg:border-b lg:border-white"  >
+              <input type="hidden" name="form_type" value="customer">
+              <input type="hidden" name="utf8" value="✓">
 
-            <input 
-              type="email" 
-              name="email" 
-              placeholder="Email" 
-              class="footer-newsletter-input bg-transparent w-full text-base lg:text-xl tracking-[-0.8px] lg:tracking-[-1.037px] font-light" 
-              required>
+              <input 
+                type="email" 
+                name="email" 
+                id="footer-newsletter-email" 
+                placeholder="Email" 
+                class="footer-newsletter-input bg-transparent w-full text-base lg:text-xl tracking-[-0.8px] lg:tracking-[-1.037px] font-light" 
+                required>
 
-            <button type="submit" class="newsletter--submit-btn uppercase cursor-pointer text-base lg:text-xl font-semibold leading-[1.1] tracking-[-0.8px] lg:tracking-[-1.037px]">SEND</button>
-          </form>
+              <button type="submit" class="newsletter--submit-btn uppercase cursor-pointer text-base lg:text-xl font-semibold leading-[1.1] tracking-[-0.8px] lg:tracking-[-1.037px]">SEND</button>
+            </form>
+            <p id="response-message" class="text-sm xl:text-base tracking-[-0.8px] xl:tracking-[-0.8px] absolute bottom-[-24px] xl:bottom-[-30px] "></p>
+          </div>
 
           <p class="mt-4 lg:mt-[62px] text-[10px] lg:text-xl tracking-[-0.473px] lg:tracking-[-1.037px] hidden lg:!block">
             These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.
@@ -302,7 +306,106 @@
     </div>
 
   </div>
+
+
+  {% comment %} <form id="signup-form">
+    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+    <button type="submit">Subscribe</button>
+  </form>
+  <p id="response-message"></p> {% endcomment %}
+
 </footer>
+
+
+
+
+
+<script>
+  document.getElementById('klaviyo-signup-form--footer').addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const email = document.getElementById('footer-newsletter-email').value;
+    const KLAVIYO_PUBLIC_API_KEY = 'VqRB85'; 
+    const LIST_ID = 'SQaaib'; 
+
+    const url = `https://a.klaviyo.com/client/subscriptions?company_id=${KLAVIYO_PUBLIC_API_KEY}`;
+    
+    const payload = JSON.stringify({
+      data: {
+        type: 'subscription',
+        attributes: {
+          profile: {
+            data: {
+              type: 'profile',
+              attributes: {
+                email: email,
+                subscriptions: {
+                  email: {
+                    marketing: {
+                      consent: 'SUBSCRIBED',
+                      consented_at: new Date().toISOString()
+                    }
+                  }
+                }
+              }
+            }
+          },
+          custom_source: 'Website Signup Form'
+        },
+        relationships: {
+          list: {
+            data: {
+              type: 'list',
+              id: LIST_ID
+            }
+          }
+        }
+      }
+    });
+
+    const options = {
+      method: 'POST',
+      headers: {
+        accept: 'application/vnd.api+json',
+        'content-type': 'application/vnd.api+json',
+        revision: '2025-01-15'
+      },
+      body: payload
+    };
+
+    try {
+      const response = await fetch(url, options);
+      const text = await response.text(); // Get raw response
+
+      console.log('Raw Response:', text); // Debugging
+
+      let result;
+      if (text) {
+        try {
+          result = JSON.parse(text); // Attempt JSON parsing
+        } catch (jsonError) {
+          console.warn('Response is not valid JSON:', text);
+          result = { message: text }; // Treat it as plain text
+        }
+      } else {
+        result = { message: 'Success (no response body)' }; // Handle empty response
+      }
+
+      if (response.ok) {
+        document.getElementById('response-message').classList.add('text-successgreen');
+        document.getElementById('response-message').innerText = 'Thank you for subscribing!';
+        document.getElementById('klaviyo-signup-form--footer').reset();
+      } else {
+        console.error('Klaviyo API Error:', result);
+        document.getElementById('response-message').classList.add('text-orange');
+        document.getElementById('response-message').innerText = `Error: ${result.errors?.[0]?.detail || 'Something went wrong'}`;
+      }
+    } catch (error) {
+      console.error('Network Error:', error);
+      // document.getElementById('response-message').innerText = 'An unexpected error occurred.';
+    }
+  });
+</script>
 
 {% schema %}
   {
