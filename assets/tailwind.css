@@ -547,6 +547,7 @@ video {
 /* ================ MUSHPRENEUR CUSTOM SETTINGS ================= */
 html {
         color: #000000 !important;
+        scroll-behavior: smooth;
         /* overflow: overlay; 
         scrollbar-gutter: stable;  */
       }
@@ -715,6 +716,9 @@ body {
   }
 
 
+    }
+.text-orange{
+       color: #E45825;
     }
 /* ===== Footer Newsletter ===== */
 .footer-newsletter-input{
@@ -1153,12 +1157,20 @@ body {
   --tw-translate-x: -50%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
+.-translate-x-\[70\%\] {
+  --tw-translate-x: -70%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
 .-translate-x-\[80\%\] {
   --tw-translate-x: -80%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .-translate-y-1\/2 {
   --tw-translate-y: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.translate-x-\[70\%\] {
+  --tw-translate-x: 70%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .translate-x-\[80\%\] {
@@ -1171,6 +1183,11 @@ body {
 }
 .translate-y-\[1px\] {
   --tw-translate-y: 1px;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.scale-\[0\.4\] {
+  --tw-scale-x: 0.4;
+  --tw-scale-y: 0.4;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .scale-\[0\.5\] {
@@ -1609,6 +1626,10 @@ body {
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+.py-7 {
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
 }
 .py-8 {
   padding-top: 2rem;
@@ -4176,11 +4197,6 @@ body[data-template="blog"] sticky-header header{
     padding-right: 2.5rem;
   }
 
-  .xl\:px-12 {
-    padding-left: 3rem;
-    padding-right: 3rem;
-  }
-
   .xl\:px-20 {
     padding-left: 5rem;
     padding-right: 5rem;
@@ -4356,9 +4372,9 @@ body[data-template="blog"] sticky-header header{
     padding-bottom: 34px;
   }
 
-  .xl\:py-\[46px\] {
-    padding-top: 46px;
-    padding-bottom: 46px;
+  .xl\:py-\[36px\] {
+    padding-top: 36px;
+    padding-bottom: 36px;
   }
 
   .xl\:py-\[54px\] {
