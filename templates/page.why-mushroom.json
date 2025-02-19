@@ -21,7 +21,7 @@
       "type": "mush__why-mushroom-hero",
       "settings": {
         "background": "#e64c33",
-        "image": "shopify://shop_images/Mushroom_101_Productivity_1_1.png",
+        "image": "shopify://shop_images/Why_Mushroom_-_Hero_1.png",
         "header": "Drink Mushrooms. Get Sh*t Done.",
         "subheader": "Fuel your focus, energy, and creativity with functional mushrooms—no crashes, no excuses. The next-level upgrade your busy day demands."
       }
@@ -40,7 +40,7 @@
         "mushroom_nPBqmw": {
           "type": "mushroom",
           "settings": {
-            "image": "shopify://shop_images/Screenshot_2025-01-28_at_9.29.43_AM.png",
+            "image": "shopify://shop_images/Lion_s_Mane_1.png",
             "name": "Lion’s Mane",
             "subheader": "The Smart One",
             "description": "Superpower: Reduces anxiety, promotes restful sleep, and strengthens immunity.\n\nWhy It Matters: Lion’s Mane is your brain’s personal trainer—keeping you sharp, creative, and ready to conquer anything."
@@ -49,7 +49,7 @@
         "mushroom_YQqXDF": {
           "type": "mushroom",
           "settings": {
-            "image": "shopify://shop_images/Screenshot_2025-01-28_at_9.29.43_AM.png",
+            "image": "shopify://shop_images/Cordyceps_cropped.png",
             "name": "Cordyceps",
             "subheader": "The Energetic One",
             "description": "Superpower: Fuels stamina and boosts endurance.\n\nWhy It Matters: Cordyceps provides clean, sustainable energy—no crashes, just all-day momentum."
@@ -58,7 +58,7 @@
         "mushroom_MR4m9h": {
           "type": "mushroom",
           "settings": {
-            "image": "shopify://shop_images/Screenshot_2025-01-28_at_9.29.43_AM.png",
+            "image": "shopify://shop_images/Chaga_cropped.png",
             "name": "Chaga",
             "subheader": "The Resilient One",
             "description": "Superpower: Packed with antioxidants to fight stress and combat signs of aging.\n\nWhy It Matters: Chaga fortifies your defenses so you can bounce back from whatever the day throws at you."
@@ -67,7 +67,7 @@
         "mushroom_VThrJz": {
           "type": "mushroom",
           "settings": {
-            "image": "shopify://shop_images/Screenshot_2025-01-28_at_9.29.43_AM.png",
+            "image": "shopify://shop_images/Reishi_cropped.png",
             "name": "Reishi",
             "subheader": "The Chill One",
             "description": "Superpower: Reduces anxiety, promotes restful sleep, and strengthens immunity.\n\nWhy It Matters:Reishi is your ultimate stress buster, helping you relax, recharge, and stay well."
@@ -76,7 +76,7 @@
         "mushroom_yRGR8e": {
           "type": "mushroom",
           "settings": {
-            "image": "shopify://shop_images/Screenshot_2025-01-28_at_9.29.43_AM.png",
+            "image": "shopify://shop_images/Turkey_Tail_cropped.png",
             "name": "Turkey Tail",
             "subheader": "The Immune One",
             "description": "Superpower: Supports gut health and bolsters your immune system.\n\nWhy It Matters: Turkey Tail keeps your health on point, so you can show up at your best every day."

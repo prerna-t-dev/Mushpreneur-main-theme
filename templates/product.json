@@ -166,100 +166,108 @@
     "mush_supercharged_ingredients_xjpMg9": {
       "type": "mush__supercharged-ingredients",
       "blocks": {
+        "ingredient_d8ttdw": {
+          "type": "ingredient",
+          "settings": {
+            "name": "<p>Organic <br/>Raw Cacao</p>",
+            "description": "Mood-enhancing and \nknown to improve \ngeneral overall \ncognition.",
+            "image": "shopify://shop_images/ingr--organic_raw_cacao.png"
+          }
+        },
         "ingredient_F7Tn8c": {
           "type": "ingredient",
           "settings": {
-            "name": "<p>Organic Raw \nBlack Maca</p>",
+            "name": "<p>Organic Raw <br/>Black Maca</p>",
             "description": "Stamina boost, \nincreased energy, and \nmood-enhancing\nproperties",
-            "image": "shopify://shop_images/Organic_Raw_Black_Maca_1.png"
+            "image": "shopify://shop_images/ingr--Organic_Raw_Black_Maca.png"
           }
         },
         "ingredient_NBMenV": {
           "type": "ingredient",
           "settings": {
-            "name": "<p>Organic \nLion’s Mane</p>",
+            "name": "<p>Organic <br/>Lion’s Mane</p>",
             "description": "Promotes creativity, \nproductivity, focus, \nand improved \nmood.",
-            "image": "shopify://shop_images/Organic_Lion_s_Mane_1.png"
+            "image": "shopify://shop_images/ingr--Organic_Lion_s_Mane.png"
           }
         },
         "ingredient_bXfFKF": {
           "type": "ingredient",
           "settings": {
-            "name": "<p>Organic \nCordyceps</p>",
+            "name": "<p>Organic <br/>Cordyceps</p>",
             "description": "All-day energy \nboost and \nendurance to power \nthrough the day. ",
-            "image": "shopify://shop_images/Organic_Cordyceps_1.png"
-          }
-        },
-        "ingredient_d8ttdw": {
-          "type": "ingredient",
-          "settings": {
-            "name": "<p>Organic \nRaw Cacao</p>",
-            "description": "Mood-enhancing and \nknown to improve \ngeneral overall \ncognition.",
-            "image": "shopify://shop_images/Organic_Raw_Cacao_1.png"
+            "image": "shopify://shop_images/ingr--Organic_Cordyceps.png"
           }
         },
         "ingredient_tniWKi": {
           "type": "ingredient",
           "settings": {
             "name": "<p>L-theanine</p>",
-            "description": "Promotes wakeful \nrelaxation for \ncreativity \nand productivity."
+            "description": "Promotes wakeful \nrelaxation for \ncreativity \nand productivity.",
+            "image": "shopify://shop_images/ingr--L-theanine.png"
           }
         },
         "ingredient_KirPJf": {
           "type": "ingredient",
           "settings": {
-            "name": "<p>Rhodiola \nRosea Root</p>",
-            "description": "Optimizes mental \nenergy and regulates \nthe body’s stress \nresponses."
+            "name": "<p>Rhodiola <br/>Rosea Root</p>",
+            "description": "Optimizes mental \nenergy and regulates \nthe body’s stress \nresponses.",
+            "image": "shopify://shop_images/ingr--Rosea_root.png"
           }
         },
         "ingredient_taKPAb": {
           "type": "ingredient",
           "settings": {
-            "name": "<p>Ashwagandha \nKSM-66</p>",
-            "description": "Helps to support \ncognitive function, \nmemory & focus and \nreduces anxiety."
+            "name": "<p>Ashwagandha <br/>KSM-66</p>",
+            "description": "Helps to support \ncognitive function, \nmemory & focus and \nreduces anxiety.",
+            "image": "shopify://shop_images/ingr--ashwagandha.png"
           }
         },
         "ingredient_W7t9Pz": {
           "type": "ingredient",
           "settings": {
-            "name": "<p>Organic \nVitamin B12</p>",
-            "description": "Essential for the \ndevelopment of the central\n nervous system, \ngreat for vegan diets."
+            "name": "<p>Organic <br/>Vitamin B12</p>",
+            "description": "Essential for the \ndevelopment of the central\n nervous system, \ngreat for vegan diets.",
+            "image": "shopify://shop_images/ingr--B12.png"
           }
         },
         "ingredient_tycPVE": {
           "type": "ingredient",
           "settings": {
             "name": "<p>Organic Vitamin D2</p><h6>(From Mushrooms)</h6>",
-            "description": "Made exclusively from \nmushrooms and essential \nfor bone health, strong teeth, \nand resistance to certain diseases."
+            "description": "Made exclusively from \nmushrooms and essential \nfor bone health, strong teeth, \nand resistance to certain diseases.",
+            "image": "shopify://shop_images/ingr--d2.png"
           }
         },
         "ingredient_bcJ9Vm": {
           "type": "ingredient",
           "settings": {
             "name": "<p>Natural Caffeine </p><h6>(from Green Tea)</h6>",
-            "description": "Works in synergy \nwith l-theanine to reduce \njitters and boost \nmood."
+            "description": "Works in synergy \nwith l-theanine to reduce \njitters and boost \nmood.",
+            "image": "shopify://shop_images/ingr--caffiene.png"
           }
         },
         "ingredient_WnnK4g": {
           "type": "ingredient",
           "settings": {
-            "name": "<p>Bacopa Monnieri \nExtract</p>",
-            "description": "Brain-boosting effects \nfor attention and \nmanaging stress."
+            "name": "<p>Bacopa Monnieri <br/>Extract</p>",
+            "description": "Brain-boosting effects \nfor attention and \nmanaging stress.",
+            "image": "shopify://shop_images/ingr--bacopa.png"
           }
         },
         "ingredient_tydtQq": {
           "type": "ingredient",
           "settings": {
-            "name": "<p>Baja Gold \nSea Salt</p>",
-            "description": "Packed with essential \nminerals, low sodium, \nand electrolytes for \nbalanced wellness."
+            "name": "<p>Baja Gold <br/>Sea Salt</p>",
+            "description": "Packed with essential \nminerals, low sodium, \nand electrolytes for \nbalanced wellness.",
+            "image": "shopify://shop_images/ingr--baha_sea_salt.png"
           }
         }
       },
       "block_order": [
+        "ingredient_d8ttdw",
         "ingredient_F7Tn8c",
         "ingredient_NBMenV",
         "ingredient_bXfFKF",
-        "ingredient_d8ttdw",
         "ingredient_tniWKi",
         "ingredient_KirPJf",
         "ingredient_taKPAb",

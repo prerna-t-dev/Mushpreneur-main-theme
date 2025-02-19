@@ -88,7 +88,7 @@
                 <div class="swiper-wrapper slick--supercharged-ingredients">
                     {% for block in section.blocks %}
                         <div class="w-full h-full">
-                    <div class="w-full h-full bg-white px-4 xl:px-7 py-4 xl:py-8 rounded-[20px] xl:rounded-[38px] cursor-pointer" {% if block.settings.image %} style="background-image: url({{ block.settings.image | img_url: 'master' }});background-repeat: no-repeat; background-size: 100%; background-position: bottom right;" {% endif %}>
+                    <div class="w-full h-full bg-white px-4 xl:px-7 py-4 xl:py-8 rounded-[20px] xl:rounded-[38px] cursor-pointer" {% if block.settings.image %} style="background-image: url({{ block.settings.image | img_url: 'master' }});background-repeat: no-repeat; background-size: contain; background-position: bottom right;" {% endif %}>
                                 <div class="ingredient-header mb-1 xl:mb-3">
                                     <h4 class="font-bold text-[26px] xl:text-[46px] tracking-[-1.3px] xl:tracking-[-2.3px] leading-[1.1]">
                                         {{ block.settings.name | newline_to_br }}
