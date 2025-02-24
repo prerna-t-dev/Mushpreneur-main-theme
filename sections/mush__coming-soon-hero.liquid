@@ -88,19 +88,20 @@
     const LIST_ID = 'Xd8yqJ'; 
 
     // 1️⃣ Basic Email Validation (Regex)
-    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const emailPattern = /^[a-zA-Z0-9.]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailPattern.test(email)) {
       document.getElementById('response-message-cs').innerText = 'Invalid email address.';
       document.getElementById('response-message-cs').classList.add('text-orange');
       return;
     }
 
+
     // 2️⃣ Honeypot Check (If filled, stop submission)
     if (honeypotField) {
       console.warn("Spam bot detected. Form submission aborted.");
       return;
     }
-    
+
 
     const url = `https://a.klaviyo.com/client/subscriptions?company_id=${KLAVIYO_PUBLIC_API_KEY}`;
     
