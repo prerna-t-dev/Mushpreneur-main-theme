@@ -32,10 +32,6 @@
                     <form id="klaviyo-signup-form--comingsoon" method="post" accept-charset="UTF-8" class="newsletter-form password--newsletter-form flex flex flex-col xl:flex-row items-center gap-4 justify-center w-full">
                         <input type="hidden" name="form_type" value="customer">
                         <input type="hidden" name="utf8" value="✓">
-
-                        <!-- Honeypot Field (Bots fill this, humans won't) -->
-                        <input type="text" name="extra_field" id="honeypot-field" style="display:none !important;" autocomplete="off">
-
     
                         <input 
                         type="email" 
@@ -82,26 +78,8 @@
     e.preventDefault();
 
     const email = document.getElementById('comingsoon-newsletter-email').value;
-    const honeypotField = document.getElementById('honeypot-field').value; // Honeypot check
-
     const KLAVIYO_PUBLIC_API_KEY = 'VqRB85'; 
     const LIST_ID = 'Xd8yqJ'; 
-
-    // 1️⃣ Basic Email Validation (Regex)
-    const emailPattern = /^[a-zA-Z0-9.]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!emailPattern.test(email)) {
-      document.getElementById('response-message-cs').innerText = 'Invalid email address.';
-      document.getElementById('response-message-cs').classList.add('text-orange');
-      return;
-    }
-
-
-    // 2️⃣ Honeypot Check (If filled, stop submission)
-    if (honeypotField) {
-      console.warn("Spam bot detected. Form submission aborted.");
-      return;
-    }
-
 
     const url = `https://a.klaviyo.com/client/subscriptions?company_id=${KLAVIYO_PUBLIC_API_KEY}`;
     

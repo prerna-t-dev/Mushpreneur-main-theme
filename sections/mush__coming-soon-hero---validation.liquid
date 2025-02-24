@@ -1,21 +1,3 @@
-<style>
-    /* #mush--coming-soon-hero .section-wrapper{
-        background-image: url({{ section.settings.image_mob |  img_url: 'master' }});
-        background-repeat: no-repeat; 
-        background-size: 100%;
-        background-position: bottom;
-    } */
-
-    @media (min-width: 1280px){
-        #mush--coming-soon-hero .section-wrapper{
-            background-image: url({{ section.settings.image_desk |  img_url: 'master' }});
-            background-size: cover;
-        }
-    }
-    
-</style>
-
-
 <section id="mush--coming-soon-hero">
     <div class="section-wrapper text-white relative px-6 lg:px-20 xl:px-[86px] bg-black pt-[126px] pb-11 lg:pt-[184px] xl:py-[184px] xl:min-h-screen">
         <div class="coming-soon--content xl:w-3/5 relative z-2">
@@ -26,33 +8,32 @@
                 <p class="text-sm xl:text-2xl tracking-[-0.7px] xl:tracking-[-1.2px] text-center xl:text-left xl:pr-20 mb-6 xl:mb-11">
                     {{ section.settings.subheader }}
                 </p>
-    
+
                 <!-- Coming Soon: Newsletter -->
                 <div class="newsletter-form--wrapper mb-5 xl:mb-11 relative z-[2] ">
-                    <form id="klaviyo-signup-form--comingsoon" method="post" accept-charset="UTF-8" class="newsletter-form password--newsletter-form flex flex flex-col xl:flex-row items-center gap-4 justify-center w-full">
+                    <form id="klaviyo-signup-form--comingsoon" method="post" accept-charset="UTF-8" class="newsletter-form password--newsletter-form flex flex-col xl:flex-row items-center gap-4 justify-center w-full">
                         <input type="hidden" name="form_type" value="customer">
                         <input type="hidden" name="utf8" value="✓">
 
                         <!-- Honeypot Field (Bots fill this, humans won't) -->
                         <input type="text" name="extra_field" id="honeypot-field" style="display:none !important;" autocomplete="off">
 
-    
                         <input 
-                        type="email" 
-                        name="email" 
-                        id="comingsoon-newsletter-email" 
-                        placeholder="Email" 
-                        class="bg-transparent w-full px-7 py-4 border border-white rounded-[62px] w-full text-sm xl:text-xl tracking-[-0.7px] xl:tracking-[-1.037px] font-light" 
-                        required>
-    
+                            type="email" 
+                            name="email" 
+                            id="comingsoon-newsletter-email" 
+                            placeholder="Email" 
+                            class="bg-transparent w-full px-7 py-4 border border-white rounded-[62px] text-sm xl:text-xl tracking-[-0.7px] xl:tracking-[-1.037px] font-light" 
+                            required>
+
+                        <!-- Google reCAPTCHA -->
+                        {% comment %} <div class="g-recaptcha" data-sitekey="YOUR_GOOGLE_RECAPTCHA_SITE_KEY"></div> {% endcomment %}
+
                         <button type="submit" class="coming-soon--submit-btn w-full min-h-[54px] btn bg-gradient-to-r from-[#F2008C] to-[#E74936] text-white uppercase cursor-pointer text-sm xl:text-xl font-semibold leading-[1.1] tracking-[-0.7px] xl:tracking-[-1.037px]">JOIN THE LIST</button>
                     </form>
-                    <p id="response-message-cs" class="text-sm xl:text-base tracking-[-0.8px] xl:tracking-[-0.8px] absolute bottom-[-24px] xl:bottom-[-30px] "></p>
-
+                    <p id="response-message-cs" class="text-sm xl:text-base tracking-[-0.8px] xl:tracking-[-0.8px] absolute bottom-[-24px] xl:bottom-[-30px]"></p>
                 </div>
             </div>
-            
-
 
             <!-- Coming Soon USP -->
             <div class="flex items-center justify-center xl:justify-start flex-wrap gap-1 xl:gap-3 relative z-[2] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
@@ -66,8 +47,7 @@
                 {% endfor %}
             </div>
 
-
-            <!-- Coming Soon Image Banner: Mobile-->
+            <!-- Coming Soon Image Banner: Mobile -->
             <div class="xl:hidden -mt-12 relative z-0">
                 <img src="{{ section.settings.image_mob |  img_url: 'master' }}" alt="Coming Soon">
             </div>
@@ -75,7 +55,8 @@
     </div>
 </section>
 
-
+<!-- Google reCAPTCHA script -->
+{% comment %} <script src="https://www.google.com/recaptcha/api.js" async defer></script> {% endcomment %}
 
 <script>
   document.getElementById('klaviyo-signup-form--comingsoon').addEventListener('submit', async function (e) {
@@ -83,18 +64,18 @@
 
     const email = document.getElementById('comingsoon-newsletter-email').value;
     const honeypotField = document.getElementById('honeypot-field').value; // Honeypot check
+    const captchaResponse = grecaptcha.getResponse(); // reCAPTCHA response
 
     const KLAVIYO_PUBLIC_API_KEY = 'VqRB85'; 
     const LIST_ID = 'Xd8yqJ'; 
 
     // 1️⃣ Basic Email Validation (Regex)
-    const emailPattern = /^[a-zA-Z0-9.]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailPattern.test(email)) {
       document.getElementById('response-message-cs').innerText = 'Invalid email address.';
       document.getElementById('response-message-cs').classList.add('text-orange');
       return;
     }
-
 
     // 2️⃣ Honeypot Check (If filled, stop submission)
     if (honeypotField) {
@@ -102,6 +83,12 @@
       return;
     }
 
+    // 3️⃣ reCAPTCHA Validation
+    if (!captchaResponse) {
+      document.getElementById('response-message-cs').innerText = 'Please complete the CAPTCHA.';
+      document.getElementById('response-message-cs').classList.add('text-orange');
+      return;
+    }
 
     const url = `https://a.klaviyo.com/client/subscriptions?company_id=${KLAVIYO_PUBLIC_API_KEY}`;
     
@@ -150,91 +137,88 @@
 
     try {
       const response = await fetch(url, options);
-      const text = await response.text(); // Get raw response
+      const text = await response.text();
 
-      console.log('Raw Response:', text); // Debugging
+      console.log('Raw Response:', text);
 
       let result;
       if (text) {
         try {
-          result = JSON.parse(text); // Attempt JSON parsing
+          result = JSON.parse(text);
         } catch (jsonError) {
           console.warn('Response is not valid JSON:', text);
-          result = { message: text }; // Treat it as plain text
+          result = { message: text };
         }
       } else {
-        result = { message: 'Success (no response body)' }; // Handle empty response
+        result = { message: 'Success (no response body)' };
       }
 
       if (response.ok) {
-        document.getElementById('response-message-cs').classList.add('text-successgreen');
         document.getElementById('response-message-cs').innerText = 'Thank you for subscribing!';
         document.getElementById('klaviyo-signup-form--comingsoon').reset();
+        grecaptcha.reset();
       } else {
         console.error('Klaviyo API Error:', result);
-        document.getElementById('response-message-cs').classList.add('text-orange');
         document.getElementById('response-message-cs').innerText = `Error: ${result.errors?.[0]?.detail || 'Something went wrong'}`;
       }
     } catch (error) {
       console.error('Network Error:', error);
-      // document.getElementById('response-message-cs').innerText = 'An unexpected error occurred.';
     }
   });
 </script>
 
 
-
 {%  schema  %} 
-    {
-        "name": "Coming Soon - Hero",
-        "class": "section--coming-soon-hero",
-        "settings": [
-            {
-                "type": "color",
-                "id": "background",
-                "label": "Background Color"
-            },
-            {
-                "type": "image_picker",
-                "id": "image_desk",
-                "label": "Image Desktop"
-            },
-            {
-                "type": "image_picker",
-                "id": "image_mob",
-                "label": "Image Mobile"
-            },
-            {
-                "type": "textarea",
-                "id": "header",
-                "label": "Header",
-                "default": "Mushrooms are smart. <br/> Day Shrooms are smarter."
-            },
-            {
-                "type": "text",
-                "id": "subheader",
-                "label": "Subheader",
-                "default": "Meet Day Shrooms—a lifestyle upgrade for those tired of the midday slump. Challenge your morning joe with a smarter, better way to fuel productivity, focus, flow, and well-being. Join the launch list now for exclusive early access and updates."
-            }
-        ],
-        "blocks": [
-            {
-                "name": "USP",
-                "type": "usp",
-                "limit": 5,
-                "settings": [
-                    {
-                        "type": "text",
-                        "id": "usp",
-                        "label": "USP"
-                    }
-                ]
-            }
-        ],
-        "presets": [
-            {
-                "name": "Coming Soon - Hero"
-            }
-        ]
-    } 
+  {
+      "name": "Coming Soon - Hero",
+      "class": "section--coming-soon-hero",
+      "settings": [
+          {
+              "type": "color",
+              "id": "background",
+              "label": "Background Color"
+          },
+          {
+              "type": "image_picker",
+              "id": "image_desk",
+              "label": "Image Desktop"
+          },
+          {
+              "type": "image_picker",
+              "id": "image_mob",
+              "label": "Image Mobile"
+          },
+          {
+              "type": "textarea",
+              "id": "header",
+              "label": "Header",
+              "default": "Mushrooms are smart. <br/> Day Shrooms are smarter."
+          },
+          {
+              "type": "text",
+              "id": "subheader",
+              "label": "Subheader",
+              "default": "Meet Day Shrooms—a lifestyle upgrade for those tired of the midday slump. Challenge your morning joe with a smarter, better way to fuel productivity, focus, flow, and well-being. Join the launch list now for exclusive early access and updates."
+          }
+      ],
+      "blocks": [
+          {
+              "name": "USP",
+              "type": "usp",
+              "limit": 5,
+              "settings": [
+                  {
+                      "type": "text",
+                      "id": "usp",
+                      "label": "USP"
+                  }
+              ]
+          }
+      ],
+      "presets": [
+          {
+              "name": "Coming Soon - Hero"
+          }
+      ]
+  } 
 {% endschema %}
