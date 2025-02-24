@@ -1643,6 +1643,10 @@ body {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
+.py-\[105px\] {
+  padding-top: 105px;
+  padding-bottom: 105px;
+}
 .py-\[112px\] {
   padding-top: 112px;
   padding-bottom: 112px;
@@ -1694,10 +1698,6 @@ body {
 .py-\[74px\] {
   padding-top: 74px;
   padding-bottom: 74px;
-}
-.py-\[105px\] {
-  padding-top: 105px;
-  padding-bottom: 105px;
 }
 .\!pb-2 {
   padding-bottom: 0.5rem !important;
