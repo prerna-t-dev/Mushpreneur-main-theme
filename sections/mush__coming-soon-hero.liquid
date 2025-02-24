@@ -135,3 +135,60 @@
     }
   });
 </script>
+
+
+
+{%  schema  %} 
+  {
+      "name": "Coming Soon - Hero",
+      "class": "section--coming-soon-hero",
+      "settings": [
+          {
+              "type": "color",
+              "id": "background",
+              "label": "Background Color"
+          },
+          {
+              "type": "image_picker",
+              "id": "image_desk",
+              "label": "Image Desktop"
+          },
+          {
+              "type": "image_picker",
+              "id": "image_mob",
+              "label": "Image Mobile"
+          },
+          {
+              "type": "textarea",
+              "id": "header",
+              "label": "Header",
+              "default": "Mushrooms are smart. <br/> Day Shrooms are smarter."
+          },
+          {
+              "type": "text",
+              "id": "subheader",
+              "label": "Subheader",
+              "default": "Meet Day Shrooms—a lifestyle upgrade for those tired of the midday slump. Challenge your morning joe with a smarter, better way to fuel productivity, focus, flow, and well-being. Join the launch list now for exclusive early access and updates."
+          }
+      ],
+      "blocks": [
+          {
+              "name": "USP",
+              "type": "usp",
+              "limit": 5,
+              "settings": [
+                  {
+                      "type": "text",
+                      "id": "usp",
+                      "label": "USP"
+                  }
+              ]
+          }
+      ],
+      "presets": [
+          {
+              "name": "Coming Soon - Hero"
+          }
+      ]
+  } 
+{% endschema %}
