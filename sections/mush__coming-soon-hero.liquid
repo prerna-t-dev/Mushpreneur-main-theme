@@ -94,118 +94,117 @@
 <!-- Google reCAPTCHA script -->
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script>
-  document.getElementById('klaviyo-signup-form--comingsoon').addEventListener('submit', async function (e) {
-    e.preventDefault();
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("klaviyo-signup-form--comingsoon");
+    const recaptcha = document.querySelector(".g-recaptcha");
+    const responseMessage = document.getElementById("response-message-cs");
+    let captchaTriggered = false; // Track if reCAPTCHA has been triggered
 
-    const email = document.getElementById('comingsoon-newsletter-email').value;
-    const honeypotField = document.getElementById('honeypot-field').value; // Honeypot check
-    const captchaResponse = grecaptcha.getResponse(); // reCAPTCHA response
+    form.addEventListener("submit", async function (e) {
+        e.preventDefault();
 
+        const email = document.getElementById("comingsoon-newsletter-email").value;
+        const honeypotField = document.getElementById("honeypot-field").value; // Honeypot check
+        const captchaResponse = grecaptcha.getResponse(); // reCAPTCHA response
 
-    const KLAVIYO_PUBLIC_API_KEY = 'VqRB85'; 
-    const LIST_ID = 'Xd8yqJ'; 
-
-    // 1️⃣ Basic Email Validation (Regex)
-    const emailPattern = /^[a-zA-Z0-9.]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!emailPattern.test(email)) {
-      document.getElementById('response-message-cs').innerText = 'Invalid email address.';
-      document.getElementById('response-message-cs').classList.add('text-orange');
-      return;
-    }
-
-
-    // 2️⃣ Honeypot Check (If filled, stop submission)
-    if (honeypotField) {
-      console.warn("Spam bot detected. Form submission aborted.");
-      return;
-    }
-
-    // 3️⃣ reCAPTCHA Validation
-    if (!captchaResponse) {
-      document.getElementById('response-message-cs').innerText = 'Please complete the CAPTCHA.';
-      document.getElementById('response-message-cs').classList.add('text-orange');
-      return;
-    }
-
-
-    const url = `https://a.klaviyo.com/client/subscriptions?company_id=${KLAVIYO_PUBLIC_API_KEY}`;
-    
-    const payload = JSON.stringify({
-      data: {
-        type: 'subscription',
-        attributes: {
-          profile: {
-            data: {
-              type: 'profile',
-              attributes: {
-                email: email,
-                subscriptions: {
-                  email: {
-                    marketing: {
-                      consent: 'SUBSCRIBED',
-                      consented_at: new Date().toISOString()
-                    }
-                  }
-                }
-              }
-            }
-          },
-          custom_source: 'Coming Soon'
-        },
-        relationships: {
-          list: {
-            data: {
-              type: 'list',
-              id: LIST_ID
-            }
-          }
+        // Email Validation
+        const emailPattern = /^[a-zA-Z0-9.]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailPattern.test(email)) {
+            responseMessage.innerText = "Invalid email address.";
+            responseMessage.classList.add("text-orange");
+            return;
         }
-      }
+
+        // Honeypot Check (Bot Detection)
+        if (honeypotField) {
+            console.warn("Spam bot detected. Form submission aborted.");
+            return;
+        }
+
+        // Check if reCAPTCHA is already completed
+        if (!captchaTriggered) {
+            recaptcha.classList.add("visible"); // Show reCAPTCHA
+            captchaTriggered = true;
+            return;
+        }
+
+        if (!captchaResponse) {
+            responseMessage.innerText = "Please complete the CAPTCHA.";
+            responseMessage.classList.add("text-orange");
+            return;
+        }
+
+        // Submit the form after CAPTCHA is verified
+        submitForm(email);
     });
 
-    const options = {
-      method: 'POST',
-      headers: {
-        accept: 'application/vnd.api+json',
-        'content-type': 'application/vnd.api+json',
-        revision: '2025-01-15'
-      },
-      body: payload
-    };
+    function submitForm(email) {
+        const KLAVIYO_PUBLIC_API_KEY = "VqRB85";
+        const LIST_ID = "Xd8yqJ";
 
-    try {
-      const response = await fetch(url, options);
-      const text = await response.text(); // Get raw response
+        const url = `https://a.klaviyo.com/client/subscriptions?company_id=${KLAVIYO_PUBLIC_API_KEY}`;
+        const payload = JSON.stringify({
+            data: {
+                type: "subscription",
+                attributes: {
+                    profile: {
+                        data: {
+                            type: "profile",
+                            attributes: {
+                                email: email,
+                                subscriptions: {
+                                    email: {
+                                        marketing: {
+                                            consent: "SUBSCRIBED",
+                                            consented_at: new Date().toISOString()
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    custom_source: "Coming Soon"
+                },
+                relationships: {
+                    list: {
+                        data: {
+                            type: "list",
+                            id: LIST_ID
+                        }
+                    }
+                }
+            }
+        });
 
-      console.log('Raw Response:', text); // Debugging
-
-      let result;
-      if (text) {
-        try {
-          result = JSON.parse(text); // Attempt JSON parsing
-        } catch (jsonError) {
-          console.warn('Response is not valid JSON:', text);
-          result = { message: text }; // Treat it as plain text
-        }
-      } else {
-        result = { message: 'Success (no response body)' }; // Handle empty response
-      }
-
-      if (response.ok) {
-        document.getElementById('response-message-cs').classList.add('text-successgreen');
-        document.getElementById('response-message-cs').innerText = 'Thank you for joining the Day Shrooms Launch List! Your first email is on it’s way to your inbox.';
-        document.getElementById('klaviyo-signup-form--comingsoon').reset();
-        grecaptcha.reset();
-      } else {
-        console.error('Klaviyo API Error:', result);
-        document.getElementById('response-message-cs').classList.add('text-orange');
-        document.getElementById('response-message-cs').innerText = `Error: ${result.errors?.[0]?.detail || 'Something went wrong'}`;
-      }
-    } catch (error) {
-      console.error('Network Error:', error);
-      // document.getElementById('response-message-cs').innerText = 'An unexpected error occurred.';
+        fetch(url, {
+            method: "POST",
+            headers: {
+                accept: "application/vnd.api+json",
+                "content-type": "application/vnd.api+json",
+                revision: "2025-01-15"
+            },
+            body: payload
+        })
+            .then(response => response.json())
+            .then(result => {
+                if (result.errors) {
+                    responseMessage.classList.add("text-orange");
+                    responseMessage.innerText = `Error: ${result.errors[0].detail || "Something went wrong"}`;
+                } else {
+                    responseMessage.classList.add("text-successgreen");
+                    responseMessage.innerText = "Thank you for joining the Day Shrooms Launch List! Your first email is on its way to your inbox.";
+                    form.reset();
+                    grecaptcha.reset();
+                    recaptcha.classList.remove("visible"); // Hide reCAPTCHA again
+                    captchaTriggered = false;
+                }
+            })
+            .catch(error => {
+                console.error("Network Error:", error);
+            });
     }
-  });
+});
+
 </script>
 
 
