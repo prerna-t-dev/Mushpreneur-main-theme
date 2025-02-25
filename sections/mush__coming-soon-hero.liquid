@@ -29,7 +29,7 @@
     
                 <!-- Coming Soon: Newsletter -->
                 <div class="newsletter-form--wrapper mb-12 xl:mb-11 relative z-[2] ">
-                    <form id="klaviyo-signup-form--comingsoon" method="post" accept-charset="UTF-8" class="newsletter-form password--newsletter-form flex flex flex-col xl:flex-row items-center gap-4 justify-center w-full">
+                    <form id="klaviyo-signup-form--comingsoon" method="post" accept-charset="UTF-8" class="newsletter-form password--newsletter-form flex flex-col xl:flex-row items-center gap-4 justify-center w-full">
                         <input type="hidden" name="form_type" value="customer">
                         <input type="hidden" name="utf8" value="✓">
 
@@ -37,19 +37,23 @@
                         <input type="text" name="extra_field" id="honeypot-field" style="display:none !important;" autocomplete="off">
 
     
-                        <input 
-                        type="email" 
-                        name="email" 
-                        id="comingsoon-newsletter-email" 
-                        placeholder="Email" 
-                        class="bg-transparent w-full px-7 py-4 border border-white rounded-[62px] w-full text-sm xl:text-xl tracking-[-0.7px] xl:tracking-[-1.037px] font-light" 
-                        required>
+                        <div class="flex flex-col xl:flex-row items-center gap-4 justify-center w-full">
+
+                        
+                          <input 
+                          type="email" 
+                          name="email" 
+                          id="comingsoon-newsletter-email" 
+                          placeholder="Email" 
+                          class="bg-transparent w-full px-7 py-4 border border-white rounded-[62px] w-full text-sm xl:text-xl tracking-[-0.7px] xl:tracking-[-1.037px] font-light" 
+                          required>
+                          <button type="submit" class="coming-soon--submit-btn w-full min-h-[54px] btn bg-gradient-to-r from-[#F2008C] to-[#E74936] text-white uppercase cursor-pointer text-sm xl:text-xl font-semibold leading-[1.1] tracking-[-0.7px] xl:tracking-[-1.037px]">JOIN THE LIST</button>
+                        </div>
 
                          <!-- Google reCAPTCHA -->
                         <div class="g-recaptcha" data-sitekey="6Le5quIqAAAAABo6yQdjut4XvCdKMg9Q0C9nH_B6"></div>
 
     
-                        <button type="submit" class="coming-soon--submit-btn w-full min-h-[54px] btn bg-gradient-to-r from-[#F2008C] to-[#E74936] text-white uppercase cursor-pointer text-sm xl:text-xl font-semibold leading-[1.1] tracking-[-0.7px] xl:tracking-[-1.037px]">JOIN THE LIST</button>
                     </form>
                     <p id="response-message-cs" class="text-sm xl:text-base tracking-[-0.8px] xl:tracking-[-0.8px] absolute bottom-[-42px] xl:bottom-[-30px] "></p>
 
