@@ -44,6 +44,10 @@
                         placeholder="Email" 
                         class="bg-transparent w-full px-7 py-4 border border-white rounded-[62px] w-full text-sm xl:text-xl tracking-[-0.7px] xl:tracking-[-1.037px] font-light" 
                         required>
+
+                         <!-- Google reCAPTCHA -->
+                        <div class="g-recaptcha" data-sitekey="6Le5quIqAAAAABo6yQdjut4XvCdKMg9Q0C9nH_B6"></div>
+
     
                         <button type="submit" class="coming-soon--submit-btn w-full min-h-[54px] btn bg-gradient-to-r from-[#F2008C] to-[#E74936] text-white uppercase cursor-pointer text-sm xl:text-xl font-semibold leading-[1.1] tracking-[-0.7px] xl:tracking-[-1.037px]">JOIN THE LIST</button>
                     </form>
@@ -76,13 +80,16 @@
 </section>
 
 
-
+<!-- Google reCAPTCHA script -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script>
   document.getElementById('klaviyo-signup-form--comingsoon').addEventListener('submit', async function (e) {
     e.preventDefault();
 
     const email = document.getElementById('comingsoon-newsletter-email').value;
     const honeypotField = document.getElementById('honeypot-field').value; // Honeypot check
+    const captchaResponse = grecaptcha.getResponse(); // reCAPTCHA response
+
 
     const KLAVIYO_PUBLIC_API_KEY = 'VqRB85'; 
     const LIST_ID = 'Xd8yqJ'; 
@@ -99,6 +106,13 @@
     // 2️⃣ Honeypot Check (If filled, stop submission)
     if (honeypotField) {
       console.warn("Spam bot detected. Form submission aborted.");
+      return;
+    }
+
+    // 3️⃣ reCAPTCHA Validation
+    if (!captchaResponse) {
+      document.getElementById('response-message-cs').innerText = 'Please complete the CAPTCHA.';
+      document.getElementById('response-message-cs').classList.add('text-orange');
       return;
     }
 
@@ -170,6 +184,7 @@
         document.getElementById('response-message-cs').classList.add('text-successgreen');
         document.getElementById('response-message-cs').innerText = 'Thank you for joining the Day Shrooms Launch List! Your first email is on it’s way to your inbox.';
         document.getElementById('klaviyo-signup-form--comingsoon').reset();
+        grecaptcha.reset();
       } else {
         console.error('Klaviyo API Error:', result);
         document.getElementById('response-message-cs').classList.add('text-orange');
