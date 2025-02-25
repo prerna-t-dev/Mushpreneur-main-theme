@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
     "main": {
       "type": "main-page",
@@ -21,7 +21,7 @@
       "type": "mush__why-mushroom-hero",
       "settings": {
         "background": "#e64c33",
-        "image": "shopify://shop_images/Why_Mushroom_-_Hero_1.png",
+        "image": "shopify://shop_images/mushroom_image_w_o_stroke_697c8ebc-17ef-4456-b59a-437fb00115a2.png",
         "header": "Drink Mushrooms. Get Sh*t Done.",
         "subheader": "Fuel your focus, energy, and creativity with functional mushrooms—no crashes, no excuses. The next-level upgrade your busy day demands."
       }
