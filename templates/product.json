@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
     "main": {
       "type": "main-product",
@@ -179,7 +179,7 @@
           "settings": {
             "name": "<p>Organic Raw <br/>Black Maca</p>",
             "description": "Stamina boost, \nincreased energy, and \nmood-enhancing\nproperties",
-            "image": "shopify://shop_images/ingr--Organic_Raw_Black_Maca.png"
+            "image": "shopify://shop_images/Org-raw-maca-2.png"
           }
         },
         "ingredient_NBMenV": {
@@ -211,7 +211,7 @@
           "settings": {
             "name": "<p>Rhodiola <br/>Rosea Root</p>",
             "description": "Optimizes mental \nenergy and regulates \nthe body’s stress \nresponses.",
-            "image": "shopify://shop_images/ingr--Rosea_root.png"
+            "image": "shopify://shop_images/rosea--new.png"
           }
         },
         "ingredient_taKPAb": {
@@ -219,7 +219,7 @@
           "settings": {
             "name": "<p>Ashwagandha <br/>KSM-66</p>",
             "description": "Helps to support \ncognitive function, \nmemory & focus and \nreduces anxiety.",
-            "image": "shopify://shop_images/ingr--ashwagandha.png"
+            "image": "shopify://shop_images/ashwagandha--new.png"
           }
         },
         "ingredient_W7t9Pz": {
@@ -227,7 +227,7 @@
           "settings": {
             "name": "<p>Organic <br/>Vitamin B12</p>",
             "description": "Essential for the \ndevelopment of the central\n nervous system, \ngreat for vegan diets.",
-            "image": "shopify://shop_images/ingr--B12.png"
+            "image": "shopify://shop_images/b12--new.png"
           }
         },
         "ingredient_tycPVE": {
@@ -235,7 +235,7 @@
           "settings": {
             "name": "<p>Organic Vitamin D2</p><h6>(From Mushrooms)</h6>",
             "description": "Made exclusively from \nmushrooms and essential \nfor bone health, strong teeth, \nand resistance to certain diseases.",
-            "image": "shopify://shop_images/ingr--d2.png"
+            "image": "shopify://shop_images/d2--new.png"
           }
         },
         "ingredient_bcJ9Vm": {
@@ -259,7 +259,7 @@
           "settings": {
             "name": "<p>Baja Gold <br/>Sea Salt</p>",
             "description": "Packed with essential \nminerals, low sodium, \nand electrolytes for \nbalanced wellness.",
-            "image": "shopify://shop_images/ingr--baha_sea_salt.png"
+            "image": "shopify://shop_images/baha-salt--new.png"
           }
         }
       },
