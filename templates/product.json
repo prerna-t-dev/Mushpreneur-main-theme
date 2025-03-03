@@ -227,7 +227,7 @@
           "settings": {
             "name": "<p>Organic <br/>Vitamin B12</p>",
             "description": "Essential for the \ndevelopment of the central\n nervous system, \ngreat for vegan diets.",
-            "image": "shopify://shop_images/ingr--B12.png"
+            "image": "shopify://shop_images/b12--new.png"
           }
         },
         "ingredient_tycPVE": {
@@ -235,7 +235,7 @@
           "settings": {
             "name": "<p>Organic Vitamin D2</p><h6>(From Mushrooms)</h6>",
             "description": "Made exclusively from \nmushrooms and essential \nfor bone health, strong teeth, \nand resistance to certain diseases.",
-            "image": "shopify://shop_images/ingr--d2.png"
+            "image": "shopify://shop_images/d2--new.png"
           }
         },
         "ingredient_bcJ9Vm": {
