@@ -347,10 +347,7 @@
 </footer>
 
 
-
-
-
-<script>
+{% comment %} <script>
   document.getElementById('klaviyo-signup-form--footer').addEventListener('submit', async function (e) {
     e.preventDefault();
 
@@ -435,7 +432,106 @@
       // document.getElementById('response-message').innerText = 'An unexpected error occurred.';
     }
   });
+</script> {% endcomment %}
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const KLAVIYO_PUBLIC_API_KEY = 'VqRB85'; 
+    const LIST_ID = 'SQaaib'; 
+
+    function handleKlaviyoSignup(formId, emailInputId, responseMessageClass) {
+      const form = document.getElementById(formId);
+      if (!form) return;
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const email = document.getElementById(emailInputId).value;
+        const responseMessage = document.querySelector(`.${responseMessageClass}`); // Select correct response message
+
+        const url = `https://a.klaviyo.com/client/subscriptions?company_id=${KLAVIYO_PUBLIC_API_KEY}`;
+
+        const payload = JSON.stringify({
+          data: {
+            type: 'subscription',
+            attributes: {
+              profile: {
+                data: {
+                  type: 'profile',
+                  attributes: {
+                    email: email,
+                    subscriptions: {
+                      email: {
+                        marketing: {
+                          consent: 'SUBSCRIBED',
+                          consented_at: new Date().toISOString()
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              custom_source: 'Website Signup Form'
+            },
+            relationships: {
+              list: {
+                data: {
+                  type: 'list',
+                  id: LIST_ID
+                }
+              }
+            }
+          }
+        });
+
+        const options = {
+          method: 'POST',
+          headers: {
+            accept: 'application/vnd.api+json',
+            'content-type': 'application/vnd.api+json',
+            revision: '2025-01-15'
+          },
+          body: payload
+        };
+
+        try {
+          const response = await fetch(url, options);
+          const text = await response.text(); 
+
+          let result;
+          if (text) {
+            try {
+              result = JSON.parse(text);
+            } catch (jsonError) {
+              console.warn('Response is not valid JSON:', text);
+              result = { message: text };
+            }
+          } else {
+            result = { message: 'Success (no response body)' };
+          }
+
+          if (response.ok) {
+            responseMessage.classList.add('text-successgreen');
+            responseMessage.innerText = 'Thank you for subscribing!';
+            form.reset();
+          } else {
+            console.error('Klaviyo API Error:', result);
+            responseMessage.classList.add('text-orange');
+            responseMessage.innerText = `Error: ${result.errors?.[0]?.detail || 'Something went wrong'}`;
+          }
+        } catch (error) {
+          console.error('Network Error:', error);
+        }
+      });
+    }
+
+    // Initialize for desktop and mobile with different response message classes
+    handleKlaviyoSignup('klaviyo-signup-form--desktop', 'desktop-newsletter-email', 'desktop-response-message');
+    handleKlaviyoSignup('klaviyo-signup-form--mobile', 'mobile-newsletter-email', 'mobile-response-message');
+  });
 </script>
+
 
 {% schema %}
   {
