@@ -26,26 +26,56 @@
       font-size: 12px;
       letter-spacing: -0.6px;
       color: #FFD4DB;
-      height: 30px;
+      height: 36px;
     }
 
     .newsletter--submit-btn{
       margin-left: 8px;
       border-radius: 25.651px;
-      background: #111;
+      background: ##7463A;
       color: white;
       font-size: 12px;
       letter-spacing: -0.6px; 
       padding: 8px 25.065px;
       height: 100%;
-      height: 30px;
+      height: 36px;
     }
   }
 
 </style>
 
 <footer class="footer text-white bg-[#111111] gradient section-{{ section.id }}-padding">
-  <div class="section-wrapper py-[44px] lg:pt-[78px] lg:pb-12 px-0 px-[62px]_ lg:px-[115px]">
+  <div class="section-wrapper py-[44px] lg:pt-[78px] lg:pb-12 px-0 px-[62px]_ lg:px-[115px]"> 
+
+  <!-- Mobile Newsletter Form -->
+  <div class="flex lg:hidden justify-center mb-8 px-10">
+    <div class="w-full">
+      <h5 class="text-white text-xl font-semibold tracking-[-0.972px] mb-1 text-center">Do More. Drink Mushrooms.</h5>
+      <p class="text-[12px] tracking-[-0.63px] pb-[18px] text-center">
+        Get bold ideas and updates straight to your inbox.
+      </p>
+
+      <div class="newsletter-form--wrapper relative px-6">
+        <form id="klaviyo-signup-form--mobile" method="post" accept-charset="UTF-8" class="newsletter-form footer--newsletter-form flex items-center justify-center w-full lg:border-b lg:border-white"  >
+          <input type="hidden" name="form_type" value="customer">
+          <input type="hidden" name="utf8" value="✓">
+
+          <input 
+            type="email" 
+            name="email" 
+            id="mobile-newsletter-email" 
+            placeholder="Email" 
+            class="footer-newsletter-input bg-transparent w-full text-base lg:text-xl tracking-[-0.8px] lg:tracking-[-1.037px] font-light" 
+            required>
+
+          <button type="submit" class="newsletter--submit-btn bg-[#E7463A] rounded-[25px] uppercase cursor-pointer text-base lg:text-xl font-semibold leading-[1.1] tracking-[-0.8px] lg:tracking-[-1.037px]">SEND</button>
+        </form>
+        <p id="response-message-mobile" class="mobile-response-message text-sm xl:text-base tracking-[-0.8px] xl:tracking-[-0.8px] absolute bottom-[-24px] xl:bottom-[-30px] "></p>
+      </div>
+    </div>
+  </div>
+
+
 
     <div class="footer--grid-layout grid grid-cols-1 lg:grid-cols-2 pb-7 lg:pb-20 mb-0 lg:border-b lg:border-white mx-10 lg:mx-0">
       <div class="flex flex-col items-center justify-between lg:items-start lg:justify-start">
@@ -162,28 +192,28 @@
       </div>
 
 
-      <!-- Newsletter Form-->
-      <div class="flex lg:justify-end lg:ml-24">
+      <!-- Newsletter Form: Desktop -->
+      <div class="flex lg:justify-end lg:ml-24 hidden lg:flex">
         <div class="w-full">
           <h5 class="text-white text-xl lg:text-[32px] font-semibold tracking-[-0.972px] lg:tracking-[-1.6px] mb-3 lg:mb-6">Want More Mushroom?</h5>
           <p class="text-[12px] lg:text-xl tracking-[-0.63px] lg:tracking-[-1.037px] pb-[32px] lg:mb-[24px] hidden lg:!block">Sign up for our emails and be the first to know about new products, promotions, and more!</p>
 
           <div class="newsletter-form--wrapper relative">
-            <form id="klaviyo-signup-form--footer" method="post" accept-charset="UTF-8" class="newsletter-form footer--newsletter-form flex items-center justify-center w-full lg:border-b lg:border-white"  >
+            <form id="klaviyo-signup-form--desktop" method="post" accept-charset="UTF-8" class="newsletter-form footer--newsletter-form flex items-center justify-center w-full lg:border-b lg:border-white"  >
               <input type="hidden" name="form_type" value="customer">
               <input type="hidden" name="utf8" value="✓">
 
               <input 
                 type="email" 
                 name="email" 
-                id="footer-newsletter-email" 
+                id="desktop-newsletter-email" 
                 placeholder="Email" 
                 class="footer-newsletter-input bg-transparent w-full text-base lg:text-xl tracking-[-0.8px] lg:tracking-[-1.037px] font-light" 
                 required>
 
               <button type="submit" class="newsletter--submit-btn uppercase cursor-pointer text-base lg:text-xl font-semibold leading-[1.1] tracking-[-0.8px] lg:tracking-[-1.037px]">SEND</button>
             </form>
-            <p id="response-message" class="text-sm xl:text-base tracking-[-0.8px] xl:tracking-[-0.8px] absolute bottom-[-24px] xl:bottom-[-30px] "></p>
+            <p id="response-message-desktop" class="desktop-response-message text-sm xl:text-base tracking-[-0.8px] xl:tracking-[-0.8px] absolute bottom-[-24px] xl:bottom-[-30px] "></p>
           </div>
 
           <p class="mt-4 lg:mt-[62px] text-[10px] lg:text-xl tracking-[-0.473px] lg:tracking-[-1.037px] hidden lg:!block">
@@ -194,7 +224,7 @@
 
 
       <!-- Shop Links: Mobile -->
-      <div class="lg:hidden mt-5">
+      <div class="lg:hidden mt-2">
         <div class="product__accordion accordion">
           <details id="Details-1-{{ section.id }}">
             <summary class="border-b-half-width border-b border-white pt-3 pb-2 flex justify-between items-center">
@@ -207,9 +237,9 @@
               
             </summary>
             <div class="accordion__content rte py-4" id="ProductAccordion-1-{{ section.id }}">
-              <ul class="text-sm tracking[-0.7px] !pl-0 flex flex-col gap-2">
-                <li class="text-sm tracking[-0.7px] leading-none">Day Shrooms</li>
-                <li class="text-sm tracking[-0.7px] leading-none">Wholesale</li>
+              <ul class="text-sm tracking[-0.7px] !pl-0 flex flex-col gap-2 !list-none">
+                <li class="text-sm tracking[-0.7px] leading-none !list-none">Day Shrooms</li>
+                <li class="text-sm tracking[-0.7px] leading-none !list-none">Wholesale</li>
               </ul>
             </div>
           </details>
@@ -224,10 +254,10 @@
               </div>
             </summary>
             <div class="accordion__content rte py-4" id="ProductAccordion-2-{{ section.id }}">
-              <ul class="text-sm tracking[-0.7px] !pl-0 flex flex-col gap-2">
-                <li class="text-sm tracking[-0.7px] leading-none">Why Mushroom</li>
-                <li class="text-sm tracking[-0.7px] leading-none">About Us</li>
-                <li class=" text-sm tracking[-0.7px]leading-none">Blog</li>
+              <ul class="text-sm tracking[-0.7px] !pl-0 flex flex-col gap-2 !list-none">
+                <li class="text-sm tracking[-0.7px] leading-none !list-none">Why Mushroom</li>
+                <li class="text-sm tracking[-0.7px] leading-none !list-none">About Us</li>
+                <li class=" text-sm tracking[-0.7px]leading-none !list-none">Blog</li>
               </ul>
             </div>
           </details>
@@ -242,12 +272,12 @@
               </div>
             </summary>
             <div class="accordion__content rte py-4" id="ProductAccordion-3-{{ section.id }}">
-              <ul class="text-sm tracking[-0.7px] !pl-0 flex flex-col gap-2">
-                <li class="text-sm tracking[-0.7px] leading-none">Shipping Policy</li>
-                <li class="text-sm tracking[-0.7px] leading-none">Refund Policy</li>
-                <li class="text-sm tracking[-0.7px] leading-none">Account</li>
-                <li class="text-sm tracking[-0.7px] leading-none">FAQs</li>
-                <li class="text-sm tracking[-0.7px] leading-none">Contact</li>
+              <ul class="text-sm tracking[-0.7px] !pl-0 flex flex-col gap-2 !list-none">
+                <li class="text-sm tracking[-0.7px] leading-none !list-none">Shipping Policy</li>
+                <li class="text-sm tracking[-0.7px] leading-none !list-none">Refund Policy</li>
+                <li class="text-sm tracking[-0.7px] leading-none !list-none">Account</li>
+                <li class="text-sm tracking[-0.7px] leading-none !list-none">FAQs</li>
+                <li class="text-sm tracking[-0.7px] leading-none !list-none">Contact</li>
               </ul>
             </div>
           </details>
@@ -317,10 +347,7 @@
 </footer>
 
 
-
-
-
-<script>
+{% comment %} <script>
   document.getElementById('klaviyo-signup-form--footer').addEventListener('submit', async function (e) {
     e.preventDefault();
 
@@ -405,7 +432,106 @@
       // document.getElementById('response-message').innerText = 'An unexpected error occurred.';
     }
   });
+</script> {% endcomment %}
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const KLAVIYO_PUBLIC_API_KEY = 'VqRB85'; 
+    const LIST_ID = 'SQaaib'; 
+
+    function handleKlaviyoSignup(formId, emailInputId, responseMessageClass) {
+      const form = document.getElementById(formId);
+      if (!form) return;
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const email = document.getElementById(emailInputId).value;
+        const responseMessage = document.querySelector(`.${responseMessageClass}`); // Select correct response message
+
+        const url = `https://a.klaviyo.com/client/subscriptions?company_id=${KLAVIYO_PUBLIC_API_KEY}`;
+
+        const payload = JSON.stringify({
+          data: {
+            type: 'subscription',
+            attributes: {
+              profile: {
+                data: {
+                  type: 'profile',
+                  attributes: {
+                    email: email,
+                    subscriptions: {
+                      email: {
+                        marketing: {
+                          consent: 'SUBSCRIBED',
+                          consented_at: new Date().toISOString()
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              custom_source: 'Website Signup Form'
+            },
+            relationships: {
+              list: {
+                data: {
+                  type: 'list',
+                  id: LIST_ID
+                }
+              }
+            }
+          }
+        });
+
+        const options = {
+          method: 'POST',
+          headers: {
+            accept: 'application/vnd.api+json',
+            'content-type': 'application/vnd.api+json',
+            revision: '2025-01-15'
+          },
+          body: payload
+        };
+
+        try {
+          const response = await fetch(url, options);
+          const text = await response.text(); 
+
+          let result;
+          if (text) {
+            try {
+              result = JSON.parse(text);
+            } catch (jsonError) {
+              console.warn('Response is not valid JSON:', text);
+              result = { message: text };
+            }
+          } else {
+            result = { message: 'Success (no response body)' };
+          }
+
+          if (response.ok) {
+            responseMessage.classList.add('text-successgreen');
+            responseMessage.innerText = 'Thank you for subscribing!';
+            form.reset();
+          } else {
+            console.error('Klaviyo API Error:', result);
+            responseMessage.classList.add('text-orange');
+            responseMessage.innerText = `Error: ${result.errors?.[0]?.detail || 'Something went wrong'}`;
+          }
+        } catch (error) {
+          console.error('Network Error:', error);
+        }
+      });
+    }
+
+    // Initialize for desktop and mobile with different response message classes
+    handleKlaviyoSignup('klaviyo-signup-form--desktop', 'desktop-newsletter-email', 'desktop-response-message');
+    handleKlaviyoSignup('klaviyo-signup-form--mobile', 'mobile-newsletter-email', 'mobile-response-message');
+  });
 </script>
+
 
 {% schema %}
   {
