@@ -45,7 +45,37 @@
 </style>
 
 <footer class="footer text-white bg-[#111111] gradient section-{{ section.id }}-padding">
-  <div class="section-wrapper py-[44px] lg:pt-[78px] lg:pb-12 px-0 px-[62px]_ lg:px-[115px]">
+  <div class="section-wrapper py-[44px] lg:pt-[78px] lg:pb-12 px-0 px-[62px]_ lg:px-[115px]"> 
+
+  <!-- Mobile Newsletter Form -->
+  <div class="flex lg:hidden justify-center">
+    <div class="w-full">
+      <h5 class="text-white text-xl font-semibold tracking-[-0.972px] mb-3 text-center">Want More Mushroom?</h5>
+      <p class="text-[12px] tracking-[-0.63px] pb-[24px] text-center">
+        Sign up for our emails and be the first to know about new products, promotions, and more!
+      </p>
+
+      <div class="newsletter-form--wrapper relative">
+        <form id="klaviyo-signup-form--mobile" method="post" accept-charset="UTF-8"
+          class="newsletter-form flex items-center justify-center w-full border-b border-white">
+          <input type="hidden" name="form_type" value="customer">
+          <input type="hidden" name="utf8" value="✓">
+
+          <input type="email" name="email" id="mobile-newsletter-email" placeholder="Email"
+            class="bg-transparent w-full text-base tracking-[-0.8px] font-light p-2 outline-none"
+            required>
+
+          <button type="submit"
+            class="newsletter--submit-btn uppercase cursor-pointer text-base font-semibold leading-[1.1] tracking-[-0.8px]">
+            SEND
+          </button>
+        </form>
+        <p id="response-message" class="text-sm tracking-[-0.8px] absolute bottom-[-24px] text-center w-full"></p>
+      </div>
+    </div>
+  </div>
+
+
 
     <div class="footer--grid-layout grid grid-cols-1 lg:grid-cols-2 pb-7 lg:pb-20 mb-0 lg:border-b lg:border-white mx-10 lg:mx-0">
       <div class="flex flex-col items-center justify-between lg:items-start lg:justify-start">
