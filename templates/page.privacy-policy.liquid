@@ -1,19 +1,4 @@
 <section class="min-h-screen">
-    <div id="enzuzo-shadow-host"></div>
+    <div id="__enzuzo-root"></div>
+    <script id="__enzuzo-root-script" src="https://app.enzuzo.com/scripts/privacy/4cb53556-df42-11ef-a187-43a7a8ecc293"></script>
 </section>
-
-<script>
-    // Create Shadow DOM
-    let host = document.getElementById("enzuzo-shadow-host");
-    let shadow = host.attachShadow({ mode: "open" });
-
-    // Create a container inside the Shadow DOM
-    let enzuzoContainer = document.createElement("div");
-    enzuzoContainer.id = "__enzuzo-root";
-    shadow.appendChild(enzuzoContainer);
-
-    // Load the Enzuzo script inside the Shadow DOM
-    let script = document.createElement("script");
-    script.src = "https://app.enzuzo.com/scripts/privacy/4cb53556-df42-11ef-a187-43a7a8ecc293";
-    shadow.appendChild(script);
-</script>
