@@ -23,11 +23,6 @@
         /* overflow-x: hidden; */
       }
 
-    /* Prevent Enzuzo from affecting global styles */
-    body:not(#__enzuzo-root):not(#__enzuzo-root *) {
-        all: revert !important;
-    }
-
     .text-white {
         color: #FFFFFF !important;
     }
