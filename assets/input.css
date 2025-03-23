@@ -778,10 +778,3 @@ body[data-template="blog"] sticky-header header{
     justify-content: center !important;
 }
 
-
-/* Enzuzo Override -- Fix (Footer) */ 
-@media (max-width: 990px) {
-    .lg\:footer-hidden{
-        display: none !important;
-    }
-}
