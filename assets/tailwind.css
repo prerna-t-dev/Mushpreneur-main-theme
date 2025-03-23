@@ -2863,9 +2863,10 @@ body[data-template="blog"] sticky-header header{
 }
 
 
-/* Enzuzo Override -- Fix */
+/* Enzuzo Override -- Fix (Footer) */ 
+@media (max-width: 990px) {
 
-
+} 
 @media (min-width: 990px) {
 
   .lg\:bottom-\[20px\] {
@@ -3751,9 +3752,7 @@ body[data-template="blog"] sticky-header header{
   .lg\:tracking-\[-q\.2px\] {
     letter-spacing: -q.2px;
   }
-}
-
-
+} 
 @media (min-width: 1280px) {
 
   @media (min-width: 990px) {
@@ -4782,9 +4781,7 @@ body[data-template="blog"] sticky-header header{
   .xl\:tracking-\[-8\.1px\] {
     letter-spacing: -8.1px;
   }
-}
-
-
+} 
 @media (min-width: 1800px) {
 
   .\33xl\:pb-\[380px\] {
