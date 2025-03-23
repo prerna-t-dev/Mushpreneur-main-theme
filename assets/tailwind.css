@@ -993,9 +993,6 @@ body {
 .inline-block {
   display: inline-block;
 }
-.inline {
-  display: inline;
-}
 .\!flex {
   display: flex !important;
 }
@@ -3012,6 +3009,10 @@ body[data-template="blog"] sticky-header header{
     display: block;
   }
 
+  .lg\:\!flex {
+    display: flex !important;
+  }
+
   .lg\:flex {
     display: flex;
   }
@@ -4792,3 +4793,4 @@ body[data-template="blog"] sticky-header header{
     padding-top: 220px;
   }
 }
+
