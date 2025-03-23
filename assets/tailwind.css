@@ -2865,7 +2865,7 @@ body[data-template="blog"] sticky-header header{
 
 /* Enzuzo Override -- Fix (Footer) */ 
 @media (max-width: 990px) {
-    .footer-hidden{
+    .lg\:footer-hidden{
         display: none !important;
     }
 } 
