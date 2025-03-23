@@ -3020,6 +3020,10 @@ body[data-template="blog"] sticky-header header{
     display: flex;
   }
 
+  .lg\:\!flex {
+    display: flex !important;
+  }
+
   .lg\:\!hidden {
     display: none !important;
   }
