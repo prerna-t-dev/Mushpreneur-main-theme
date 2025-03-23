@@ -993,9 +993,6 @@ body {
 .inline-block {
   display: inline-block;
 }
-.inline {
-  display: inline;
-}
 .\!flex {
   display: flex !important;
 }
@@ -2865,6 +2862,10 @@ body[data-template="blog"] sticky-header header{
     justify-content: center !important;
 }
 
+
+/* Enzuzo Override -- Fix */
+
+
 @media (min-width: 990px) {
 
   .lg\:bottom-\[20px\] {
@@ -3751,6 +3752,7 @@ body[data-template="blog"] sticky-header header{
     letter-spacing: -q.2px;
   }
 }
+
 
 @media (min-width: 1280px) {
 
@@ -4781,6 +4783,7 @@ body[data-template="blog"] sticky-header header{
     letter-spacing: -8.1px;
   }
 }
+
 
 @media (min-width: 1800px) {
 
