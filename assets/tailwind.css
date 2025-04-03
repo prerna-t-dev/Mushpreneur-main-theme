@@ -4498,6 +4498,10 @@ body[data-template="blog"] sticky-header header{
     padding-top: 94px;
   }
 
+  .xl\:pb-\[100px\] {
+    padding-bottom: 100px;
+  }
+
   .xl\:text-left {
     text-align: left;
   }
