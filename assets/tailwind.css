@@ -4502,6 +4502,10 @@ body[data-template="blog"] sticky-header header{
     padding-bottom: 100px;
   }
 
+  .xl\:pr-10 {
+    padding-right: 2.5rem;
+  }
+
   .xl\:text-left {
     text-align: left;
   }
