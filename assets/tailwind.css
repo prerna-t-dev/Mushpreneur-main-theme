@@ -4160,6 +4160,10 @@ body[data-template="blog"] sticky-header header{
     gap: 64px;
   }
 
+  .xl\:gap-\[75px\] {
+    gap: 75px;
+  }
+
   .xl\:rounded-\[114px\] {
     border-radius: 114px;
   }
