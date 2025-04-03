@@ -104,6 +104,7 @@
 
 <!-- Google reCAPTCHA script -->
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("klaviyo-signup-form--comingsoon");
@@ -113,6 +114,17 @@
     const responseMessage = document.getElementById("response-message-cs");
 
     let captchaTriggered = false;
+    let userCountry = null;
+
+    // Fetch user's country before form submission
+    fetch("https://ipapi.co/json/")
+      .then(response => response.json())
+      .then(data => {
+        userCountry = data.country; // Store detected country
+      })
+      .catch(error => {
+        console.error("Geolocation API failed", error);
+      });
 
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
@@ -120,7 +132,14 @@
       const email = emailInput.value;
       const captchaResponse = grecaptcha.getResponse();
 
-      // 1️⃣ Basic Email Validation (Regex)
+      // 1️⃣ Block users outside the USA
+      if (userCountry !== "US") {
+        responseMessage.innerText = "Sorry! Submissions outside of US are not allowed at the moment.";
+        responseMessage.classList.add("text-orange");
+        return;
+      }
+
+      // 2️⃣ Basic Email Validation (Regex)
       const emailPattern = /^[a-zA-Z0-9.]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
       if (!emailPattern.test(email)) {
         responseMessage.innerText = "Invalid email address.";
@@ -128,27 +147,27 @@
         return;
       }
 
-      // 2️⃣ Honeypot Check (If filled, stop submission)
+      // 3️⃣ Honeypot Check (If filled, stop submission)
       if (honeypotField.value) {
         console.warn("Spam bot detected. Form submission aborted.");
         return;
       }
 
-      // 3️⃣ If CAPTCHA is not yet shown, show it and stop form submission
+      // 4️⃣ If CAPTCHA is not yet shown, show it and stop form submission
       if (!captchaTriggered) {
         recaptcha.classList.add("visible");
         captchaTriggered = true;
         return;
       }
 
-      // 4️⃣ reCAPTCHA Validation (if visible)
+      // 5️⃣ reCAPTCHA Validation (if visible)
       if (!captchaResponse) {
         responseMessage.innerText = "Please complete the CAPTCHA.";
         responseMessage.classList.add("text-orange");
         return;
       }
 
-      // 5️⃣ Proceed with API request after CAPTCHA verification
+      // 6️⃣ Proceed with API request after CAPTCHA verification
       const KLAVIYO_PUBLIC_API_KEY = "VqRB85";
       const LIST_ID = "Xd8yqJ";
       const url = `https://a.klaviyo.com/client/subscriptions?company_id=${KLAVIYO_PUBLIC_API_KEY}`;
@@ -235,6 +254,7 @@
     });
   });
 </script>
+
 
 
 
