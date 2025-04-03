@@ -6,12 +6,12 @@
         background-position: bottom;
     } */
 
-    @media (min-width: 1280px){
+    /* @media (min-width: 1280px){
         #mush--coming-soon-hero .section-wrapper{
             background-image: url({{ section.settings.image_desk |  img_url: 'master' }});
             background-size: cover;
         }
-    }
+    } */
 
     .g-recaptcha {
       display: none;
@@ -24,10 +24,10 @@
 
 
 <section id="mush--coming-soon-hero">
-    <div class="section-wrapper text-white relative px-6 lg:px-20 xl:px-[86px] bg-black pt-[126px] pb-11 lg:pt-[184px] xl:py-[184px] xl:min-h-screen">
+    <div class="section-wrapper flex flex-col xl:flex-row gap-[42px] xl:gap-[75px] text-white relative px-6 lg:px-20 xl:px-[86px] bg-black pt-[126px] pb-11 lg:pt-[184px] xl:py-[184px] xl:pb-[100px] xl:min-h-screen">
         <div class="coming-soon--content xl:w-3/5 relative z-2">
             <div class="lg:px-16 xl:px-0 mx-auto relative z-[2] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
-                <h1 class="text-[32px] xl:text-[70px] tracking-[-1.6px] xl:tracking-[-3.5px] font-bold text-center xl:text-left mb-3 xl:mb-11 leading-[1.1] text-transparent bg-clip-text bg-gradient-to-r from-[#F2008C] to-[#E45825]">
+                <h1 class="uppercase text-[32px] xl:text-[64px] tracking-[-1.6px] xl:tracking-[-3.5px] font-bold text-center xl:text-left mb-3 xl:mb-11 leading-[1.1] text-transparent bg-clip-text bg-gradient-to-r from-[#F2008C] to-[#E45825]">
                     {{ section.settings.header }}
                 </h1>
                 <p class="text-sm xl:text-2xl tracking-[-0.7px] xl:tracking-[-1.2px] text-center xl:text-left xl:pr-20 mb-6 xl:mb-11">
@@ -35,7 +35,7 @@
                 </p>
     
                 <!-- Coming Soon: Newsletter -->
-                <div class="newsletter-form--wrapper mb-12 xl:mb-11 relative z-[2] ">
+                <div class="newsletter-form--wrapper mb-12 xl:mb-11 relative z-[2] xl:pr-10">
                     <form id="klaviyo-signup-form--comingsoon" method="post" accept-charset="UTF-8" class="newsletter-form password--newsletter-form flex flex-col xl:flex-col items-center_ gap-4 justify-start w-full">
                         <input type="hidden" name="form_type" value="customer">
                         <input type="hidden" name="utf8" value="✓">
@@ -54,7 +54,7 @@
                           placeholder="Email" 
                           class="bg-transparent w-full px-7 py-4 border border-white rounded-[62px] w-full text-sm xl:text-xl tracking-[-0.7px] xl:tracking-[-1.037px] font-light" 
                           required>
-                          <button type="submit" class="coming-soon--submit-btn w-full min-h-[54px] btn bg-gradient-to-r from-[#F2008C] to-[#E74936] text-white uppercase cursor-pointer text-sm xl:text-xl font-semibold leading-[1.1] tracking-[-0.7px] xl:tracking-[-1.037px]">JOIN THE LIST</button>
+                          <button type="submit" class="coming-soon--submit-btn w-full min-h-[54px] btn bg-gradient-to-r from-[#F2008C] to-[#E74936] text-black uppercase cursor-pointer text-sm xl:text-xl font-semibold leading-[1.1] tracking-[-0.7px] xl:tracking-[-1.037px] max-w-[250px]">JOIN THE LIST</button>
                         </div>
 
                          <!-- Google reCAPTCHA -->
@@ -82,9 +82,19 @@
             </div>
 
 
+            
+        </div>
+
+        <div class="xl:w-2/5">
+            <!-- Coming Soon Image Banner: Desktop-->
+            <div class="hidden xl:block relative z-0">
+              <img src="{{ section.settings.image_desk |  img_url: 'master' }}" alt="Coming Soon">
+            </div>
+
+
             <!-- Coming Soon Image Banner: Mobile-->
-            <div class="xl:hidden -mt-12 relative z-0">
-                <img src="{{ section.settings.image_mob |  img_url: 'master' }}" alt="Coming Soon">
+            <div class="xl:hidden relative z-0 px-10 max-w-[350px] mx-auto">
+              <img src="{{ section.settings.image_mob |  img_url: 'master' }}" alt="Coming Soon">
             </div>
         </div>
     </div>
@@ -94,6 +104,7 @@
 
 <!-- Google reCAPTCHA script -->
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("klaviyo-signup-form--comingsoon");
@@ -134,6 +145,22 @@
       // 4️⃣ reCAPTCHA Validation (if visible)
       if (!captchaResponse) {
         responseMessage.innerText = "Please complete the CAPTCHA.";
+        responseMessage.classList.add("text-orange");
+        return;
+      }
+
+      // 5️⃣ NOW Check If User is in the USA
+      try {
+        const geoResponse = await fetch("https://ipapi.co/json/");
+        const geoData = await geoResponse.json();
+        if (geoData.country !== "US") {
+          responseMessage.innerText = "Sorry! Submissions outside of US are not allowed at the moment.";
+          responseMessage.classList.add("text-orange");
+          return;
+        }
+      } catch (error) {
+        console.error("Geolocation API failed", error);
+        responseMessage.innerText = "Unable to verify location. Please try again later.";
         responseMessage.classList.add("text-orange");
         return;
       }
