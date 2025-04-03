@@ -22,9 +22,9 @@
       {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
     </title>
 
-    {% if page_description %}
-      <meta name="description" content="{{ page_description | escape }}">
-    {% endif %}
+  
+    <meta name="description" content="{{ page_description | default: shop.description }}">
+
 
     {% render 'meta-tags' %}
 
