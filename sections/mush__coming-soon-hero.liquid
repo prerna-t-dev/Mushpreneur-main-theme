@@ -149,23 +149,7 @@
         return;
       }
 
-      // 5️⃣ NOW Check If User is in the USA
-      try {
-        const geoResponse = await fetch("https://ipapi.co/json/");
-        const geoData = await geoResponse.json();
-        if (geoData.country !== "US" or geoData.country !== "IN") {
-          responseMessage.innerText = "Sorry! Submissions outside of US are not allowed at the moment.";
-          responseMessage.classList.add("text-orange");
-          return;
-        }
-      } catch (error) {
-        console.error("Geolocation API failed", error);
-        responseMessage.innerText = "Unable to verify location. Please try again later.";
-        responseMessage.classList.add("text-orange");
-        return;
-      }
-
-      // 6️⃣ Proceed with API request after all validations pass
+      // 5️⃣ Proceed with API request after CAPTCHA verification
       const KLAVIYO_PUBLIC_API_KEY = "VqRB85";
       const LIST_ID = "Xd8yqJ";
       const url = `https://a.klaviyo.com/client/subscriptions?company_id=${KLAVIYO_PUBLIC_API_KEY}`;
@@ -252,7 +236,6 @@
     });
   });
 </script>
-
 
 
 
