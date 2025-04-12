@@ -184,6 +184,7 @@
 
         const validationData = await verifaliaResponse.json();
         const result = validationData.entries?.[0]?.classification;
+        console.log('Verifalia redult: ', result)
 
         if (result !== "Deliverable") {
           responseMessage.innerText = "Invalid or undeliverable email address.";
