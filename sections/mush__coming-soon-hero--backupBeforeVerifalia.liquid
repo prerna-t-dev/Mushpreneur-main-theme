@@ -153,7 +153,7 @@
       try {
         const geoResponse = await fetch("https://ipapi.co/json/");
         const geoData = await geoResponse.json();
-        if (geoData.country !== "US" && geoData.country !== "IN") {
+        if (geoData.country !== "US") {
           responseMessage.innerText = "Sorry! Submissions outside of US are not allowed at the moment.";
           responseMessage.classList.add("text-orange");
           return;
@@ -165,41 +165,7 @@
         return;
       }
 
-
-      // 6️⃣ Verifalia Email Validation
-      responseMessage.innerText = "Validating email...";
-      responseMessage.classList.remove("text-orange", "text-successgreen");
-
-      try {
-        const verifaliaResponse = await fetch("https://api.verifalia.com/v2.5/email-validations", {
-          method: "POST",
-          headers: {
-            Authorization: "Basic " + btoa("1795045dadd04f18b96699689c79e8c5:Prernadev@123"),
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            entries: [{ inputData: email }]
-          })
-        });
-
-        const validationData = await verifaliaResponse.json();
-        const result = validationData.entries.data[0]?.classification;
-        console.log('validationData', validationData)
-        console.log('Verifalia redult: ', result)
-
-        if (result !== "Deliverable") {
-          responseMessage.innerText = "Invalid or undeliverable email address.";
-          responseMessage.classList.add("text-orange");
-          return;
-        }
-      } catch (error) {
-        console.error("Verifalia error:", error);
-        responseMessage.innerText = "Email validation failed. Please try again.";
-        responseMessage.classList.add("text-orange");
-        return;
-      }
-
-      // 7️⃣ Proceed with API request after CAPTCHA verification
+      // 5️⃣ Proceed with API request after CAPTCHA verification
       const KLAVIYO_PUBLIC_API_KEY = "VqRB85";
       const LIST_ID = "Xd8yqJ";
       const url = `https://a.klaviyo.com/client/subscriptions?company_id=${KLAVIYO_PUBLIC_API_KEY}`;
