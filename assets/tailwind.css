@@ -984,9 +984,6 @@ body {
 .mt-\[56px\] {
   margin-top: 56px;
 }
-.mt-\[42px\] {
-  margin-top: 42px;
-}
 .block {
   display: block;
 }
@@ -4015,6 +4012,10 @@ body[data-template="blog"] sticky-header header{
     width: 4rem;
   }
 
+  .xl\:w-2\/5 {
+    width: 40%;
+  }
+
   .xl\:w-3\/5 {
     width: 60%;
   }
@@ -4061,10 +4062,6 @@ body[data-template="blog"] sticky-header header{
 
   .xl\:w-full {
     width: 100%;
-  }
-
-  .xl\:w-2\/5 {
-    width: 40%;
   }
 
   .xl\:-translate-x-full {
@@ -4448,6 +4445,10 @@ body[data-template="blog"] sticky-header header{
     padding-bottom: 0px;
   }
 
+  .xl\:pb-\[100px\] {
+    padding-bottom: 100px;
+  }
+
   .xl\:pb-\[132px\] {
     padding-bottom: 132px;
   }
@@ -4466,6 +4467,10 @@ body[data-template="blog"] sticky-header header{
 
   .xl\:pr-0 {
     padding-right: 0px;
+  }
+
+  .xl\:pr-10 {
+    padding-right: 2.5rem;
   }
 
   .xl\:pr-20 {
@@ -4502,14 +4507,6 @@ body[data-template="blog"] sticky-header header{
 
   .xl\:pt-\[94px\] {
     padding-top: 94px;
-  }
-
-  .xl\:pb-\[100px\] {
-    padding-bottom: 100px;
-  }
-
-  .xl\:pr-10 {
-    padding-right: 2.5rem;
   }
 
   .xl\:text-left {
