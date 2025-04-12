@@ -183,7 +183,7 @@
         });
 
         const validationData = await verifaliaResponse.json();
-        const result = validationData.entries?.[0]?.classification;
+        const result = validationData.entries[0]?.classification;
         console.log('validationData', validationData)
         console.log('Verifalia redult: ', result)
 
