@@ -153,7 +153,7 @@
       try {
         const geoResponse = await fetch("https://ipapi.co/json/");
         const geoData = await geoResponse.json();
-        if (geoData.country !== "US" || geoData.country !== "IN") {
+        if (geoData.country !== "US" && geoData.country !== "IN") {
           responseMessage.innerText = "Sorry! Submissions outside of US are not allowed at the moment.";
           responseMessage.classList.add("text-orange");
           return;
