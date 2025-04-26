@@ -334,10 +334,8 @@
                         data-cart-quantity="{{ cart_qty }}"
                         data-min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
                         min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
-                        {% if product.selected_or_first_available_variant.quantity_rule.max != null %}
-                          data-max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
-                          max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
-                        {% endif %}
+                        data-max="3"
+                        max="3"
                         step="{{ product.selected_or_first_available_variant.quantity_rule.increment }}"
                         value="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
                         form="{{ product_form_id }}"
@@ -733,7 +731,7 @@
                 <div class="quantity--atc my-8 xl:my-10 xl:mt-6">
                   <div class="flex gap-4">
                       <!-- Quantity Selector -->
-                      <div class="price-per-item__container">
+                      <div class="price-per-item__container"> 
                           <quantity-input class="quantity" data-url="{{ product.url }}" data-section="{{ section.id }}">
                                   <button class="quantity__button" name="minus" type="button">
                                   <span class="visually-hidden">
@@ -751,10 +749,8 @@
                                   data-cart-quantity="{{ cart_qty }}"
                                   data-min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
                                   min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
-                                  {% if product.selected_or_first_available_variant.quantity_rule.max != null %}
-                                      data-max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
-                                      max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
-                                  {% endif %}
+                                  data-max="3"
+                                  max="3"
                                   step="{{ product.selected_or_first_available_variant.quantity_rule.increment }}"
                                   value="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
                                   form="{{ product_form_id }}"
