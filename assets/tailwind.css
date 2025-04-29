@@ -2844,6 +2844,10 @@ body[data-template="blog"] sticky-header header{
     margin-bottom: 15px;
 }
 
+.shopify-policy__body ul {
+    list-style: disc;
+}
+
 
 
 
