@@ -2837,7 +2837,8 @@ body[data-template="blog"] sticky-header header{
     margin-bottom: 18px;
 }
 
-.shopify-policy__body p{
+.shopify-policy__body p,
+.shopify-policy__body ul li{
     font-size: 0.875rem;
     line-height: 1.25rem;
     margin-bottom: 15px;
