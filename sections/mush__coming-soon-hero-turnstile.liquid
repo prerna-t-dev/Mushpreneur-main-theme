@@ -13,10 +13,10 @@
         }
     } */
 
-    .g-recaptcha {
+    .cf-turnstile {
       display: none;
     }
-    .g-recaptcha.visible {
+    .cf-turnstile.visible {
         display: block;
     }
     
@@ -57,8 +57,8 @@
                           <button type="submit" class="coming-soon--submit-btn w-full min-h-[54px] btn bg-gradient-to-r from-[#F2008C] to-[#E74936] text-black uppercase cursor-pointer text-sm xl:text-xl font-semibold leading-[1.1] tracking-[-0.7px] xl:tracking-[-1.037px] max-w-[250px]">JOIN THE LIST</button>
                         </div>
 
-                         <!-- Google reCAPTCHA -->
-                        <div class="g-recaptcha" data-sitekey="6Le5quIqAAAAABo6yQdjut4XvCdKMg9Q0C9nH_B6"></div>
+                         <!-- Cloudflare Turnstile -->
+                        <div class="cf-turnstile" data-sitekey="YOUR_SITE_KEY"></div>
 
     
                     </form>
@@ -87,7 +87,7 @@
 
         <div class="xl:w-2/5">
             <!-- Coming Soon Image Banner: Desktop-->
-            <div class="hidden xl:block xl:px-2 relative z-0">
+            <div class="hidden xl:block xl:px-10 relative z-0">
               <img src="{{ section.settings.image_desk |  img_url: 'master' }}" alt="Coming Soon">
             </div>
 
@@ -102,24 +102,24 @@
 
 
 
-<!-- Google reCAPTCHA script -->
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<!-- Cloudflare Turnstile script -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("klaviyo-signup-form--comingsoon");
     const emailInput = document.getElementById("comingsoon-newsletter-email");
     const honeypotField = document.getElementById("honeypot-field");
-    const recaptcha = document.querySelector(".g-recaptcha");
+    const turnstile = document.querySelector(".cf-turnstile");
     const responseMessage = document.getElementById("response-message-cs");
 
-    let captchaTriggered = false;
+    let turnstileTriggered = false;
 
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
 
       const email = emailInput.value;
-      const captchaResponse = grecaptcha.getResponse();
+      const turnstileResponse = turnstile.getResponse();
 
       // 1️⃣ Basic Email Validation (Regex)
       const emailPattern = /^[a-zA-Z0-9.]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -135,16 +135,16 @@
         return;
       }
 
-      // 3️⃣ If CAPTCHA is not yet shown, show it and stop form submission
-      if (!captchaTriggered) {
-        recaptcha.classList.add("visible");
-        captchaTriggered = true;
+      // 3️⃣ If Turnstile is not yet shown, show it and stop form submission
+      if (!turnstileTriggered) {
+        turnstile.classList.add("visible");
+        turnstileTriggered = true;
         return;
       }
 
-      // 4️⃣ reCAPTCHA Validation (if visible)
-      if (!captchaResponse) {
-        responseMessage.innerText = "Please complete the CAPTCHA.";
+      // 4️⃣ Turnstile Validation (if visible)
+      if (!turnstileResponse) {
+        responseMessage.innerText = "Please complete the verification.";
         responseMessage.classList.add("text-orange");
         return;
       }
@@ -165,31 +165,40 @@
         return;
       }
 
-      // 6️⃣ ZeroBounce Email Validation
+      // 6️⃣ Verifalia Email Validation
       responseMessage.innerText = "Validating email...";
       responseMessage.classList.remove("text-orange", "text-successgreen");
 
       try {
-        const zerobounceResponse = await fetch(`https://api.zerobounce.net/v2/validate?api_key={{ settings.zerobounce_api_key | json }}&email=${encodeURIComponent(email)}&ip_address=${geoData.ip}`);
-        const validationData = await zerobounceResponse.json();
-        
-        console.log('ZeroBounce validation data:', validationData);
+        const verifaliaResponse = await fetch("https://api.verifalia.com/v2.5/email-validations", {
+          method: "POST",
+          headers: {
+            Authorization: "Basic " + btoa("1795045dadd04f18b96699689c79e8c5:Prernadev@123"),
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            entries: [{ inputData: email }]
+          })
+        });
 
-        // ZeroBounce status can be: valid, invalid, catch-all, unknown, spamtrap, abuse, do_not_mail
-        if (validationData.status !== "valid") {
+        const validationData = await verifaliaResponse.json();
+        const result = validationData.entries.data[0]?.classification;
+        console.log('validationData', validationData)
+        console.log('Verifalia result: ', result)
+
+        if (result !== "Deliverable") {
           responseMessage.innerText = "Invalid or undeliverable email address.";
           responseMessage.classList.add("text-orange");
           return;
         }
-
       } catch (error) {
-        console.error("ZeroBounce error:", error);
+        console.error("Verifalia error:", error);
         responseMessage.innerText = "Email validation failed. Please try again.";
         responseMessage.classList.add("text-orange");
         return;
       }
 
-      // 7️⃣ Proceed with API request after CAPTCHA verification
+      // 7️⃣ Proceed with API request after Turnstile verification
       const KLAVIYO_PUBLIC_API_KEY = "VqRB85";
       const LIST_ID = "Xd8yqJ";
       const url = `https://a.klaviyo.com/client/subscriptions?company_id=${KLAVIYO_PUBLIC_API_KEY}`;
@@ -260,9 +269,9 @@
           responseMessage.innerText =
             "Thank you for joining the Day Shrooms Launch List! Your first email is on its way to your inbox.";
           form.reset();
-          grecaptcha.reset();
-          recaptcha.classList.remove("visible"); // Hide CAPTCHA after success
-          captchaTriggered = false;
+          turnstile.reset();
+          turnstile.classList.remove("visible"); // Hide Turnstile after success
+          turnstileTriggered = false;
         } else {
           console.error("Klaviyo API Error:", result);
           responseMessage.classList.add("text-orange");
