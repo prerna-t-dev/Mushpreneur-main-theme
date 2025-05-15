@@ -1465,5 +1465,16 @@
         "default": "scheme-1"
       }
     ]
+  },
+  {
+    "name": "API Keys",
+    "settings": [
+      {
+        "type": "text",
+        "id": "zerobounce_api_key",
+        "label": "ZeroBounce API Key",
+        "info": "Enter your ZeroBounce API key for email validation"
+      }
+    ]
   }
 ]
