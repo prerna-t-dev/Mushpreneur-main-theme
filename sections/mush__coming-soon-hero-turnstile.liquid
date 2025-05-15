@@ -1,0 +1,351 @@
+<style>
+    /* #mush--coming-soon-hero .section-wrapper{
+        background-image: url({{ section.settings.image_mob |  img_url: 'master' }});
+        background-repeat: no-repeat; 
+        background-size: 100%;
+        background-position: bottom;
+    } */
+
+    /* @media (min-width: 1280px){
+        #mush--coming-soon-hero .section-wrapper{
+            background-image: url({{ section.settings.image_desk |  img_url: 'master' }});
+            background-size: cover;
+        }
+    } */
+
+    .cf-turnstile {
+      display: none;
+    }
+    .cf-turnstile.visible {
+        display: block;
+    }
+    
+</style>
+
+
+<section id="mush--coming-soon-hero">
+    <div class="section-wrapper flex flex-col items-center xl:flex-row gap-[42px] xl:gap-[75px] text-white relative px-6 lg:px-20 xl:px-[86px] bg-black pt-[126px] pb-11 lg:pt-[184px] xl:py-[184px] xl:pb-[100px] xl:min-h-screen">
+        <div class="coming-soon--content xl:w-3/5 relative z-2">
+            <div class="lg:px-16 xl:px-0 mx-auto relative z-[2] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
+                <h1 class="uppercase text-[32px] xl:text-[64px] tracking-[-1.6px] xl:tracking-[-3.5px] font-bold text-center xl:text-left mb-3 xl:mb-11 leading-[1.1] text-transparent bg-clip-text bg-gradient-to-r from-[#F2008C] to-[#E45825]">
+                    {{ section.settings.header }}
+                </h1>
+                <p class="text-sm xl:text-2xl tracking-[-0.7px] xl:tracking-[-1.2px] text-center xl:text-left xl:pr-20 mb-6 xl:mb-11">
+                    {{ section.settings.subheader }}
+                </p>
+    
+                <!-- Coming Soon: Newsletter -->
+                <div class="newsletter-form--wrapper mb-12 xl:mb-11 relative z-[2] xl:pr-10">
+                    <form id="klaviyo-signup-form--comingsoon" method="post" accept-charset="UTF-8" class="newsletter-form password--newsletter-form flex flex-col xl:flex-col items-center_ gap-4 justify-start w-full">
+                        <input type="hidden" name="form_type" value="customer">
+                        <input type="hidden" name="utf8" value="✓">
+
+                        <!-- Honeypot Field (Bots fill this, humans won't) -->
+                        <input type="text" name="extra_field" id="honeypot-field" style="display:none !important;" autocomplete="off">
+
+    
+                        <div class="flex flex-col xl:flex-row items-center gap-4 justify-center w-full">
+
+                        
+                          <input 
+                          type="email" 
+                          name="email" 
+                          id="comingsoon-newsletter-email" 
+                          placeholder="Email" 
+                          class="bg-transparent w-full px-7 py-4 border border-white rounded-[62px] w-full text-sm xl:text-xl tracking-[-0.7px] xl:tracking-[-1.037px] font-light" 
+                          required>
+                          <button type="submit" class="coming-soon--submit-btn w-full min-h-[54px] btn bg-gradient-to-r from-[#F2008C] to-[#E74936] text-black uppercase cursor-pointer text-sm xl:text-xl font-semibold leading-[1.1] tracking-[-0.7px] xl:tracking-[-1.037px] max-w-[250px]">JOIN THE LIST</button>
+                        </div>
+
+                         <!-- Cloudflare Turnstile -->
+                        <div class="cf-turnstile" data-sitekey="YOUR_SITE_KEY"></div>
+
+    
+                    </form>
+                    <p id="response-message-cs" class="text-sm xl:text-base tracking-[-0.8px] xl:tracking-[-0.8px] absolute bottom-[-42px] xl:bottom-[-30px] "></p>
+
+                </div>
+            </div>
+            
+
+
+            <!-- Coming Soon USP -->
+            <div class="flex items-center justify-center xl:justify-start flex-wrap gap-1 xl:gap-3 relative z-[2] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
+                {% for block in section.blocks %}
+                    <div class="inline-block flex items-center">
+                        <span class="text-base xl:text-lg">✓</span>
+                        <span class="text-[12px] xl:text-base tracking-[-0.6px] xl:tracking-[-0.8px] whitespace-nowrap leading-none">
+                            {{ block.settings.usp }}
+                        </span>
+                    </div>
+                {% endfor %}
+            </div>
+
+
+            
+        </div>
+
+        <div class="xl:w-2/5">
+            <!-- Coming Soon Image Banner: Desktop-->
+            <div class="hidden xl:block xl:px-10 relative z-0">
+              <img src="{{ section.settings.image_desk |  img_url: 'master' }}" alt="Coming Soon">
+            </div>
+
+
+            <!-- Coming Soon Image Banner: Mobile-->
+            <div class="xl:hidden relative z-0 px-10 max-w-[350px] mx-auto">
+              <img src="{{ section.settings.image_mob |  img_url: 'master' }}" alt="Coming Soon">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Cloudflare Turnstile script -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("klaviyo-signup-form--comingsoon");
+    const emailInput = document.getElementById("comingsoon-newsletter-email");
+    const honeypotField = document.getElementById("honeypot-field");
+    const turnstile = document.querySelector(".cf-turnstile");
+    const responseMessage = document.getElementById("response-message-cs");
+
+    let turnstileTriggered = false;
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const email = emailInput.value;
+      const turnstileResponse = turnstile.getResponse();
+
+      // 1️⃣ Basic Email Validation (Regex)
+      const emailPattern = /^[a-zA-Z0-9.]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!emailPattern.test(email)) {
+        responseMessage.innerText = "Invalid email address.";
+        responseMessage.classList.add("text-orange");
+        return;
+      }
+
+      // 2️⃣ Honeypot Check (If filled, stop submission)
+      if (honeypotField.value) {
+        console.warn("Spam bot detected. Form submission aborted.");
+        return;
+      }
+
+      // 3️⃣ If Turnstile is not yet shown, show it and stop form submission
+      if (!turnstileTriggered) {
+        turnstile.classList.add("visible");
+        turnstileTriggered = true;
+        return;
+      }
+
+      // 4️⃣ Turnstile Validation (if visible)
+      if (!turnstileResponse) {
+        responseMessage.innerText = "Please complete the verification.";
+        responseMessage.classList.add("text-orange");
+        return;
+      }
+
+      // 5️⃣ NOW Check If User is in the USA
+      try {
+        const geoResponse = await fetch("https://ipapi.co/json/");
+        const geoData = await geoResponse.json();
+        if (geoData.country !== "US" && geoData.country !== "IN") {
+          responseMessage.innerText = "Sorry! Submissions outside of US are not allowed at the moment.";
+          responseMessage.classList.add("text-orange");
+          return;
+        }
+      } catch (error) {
+        console.error("Geolocation API failed", error);
+        responseMessage.innerText = "Unable to verify location. Please try again later.";
+        responseMessage.classList.add("text-orange");
+        return;
+      }
+
+      // 6️⃣ Verifalia Email Validation
+      responseMessage.innerText = "Validating email...";
+      responseMessage.classList.remove("text-orange", "text-successgreen");
+
+      try {
+        const verifaliaResponse = await fetch("https://api.verifalia.com/v2.5/email-validations", {
+          method: "POST",
+          headers: {
+            Authorization: "Basic " + btoa("1795045dadd04f18b96699689c79e8c5:Prernadev@123"),
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            entries: [{ inputData: email }]
+          })
+        });
+
+        const validationData = await verifaliaResponse.json();
+        const result = validationData.entries.data[0]?.classification;
+        console.log('validationData', validationData)
+        console.log('Verifalia result: ', result)
+
+        if (result !== "Deliverable") {
+          responseMessage.innerText = "Invalid or undeliverable email address.";
+          responseMessage.classList.add("text-orange");
+          return;
+        }
+      } catch (error) {
+        console.error("Verifalia error:", error);
+        responseMessage.innerText = "Email validation failed. Please try again.";
+        responseMessage.classList.add("text-orange");
+        return;
+      }
+
+      // 7️⃣ Proceed with API request after Turnstile verification
+      const KLAVIYO_PUBLIC_API_KEY = "VqRB85";
+      const LIST_ID = "Xd8yqJ";
+      const url = `https://a.klaviyo.com/client/subscriptions?company_id=${KLAVIYO_PUBLIC_API_KEY}`;
+
+      const payload = JSON.stringify({
+        data: {
+          type: "subscription",
+          attributes: {
+            profile: {
+              data: {
+                type: "profile",
+                attributes: {
+                  email: email,
+                  subscriptions: {
+                    email: {
+                      marketing: {
+                        consent: "SUBSCRIBED",
+                        consented_at: new Date().toISOString(),
+                      },
+                    },
+                  },
+                },
+              },
+            },
+            custom_source: "Coming Soon",
+          },
+          relationships: {
+            list: {
+              data: {
+                type: "list",
+                id: LIST_ID,
+              },
+            },
+          },
+        },
+      });
+
+      const options = {
+        method: "POST",
+        headers: {
+          accept: "application/vnd.api+json",
+          "content-type": "application/vnd.api+json",
+          revision: "2025-01-15",
+        },
+        body: payload,
+      };
+
+      try {
+        const response = await fetch(url, options);
+        const text = await response.text();
+
+        console.log("Raw Response:", text); // Debugging
+
+        let result;
+        if (text) {
+          try {
+            result = JSON.parse(text);
+          } catch (jsonError) {
+            console.warn("Response is not valid JSON:", text);
+            result = { message: text };
+          }
+        } else {
+          result = { message: "Success (no response body)" };
+        }
+
+        if (response.ok) {
+          responseMessage.classList.add("text-successgreen");
+          responseMessage.innerText =
+            "Thank you for joining the Day Shrooms Launch List! Your first email is on its way to your inbox.";
+          form.reset();
+          turnstile.reset();
+          turnstile.classList.remove("visible"); // Hide Turnstile after success
+          turnstileTriggered = false;
+        } else {
+          console.error("Klaviyo API Error:", result);
+          responseMessage.classList.add("text-orange");
+          responseMessage.innerText = `Error: ${
+            result.errors?.[0]?.detail || "Something went wrong"
+          }`;
+        }
+      } catch (error) {
+        console.error("Network Error:", error);
+      }
+    });
+  });
+</script>
+
+
+
+
+{%  schema  %} 
+    {
+        "name": "Coming Soon - Hero",
+        "class": "section--coming-soon-hero",
+        "settings": [
+            {
+                "type": "color",
+                "id": "background",
+                "label": "Background Color"
+            },
+            {
+                "type": "image_picker",
+                "id": "image_desk",
+                "label": "Image Desktop"
+            },
+            {
+                "type": "image_picker",
+                "id": "image_mob",
+                "label": "Image Mobile"
+            },
+            {
+                "type": "textarea",
+                "id": "header",
+                "label": "Header",
+                "default": "Mushrooms are smart. <br/> Day Shrooms are smarter."
+            },
+            {
+                "type": "text",
+                "id": "subheader",
+                "label": "Subheader",
+                "default": "Meet Day Shrooms—a lifestyle upgrade for those tired of the midday slump. Challenge your morning joe with a smarter, better way to fuel productivity, focus, flow, and well-being. Join the launch list now for exclusive early access and updates."
+            }
+        ],
+        "blocks": [
+            {
+                "name": "USP",
+                "type": "usp",
+                "limit": 5,
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "usp",
+                        "label": "USP"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Coming Soon - Hero"
+            }
+        ]
+    } 
+{% endschema %}
+
+
+{% comment %} client site key:  6Le5quIqAAAAABo6yQdjut4XvCdKMg9Q0C9nH_B6 {% endcomment %}
+ {% comment %} server side key: 6Le5quIqAAAAAP9Ee6SojzW3wIyA3PoDt_JgI4uw {% endcomment %}
+{% comment %} verifalia user: 1795045dadd04f18b96699689c79e8c5
+verifalia pw: Prernadev@123 {% endcomment %}
