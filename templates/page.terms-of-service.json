@@ -7,243 +7,234 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
-    "sections": {
-      "main": {
-        "type": "main-search",
-        "disabled": true,
-        "settings": {
-          "columns_desktop": 4,
-          "image_ratio": "adapt",
-          "image_shape": "default",
-          "show_secondary_image": false,
-          "show_vendor": false,
-          "show_rating": false,
-          "enable_filtering": true,
-          "filter_type": "horizontal",
-          "enable_sorting": true,
-          "article_show_date": true,
-          "article_show_author": false,
-          "columns_mobile": "2",
-          "padding_top": 36,
-          "padding_bottom": 36
-        }
-      },
-      "mush_terms_of_service_BEmkrX": {
-        "type": "mush__terms-of-service",
-        "blocks": {
-          "term_rLQ3pr": {
-            "type": "term",
-            "settings": {
-              "title": "Privacy Policy",
-              "description": "<p>Our Privacy Policy is located at <a href=\"https://mushpreneur.com/pages/privacy-policy\" target=\"_blank\" title=\"https://mushpreneur.com/pages/privacy-policy\"><span style=\"text-decoration:underline\">https://mushpreneur.com/pages/privacy-policy</span></a></p><p>and is hereby incorporated into this Agreement by reference.  Please review the Privacy Policy to understand Our policies.</p>"
-            }
-          },
-          "term_nNMWT6": {
-            "type": "term",
-            "settings": {
-              "title": "User Name And Passwords",
-              "description": "<p>You hereby agree that all user registration for account will be true, accurate, current, and complete account information and that You will maintain the accuracy of such information and promptly update as it changes.</p><p>You hereby agree that You are responsible for all actions taken under Your User Name and Password.  Please remember it is Your responsibility to keep this data secure and You hereby agree that We are not liable for any loss or damage arising from Your failure to keep Your password secure.  Further, You agree to immediately notify Us of any unauthorized use of Your password or any breach of security.</p>"
-            }
-          },
-          "term_3PX3tT": {
-            "type": "term",
-            "settings": {
-              "title": "Purchases",
-              "description": "<p>To purchase any item on Our website You need only to click on the item and add it to Your shopping cart for check out. All fees will be shown before You checkout.</p>"
-            }
-          },
-          "term_eriCFj": {
-            "type": "term",
-            "settings": {
-              "title": "Free Samples",
-              "description": "<p>Free samples or other promotional materials must be used within the specified time of the offer.  Free samples are not auto-subscriptions rather an offering for customers to try before placing the full order.  Free samples are limited to one sample per user.  You are not required to create a user account to receive a free sample offer and may submit the order with a guest login.  However, in most cases, You will be required to submit valid payment to cover the costs of shipping to the product offering.  Additional terms and limitations may apply and will be more fully explained at the time you sign up for the any of Our offerings.  Any such additional terms and limitations are hereby incorporated into this Agreement by reference.</p>"
-            }
-          },
-          "term_zwLdgF": {
-            "type": "term",
-            "settings": {
-              "title": "Shipping",
-              "description": "<p>We ship everywhere in the U.S. including Alaska and Hawaii.  We do not ship to P.O. Box addresses.  All Orders are typically fulfilled in a 24-hour window and we will update you if there will be a delay in your order.</p><p><br/></p><p>Please see all of our Shipping Polices at <a href=\"https://mushpreneur.com/policies/shipping-policy\"><span style=\"text-decoration:underline\">https://mushpreneur.com/policies/shipping-policy</span></a></p>"
-            }
-          },
-          "term_pXyFXe": {
-            "type": "term",
-            "settings": {
-              "title": "Order Tracking",
-              "description": "<p>Tracking information is sent out as soon as Your order ships via the email You provided for your purchase.  If you have any questions about the status of Your order, please contact us at <a href=\"mailto:hey@mushpreneur.com\" title=\"mailto:hey@mushpreneur.com\">hey@mushpreneur.com</a>.</p>"
-            }
-          },
-          "term_PRr78f": {
-            "type": "term",
-            "settings": {
-              "title": "Payment",
-              "description": "<p>We use third-party payment processors, such as PayPal, Apple Pay, and</p><p>Shopify Payments to bill you through a payment account linked to Your account on Our Services.</p>"
-            }
-          },
-          "term_AX9MTy": {
-            "type": "term",
-            "settings": {
-              "title": "Lost or Damaged Packages",
-              "description": "<p>Contact us at <a href=\"mailto:hey@mushpreneur.com\" title=\"mailto:hey@mushpreneur.com\">hey@mushpreneur.com</a> and we will help you resolve this problem.</p>"
-            }
-          },
-          "term_fPkEWh": {
-            "type": "term",
-            "settings": {
-              "title": "Using good citizenship in product posting, reviews, forums, etc.",
-              "description": "<p>You understand and agree that You will not Use Our website to post, email, upload or transmit any content that: is patently offensive, vulgar, unlawful, threatening, defamatory, abusive, tortuous, obscene, libelous, illegal, hateful, harmful, harasses or advocates harassment of another person, invasive of another person’s privacy, exploitive of people in a sexual or violent manner, racially, ethnically or otherwise objectionable or promotes racism, bigotry, hatred or physical harm of any kind against any group or individual; nor will it: Impersonate another person or post a photograph of another person as Your image; stalk or otherwise harass another; harm a minor in any way; promote commercial activities and/or sales such as contests, sweepstakes, barter, or advertising except as provided by the functionality of the Site; Nor will You post, email, upload or transmit any unsolicited or unauthorized advertising, promotional materials, junk mail, spam, unsolicited mass mailing, chain letters, or pyramid schemes; Nor will You promote an illegal or unauthorized copy of another person’s copyrighted work; upload, post, email, transmit or otherwise make available any material that contains software viruses or any other computer code, files or programs designed to interrupt, destroy or limit the functionality of any computer software including the software on this website or hardware or telecommunications equipment; Nor will You use software that automatically creates user identities; intentionally or unintentionally violate any applicable local, state, national or international law; Nor will you post hazardous, counterfeit, stolen items or items that have been identified by the U.S. Consumer Products Safety Commissions (CPSC) as hazardous to consumers and therefore subject to recall; Nor will You post a review on a business You own, control or are employed by; post inaccurate or misleading information or pictures; or misrepresenting a product or service. You understand and agree that You are solely responsible for Your interactions with other visitors.</p><p>We reserve the right, but have no obligation, to monitor disputes between You and other visitors. </p><p>Further, We may delete data and posts which violate this Agreement or for any other reason or for no reason based on Our sole discretion.</p>"
-            }
-          },
-          "term_gRPijR": {
-            "type": "term",
-            "settings": {
-              "title": "Digital Millennium Copyright Act",
-              "description": "<p>As provided for in the Digital Millennium Copyright Act; If You feel any content on this website violates Your copyrights, please contact Our designated agent:<br/><br/>Andrew Jaffe<br/>2375 Covington Rd #315<br/>Akron, OH 44313<br/>206-203-3649</p><p>by fax or regular U.S. mail (not by email) with the following information:<br/><br/></p><ol><li>A physical or electronic signature of a person authorized to act on behalf of the owner of an exclusive right that is allegedly infringed.</li><li>Identification of the copyrighted work claimed to have been infringed, or, if multiple copyrighted works at a single online site is covered by a single notification, a representative list of such works at that site.</li><li>Identification of the material that is claimed to be infringing or to be the subject of infringing activity and that is to be removed or access to which is to be disabled, and information reasonably sufficient to permit the service provider to locate the material.</li><li>Information reasonably sufficient to permit the service provider to contact You, such as an address, telephone number, and, if available, an electronic mail address at which You may be contacted.</li><li>A statement that You have a good faith belief that use of the material in the manner complained of is not authorized by the copyright owner, its agent, or the law.</li><li>A statement that the information in the notification is accurate, and under penalty of perjury, that You are authorized to act on behalf of the owner of an exclusive right that is allegedly infringed.<br/><br/></li></ol><p>Once We have received Your complaint We will:<br/></p><ol><li>Remove or disable the identified infringing material (but maintain a copy for later use);</li><li>Promptly notify the subscriber with a copy to the complaining party that We have removed or disabled access to the material; and</li><li>We will inform the subscriber that they may submit a counter-notification regarding the claimed infringing material.<br/><br/></li></ol><p>Counter Notification - To be effective under this subsection, a counter notification must be a written communication provided to the service provider's designated agent by fax or regular U.S. mail (not email) that includes substantially the following:<br/><br/></p><ol><li>A physical or electronic signature of the subscriber.</li><li>Identification of the material that has been removed or to which access has been disabled and the location at which the material appeared before it was removed or access to it was disabled.</li><li>A statement under penalty of perjury that the subscriber has a good faith belief that the material was removed or disabled as a result of mistake or misidentification of the material to be removed or disabled.</li><li>The subscriber's name, address, and telephone number, and a statement that the subscriber consents to the jurisdiction of Federal District Court for the judicial district in which the subscriber’s address is located, or if the subscriber's address is outside of the United States, for any judicial district in which the service provider may be found, and that the subscriber will accept service of process from the person who provided the counter notification or an agent of such person.</li></ol><p></p><p>Upon receipt of a counter notification We will promptly provide the complaining party with a copy of the counter notification, and inform that person that We will replace the removed material and cease disabling access to it not less than 10, nor more than 14, business days following receipt of the counter notice, unless Our designated agent first receives notice from the person who submitted the notification that such person has filed an action seeking a court order to restrain the subscriber from engaging in infringing activity relating to the material on the service provider's system or network.<br/></p>"
-            }
-          },
-          "term_iWkddh": {
-            "type": "term",
-            "settings": {
-              "title": "Trademarks",
-              "description": "<p>We hereby claim Mushpreneur®, Mushpreneur.comTM and the Mushpreneur logoTM to be trademarks of Our Company.</p><p>Mushpreneur® is a registered trademark of Mushpreneur LLC. All content displayed, including, but not limited to, applications, software and/or services that are designed to operate with the text, graphics, articles, photos, images, illustrations, user Submissions, and so forth is the property of Mushpreneur and protected by U.S. and international copyright laws, and other intellectual property laws. You understand that Mushpreneur owns the Services and all associated intellectual property.</p>"
-            }
-          },
-          "term_WxkBxR": {
-            "type": "term",
-            "settings": {
-              "title": "Copyright",
-              "description": "<p>As indicated by the notice on the bottom of Our Home Page, Mushpreneur LLCclaims a copyright to the contents of this website.</p>"
-            }
-          },
-          "term_rAYwjp": {
-            "type": "term",
-            "settings": {
-              "title": "User Generated Contributions",
-              "description": "<p>You may voluntarily post, submit or otherwise communicate to us any questions, comments, suggestions, ideas, original or creative materials or other information about Our products and websites. Your feedback is treated as nonconfidential.</p><p>You understand feedback for any purpose, commercial or otherwise, may be used by Us without acknowledgment or compensation to You, including, without limitation, to develop, copy, publish, or improve the Feedback in our sole discretion. </p>"
-            }
-          },
-          "term_zFdV3q": {
-            "type": "term",
-            "settings": {
-              "title": "Contribution License",
-              "description": "<p>By posting Your Contributions to any part of the website You automatically grant, and You represent and warrant that You have the right to grant, to Us an unrestricted, unlimited, irrevocable, perpetual, non-exclusive, transferable, royalty-free, fully-paid, worldwide right, and license to host, use, copy, reproduce, disclose, sell, resell, publish, broadcast, retitle, archive, store, cache, publicly perform, publicly display, reformat, translate, transmit, excerpt (in whole or in part), and distribute such Contributions (including, without limitation, Your image and voice) for any purpose, commercial, advertising, or otherwise, and to prepare derivative works of, or incorporate into other works, such Contributions, and grant and authorize sublicenses of the foregoing. The use and distribution may occur in any media formats and through any media channels. </p><p>This license will apply to any form, media, or technology now known or hereafter developed, and includes our use of Your name, company name, and franchise name, as applicable, and any of the trademarks, service marks, trade names, logos, and personal and commercial images You provide. You waive all moral rights in your Contributions, and you warrant those moral rights have not otherwise been asserted in Your Contributions. </p><p>We do not assert any ownership over Your Contributions. You retain full ownership of all of Your Contributions and any intellectual property rights or other proprietary rights associated with Your Contributions. We are not liable for any statements or representations in Your Contributions provided by You in any area on the website. </p><p>You are solely responsible for Your Contributions to the website and you expressly agree to exonerate Us from any and all responsibility and to refrain from any legal action against Us regarding your Contributions.  </p><p>We have the right, in our sole and absolute discretion, (1) to edit, redact, or otherwise change any Contributions; (2) to re-categorize any Contributions to place them in more appropriate locations on the Site; and (3) to pre-screen or delete any Contributions at any time and for any reason, without notice. We have no obligation to monitor Your Contributions. </p>"
-            }
-          },
-          "term_nKWfHM": {
-            "type": "term",
-            "settings": {
-              "title": "Warranties",
-              "description": "<p>THE MATERIAL DISPLAYED ON THIS WEBSITE IS PROVIDED WITHOUT ANY GUARANTEES, CONDITIONS OR WARRANTIES AS TO ITS ACCURACY. THE INFORMATION DOES NOT CONSTITUTE MEDICAL ADVICE. EVERY EFFORT HAS BEEN MADE TO ENSURE THE EFFICACY OF OUR PRODUCTS; HOWEVER, THEY HAVE NOT BEEN APPROVED BY ANY MEDICAL OR PHARMACEUTICAL LICENSING BODY.  IT IS ENTIRELY YOUR RESPONSIBILITY TO DETERMINE THAT OUR PRODUCTS ARE SUITABLE FOR YOU AND IT IS NOT OUR RESPONSIBILITY TO DO SO. UNLESS EXPRESSLY STATED TO THE CONTRARY TO THE FULLEST EXTENT PERMITTED BY LAW WE AND OUR SUPPLIERS, CONTENT PROVIDERS AND ADVERTISERS HEREBY EXPRESSLY EXCLUDE ALL CONDITIONS, WARRANTIES AND OTHER TERMS WHICH MIGHT OTHERWISE BE IMPLIED BY STATUTE, COMMON LAW OR THE LAW OF EQUITY AND SHALL NOT BE LIABLE FOR ANY DAMAGES WHATSOEVER, INCLUDING BUT WITHOUT LIMITATION TO ANY DIRECT, INDIRECT, SPECIAL, CONSEQUENTIAL, PUNITIVE OR INCIDENTAL DAMAGES, OR DAMAGES FOR LOSS OF USE, PROFITS, DATA OR OTHER INTANGIBLES, DAMAGE TO GOODWILL OR REPUTATION, OR THE COST OF PROCUREMENT OF SUBSTITUTE GOODS AND SERVICES, ARISING OUT OF OR RELATED TO THE USE, INABILITY TO USE, PERFORMANCE OR<strong> </strong>FAILURES OF THIS WEBSITE OR THE LINKED SITES AND ANY MATERIALS POSTED THEREON, IRRESPECTIVE OF WHETHER SUCH DAMAGES WERE FORESEEABLE OR ARISE IN CONTRACT, TORT, EQUITY, RESTITUTION, BY STATUTE, AT COMMON LAW OR OTHERWISE, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. THIS DOES NOT AFFECT OUR LIABILITY FOR DEATH OR PERSONAL INJURY ARISING FROM OUR NEGLIGENCE, NOR FOR FRAUDULENT MISREPRESENTATION, MISREPRESENTATION AS TO A FUNDAMENTAL MATTER OR ANY OTHER LIABILITY WHICH CANNOT BE EXCLUDED OR LIMITED UNDER APPLICABLE LAW.</p>"
-            }
-          },
-          "term_RKAEKd": {
-            "type": "term",
-            "settings": {
-              "title": "Limitation of Liability",
-              "description": "<p>TO THE MAXIMUM EXTENT LEGALLY PERMITTED, WHETHER OR NOT WE ARE OR WERE AWARE OR ADVISED OF THE POSSIBILITY OF DAMAGES, AND WHETHER OR NOT THE LIMITED REMEDIES PROVIDED HEREIN FAIL OF THEIR ESSENTIAL PURPOSE, OUR AGGREGATE LIABILITY (WHETHER FOR BREACH OF CONTRACT, TORT OR ANY OTHER LEGAL THEORY) SHALL IN NO CIRCUMSTANCES EXCEED THE COST OF OUR PRODUCTS YOU ORDERED. FURTHER, UNDER NO CIRCUMSTANCES SHALL WE BE LIABLE FOR SPECIAL, INCIDENTAL, INDIRECT, OR CONSEQUENTIAL DAMAGES, LOST PROFITS, LOST REVENUE, OR COST OF COVER.  OUR PRODUCTS ARE SOLD AND DELIVERED TO YOU “AS IS” WITH NO WARRANTY WHATSOEVER.  EXCEPT AS EXPRESSLY STATED OTHERWISE IN THIS SECTION, WE MAKE NO EXPRESS WARRANTIES OR REPRESENTATIONS AND WE DISCLAIM ALL IMPLIED WARRANTIES AND REPRESENTATIONS, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.</p>"
-            }
-          },
-          "term_Vgt6EJ": {
-            "type": "term",
-            "settings": {
-              "title": "Indemnification",
-              "description": "<p>You hereby warrant that You will not use the information provided by Us in violation of any International, Local, State or Federal law.  Further, You agree to indemnify, defend, and hold Us harmless, as well as holding harmless Our parents, subsidiaries, affiliates, officers, directors, employees, agents, and suppliers, and their respective affiliates, officers, directors, employees, and agents, from any claim, action, demand, or damage, including reasonable attorney's fees, made by any third party or governmental agency arising out of or related to Your use of any service offered by Us or Your violation of this Agreement, including without limitation, claims or suits for libel, violation of rights of privacy or publicity, interference with property rights, trespass, violations of International, Local, Federal or State Law, patent infringement or plagiarism.  We may, at Our sole discretion, assume the exclusive defense and control of any matter subject to indemnification by You. The assumption of such defense or control by Us, however, shall not excuse any of Your indemnity obligations.<br/></p>"
-            }
-          },
-          "term_d78V7y": {
-            "type": "term",
-            "settings": {
-              "title": "Force Majeure",
-              "description": "<p>We shall not be liable for delays or nonperformance of this Agreement caused by strike, fire or accidents, nor shall We be liable for delay or nonperformance caused by lack of availability of materials, fuel or utilities or for any other cause beyond Our control.</p>"
-            }
-          },
-          "term_y3WwYW": {
-            "type": "term",
-            "settings": {
-              "title": "Assignment",
-              "description": "<p>You may not assign the rights or obligations under this Agreement.</p>"
-            }
-          },
-          "term_9E4qR8": {
-            "type": "term",
-            "settings": {
-              "title": "Entire Agreement",
-              "description": "<p>Except as modified or supplemented by a writing executed by both parties, the Terms and Conditions described herein are the only representations, warranties, and understandings between the parties with respect to the products and/or services described herein.</p>"
-            }
-          },
-          "term_cxfNr7": {
-            "type": "term",
-            "settings": {
-              "title": "Dispute Resolution",
-              "description": "<p>In the event of a dispute, You agree to attempt to resolve the dispute by contacting Us at <a href=\"mailto:hey@mushpreneur.com\" title=\"mailto:hey@mushpreneur.com\">hey@mushpreneur.co</a>m prior to taking any other action.  Failure to contact Us to attempt a dispute resolution prior to taking any other action will result in a breach of this Agreement by You.  </p><p>This Agreement shall be construed in accordance with the laws of the state of New Jersey and in the event of any dispute or claim associated with these Terms and Conditions or another dispute between You and Us, that dispute or claim shall be subject to the exclusive jurisdiction of the New Jersey courts serving Hudson County.</p><p>You hereby waive any right to a trial by jury in the event of any controversy or claim relating to this Agreement.  In addition to the foregoing, in the event of any breach or violation of this Agreement, We shall be entitled to enforce all of Our legal remedies for the breach or wrongful activity including, but not limited to seeking actual damages, the maximum amount of statutory damages under applicable statutes and Acts, profits, treble damages, and attorneys’ fees and costs.  These remedies and damages are in addition to the monetary payments described above and/or any amounts otherwise due under this Agreement.</p>"
-            }
-          },
-          "term_3eKKcE": {
-            "type": "term",
-            "settings": {
-              "title": "Chargeback Policy",
-              "description": "<p>If You purchases a product from Our website and then attempt to dispute Your purchase via a chargeback without communicating with Mushpreneur as stated in the DISPUTE RESOLUTION section above, you will be in breach of Our Agreement and We have the right to investigate further and have the authority to take legal action against You.  You will also be banned from ever purchasing on Our website in the future.</p>"
-            }
-          },
-          "term_7aeVVz": {
-            "type": "term",
-            "settings": {
-              "title": "Severability",
-              "description": "<p>If any provision, or portion thereof, of this Agreement is held by a court of competent jurisdiction to be invalid under any applicable statute or rule of law, You and We agree that such invalidity shall not affect the validity of the remaining portions of this Agreement and further agree to substitute for the invalid provision a valid provision which most closely approximates the intent and economic effect of the invalid provisions.</p>"
-            }
-          },
-          "term_PDGYLe": {
-            "type": "term",
-            "settings": {
-              "title": "Headings",
-              "description": "<p>The headings of this Agreement are for convenience only and shall not be used to construe the meaning of this Agreement.</p>"
-            }
-          },
-          "term_ThxGki": {
-            "type": "term",
-            "settings": {
-              "title": "Agreement Updates",
-              "description": "<p>This Agreement is effective as of January 1, 2025. We reserve the right to revise this policy from time to time without prior notice.  You will be notified of any material changes in Our Terms of Service either by email or by a conspicuous posting on Our web site.</p><p></p><p>Mushpreneur LLC<br/>33 Park View Ave<br/>Jersey City, NJ 07302<br/>hey@mushpreneur.com<br/>551-213-1388</p>"
-            }
-          }
-        },
-        "block_order": [
-          "term_rLQ3pr",
-          "term_nNMWT6",
-          "term_3PX3tT",
-          "term_eriCFj",
-          "term_zwLdgF",
-          "term_pXyFXe",
-          "term_PRr78f",
-          "term_AX9MTy",
-          "term_fPkEWh",
-          "term_gRPijR",
-          "term_iWkddh",
-          "term_WxkBxR",
-          "term_rAYwjp",
-          "term_zFdV3q",
-          "term_nKWfHM",
-          "term_RKAEKd",
-          "term_Vgt6EJ",
-          "term_d78V7y",
-          "term_y3WwYW",
-          "term_9E4qR8",
-          "term_cxfNr7",
-          "term_3eKKcE",
-          "term_7aeVVz",
-          "term_PDGYLe",
-          "term_ThxGki"
-        ],
-        "settings": {
-          "header": "Terms of Service",
-          "header_text": "Welcome to a website of Mushpreneur LLC located at mushpreneur.com (hereinafter “We”, “Us”, “Our”).  We thank You (any visitor to Our web site and hereinafter \"You\" or \"Your\") for visiting Our site and considering Our products and services. \n\nBy using this website or by clicking the checkbox which states “I have read and agree to the Terms of Service and Privacy Policy of this website as well as the website’s use of cookies”; You hereby agree to the terms and conditions of this Terms of Service (hereinafter “Agreement”) which, along with the consideration of the mutual promises You and We make to each other, then becomes a binding contract between You and Us."
-        }
+{
+  "sections": {
+    "main": {
+      "type": "main-search",
+      "disabled": true,
+      "settings": {
+        "columns_desktop": 4,
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_filtering": true,
+        "filter_type": "horizontal",
+        "enable_sorting": true,
+        "article_show_date": true,
+        "article_show_author": false,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
-    "order": [
-      "main",
-      "mush_terms_of_service_BEmkrX"
-    ]
-  }
-  
+    "mush_terms_of_service_BEmkrX": {
+      "type": "mush__terms-of-service",
+      "blocks": {
+        "term_rLQ3pr": {
+          "type": "term",
+          "settings": {
+            "title": "Privacy Policy",
+            "description": "<p>Our Privacy Policy is located at <a href=\"https://mushpreneur.com/pages/privacy-policy\" target=\"_blank\" title=\"https://mushpreneur.com/pages/privacy-policy\"><span style=\"text-decoration:underline\">https://mushpreneur.com/pages/privacy-policy</span></a></p><p>and is hereby incorporated into this Agreement by reference.  Please review the Privacy Policy to understand Our policies.</p>"
+          }
+        },
+        "term_nNMWT6": {
+          "type": "term",
+          "settings": {
+            "title": "User Name And Passwords",
+            "description": "<p>You hereby agree that all user registration for account will be true, accurate, current, and complete account information and that You will maintain the accuracy of such information and promptly update as it changes.</p><p>You hereby agree that You are responsible for all actions taken under Your User Name and Password.  Please remember it is Your responsibility to keep this data secure and You hereby agree that We are not liable for any loss or damage arising from Your failure to keep Your password secure.  Further, You agree to immediately notify Us of any unauthorized use of Your password or any breach of security.</p>"
+          }
+        },
+        "term_3PX3tT": {
+          "type": "term",
+          "settings": {
+            "title": "Purchases",
+            "description": "<p>To purchase any item on Our website You need only to click on the item and add it to Your shopping cart for check out. All fees will be shown before You checkout.</p>"
+          }
+        },
+        "term_zwLdgF": {
+          "type": "term",
+          "settings": {
+            "title": "Shipping",
+            "description": "<p>We ship to all U.S. addresses, including Alaska and Hawaii, but we don't deliver to P.O. Boxes. Orders placed by 5:00 p.m. EST Monday–Friday will be fulfilled the same day. Orders after 5:00 p.m. will be processed the next business day. Most orders arrive within 1–3 business days. Pickups happen Monday–Friday between 7:00 p.m. and 7:30 p.m. EST, with no pickups on weekends.</p><p><br/></p><p>For more details, please refer to our full Shipping Policy at <a href=\"https://mushpreneur.com/policies/shipping-policy\"><span style=\"text-decoration:underline\">https://mushpreneur.com/policies/shipping-policy</span></a></p>"
+          }
+        },
+        "term_pXyFXe": {
+          "type": "term",
+          "settings": {
+            "title": "Order Tracking",
+            "description": "<p>Tracking information is sent out as soon as Your order ships via the email You provided for your purchase.  If you have any questions about the status of Your order, please contact us at <a href=\"mailto:hey@mushpreneur.com\" title=\"mailto:hey@mushpreneur.com\">hey@mushpreneur.com</a>.</p>"
+          }
+        },
+        "term_PRr78f": {
+          "type": "term",
+          "settings": {
+            "title": "Payment",
+            "description": "<p>We use third-party payment processors, such as Google Pay, Apple Pay, Shop Pay, and Shopify Payments to bill you through a payment account linked to Your account on Our Services.</p>"
+          }
+        },
+        "term_AX9MTy": {
+          "type": "term",
+          "settings": {
+            "title": "Lost or Damaged Packages",
+            "description": "<p>Contact us at <a href=\"mailto:hey@mushpreneur.com\" title=\"mailto:hey@mushpreneur.com\">hey@mushpreneur.com</a> and we will help you resolve this problem.</p>"
+          }
+        },
+        "term_fPkEWh": {
+          "type": "term",
+          "settings": {
+            "title": "Using good citizenship in product posting, reviews, forums, etc.",
+            "description": "<p>You understand and agree that You will not Use Our website to post, email, upload or transmit any content that: is patently offensive, vulgar, unlawful, threatening, defamatory, abusive, tortuous, obscene, libelous, illegal, hateful, harmful, harasses or advocates harassment of another person, invasive of another person’s privacy, exploitive of people in a sexual or violent manner, racially, ethnically or otherwise objectionable or promotes racism, bigotry, hatred or physical harm of any kind against any group or individual; nor will it: Impersonate another person or post a photograph of another person as Your image; stalk or otherwise harass another; harm a minor in any way; promote commercial activities and/or sales such as contests, sweepstakes, barter, or advertising except as provided by the functionality of the Site; Nor will You post, email, upload or transmit any unsolicited or unauthorized advertising, promotional materials, junk mail, spam, unsolicited mass mailing, chain letters, or pyramid schemes; Nor will You promote an illegal or unauthorized copy of another person’s copyrighted work; upload, post, email, transmit or otherwise make available any material that contains software viruses or any other computer code, files or programs designed to interrupt, destroy or limit the functionality of any computer software including the software on this website or hardware or telecommunications equipment; Nor will You use software that automatically creates user identities; intentionally or unintentionally violate any applicable local, state, national or international law; Nor will you post hazardous, counterfeit, stolen items or items that have been identified by the U.S. Consumer Products Safety Commissions (CPSC) as hazardous to consumers and therefore subject to recall; Nor will You post a review on a business You own, control or are employed by; post inaccurate or misleading information or pictures; or misrepresenting a product or service. You understand and agree that You are solely responsible for Your interactions with other visitors.</p><p>We reserve the right, but have no obligation, to monitor disputes between You and other visitors. </p><p>Further, We may delete data and posts which violate this Agreement or for any other reason or for no reason based on Our sole discretion.</p>"
+          }
+        },
+        "term_gRPijR": {
+          "type": "term",
+          "settings": {
+            "title": "Digital Millennium Copyright Act",
+            "description": "<p>As provided for in the Digital Millennium Copyright Act; If You feel any content on this website violates Your copyrights, please contact Our designated agent:<br/><br/>Andrew Jaffe<br/>2375 Covington Rd #315<br/>Akron, OH 44313<br/>206-203-3649</p><p>by fax or regular U.S. mail (not by email) with the following information:<br/><br/></p><ol><li>A physical or electronic signature of a person authorized to act on behalf of the owner of an exclusive right that is allegedly infringed.</li><li>Identification of the copyrighted work claimed to have been infringed, or, if multiple copyrighted works at a single online site is covered by a single notification, a representative list of such works at that site.</li><li>Identification of the material that is claimed to be infringing or to be the subject of infringing activity and that is to be removed or access to which is to be disabled, and information reasonably sufficient to permit the service provider to locate the material.</li><li>Information reasonably sufficient to permit the service provider to contact You, such as an address, telephone number, and, if available, an electronic mail address at which You may be contacted.</li><li>A statement that You have a good faith belief that use of the material in the manner complained of is not authorized by the copyright owner, its agent, or the law.</li><li>A statement that the information in the notification is accurate, and under penalty of perjury, that You are authorized to act on behalf of the owner of an exclusive right that is allegedly infringed.<br/><br/></li></ol><p>Once We have received Your complaint We will:<br/></p><ol><li>Remove or disable the identified infringing material (but maintain a copy for later use);</li><li>Promptly notify the subscriber with a copy to the complaining party that We have removed or disabled access to the material; and</li><li>We will inform the subscriber that they may submit a counter-notification regarding the claimed infringing material.<br/><br/></li></ol><p>Counter Notification - To be effective under this subsection, a counter notification must be a written communication provided to the service provider's designated agent by fax or regular U.S. mail (not email) that includes substantially the following:<br/><br/></p><ol><li>A physical or electronic signature of the subscriber.</li><li>Identification of the material that has been removed or to which access has been disabled and the location at which the material appeared before it was removed or access to it was disabled.</li><li>A statement under penalty of perjury that the subscriber has a good faith belief that the material was removed or disabled as a result of mistake or misidentification of the material to be removed or disabled.</li><li>The subscriber's name, address, and telephone number, and a statement that the subscriber consents to the jurisdiction of Federal District Court for the judicial district in which the subscriber’s address is located, or if the subscriber's address is outside of the United States, for any judicial district in which the service provider may be found, and that the subscriber will accept service of process from the person who provided the counter notification or an agent of such person.</li></ol><p></p><p>Upon receipt of a counter notification We will promptly provide the complaining party with a copy of the counter notification, and inform that person that We will replace the removed material and cease disabling access to it not less than 10, nor more than 14, business days following receipt of the counter notice, unless Our designated agent first receives notice from the person who submitted the notification that such person has filed an action seeking a court order to restrain the subscriber from engaging in infringing activity relating to the material on the service provider's system or network.<br/></p>"
+          }
+        },
+        "term_iWkddh": {
+          "type": "term",
+          "settings": {
+            "title": "Trademarks",
+            "description": "<p>We hereby claim Mushpreneur®, Mushpreneur.comTM and the Mushpreneur logoTM to be trademarks of Our Company.</p><p>Mushpreneur® is a registered trademark of Mushpreneur LLC. All content displayed, including, but not limited to, applications, software and/or services that are designed to operate with the text, graphics, articles, photos, images, illustrations, user Submissions, and so forth is the property of Mushpreneur and protected by U.S. and international copyright laws, and other intellectual property laws. You understand that Mushpreneur owns the Services and all associated intellectual property.</p>"
+          }
+        },
+        "term_WxkBxR": {
+          "type": "term",
+          "settings": {
+            "title": "Copyright",
+            "description": "<p>As indicated by the notice on the bottom of Our Home Page, Mushpreneur LLCclaims a copyright to the contents of this website.</p>"
+          }
+        },
+        "term_rAYwjp": {
+          "type": "term",
+          "settings": {
+            "title": "User Generated Contributions",
+            "description": "<p>You may voluntarily post, submit or otherwise communicate to us any questions, comments, suggestions, ideas, original or creative materials or other information about Our products and websites. Your feedback is treated as nonconfidential.</p><p>You understand feedback for any purpose, commercial or otherwise, may be used by Us without acknowledgment or compensation to You, including, without limitation, to develop, copy, publish, or improve the Feedback in our sole discretion. </p>"
+          }
+        },
+        "term_zFdV3q": {
+          "type": "term",
+          "settings": {
+            "title": "Contribution License",
+            "description": "<p>By posting Your Contributions to any part of the website You automatically grant, and You represent and warrant that You have the right to grant, to Us an unrestricted, unlimited, irrevocable, perpetual, non-exclusive, transferable, royalty-free, fully-paid, worldwide right, and license to host, use, copy, reproduce, disclose, sell, resell, publish, broadcast, retitle, archive, store, cache, publicly perform, publicly display, reformat, translate, transmit, excerpt (in whole or in part), and distribute such Contributions (including, without limitation, Your image and voice) for any purpose, commercial, advertising, or otherwise, and to prepare derivative works of, or incorporate into other works, such Contributions, and grant and authorize sublicenses of the foregoing. The use and distribution may occur in any media formats and through any media channels. </p><p>This license will apply to any form, media, or technology now known or hereafter developed, and includes our use of Your name, company name, and franchise name, as applicable, and any of the trademarks, service marks, trade names, logos, and personal and commercial images You provide. You waive all moral rights in your Contributions, and you warrant those moral rights have not otherwise been asserted in Your Contributions. </p><p>We do not assert any ownership over Your Contributions. You retain full ownership of all of Your Contributions and any intellectual property rights or other proprietary rights associated with Your Contributions. We are not liable for any statements or representations in Your Contributions provided by You in any area on the website. </p><p>You are solely responsible for Your Contributions to the website and you expressly agree to exonerate Us from any and all responsibility and to refrain from any legal action against Us regarding your Contributions.  </p><p>We have the right, in our sole and absolute discretion, (1) to edit, redact, or otherwise change any Contributions; (2) to re-categorize any Contributions to place them in more appropriate locations on the Site; and (3) to pre-screen or delete any Contributions at any time and for any reason, without notice. We have no obligation to monitor Your Contributions. </p>"
+          }
+        },
+        "term_nKWfHM": {
+          "type": "term",
+          "settings": {
+            "title": "Warranties",
+            "description": "<p>THE MATERIAL DISPLAYED ON THIS WEBSITE IS PROVIDED WITHOUT ANY GUARANTEES, CONDITIONS OR WARRANTIES AS TO ITS ACCURACY. THE INFORMATION DOES NOT CONSTITUTE MEDICAL ADVICE. EVERY EFFORT HAS BEEN MADE TO ENSURE THE EFFICACY OF OUR PRODUCTS; HOWEVER, THEY HAVE NOT BEEN APPROVED BY ANY MEDICAL OR PHARMACEUTICAL LICENSING BODY.  IT IS ENTIRELY YOUR RESPONSIBILITY TO DETERMINE THAT OUR PRODUCTS ARE SUITABLE FOR YOU AND IT IS NOT OUR RESPONSIBILITY TO DO SO. UNLESS EXPRESSLY STATED TO THE CONTRARY TO THE FULLEST EXTENT PERMITTED BY LAW WE AND OUR SUPPLIERS, CONTENT PROVIDERS AND ADVERTISERS HEREBY EXPRESSLY EXCLUDE ALL CONDITIONS, WARRANTIES AND OTHER TERMS WHICH MIGHT OTHERWISE BE IMPLIED BY STATUTE, COMMON LAW OR THE LAW OF EQUITY AND SHALL NOT BE LIABLE FOR ANY DAMAGES WHATSOEVER, INCLUDING BUT WITHOUT LIMITATION TO ANY DIRECT, INDIRECT, SPECIAL, CONSEQUENTIAL, PUNITIVE OR INCIDENTAL DAMAGES, OR DAMAGES FOR LOSS OF USE, PROFITS, DATA OR OTHER INTANGIBLES, DAMAGE TO GOODWILL OR REPUTATION, OR THE COST OF PROCUREMENT OF SUBSTITUTE GOODS AND SERVICES, ARISING OUT OF OR RELATED TO THE USE, INABILITY TO USE, PERFORMANCE OR<strong> </strong>FAILURES OF THIS WEBSITE OR THE LINKED SITES AND ANY MATERIALS POSTED THEREON, IRRESPECTIVE OF WHETHER SUCH DAMAGES WERE FORESEEABLE OR ARISE IN CONTRACT, TORT, EQUITY, RESTITUTION, BY STATUTE, AT COMMON LAW OR OTHERWISE, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. THIS DOES NOT AFFECT OUR LIABILITY FOR DEATH OR PERSONAL INJURY ARISING FROM OUR NEGLIGENCE, NOR FOR FRAUDULENT MISREPRESENTATION, MISREPRESENTATION AS TO A FUNDAMENTAL MATTER OR ANY OTHER LIABILITY WHICH CANNOT BE EXCLUDED OR LIMITED UNDER APPLICABLE LAW.</p>"
+          }
+        },
+        "term_RKAEKd": {
+          "type": "term",
+          "settings": {
+            "title": "Limitation of Liability",
+            "description": "<p>TO THE MAXIMUM EXTENT LEGALLY PERMITTED, WHETHER OR NOT WE ARE OR WERE AWARE OR ADVISED OF THE POSSIBILITY OF DAMAGES, AND WHETHER OR NOT THE LIMITED REMEDIES PROVIDED HEREIN FAIL OF THEIR ESSENTIAL PURPOSE, OUR AGGREGATE LIABILITY (WHETHER FOR BREACH OF CONTRACT, TORT OR ANY OTHER LEGAL THEORY) SHALL IN NO CIRCUMSTANCES EXCEED THE COST OF OUR PRODUCTS YOU ORDERED. FURTHER, UNDER NO CIRCUMSTANCES SHALL WE BE LIABLE FOR SPECIAL, INCIDENTAL, INDIRECT, OR CONSEQUENTIAL DAMAGES, LOST PROFITS, LOST REVENUE, OR COST OF COVER.  OUR PRODUCTS ARE SOLD AND DELIVERED TO YOU “AS IS” WITH NO WARRANTY WHATSOEVER.  EXCEPT AS EXPRESSLY STATED OTHERWISE IN THIS SECTION, WE MAKE NO EXPRESS WARRANTIES OR REPRESENTATIONS AND WE DISCLAIM ALL IMPLIED WARRANTIES AND REPRESENTATIONS, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.</p>"
+          }
+        },
+        "term_Vgt6EJ": {
+          "type": "term",
+          "settings": {
+            "title": "Indemnification",
+            "description": "<p>You hereby warrant that You will not use the information provided by Us in violation of any International, Local, State or Federal law.  Further, You agree to indemnify, defend, and hold Us harmless, as well as holding harmless Our parents, subsidiaries, affiliates, officers, directors, employees, agents, and suppliers, and their respective affiliates, officers, directors, employees, and agents, from any claim, action, demand, or damage, including reasonable attorney's fees, made by any third party or governmental agency arising out of or related to Your use of any service offered by Us or Your violation of this Agreement, including without limitation, claims or suits for libel, violation of rights of privacy or publicity, interference with property rights, trespass, violations of International, Local, Federal or State Law, patent infringement or plagiarism.  We may, at Our sole discretion, assume the exclusive defense and control of any matter subject to indemnification by You. The assumption of such defense or control by Us, however, shall not excuse any of Your indemnity obligations.<br/></p>"
+          }
+        },
+        "term_d78V7y": {
+          "type": "term",
+          "settings": {
+            "title": "Force Majeure",
+            "description": "<p>We shall not be liable for delays or nonperformance of this Agreement caused by strike, fire or accidents, nor shall We be liable for delay or nonperformance caused by lack of availability of materials, fuel or utilities or for any other cause beyond Our control.</p>"
+          }
+        },
+        "term_y3WwYW": {
+          "type": "term",
+          "settings": {
+            "title": "Assignment",
+            "description": "<p>You may not assign the rights or obligations under this Agreement.</p>"
+          }
+        },
+        "term_9E4qR8": {
+          "type": "term",
+          "settings": {
+            "title": "Entire Agreement",
+            "description": "<p>Except as modified or supplemented by a writing executed by both parties, the Terms and Conditions described herein are the only representations, warranties, and understandings between the parties with respect to the products and/or services described herein.</p>"
+          }
+        },
+        "term_cxfNr7": {
+          "type": "term",
+          "settings": {
+            "title": "Dispute Resolution",
+            "description": "<p>In the event of a dispute, You agree to attempt to resolve the dispute by contacting Us at <a href=\"mailto:hey@mushpreneur.com\" title=\"mailto:hey@mushpreneur.com\">hey@mushpreneur.co</a>m prior to taking any other action.  Failure to contact Us to attempt a dispute resolution prior to taking any other action will result in a breach of this Agreement by You.  </p><p>This Agreement shall be construed in accordance with the laws of the state of New Jersey and in the event of any dispute or claim associated with these Terms and Conditions or another dispute between You and Us, that dispute or claim shall be subject to the exclusive jurisdiction of the New Jersey courts serving Hudson County.</p><p>You hereby waive any right to a trial by jury in the event of any controversy or claim relating to this Agreement.  In addition to the foregoing, in the event of any breach or violation of this Agreement, We shall be entitled to enforce all of Our legal remedies for the breach or wrongful activity including, but not limited to seeking actual damages, the maximum amount of statutory damages under applicable statutes and Acts, profits, treble damages, and attorneys’ fees and costs.  These remedies and damages are in addition to the monetary payments described above and/or any amounts otherwise due under this Agreement.</p>"
+          }
+        },
+        "term_3eKKcE": {
+          "type": "term",
+          "settings": {
+            "title": "Chargeback Policy",
+            "description": "<p>If You purchase a product from Our website and then attempt to dispute Your purchase via a chargeback without communicating with Mushpreneur as stated in the DISPUTE RESOLUTION section above, you will be in breach of Our Agreement and We have the right to investigate further and have the authority to take legal action against You.  You will also be banned from ever purchasing on Our website in the future.</p>"
+          }
+        },
+        "term_7aeVVz": {
+          "type": "term",
+          "settings": {
+            "title": "Severability",
+            "description": "<p>If any provision, or portion thereof, of this Agreement is held by a court of competent jurisdiction to be invalid under any applicable statute or rule of law, You and We agree that such invalidity shall not affect the validity of the remaining portions of this Agreement and further agree to substitute for the invalid provision a valid provision which most closely approximates the intent and economic effect of the invalid provisions.</p>"
+          }
+        },
+        "term_PDGYLe": {
+          "type": "term",
+          "settings": {
+            "title": "Headings",
+            "description": "<p>The headings of this Agreement are for convenience only and shall not be used to construe the meaning of this Agreement.</p>"
+          }
+        },
+        "term_ThxGki": {
+          "type": "term",
+          "settings": {
+            "title": "Agreement Updates",
+            "description": "<p>This Agreement is effective as of January 1, 2025. We reserve the right to revise this policy from time to time without prior notice.  You will be notified of any material changes in Our Terms of Service either by email or by a conspicuous posting on Our web site.</p><p></p><p>Mushpreneur LLC<br/>33 Park View Ave<br/>Jersey City, NJ 07302<br/>hey@mushpreneur.com<br/>551-213-1388</p>"
+          }
+        }
+      },
+      "block_order": [
+        "term_rLQ3pr",
+        "term_nNMWT6",
+        "term_3PX3tT",
+        "term_zwLdgF",
+        "term_pXyFXe",
+        "term_PRr78f",
+        "term_AX9MTy",
+        "term_fPkEWh",
+        "term_gRPijR",
+        "term_iWkddh",
+        "term_WxkBxR",
+        "term_rAYwjp",
+        "term_zFdV3q",
+        "term_nKWfHM",
+        "term_RKAEKd",
+        "term_Vgt6EJ",
+        "term_d78V7y",
+        "term_y3WwYW",
+        "term_9E4qR8",
+        "term_cxfNr7",
+        "term_3eKKcE",
+        "term_7aeVVz",
+        "term_PDGYLe",
+        "term_ThxGki"
+      ],
+      "settings": {
+        "header": "Terms of Service",
+        "header_text": "Welcome to a website of Mushpreneur LLC located at mushpreneur.com (hereinafter “We”, “Us”, “Our”).  We thank You (any visitor to Our web site and hereinafter \"You\" or \"Your\") for visiting Our site and considering Our products and services. \n\nBy using this website or by clicking the checkbox which states “I have read and agree to the Terms of Service and Privacy Policy of this website as well as the website’s use of cookies”; You hereby agree to the terms and conditions of this Terms of Service (hereinafter “Agreement”) which, along with the consideration of the mutual promises You and We make to each other, then becomes a binding contract between You and Us."
+      }
+    }
+  },
+  "order": [
+    "main",
+    "mush_terms_of_service_BEmkrX"
+  ]
+}
