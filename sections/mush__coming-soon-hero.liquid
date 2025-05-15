@@ -170,29 +170,20 @@
       responseMessage.classList.remove("text-orange", "text-successgreen");
 
       try {
-        // Call our proxy endpoint instead of ZeroBounce directly
-        const proxyResponse = await fetch('/apps/email-validator/validate', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            email: email,
-            ip_address: geoData.ip
-          })
-        });
+        const zerobounceResponse = await fetch(`https://api.zerobounce.net/v2/validate?api_key={{ settings.zerobounce_api_key | json }}&email=${encodeURIComponent(email)}&ip_address=${geoData.ip}`);
+        const validationData = await zerobounceResponse.json();
         
-        const validationData = await proxyResponse.json();
-        console.log('Email validation data:', validationData);
+        console.log('ZeroBounce validation data:', validationData);
 
-        if (!validationData.isValid) {
-          responseMessage.innerText = validationData.message || "Invalid or undeliverable email address.";
+        // ZeroBounce status can be: valid, invalid, catch-all, unknown, spamtrap, abuse, do_not_mail
+        if (validationData.status !== "valid") {
+          responseMessage.innerText = "Invalid or undeliverable email address.";
           responseMessage.classList.add("text-orange");
           return;
         }
 
       } catch (error) {
-        console.error("Email validation error:", error);
+        console.error("ZeroBounce error:", error);
         responseMessage.innerText = "Email validation failed. Please try again.";
         responseMessage.classList.add("text-orange");
         return;
