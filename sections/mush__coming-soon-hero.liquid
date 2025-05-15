@@ -165,35 +165,26 @@
         return;
       }
 
-
-      // 6️⃣ Verifalia Email Validation
+      // 6️⃣ ZeroBounce Email Validation
       responseMessage.innerText = "Validating email...";
       responseMessage.classList.remove("text-orange", "text-successgreen");
 
       try {
-        const verifaliaResponse = await fetch("https://api.verifalia.com/v2.5/email-validations", {
-          method: "POST",
-          headers: {
-            Authorization: "Basic " + btoa("1795045dadd04f18b96699689c79e8c5:Prernadev@123"),
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            entries: [{ inputData: email }]
-          })
-        });
+        const ZEROBOUNCE_API_KEY = "YOUR_ZEROBOUNCE_API_KEY";
+        const zerobounceResponse = await fetch(`https://api.zerobounce.net/v2/validate?api_key=${ZEROBOUNCE_API_KEY}&email=${encodeURIComponent(email)}&ip_address=${geoData.ip}`);
+        const validationData = await zerobounceResponse.json();
+        
+        console.log('ZeroBounce validation data:', validationData);
 
-        const validationData = await verifaliaResponse.json();
-        const result = validationData.entries.data[0]?.classification;
-        console.log('validationData', validationData)
-        console.log('Verifalia redult: ', result)
-
-        if (result !== "Deliverable") {
+        // ZeroBounce status can be: valid, invalid, catch-all, unknown, spamtrap, abuse, do_not_mail
+        if (validationData.status !== "valid") {
           responseMessage.innerText = "Invalid or undeliverable email address.";
           responseMessage.classList.add("text-orange");
           return;
         }
+
       } catch (error) {
-        console.error("Verifalia error:", error);
+        console.error("ZeroBounce error:", error);
         responseMessage.innerText = "Email validation failed. Please try again.";
         responseMessage.classList.add("text-orange");
         return;
