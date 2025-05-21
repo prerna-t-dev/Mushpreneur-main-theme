@@ -106,6 +106,12 @@
 
 
 <script>
+  // Define the callback function that Turnstile looks for when loaded
+  window.onloadTurnstileCallback = function() {
+    console.log("Turnstile API loaded via callback");
+    window.turnstileLoaded = true;
+  };
+  
   document.addEventListener("DOMContentLoaded", function () {
     // Check if site key is configured
     const turnstileSiteKey = "{{ settings.cf_turnstile_site_key }}";
