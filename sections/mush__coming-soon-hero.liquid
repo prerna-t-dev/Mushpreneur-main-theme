@@ -319,7 +319,7 @@
       }
       
       // Check if turnstile was completed
-      if (!typeof window.turnstile !== 'undefined') {
+      if (typeof window.turnstile === 'undefined') {
         // Try to load it once more
         loadTurnstileScript(function() {
           responseMessage.innerText = "Verification service loaded. Please try again.";
