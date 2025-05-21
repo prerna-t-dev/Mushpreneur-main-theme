@@ -53,8 +53,8 @@
                           <button type="submit" class="coming-soon--submit-btn w-full min-h-[54px] btn bg-gradient-to-r from-[#F2008C] to-[#E74936] text-black uppercase cursor-pointer text-sm xl:text-xl font-semibold leading-[1.1] tracking-[-0.7px] xl:tracking-[-1.037px] max-w-[250px]">JOIN THE LIST</button>
                         </div>
 
-                         <!-- Cloudflare Turnstile -->
-                        <div id="turnstile-container"></div>
+                        <!-- Cloudflare Turnstile - Using class-based approach from their docs -->
+                        <div class="cf-turnstile" data-sitekey="0x4AAAAABeBT0ggatQl3Tpt"></div>
 
     
                     </form>
@@ -106,26 +106,6 @@
     const honeypotField = document.getElementById("honeypot-field");
     const responseMessage = document.getElementById("response-message-cs");
     
-    // Simple init for Turnstile
-    let turnstileWidgetId;
-    
-    function initTurnstile() {
-      if (window.turnstile) {
-        turnstileWidgetId = window.turnstile.render('#turnstile-container', {
-          sitekey: '0x4AAAAABeBT0ggatQl3Tpt',
-          callback: function(token) {
-            console.log('Turnstile verification successful, token:', token);
-          }
-        });
-      } else {
-        // If not available yet, try again in a second
-        setTimeout(initTurnstile, 1000);
-      }
-    }
-    
-    // Try to initialize Turnstile
-    initTurnstile();
-    
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
 
@@ -164,20 +144,15 @@
         return;
       }
       
-      // 4️⃣ Get Turnstile token
-      if (!window.turnstile) {
-        responseMessage.innerText = "Verification service is not available. Please try again later.";
-        responseMessage.style.color = "#e45825";
-        return;
-      }
-      
-      const turnstileToken = window.turnstile.getResponse(turnstileWidgetId);
-      if (!turnstileToken) {
+      // 4️⃣ Get Turnstile token - simplified approach
+      const turnstileResponse = document.querySelector('[name="cf-turnstile-response"]');
+      if (!turnstileResponse || !turnstileResponse.value) {
         responseMessage.innerText = "Please complete the verification challenge.";
         responseMessage.style.color = "#e45825";
         return;
       }
-      console.log("✅ Turnstile client-side check passed");
+      const turnstileToken = turnstileResponse.value;
+      console.log("✅ Turnstile response found:", turnstileToken);
 
       // 5️⃣ ZeroBounce Email Validation and Turnstile Server-Side Validation
       responseMessage.innerText = "Validating email and verification...";
@@ -208,7 +183,7 @@
           responseMessage.innerText = "Verification challenge failed. Please try again.";
           responseMessage.style.color = "#e45825";
           if (window.turnstile) {
-            window.turnstile.reset(turnstileWidgetId);
+            window.turnstile.reset();
           }
           return;
         }
@@ -302,7 +277,7 @@
             "Thank you for joining the Day Shrooms Launch List! Your first email is on its way to your inbox.";
           form.reset();
           if (window.turnstile) {
-            window.turnstile.reset(turnstileWidgetId);
+            window.turnstile.reset();
           }
         } else {
           console.error("Klaviyo API Error:", result);
