@@ -188,7 +188,7 @@
       const checkTurnstile = function() {
         attempts++;
         
-        if (isTurnstileScriptLoaded()) {
+        if (typeof window.turnstile !== 'undefined' && typeof window.turnstile.render === 'function') {
           console.log("Turnstile API found on attempt " + attempts);
           callback();
           return;
@@ -228,31 +228,28 @@
         // Only render if not already rendered
         if (!turnstileWidgetId) {
           try {
-            // Get the site key from the Shopify settings and ensure it's a string
-            const siteKey = String("{{ settings.cf_turnstile_site_key }}").trim();
+            // Directly use a string for sitekey rather than a variable
+            console.log("About to render Turnstile widget with fixed parameters");
             
-            if (!siteKey) {
-              console.error("Turnstile site key is missing or empty");
-              responseMessage.innerText = "Verification service configuration error. Please contact support.";
-              return;
-            }
-            
-            console.log("Using site key:", siteKey);
-            
-            turnstileWidgetId = turnstile.render('#cf-turnstile-container', {
-              "sitekey": "0x4AAAAABeBT0ggatQl3Tpt", // Hardcoded key from your logs
-              "callback": function(token) {
-                console.log("Turnstile callback received");
-                // Auto-submit the form if token is received
-                if (token) {
-                  responseMessage.innerText = "Verification successful! Submitting...";
-                  setTimeout(function() {
-                    form.dispatchEvent(new Event('submit'));
-                  }, 500);
+            try {
+              turnstileWidgetId = window.turnstile.render('#cf-turnstile-container', {
+                sitekey: "0x4AAAAABeBT0ggatQl3Tpt", // Hardcoded key from your logs
+                callback: function(token) {
+                  console.log("Turnstile callback received");
+                  // Auto-submit the form if token is received
+                  if (token) {
+                    responseMessage.innerText = "Verification successful! Submitting...";
+                    setTimeout(function() {
+                      form.dispatchEvent(new Event('submit'));
+                    }, 500);
+                  }
                 }
-              }
-            });
-            console.log("Turnstile widget rendered successfully with ID:", turnstileWidgetId);
+              });
+              console.log("Turnstile widget rendered successfully with ID:", turnstileWidgetId);
+            } catch(e) {
+              console.error("Error rendering Turnstile widget:", e);
+              responseMessage.innerText = "Verification service error. Please refresh and try again.";
+            }
           } catch(e) {
             console.error("Error rendering Turnstile widget:", e);
             responseMessage.innerText = "Verification service error. Please refresh and try again.";
