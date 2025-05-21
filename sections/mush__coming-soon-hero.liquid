@@ -14,10 +14,8 @@
     } */
 
     .cf-turnstile {
-      display: none;
-    }
-    .cf-turnstile.visible {
-        display: block;
+      display: block;
+      margin: 20px auto;
     }
     
 </style>
@@ -103,7 +101,7 @@
 
 
 
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback" async defer></script>
 
 
 <script>
@@ -111,16 +109,18 @@
     const form = document.getElementById("klaviyo-signup-form--comingsoon");
     const emailInput = document.getElementById("comingsoon-newsletter-email");
     const honeypotField = document.getElementById("honeypot-field");
-    // const turnstile = document.querySelector(".cf-turnstile");
+    const turnstileElement = document.querySelector(".cf-turnstile");
     const responseMessage = document.getElementById("response-message-cs");
 
-    // let turnstileTriggered = false;
+    // Reset Turnstile on form load - helps with rendering issues
+    window.onloadTurnstileCallback = function() {
+      console.log("Turnstile widget loaded");
+    };
 
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
 
       const email = emailInput.value;
-      // const turnstileResponse = turnstile.getResponse();
 
       // 1️⃣ Basic Email Validation (Regex)
       const emailPattern = /^[a-zA-Z0-9.]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -283,9 +283,6 @@
           responseMessage.innerText =
             "Thank you for joining the Day Shrooms Launch List! Your first email is on its way to your inbox.";
           form.reset();
-          // turnstile.reset();
-          // turnstile.classList.remove("visible"); // Hide Turnstile after success
-          // turnstileTriggered = false;
         } else {
           console.error("Klaviyo API Error:", result);
           responseMessage.classList.add("text-orange");
