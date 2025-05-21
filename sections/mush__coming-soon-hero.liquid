@@ -328,8 +328,9 @@
         return;
       }
       
+      let turnstileToken;
       try {
-        const turnstileToken = window.turnstile.getResponse(turnstileWidgetId);
+        turnstileToken = window.turnstile.getResponse(turnstileWidgetId);
         if (!turnstileToken) {
           responseMessage.innerText = "Please complete the verification below.";
           responseMessage.classList.add("text-orange");
