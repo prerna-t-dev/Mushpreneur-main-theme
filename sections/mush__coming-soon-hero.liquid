@@ -105,19 +105,23 @@
   document.addEventListener("DOMContentLoaded", function () {
 
   function loadTurnstileWidget() {
-    console.log("Loading Turnstile widget...");
-      if (window.turnstile && typeof window.turnstile.render === 'function') {
-        window.turnstile.render('.cf-turnstile', {
+  if (typeof window.turnstile !== 'undefined' && typeof window.turnstile.render === 'function') {
+    document.querySelectorAll('.cf-turnstile').forEach(el => {
+      if (!el.hasAttribute('data-rendered')) {
+        window.turnstile.render(el, {
           sitekey: '0x4AAAAABeBT0ggatQl3Tpt',
-          theme: 'light' // or 'dark'
+          theme: 'light'
         });
-      } else {
-        // Try again after a short delay until turnstile is available
-        setTimeout(loadTurnstileWidget, 100);
+        el.setAttribute('data-rendered', 'true');
+      }
+    });
+  } else {
+        setTimeout(loadTurnstileWidget, 200);
       }
     }
 
     loadTurnstileWidget();
+
 
 
 
