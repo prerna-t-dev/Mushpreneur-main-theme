@@ -1465,24 +1465,5 @@
         "default": "scheme-1"
       }
     ]
-  },
-  {
-    "name": "Third-Party Integrations",
-    "settings": [
-      {
-        "type": "header",
-        "content": "Cloudflare Turnstile"
-      },
-      {
-        "type": "paragraph",
-        "content": "Enter your Cloudflare Turnstile keys to protect your forms from spam and bots."
-      },
-      {
-        "type": "text",
-        "id": "cf_turnstile_site_key",
-        "label": "Turnstile Site Key (Public)",
-        "info": "The site key for Cloudflare Turnstile visible in your HTML"
-      }
-    ]
   }
 ]
