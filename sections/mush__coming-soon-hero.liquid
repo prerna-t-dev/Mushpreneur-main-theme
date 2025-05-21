@@ -105,24 +105,6 @@
 <script>
   document.addEventListener("DOMContentLoaded", function () {
 
-  function loadTurnstileWidget() {
-  if (typeof window.turnstile !== 'undefined' && typeof window.turnstile.render === 'function') {
-    document.querySelectorAll('.cf-turnstile').forEach(el => {
-      if (!el.hasAttribute('data-rendered')) {
-        window.turnstile.render(el, {
-          sitekey: '0x4AAAAABeBT0ggatQl3Tpt',
-          theme: 'light'
-        });
-        el.setAttribute('data-rendered', 'true');
-      }
-    });
-  } else {
-        setTimeout(loadTurnstileWidget, 200);
-      }
-    }
-
-    loadTurnstileWidget();
-
 
 
 
