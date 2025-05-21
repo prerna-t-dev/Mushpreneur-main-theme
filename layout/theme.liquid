@@ -337,17 +337,7 @@
     <script src="https://app.enzuzo.com/scripts/cookiebar/4cb53556-df42-11ef-a187-43a7a8ecc293"></script>
 
     {% comment %} Cloudflare Turnstile Script {% endcomment %}
-    <script>
-      // Define global callback function for Turnstile to call when loaded
-      window.onloadTurnstileCallback = function() {
-        console.log("Turnstile API loaded from theme.liquid");
-        window.turnstileLoaded = true;
-        
-        // Dispatch an event that we can listen for
-        document.dispatchEvent(new Event('turnstileLoaded'));
-      };
-    </script>
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback" async defer></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
   </head>
 
