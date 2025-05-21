@@ -106,6 +106,12 @@
 
 
 <script>
+  // Define global callback function for Turnstile to call when loaded
+  window.onloadTurnstileCallback = function() {
+    console.log("Turnstile API loaded");
+    window.turnstileLoaded = true;
+  };
+  
   document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("klaviyo-signup-form--comingsoon");
     const emailInput = document.getElementById("comingsoon-newsletter-email");
@@ -117,6 +123,29 @@
     let turnstileShown = false;
     let turnstileWidgetId = null;
     
+    // Function to check if turnstile is loaded
+    function waitForTurnstile(callback, maxAttempts = 10, interval = 300) {
+      let attempts = 0;
+      
+      const checkTurnstile = function() {
+        attempts++;
+        if (window.turnstile && typeof window.turnstile.render === 'function') {
+          callback();
+          return;
+        }
+        
+        if (attempts < maxAttempts) {
+          setTimeout(checkTurnstile, interval);
+        } else {
+          console.error("Turnstile failed to load after maximum attempts");
+          responseMessage.innerText = "Verification service unavailable. Please try again later.";
+          responseMessage.classList.add("text-orange");
+        }
+      };
+      
+      checkTurnstile();
+    }
+    
     // Function to show turnstile
     function showTurnstile() {
       turnstileContainer.classList.add('visible');
@@ -124,15 +153,17 @@
       responseMessage.innerText = "Please complete the verification below.";
       responseMessage.classList.add("text-orange");
       
-      // Only render if not already rendered
-      if (!turnstileWidgetId) {
-        turnstileWidgetId = turnstile.render('#cf-turnstile-container', {
-          sitekey: '{{ settings.cf_turnstile_site_key }}',
-          callback: function(token) {
-            console.log("Turnstile callback received");
-          },
-        });
-      }
+      waitForTurnstile(function() {
+        // Only render if not already rendered
+        if (!turnstileWidgetId) {
+          turnstileWidgetId = turnstile.render('#cf-turnstile-container', {
+            sitekey: '{{ settings.cf_turnstile_site_key }}',
+            callback: function(token) {
+              console.log("Turnstile callback received");
+            }
+          });
+        }
+      });
       
       window.scrollTo({
         top: turnstileContainer.offsetTop - 100,
@@ -142,7 +173,7 @@
     
     // Function to reset turnstile
     function resetTurnstile() {
-      if (turnstileWidgetId) {
+      if (window.turnstile && turnstileWidgetId) {
         turnstile.reset(turnstileWidgetId);
       }
     }
@@ -193,6 +224,12 @@
       }
       
       // Check if turnstile was completed
+      if (!window.turnstile) {
+        responseMessage.innerText = "Verification service unavailable. Please try again later.";
+        responseMessage.classList.add("text-orange");
+        return;
+      }
+      
       const turnstileToken = turnstile.getResponse(turnstileWidgetId);
       if (!turnstileToken) {
         responseMessage.innerText = "Please complete the verification below.";
