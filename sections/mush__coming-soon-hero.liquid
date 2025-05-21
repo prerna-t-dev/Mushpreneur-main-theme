@@ -107,6 +107,15 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
+    // Check if site key is configured
+    const turnstileSiteKey = "{{ settings.cf_turnstile_site_key }}";
+    if (!turnstileSiteKey || turnstileSiteKey.trim() === '') {
+      console.error("ERROR: Cloudflare Turnstile site key is not configured in theme settings.");
+      console.error("Please go to Theme Settings > Cloudflare Turnstile and enter your site key.");
+    } else {
+      console.log("Turnstile site key configured:", turnstileSiteKey);
+    }
+    
     const form = document.getElementById("klaviyo-signup-form--comingsoon");
     const emailInput = document.getElementById("comingsoon-newsletter-email");
     const honeypotField = document.getElementById("honeypot-field");
