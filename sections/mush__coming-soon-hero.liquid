@@ -147,8 +147,6 @@
       // 4️⃣ Get Turnstile token - simplified approach
       const turnstileResponse = document.querySelector('[name="cf-turnstile-response"]');
       if (!turnstileResponse || !turnstileResponse.value) {
-        responseMessage.innerText = "Please complete the verification challenge.";
-        responseMessage.style.color = "#e45825";
         return;
       }
       const turnstileToken = turnstileResponse.value;
