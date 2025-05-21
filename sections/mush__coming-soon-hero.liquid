@@ -280,7 +280,7 @@
           responseMessage.style.color = "#4caf50";
           responseMessage.innerText =
             "Thank you for joining the Day Shrooms Launch List! Your first email is on its way to your inbox.";
-          form.reset();
+          emailInput.value = ''; // Clear just the email input
           if (window.turnstile) {
             window.turnstile.reset();
           }
