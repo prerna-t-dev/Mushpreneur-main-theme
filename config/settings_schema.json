@@ -8,17 +8,6 @@
     "theme_support_url": "https://support.shopify.com/"
   },
   {
-    "name": "API Settings",
-    "settings": [
-      {
-        "type": "text",
-        "id": "zerobounce_api_key",
-        "label": "ZeroBounce API Key",
-        "info": "Enter your ZeroBounce API key for email validation"
-      }
-    ]
-  },
-  {
     "name": "t:settings_schema.logo.name",
     "settings": [
       {
