@@ -159,12 +159,20 @@
       // Create and add the script
       console.log("Creating new Turnstile script tag");
       const script = document.createElement('script');
+      // Make sure onloadTurnstileCallback is defined before loading the script
+      if (typeof window.onloadTurnstileCallback !== 'function') {
+        window.onloadTurnstileCallback = function() {
+          console.log("Turnstile API loaded via dynamically created callback");
+          window.turnstileLoaded = true;
+          if (callback) callback();
+        };
+      }
       script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback";
       script.async = true;
       script.defer = true;
       script.onload = function() {
         console.log("Turnstile script loaded via dynamic insertion");
-        if (callback) callback();
+        // The callback will be called by onloadTurnstileCallback
       };
       script.onerror = function(e) {
         console.error("Error loading Turnstile script:", e);
