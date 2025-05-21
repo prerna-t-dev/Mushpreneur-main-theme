@@ -231,25 +231,20 @@
             // Directly use a string for sitekey rather than a variable
             console.log("About to render Turnstile widget with fixed parameters");
             
-            try {
-              turnstileWidgetId = window.turnstile.render('#cf-turnstile-container', {
-                sitekey: "0x4AAAAABeBT0ggatQl3Tpt", // Hardcoded key from your logs
-                callback: function(token) {
-                  console.log("Turnstile callback received");
-                  // Auto-submit the form if token is received
-                  if (token) {
-                    responseMessage.innerText = "Verification successful! Submitting...";
-                    setTimeout(function() {
-                      form.dispatchEvent(new Event('submit'));
-                    }, 500);
-                  }
+            turnstileWidgetId = window.turnstile.render('#cf-turnstile-container', {
+              sitekey: "0x4AAAAABeBT0ggatQl3Tpt", // Hardcoded key from your logs
+              callback: function(token) {
+                console.log("Turnstile callback received");
+                // Auto-submit the form if token is received
+                if (token) {
+                  responseMessage.innerText = "Verification successful! Submitting...";
+                  setTimeout(function() {
+                    form.dispatchEvent(new Event('submit'));
+                  }, 500);
                 }
-              });
-              console.log("Turnstile widget rendered successfully with ID:", turnstileWidgetId);
-            } catch(e) {
-              console.error("Error rendering Turnstile widget:", e);
-              responseMessage.innerText = "Verification service error. Please refresh and try again.";
-            }
+              }
+            });
+            console.log("Turnstile widget rendered successfully with ID:", turnstileWidgetId);
           } catch(e) {
             console.error("Error rendering Turnstile widget:", e);
             responseMessage.innerText = "Verification service error. Please refresh and try again.";
