@@ -131,12 +131,14 @@
         responseMessage.classList.add("text-orange");
         return;
       }
+      console.log("✅ Basic email format validation passed");
 
       // 2️⃣ Honeypot Check (If filled, stop submission)
       if (honeypotField.value) {
         console.warn("Spam bot detected. Form submission aborted.");
         return;
       }
+      console.log("✅ Honeypot check passed");
 
       /* Turnstile validation - commented out for now
       // 3️⃣ If Turnstile is not yet shown, show it and stop form submission
@@ -189,6 +191,7 @@
           responseMessage.classList.add("text-orange");
           return;
         }
+        console.log("✅ Geolocation check passed - User is from allowed country");
       } catch (error) {
         console.error("Geolocation API failed", error);
         responseMessage.innerText = "Unable to verify location. Please try again later.";
@@ -212,6 +215,7 @@
           responseMessage.classList.add("text-orange");
           return;
         }
+        console.log("✅ ZeroBounce email validation passed");
 
       } catch (error) {
         console.error("ZeroBounce error:", error);
@@ -221,6 +225,7 @@
       }
 
       // 5️⃣ Proceed with API request after all validations
+      console.log("✅ All validations passed, proceeding with Klaviyo subscription");
       const KLAVIYO_PUBLIC_API_KEY = "VqRB85";
       const LIST_ID = "Xd8yqJ";
       const url = `https://a.klaviyo.com/client/subscriptions?company_id=${KLAVIYO_PUBLIC_API_KEY}`;
