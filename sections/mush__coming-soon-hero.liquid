@@ -106,13 +106,24 @@
     const honeypotField = document.getElementById("honeypot-field");
     const responseMessage = document.getElementById("response-message-cs");
     
-    // Initialize Turnstile - using the simple approach
-    turnstile.render('#cf-turnstile', {
-      sitekey: '0x4AAAAABeBT0ggatQl3Tpt',
-      callback: function(token) {
-        console.log("Turnstile verified with token:", token);
+    // Function to check if Turnstile is loaded and initialize it
+    function initTurnstile() {
+      if (typeof window.turnstile !== 'undefined') {
+        // Initialize Turnstile only when the script is loaded
+        window.turnstile.render('#cf-turnstile', {
+          sitekey: '0x4AAAAABeBT0ggatQl3Tpt',
+          callback: function(token) {
+            console.log("Turnstile verified with token:", token);
+          }
+        });
+      } else {
+        // If not loaded yet, check again in 100ms
+        setTimeout(initTurnstile, 100);
       }
-    });
+    }
+    
+    // Start the initialization process
+    initTurnstile();
     
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
@@ -153,7 +164,13 @@
       }
       
       // 4️⃣ Get Turnstile token
-      const turnstileToken = turnstile.getResponse('#cf-turnstile');
+      if (typeof window.turnstile === 'undefined') {
+        responseMessage.innerText = "Verification service is loading. Please try again in a moment.";
+        responseMessage.style.color = "#e45825";
+        return;
+      }
+      
+      const turnstileToken = window.turnstile.getResponse('#cf-turnstile');
       if (!turnstileToken) {
         responseMessage.innerText = "Please complete the verification challenge below.";
         responseMessage.style.color = "#e45825";
@@ -189,7 +206,7 @@
         if (validationData.turnstileError) {
           responseMessage.innerText = "Verification challenge failed. Please try again.";
           responseMessage.style.color = "#e45825";
-          turnstile.reset('#cf-turnstile'); // Reset the widget
+          window.turnstile.reset('#cf-turnstile'); // Reset the widget
           return;
         }
         console.log("✅ Turnstile server-side verification passed");
@@ -281,7 +298,7 @@
           responseMessage.innerText =
             "Thank you for joining the Day Shrooms Launch List! Your first email is on its way to your inbox.";
           form.reset();
-          turnstile.reset('#cf-turnstile'); // Reset the widget
+          window.turnstile.reset('#cf-turnstile'); // Reset the widget
         } else {
           console.error("Klaviyo API Error:", result);
           responseMessage.style.color = "#e45825";
