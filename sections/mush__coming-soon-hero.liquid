@@ -260,9 +260,9 @@
     
     // Function to reset turnstile
     function resetTurnstile() {
-      if (window.turnstile && turnstileWidgetId) {
+      if (typeof window.turnstile !== 'undefined' && turnstileWidgetId) {
         try {
-          turnstile.reset(turnstileWidgetId);
+          window.turnstile.reset(turnstileWidgetId);
         } catch(e) {
           console.error("Error resetting Turnstile:", e);
           turnstileWidgetId = null; // Reset the ID so we'll try to render it again next time
