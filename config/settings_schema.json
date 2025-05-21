@@ -1465,5 +1465,44 @@
         "default": "scheme-1"
       }
     ]
+  },
+  {
+    "name": "Third-Party Integrations",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Cloudflare Turnstile"
+      },
+      {
+        "type": "paragraph",
+        "content": "Enter your Cloudflare Turnstile keys to protect your forms from spam and bots."
+      },
+      {
+        "type": "text",
+        "id": "cf_turnstile_site_key",
+        "label": "Turnstile Site Key (Public)",
+        "info": "The site key for Cloudflare Turnstile visible in your HTML"
+      },
+      {
+        "type": "text",
+        "id": "cf_turnstile_secret_key",
+        "label": "Turnstile Secret Key (Private)",
+        "info": "The secret key for verifying Turnstile responses"
+      },
+      {
+        "type": "header",
+        "content": "ZeroBounce"
+      },
+      {
+        "type": "paragraph",
+        "content": "Enter your ZeroBounce API key for email validation."
+      },
+      {
+        "type": "text",
+        "id": "zerobounce_api_key",
+        "label": "ZeroBounce API Key",
+        "info": "API key for validating email addresses"
+      }
+    ]
   }
 ]
