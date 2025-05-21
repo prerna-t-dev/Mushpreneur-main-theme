@@ -9,7 +9,6 @@
  */
 {
   "current": {
-    "zerobounce_api_key": "0cbb71bed4eb4d149b54a19674eef16a",
     "logo_width": 90,
     "type_header_font": "figtree_n4",
     "heading_scale": 100,
@@ -121,6 +120,8 @@
     "show_vendor": false,
     "show_cart_note": false,
     "cart_drawer_collection": "",
+    "cf_turnstile_site_key": "0x4AAAAAABeBT0ggatQ13Tpt",
+    "zerobounce_api_key": "0cbb71bed4eb4d149b54a19674eef16a",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
