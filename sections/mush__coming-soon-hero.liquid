@@ -319,7 +319,7 @@
       }
       
       // Check if turnstile was completed
-      if (!isTurnstileScriptLoaded()) {
+      if (!typeof window.turnstile !== 'undefined') {
         // Try to load it once more
         loadTurnstileScript(function() {
           responseMessage.innerText = "Verification service loaded. Please try again.";
@@ -328,13 +328,20 @@
         return;
       }
       
-      const turnstileToken = turnstile.getResponse(turnstileWidgetId);
-      if (!turnstileToken) {
-        responseMessage.innerText = "Please complete the verification below.";
+      try {
+        const turnstileToken = window.turnstile.getResponse(turnstileWidgetId);
+        if (!turnstileToken) {
+          responseMessage.innerText = "Please complete the verification below.";
+          responseMessage.classList.add("text-orange");
+          return;
+        }
+        console.log("✅ Turnstile client-side check passed");
+      } catch (e) {
+        console.error("Error getting Turnstile response:", e);
+        responseMessage.innerText = "Verification error. Please try again.";
         responseMessage.classList.add("text-orange");
         return;
       }
-      console.log("✅ Turnstile client-side check passed");
 
       // 5️⃣ ZeroBounce Email Validation and Turnstile Server-Side Validation
       responseMessage.innerText = "Validating email and verification...";
