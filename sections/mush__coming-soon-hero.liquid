@@ -292,7 +292,11 @@
           }`;
         }
       } catch (error) {
-        console.error("Network Error:", error);
+        console.error("Network Error Details:", {
+          message: error.message,
+          stack: error.stack,
+          name: error.name
+        });
         responseMessage.style.color = "#e45825";
         responseMessage.innerText = "Network error. Please try again later.";
       }
