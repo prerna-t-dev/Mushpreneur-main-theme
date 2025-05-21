@@ -113,22 +113,41 @@
     const form = document.getElementById("klaviyo-signup-form--comingsoon");
     const emailInput = document.getElementById("comingsoon-newsletter-email");
     const honeypotField = document.getElementById("honeypot-field");
-    const turnstileElement = document.querySelector(".cf-turnstile");
+    const turnstileContainer = document.getElementById("cf-turnstile-container");
     const responseMessage = document.getElementById("response-message-cs");
     
     // Track if turnstile has been shown
     let turnstileShown = false;
+    let turnstileWidgetId = null;
     
     // Function to show turnstile
     function showTurnstile() {
-      turnstileElement.classList.add('visible');
+      turnstileContainer.classList.add('visible');
       turnstileShown = true;
       responseMessage.innerText = "Please complete the verification below.";
       responseMessage.classList.add("text-orange");
+      
+      // Only render if not already rendered
+      if (!turnstileWidgetId) {
+        turnstileWidgetId = turnstile.render('#cf-turnstile-container', {
+          sitekey: '{{ settings.cf_turnstile_site_key }}',
+          callback: function(token) {
+            console.log("Turnstile callback received");
+          },
+        });
+      }
+      
       window.scrollTo({
-        top: turnstileElement.offsetTop - 100,
+        top: turnstileContainer.offsetTop - 100,
         behavior: 'smooth'
       });
+    }
+    
+    // Function to reset turnstile
+    function resetTurnstile() {
+      if (turnstileWidgetId) {
+        turnstile.reset(turnstileWidgetId);
+      }
     }
 
     form.addEventListener("submit", async function (e) {
