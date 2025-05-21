@@ -14,14 +14,8 @@
     } */
 
     .cf-turnstile {
-      display: none; /* Hide by default */
       margin: 20px auto;
     }
-    
-    .cf-turnstile.visible {
-      display: block; /* Show when visible class is added */
-    }
-    
 </style>
 
 
@@ -60,7 +54,7 @@
                         </div>
 
                          <!-- Cloudflare Turnstile -->
-                        <div id="cf-turnstile-container" class="cf-turnstile"></div>
+                        <div class="cf-turnstile" id="cf-turnstile"></div>
 
     
                     </form>
@@ -106,173 +100,20 @@
 
 
 <script>
-  // Define the callback function that Turnstile looks for when loaded
-  window.onloadTurnstileCallback = function() {
-    console.log("Turnstile API loaded via callback");
-    window.turnstileLoaded = true;
-  };
-  
   document.addEventListener("DOMContentLoaded", function () {
-    // Check if site key is configured
-    const turnstileSiteKey = "{{ settings.cf_turnstile_site_key }}";
-    if (!turnstileSiteKey || turnstileSiteKey.trim() === '') {
-      console.error("ERROR: Cloudflare Turnstile site key is not configured in theme settings.");
-      console.error("Please go to Theme Settings > Third-Party Integrations > Cloudflare Turnstile and enter your site key.");
-    } else {
-      console.log("Turnstile site key configured:", turnstileSiteKey);
-    }
-    
     const form = document.getElementById("klaviyo-signup-form--comingsoon");
     const emailInput = document.getElementById("comingsoon-newsletter-email");
     const honeypotField = document.getElementById("honeypot-field");
-    const turnstileContainer = document.getElementById("cf-turnstile-container");
     const responseMessage = document.getElementById("response-message-cs");
     
-    // Track if turnstile has been shown
-    let turnstileShown = false;
-    let turnstileWidgetId = null;
-    let turnstileRetryCount = 0;
-    const maxTurnstileRetries = 3;
-
-    // Better script loading check
-    function isTurnstileScriptLoaded() {
-      return typeof window.turnstile !== 'undefined' && typeof window.turnstile.render === 'function';
-    }
-    
-    // Function to load Turnstile script manually if needed
-    function loadTurnstileScript(callback) {
-      // If script is already loaded, just call the callback
-      if (isTurnstileScriptLoaded()) {
-        console.log("Turnstile already loaded, calling callback directly");
-        if (callback) callback();
-        return;
+    // Initialize Turnstile - using the simple approach
+    turnstile.render('#cf-turnstile', {
+      sitekey: '0x4AAAAABeBT0ggatQl3Tpt',
+      callback: function(token) {
+        console.log("Turnstile verified with token:", token);
       }
-      
-      // If script is already in the DOM but not loaded yet, don't add another
-      const existingScript = document.querySelector('script[src*="challenges.cloudflare.com/turnstile"]');
-      if (existingScript) {
-        console.log("Turnstile script tag already exists in DOM, waiting for it to load");
-        existingScript.onload = callback;
-        return;
-      }
-      
-      // Create and add the script
-      console.log("Creating new Turnstile script tag");
-      const script = document.createElement('script');
-      // Make sure onloadTurnstileCallback is defined before loading the script
-      if (typeof window.onloadTurnstileCallback !== 'function') {
-        window.onloadTurnstileCallback = function() {
-          console.log("Turnstile API loaded via dynamically created callback");
-          window.turnstileLoaded = true;
-          if (callback) callback();
-        };
-      }
-      script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback";
-      script.async = true;
-      script.defer = true;
-      script.onload = function() {
-        console.log("Turnstile script loaded via dynamic insertion");
-        // The callback will be called by onloadTurnstileCallback
-      };
-      script.onerror = function(e) {
-        console.error("Error loading Turnstile script:", e);
-      };
-      document.head.appendChild(script);
-      console.log("Manually loading Turnstile script - added to DOM");
-    }
+    });
     
-    // Function to check if turnstile is loaded
-    function waitForTurnstile(callback, maxAttempts = 10, interval = 500) {
-      let attempts = 0;
-      
-      const checkTurnstile = function() {
-        attempts++;
-        
-        if (typeof window.turnstile !== 'undefined' && typeof window.turnstile.render === 'function') {
-          console.log("Turnstile API found on attempt " + attempts);
-          callback();
-          return;
-        }
-        
-        if (attempts < maxAttempts) {
-          console.log("Waiting for Turnstile API, attempt " + attempts);
-          setTimeout(checkTurnstile, interval);
-        } else {
-          console.error("Turnstile failed to load after maximum attempts");
-          
-          // Try to reload the script if we've tried less than maxTurnstileRetries times
-          if (turnstileRetryCount < maxTurnstileRetries) {
-            turnstileRetryCount++;
-            console.log(`Retrying Turnstile script load (${turnstileRetryCount}/${maxTurnstileRetries})`);
-            loadTurnstileScript(function() {
-              waitForTurnstile(callback, maxAttempts, interval);
-            });
-          } else {
-            responseMessage.innerText = "Verification service temporarily unavailable. Please try again later.";
-            responseMessage.classList.add("text-orange");
-          }
-        }
-      };
-      
-      checkTurnstile();
-    }
-    
-    // Function to show turnstile
-    function showTurnstile() {
-      turnstileContainer.classList.add('visible');
-      turnstileShown = true;
-      responseMessage.innerText = "Please complete the verification below.";
-      responseMessage.classList.add("text-orange");
-      
-      waitForTurnstile(function() {
-        // Only render if not already rendered
-        if (!turnstileWidgetId) {
-          try {
-            // Directly use a string for sitekey rather than a variable
-            console.log("About to render Turnstile widget with fixed parameters");
-            
-            turnstileWidgetId = window.turnstile.render('#cf-turnstile-container', {
-              sitekey: "0x4AAAAABeBT0ggatQl3Tpt", // Hardcoded key from your logs
-              callback: function(token) {
-                console.log("Turnstile callback received");
-                // Auto-submit the form if token is received
-                if (token) {
-                  responseMessage.innerText = "Verification successful! Submitting...";
-                  setTimeout(function() {
-                    form.dispatchEvent(new Event('submit'));
-                  }, 500);
-                }
-              }
-            });
-            console.log("Turnstile widget rendered successfully with ID:", turnstileWidgetId);
-          } catch(e) {
-            console.error("Error rendering Turnstile widget:", e);
-            responseMessage.innerText = "Verification service error. Please refresh and try again.";
-          }
-        }
-      });
-      
-      window.scrollTo({
-        top: turnstileContainer.offsetTop - 100,
-        behavior: 'smooth'
-      });
-    }
-    
-    // Function to reset turnstile
-    function resetTurnstile() {
-      if (typeof window.turnstile !== 'undefined' && turnstileWidgetId) {
-        try {
-          window.turnstile.reset(turnstileWidgetId);
-        } catch(e) {
-          console.error("Error resetting Turnstile:", e);
-          turnstileWidgetId = null; // Reset the ID so we'll try to render it again next time
-        }
-      }
-    }
-
-    // Ensure Turnstile script is loaded when the page loads
-    loadTurnstileScript();
-
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
 
@@ -282,7 +123,7 @@
       const emailPattern = /^[a-zA-Z0-9.]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
       if (!emailPattern.test(email)) {
         responseMessage.innerText = "Invalid email address.";
-        responseMessage.classList.add("text-orange");
+        responseMessage.style.color = "#e45825";
         return;
       }
       console.log("✅ Basic email format validation passed");
@@ -300,53 +141,29 @@
         const geoData = await geoResponse.json();
         if (geoData.country !== "US" && geoData.country !== "IN") {
           responseMessage.innerText = "Sorry! Submissions outside of US are not allowed at the moment.";
-          responseMessage.classList.add("text-orange");
+          responseMessage.style.color = "#e45825";
           return;
         }
         console.log("✅ Geolocation check passed - User is from allowed country");
       } catch (error) {
         console.error("Geolocation API failed", error);
         responseMessage.innerText = "Unable to verify location. Please try again later.";
-        responseMessage.classList.add("text-orange");
+        responseMessage.style.color = "#e45825";
         return;
       }
       
-      // 4️⃣ Show and verify Cloudflare Turnstile
-      // If turnstile hasn't been shown yet, show it and stop here
-      if (!turnstileShown) {
-        showTurnstile();
+      // 4️⃣ Get Turnstile token
+      const turnstileToken = turnstile.getResponse('#cf-turnstile');
+      if (!turnstileToken) {
+        responseMessage.innerText = "Please complete the verification challenge below.";
+        responseMessage.style.color = "#e45825";
         return;
       }
-      
-      // Check if turnstile was completed
-      if (typeof window.turnstile === 'undefined') {
-        // Try to load it once more
-        loadTurnstileScript(function() {
-          responseMessage.innerText = "Verification service loaded. Please try again.";
-          showTurnstile();
-        });
-        return;
-      }
-      
-      let turnstileToken;
-      try {
-        turnstileToken = window.turnstile.getResponse(turnstileWidgetId);
-        if (!turnstileToken) {
-          responseMessage.innerText = "Please complete the verification below.";
-          responseMessage.classList.add("text-orange");
-          return;
-        }
-        console.log("✅ Turnstile client-side check passed");
-      } catch (e) {
-        console.error("Error getting Turnstile response:", e);
-        responseMessage.innerText = "Verification error. Please try again.";
-        responseMessage.classList.add("text-orange");
-        return;
-      }
+      console.log("✅ Turnstile client-side check passed");
 
       // 5️⃣ ZeroBounce Email Validation and Turnstile Server-Side Validation
       responseMessage.innerText = "Validating email and verification...";
-      responseMessage.classList.remove("text-orange", "text-successgreen");
+      responseMessage.style.color = "";
 
       try {
         // Using Netlify Function for both ZeroBounce validation and Turnstile verification
@@ -371,8 +188,8 @@
         // Check if turnstile verification failed
         if (validationData.turnstileError) {
           responseMessage.innerText = "Verification challenge failed. Please try again.";
-          responseMessage.classList.add("text-orange");
-          resetTurnstile();
+          responseMessage.style.color = "#e45825";
+          turnstile.reset('#cf-turnstile'); // Reset the widget
           return;
         }
         console.log("✅ Turnstile server-side verification passed");
@@ -380,7 +197,7 @@
         // ZeroBounce status can be: valid, invalid, catch-all, unknown, spamtrap, abuse, do_not_mail
         if (validationData.status !== "valid") {
           responseMessage.innerText = "Invalid or undeliverable email address.";
-          responseMessage.classList.add("text-orange");
+          responseMessage.style.color = "#e45825";
           return;
         }
         console.log("✅ ZeroBounce email validation passed");
@@ -388,7 +205,7 @@
       } catch (error) {
         console.error("Validation error:", error);
         responseMessage.innerText = "Validation failed. Please try again.";
-        responseMessage.classList.add("text-orange");
+        responseMessage.style.color = "#e45825";
         return;
       }
 
@@ -460,22 +277,22 @@
         }
 
         if (response.ok) {
-          responseMessage.classList.add("text-successgreen");
+          responseMessage.style.color = "#4caf50";
           responseMessage.innerText =
             "Thank you for joining the Day Shrooms Launch List! Your first email is on its way to your inbox.";
           form.reset();
-          resetTurnstile();
-          turnstileContainer.classList.remove("visible");
-          turnstileShown = false;
+          turnstile.reset('#cf-turnstile'); // Reset the widget
         } else {
           console.error("Klaviyo API Error:", result);
-          responseMessage.classList.add("text-orange");
+          responseMessage.style.color = "#e45825";
           responseMessage.innerText = `Error: ${
             result.errors?.[0]?.detail || "Something went wrong"
           }`;
         }
       } catch (error) {
         console.error("Network Error:", error);
+        responseMessage.style.color = "#e45825";
+        responseMessage.innerText = "Network error. Please try again later.";
       }
     });
   });
