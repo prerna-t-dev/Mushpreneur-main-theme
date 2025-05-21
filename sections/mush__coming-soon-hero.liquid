@@ -54,7 +54,7 @@
                         </div>
 
                          <!-- Cloudflare Turnstile -->
-                        <div class="cf-turnstile" id="cf-turnstile"></div>
+                        <div id="turnstile-container"></div>
 
     
                     </form>
@@ -106,40 +106,25 @@
     const honeypotField = document.getElementById("honeypot-field");
     const responseMessage = document.getElementById("response-message-cs");
     
-    // Function to initialize Turnstile
+    // Simple init for Turnstile
+    let turnstileWidgetId;
+    
     function initTurnstile() {
-      if (typeof window.turnstile !== 'undefined') {
-        console.log("Initializing Turnstile widget");
-        try {
-          // Initialize Turnstile only when the script is loaded
-          window.turnstile.render('#cf-turnstile', {
-            sitekey: '0x4AAAAABeBT0ggatQl3Tpt',
-            callback: function(token) {
-              console.log("Turnstile verified with token:", token);
-            }
-          });
-          console.log("Turnstile widget initialized successfully");
-        } catch (e) {
-          console.error("Error initializing Turnstile:", e);
-          setTimeout(initTurnstile, 500); // Try again if there was an error
-        }
+      if (window.turnstile) {
+        turnstileWidgetId = window.turnstile.render('#turnstile-container', {
+          sitekey: '0x4AAAAABeBT0ggatQl3Tpt',
+          callback: function(token) {
+            console.log('Turnstile verification successful, token:', token);
+          }
+        });
       } else {
-        // If not loaded yet, check again in 250ms
-        console.log("Turnstile not available yet, waiting...");
-        setTimeout(initTurnstile, 250);
+        // If not available yet, try again in a second
+        setTimeout(initTurnstile, 1000);
       }
     }
     
-    // Start initialization when the API is loaded
-    if (typeof window.turnstile !== 'undefined') {
-      // If already loaded
-      initTurnstile();
-    } else {
-      // Listen for the event or check periodically
-      document.addEventListener('turnstileLoaded', initTurnstile);
-      // Fallback in case the event doesn't fire
-      setTimeout(initTurnstile, 1000);
-    }
+    // Try to initialize Turnstile
+    initTurnstile();
     
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
@@ -180,15 +165,15 @@
       }
       
       // 4️⃣ Get Turnstile token
-      if (typeof window.turnstile === 'undefined') {
-        responseMessage.innerText = "Verification service is loading. Please try again in a moment.";
+      if (!window.turnstile) {
+        responseMessage.innerText = "Verification service is not available. Please try again later.";
         responseMessage.style.color = "#e45825";
         return;
       }
       
-      const turnstileToken = window.turnstile.getResponse('#cf-turnstile');
+      const turnstileToken = window.turnstile.getResponse(turnstileWidgetId);
       if (!turnstileToken) {
-        responseMessage.innerText = "Please complete the verification challenge below.";
+        responseMessage.innerText = "Please complete the verification challenge.";
         responseMessage.style.color = "#e45825";
         return;
       }
@@ -222,8 +207,8 @@
         if (validationData.turnstileError) {
           responseMessage.innerText = "Verification challenge failed. Please try again.";
           responseMessage.style.color = "#e45825";
-          if (typeof window.turnstile !== 'undefined') {
-            window.turnstile.reset('#cf-turnstile'); // Reset the widget
+          if (window.turnstile) {
+            window.turnstile.reset(turnstileWidgetId);
           }
           return;
         }
@@ -316,8 +301,8 @@
           responseMessage.innerText =
             "Thank you for joining the Day Shrooms Launch List! Your first email is on its way to your inbox.";
           form.reset();
-          if (typeof window.turnstile !== 'undefined') {
-            window.turnstile.reset('#cf-turnstile'); // Reset the widget
+          if (window.turnstile) {
+            window.turnstile.reset(turnstileWidgetId);
           }
         } else {
           console.error("Klaviyo API Error:", result);
