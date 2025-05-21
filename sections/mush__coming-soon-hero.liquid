@@ -106,24 +106,40 @@
     const honeypotField = document.getElementById("honeypot-field");
     const responseMessage = document.getElementById("response-message-cs");
     
-    // Function to check if Turnstile is loaded and initialize it
+    // Function to initialize Turnstile
     function initTurnstile() {
       if (typeof window.turnstile !== 'undefined') {
-        // Initialize Turnstile only when the script is loaded
-        window.turnstile.render('#cf-turnstile', {
-          sitekey: '0x4AAAAABeBT0ggatQl3Tpt',
-          callback: function(token) {
-            console.log("Turnstile verified with token:", token);
-          }
-        });
+        console.log("Initializing Turnstile widget");
+        try {
+          // Initialize Turnstile only when the script is loaded
+          window.turnstile.render('#cf-turnstile', {
+            sitekey: '0x4AAAAABeBT0ggatQl3Tpt',
+            callback: function(token) {
+              console.log("Turnstile verified with token:", token);
+            }
+          });
+          console.log("Turnstile widget initialized successfully");
+        } catch (e) {
+          console.error("Error initializing Turnstile:", e);
+          setTimeout(initTurnstile, 500); // Try again if there was an error
+        }
       } else {
-        // If not loaded yet, check again in 100ms
-        setTimeout(initTurnstile, 100);
+        // If not loaded yet, check again in 250ms
+        console.log("Turnstile not available yet, waiting...");
+        setTimeout(initTurnstile, 250);
       }
     }
     
-    // Start the initialization process
-    initTurnstile();
+    // Start initialization when the API is loaded
+    if (typeof window.turnstile !== 'undefined') {
+      // If already loaded
+      initTurnstile();
+    } else {
+      // Listen for the event or check periodically
+      document.addEventListener('turnstileLoaded', initTurnstile);
+      // Fallback in case the event doesn't fire
+      setTimeout(initTurnstile, 1000);
+    }
     
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
