@@ -204,8 +204,16 @@
       responseMessage.classList.remove("text-orange", "text-successgreen");
 
       try {
-        // Using ZeroBounce API v2 as per documentation
-        const zerobounceResponse = await fetch(`https://api.zerobounce.net/v2/validate?api_key={{ settings.zerobounce_api_key | json }}&email=${encodeURIComponent(email)}&ip_address=`);
+        // Using Netlify Function for ZeroBounce validation
+        const zerobounceResponse = await fetch('https://your-netlify-site.netlify.app/.netlify/functions/validate-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: email
+          })
+        });
         
         if (!zerobounceResponse.ok) {
           throw new Error(`HTTP error! status: ${zerobounceResponse.status}`);
