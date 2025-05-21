@@ -300,7 +300,9 @@
           responseMessage.innerText =
             "Thank you for joining the Day Shrooms Launch List! Your first email is on its way to your inbox.";
           form.reset();
-          window.turnstile.reset('#cf-turnstile'); // Reset the widget
+          if (typeof window.turnstile !== 'undefined') {
+            window.turnstile.reset('#cf-turnstile'); // Reset the widget
+          }
         } else {
           console.error("Klaviyo API Error:", result);
           responseMessage.style.color = "#e45825";
