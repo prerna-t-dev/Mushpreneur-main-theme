@@ -138,50 +138,16 @@
       }
       console.log("✅ Honeypot check passed");
 
-      /* Turnstile validation - commented out for now
-      // 3️⃣ If Turnstile is not yet shown, show it and stop form submission
-      if (!turnstileTriggered) {
-        turnstile.classList.add("visible");
-        turnstileTriggered = true;
-        return;
-      }
-
-      // 4️⃣ Turnstile Validation (if visible)
-      if (!turnstileResponse) {
+      // 3️⃣ Cloudflare Turnstile Client-Side Validation
+      const turnstileToken = window.turnstile && window.turnstile.getResponse();
+      if (!turnstileToken) {
         responseMessage.innerText = "Please complete the verification.";
         responseMessage.classList.add("text-orange");
         return;
       }
-      */
+      console.log("✅ Turnstile client-side check passed");
 
-      // 5️⃣ Server-side Turnstile Validation
-      try {
-        const turnstileValidationResponse = await fetch('/apps/validate-turnstile', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            token: turnstileResponse
-          })
-        });
-
-        const validationResult = await turnstileValidationResponse.json();
-        
-        if (!validationResult.success) {
-          responseMessage.innerText = "Verification failed. Please try again.";
-          responseMessage.classList.add("text-orange");
-          return;
-        }
-      } catch (error) {
-        console.error("Turnstile validation error:", error);
-        responseMessage.innerText = "Verification failed. Please try again.";
-        responseMessage.classList.add("text-orange");
-        return;
-      }
-      
-
-      // 3️⃣ NOW Check If User is in the USA
+      // 4️⃣ Check If User is in the USA
       try {
         const geoResponse = await fetch("https://ipapi.co/json/");
         const geoData = await geoResponse.json();
@@ -198,20 +164,12 @@
         return;
       }
 
-      // 4️⃣ Cloudflare Turnstile Validation
-      const turnstileToken = window.turnstile && window.turnstile.getResponse();
-      if (!turnstileToken) {
-        responseMessage.innerText = "Please complete the verification.";
-        responseMessage.classList.add("text-orange");
-        return;
-      }
-
-      // 5️⃣ ZeroBounce Email Validation
-      responseMessage.innerText = "Validating email...";
+      // 5️⃣ ZeroBounce Email Validation and Turnstile Server-Side Validation
+      responseMessage.innerText = "Validating email and verification...";
       responseMessage.classList.remove("text-orange", "text-successgreen");
 
       try {
-        // Using Netlify Function for ZeroBounce validation
+        // Using Netlify Function for both ZeroBounce validation and Turnstile verification
         const zerobounceResponse = await fetch('https://mushpreneur-email-validation.netlify.app/.netlify/functions/validate-email', {
           method: 'POST',
           headers: {
@@ -228,7 +186,15 @@
         }
         
         const validationData = await zerobounceResponse.json();
-        console.log('ZeroBounce validation data:', validationData);
+        console.log('Validation data:', validationData);
+
+        // Check if turnstile verification failed
+        if (validationData.turnstileError) {
+          responseMessage.innerText = "Verification challenge failed. Please try again.";
+          responseMessage.classList.add("text-orange");
+          return;
+        }
+        console.log("✅ Turnstile server-side verification passed");
 
         // ZeroBounce status can be: valid, invalid, catch-all, unknown, spamtrap, abuse, do_not_mail
         if (validationData.status !== "valid") {
@@ -239,8 +205,8 @@
         console.log("✅ ZeroBounce email validation passed");
 
       } catch (error) {
-        console.error("ZeroBounce error:", error);
-        responseMessage.innerText = "Email validation failed. Please try again.";
+        console.error("Validation error:", error);
+        responseMessage.innerText = "Validation failed. Please try again.";
         responseMessage.classList.add("text-orange");
         return;
       }
