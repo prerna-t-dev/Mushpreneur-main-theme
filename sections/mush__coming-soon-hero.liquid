@@ -196,7 +196,7 @@
       }
       
       // Check if turnstile was completed
-      const turnstileToken = window.turnstile && window.turnstile.getResponse();
+      const turnstileToken = turnstile.getResponse(turnstileWidgetId);
       if (!turnstileToken) {
         responseMessage.innerText = "Please complete the verification below.";
         responseMessage.classList.add("text-orange");
@@ -323,6 +323,9 @@
           responseMessage.innerText =
             "Thank you for joining the Day Shrooms Launch List! Your first email is on its way to your inbox.";
           form.reset();
+          resetTurnstile();
+          turnstileContainer.classList.remove("visible");
+          turnstileShown = false;
         } else {
           console.error("Klaviyo API Error:", result);
           responseMessage.classList.add("text-orange");
