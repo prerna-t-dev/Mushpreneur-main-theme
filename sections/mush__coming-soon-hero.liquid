@@ -14,8 +14,12 @@
     } */
 
     .cf-turnstile {
-      display: block;
+      display: none; /* Hide by default */
       margin: 20px auto;
+    }
+    
+    .cf-turnstile.visible {
+      display: block; /* Show when visible class is added */
     }
     
 </style>
@@ -111,11 +115,21 @@
     const honeypotField = document.getElementById("honeypot-field");
     const turnstileElement = document.querySelector(".cf-turnstile");
     const responseMessage = document.getElementById("response-message-cs");
-
-    // Reset Turnstile on form load - helps with rendering issues
-    window.onloadTurnstileCallback = function() {
-      console.log("Turnstile widget loaded");
-    };
+    
+    // Track if turnstile has been shown
+    let turnstileShown = false;
+    
+    // Function to show turnstile
+    function showTurnstile() {
+      turnstileElement.classList.add('visible');
+      turnstileShown = true;
+      responseMessage.innerText = "Please complete the verification below.";
+      responseMessage.classList.add("text-orange");
+      window.scrollTo({
+        top: turnstileElement.offsetTop - 100,
+        behavior: 'smooth'
+      });
+    }
 
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
@@ -138,16 +152,7 @@
       }
       console.log("✅ Honeypot check passed");
 
-      // 3️⃣ Cloudflare Turnstile Client-Side Validation
-      const turnstileToken = window.turnstile && window.turnstile.getResponse();
-      if (!turnstileToken) {
-        responseMessage.innerText = "Please complete the verification.";
-        responseMessage.classList.add("text-orange");
-        return;
-      }
-      console.log("✅ Turnstile client-side check passed");
-
-      // 4️⃣ Check If User is in the USA
+      // 3️⃣ Check If User is in the USA
       try {
         const geoResponse = await fetch("https://ipapi.co/json/");
         const geoData = await geoResponse.json();
@@ -163,6 +168,22 @@
         responseMessage.classList.add("text-orange");
         return;
       }
+      
+      // 4️⃣ Show and verify Cloudflare Turnstile
+      // If turnstile hasn't been shown yet, show it and stop here
+      if (!turnstileShown) {
+        showTurnstile();
+        return;
+      }
+      
+      // Check if turnstile was completed
+      const turnstileToken = window.turnstile && window.turnstile.getResponse();
+      if (!turnstileToken) {
+        responseMessage.innerText = "Please complete the verification below.";
+        responseMessage.classList.add("text-orange");
+        return;
+      }
+      console.log("✅ Turnstile client-side check passed");
 
       // 5️⃣ ZeroBounce Email Validation and Turnstile Server-Side Validation
       responseMessage.innerText = "Validating email and verification...";
