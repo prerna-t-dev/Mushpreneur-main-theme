@@ -204,13 +204,14 @@
       responseMessage.classList.remove("text-orange", "text-successgreen");
 
       try {
-        // Using CORS proxy for testing
-        const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-        const zerobounceUrl = `https://api.zerobounce.net/v2/validate?api_key={{ settings.zerobounce_api_key | json }}&email=${encodeURIComponent(email)}`;
-        const zerobounceResponse = await fetch(proxyUrl + zerobounceUrl);
+        // Using ZeroBounce API v2 as per documentation
+        const zerobounceResponse = await fetch(`https://api.zerobounce.net/v2/validate?api_key={{ settings.zerobounce_api_key | json }}&email=${encodeURIComponent(email)}&ip_address=`);
+        
+        if (!zerobounceResponse.ok) {
+          throw new Error(`HTTP error! status: ${zerobounceResponse.status}`);
+        }
         
         const validationData = await zerobounceResponse.json();
-        
         console.log('ZeroBounce validation data:', validationData);
 
         // ZeroBounce status can be: valid, invalid, catch-all, unknown, spamtrap, abuse, do_not_mail
