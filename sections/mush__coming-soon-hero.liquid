@@ -106,12 +106,6 @@
 
 
 <script>
-  // Define global callback function for Turnstile to call when loaded
-  window.onloadTurnstileCallback = function() {
-    console.log("Turnstile API loaded");
-    window.turnstileLoaded = true;
-  };
-  
   document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("klaviyo-signup-form--comingsoon");
     const emailInput = document.getElementById("comingsoon-newsletter-email");
@@ -122,24 +116,69 @@
     // Track if turnstile has been shown
     let turnstileShown = false;
     let turnstileWidgetId = null;
+    let turnstileRetryCount = 0;
+    const maxTurnstileRetries = 3;
+
+    // Better script loading check
+    function isTurnstileScriptLoaded() {
+      return typeof window.turnstile !== 'undefined' && typeof window.turnstile.render === 'function';
+    }
+    
+    // Function to load Turnstile script manually if needed
+    function loadTurnstileScript(callback) {
+      // If script is already loaded, just call the callback
+      if (isTurnstileScriptLoaded()) {
+        if (callback) callback();
+        return;
+      }
+      
+      // If script is already in the DOM but not loaded yet, don't add another
+      const existingScript = document.querySelector('script[src*="challenges.cloudflare.com/turnstile"]');
+      if (existingScript) {
+        existingScript.onload = callback;
+        return;
+      }
+      
+      // Create and add the script
+      const script = document.createElement('script');
+      script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback";
+      script.async = true;
+      script.defer = true;
+      script.onload = callback;
+      document.head.appendChild(script);
+      console.log("Manually loading Turnstile script");
+    }
     
     // Function to check if turnstile is loaded
-    function waitForTurnstile(callback, maxAttempts = 10, interval = 300) {
+    function waitForTurnstile(callback, maxAttempts = 10, interval = 500) {
       let attempts = 0;
       
       const checkTurnstile = function() {
         attempts++;
-        if (window.turnstile && typeof window.turnstile.render === 'function') {
+        
+        if (isTurnstileScriptLoaded()) {
+          console.log("Turnstile API found on attempt " + attempts);
           callback();
           return;
         }
         
         if (attempts < maxAttempts) {
+          console.log("Waiting for Turnstile API, attempt " + attempts);
           setTimeout(checkTurnstile, interval);
         } else {
           console.error("Turnstile failed to load after maximum attempts");
-          responseMessage.innerText = "Verification service unavailable. Please try again later.";
-          responseMessage.classList.add("text-orange");
+          
+          // Try to reload the script if we've tried less than maxTurnstileRetries times
+          if (turnstileRetryCount < maxTurnstileRetries) {
+            turnstileRetryCount++;
+            console.log(`Retrying Turnstile script load (${turnstileRetryCount}/${maxTurnstileRetries})`);
+            loadTurnstileScript(function() {
+              waitForTurnstile(callback, maxAttempts, interval);
+            });
+          } else {
+            responseMessage.innerText = "Verification service temporarily unavailable. Please try again later.";
+            responseMessage.classList.add("text-orange");
+          }
         }
       };
       
@@ -156,12 +195,25 @@
       waitForTurnstile(function() {
         // Only render if not already rendered
         if (!turnstileWidgetId) {
-          turnstileWidgetId = turnstile.render('#cf-turnstile-container', {
-            sitekey: '{{ settings.cf_turnstile_site_key }}',
-            callback: function(token) {
-              console.log("Turnstile callback received");
-            }
-          });
+          try {
+            turnstileWidgetId = turnstile.render('#cf-turnstile-container', {
+              sitekey: '{{ settings.cf_turnstile_site_key }}',
+              callback: function(token) {
+                console.log("Turnstile callback received");
+                // Auto-submit the form if token is received
+                if (token) {
+                  responseMessage.innerText = "Verification successful! Submitting...";
+                  setTimeout(function() {
+                    form.dispatchEvent(new Event('submit'));
+                  }, 500);
+                }
+              }
+            });
+            console.log("Turnstile widget rendered successfully with ID:", turnstileWidgetId);
+          } catch(e) {
+            console.error("Error rendering Turnstile widget:", e);
+            responseMessage.innerText = "Verification service error. Please refresh and try again.";
+          }
         }
       });
       
@@ -174,9 +226,17 @@
     // Function to reset turnstile
     function resetTurnstile() {
       if (window.turnstile && turnstileWidgetId) {
-        turnstile.reset(turnstileWidgetId);
+        try {
+          turnstile.reset(turnstileWidgetId);
+        } catch(e) {
+          console.error("Error resetting Turnstile:", e);
+          turnstileWidgetId = null; // Reset the ID so we'll try to render it again next time
+        }
       }
     }
+
+    // Ensure Turnstile script is loaded when the page loads
+    loadTurnstileScript();
 
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
@@ -224,9 +284,12 @@
       }
       
       // Check if turnstile was completed
-      if (!window.turnstile) {
-        responseMessage.innerText = "Verification service unavailable. Please try again later.";
-        responseMessage.classList.add("text-orange");
+      if (!isTurnstileScriptLoaded()) {
+        // Try to load it once more
+        loadTurnstileScript(function() {
+          responseMessage.innerText = "Verification service loaded. Please try again.";
+          showTurnstile();
+        });
         return;
       }
       
@@ -266,6 +329,7 @@
         if (validationData.turnstileError) {
           responseMessage.innerText = "Verification challenge failed. Please try again.";
           responseMessage.classList.add("text-orange");
+          resetTurnstile();
           return;
         }
         console.log("✅ Turnstile server-side verification passed");
