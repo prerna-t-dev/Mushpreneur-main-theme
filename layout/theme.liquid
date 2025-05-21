@@ -342,6 +342,9 @@
       window.onloadTurnstileCallback = function() {
         console.log("Turnstile API loaded from theme.liquid");
         window.turnstileLoaded = true;
+        
+        // Dispatch an event that we can listen for
+        document.dispatchEvent(new Event('turnstileLoaded'));
       };
     </script>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback" async defer></script>
