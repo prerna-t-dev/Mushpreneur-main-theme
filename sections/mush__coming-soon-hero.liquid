@@ -206,7 +206,9 @@
         if (validationData.turnstileError) {
           responseMessage.innerText = "Verification challenge failed. Please try again.";
           responseMessage.style.color = "#e45825";
-          window.turnstile.reset('#cf-turnstile'); // Reset the widget
+          if (typeof window.turnstile !== 'undefined') {
+            window.turnstile.reset('#cf-turnstile'); // Reset the widget
+          }
           return;
         }
         console.log("✅ Turnstile server-side verification passed");
