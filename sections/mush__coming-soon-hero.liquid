@@ -59,7 +59,7 @@
                         </div>
 
                          <!-- Cloudflare Turnstile -->
-                        {% comment %} <div class="cf-turnstile" data-sitekey="0x4AAAAAABeBT0ggatQ13Tpt"></div> {% endcomment %}
+                        <div class="cf-turnstile" data-sitekey="{{ settings.cf_turnstile_site_key | default: '0x4AAAAAABeBT0ggatQ13Tpt' }}"></div>
 
     
                     </form>
@@ -199,7 +199,15 @@
         return;
       }
 
-      // 4️⃣ ZeroBounce Email Validation
+      // 4️⃣ Cloudflare Turnstile Validation
+      const turnstileToken = window.turnstile && window.turnstile.getResponse();
+      if (!turnstileToken) {
+        responseMessage.innerText = "Please complete the verification.";
+        responseMessage.classList.add("text-orange");
+        return;
+      }
+
+      // 5️⃣ ZeroBounce Email Validation
       responseMessage.innerText = "Validating email...";
       responseMessage.classList.remove("text-orange", "text-successgreen");
 
@@ -211,7 +219,8 @@
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            email: email
+            email: email,
+            turnstileToken: turnstileToken
           })
         });
         
@@ -237,7 +246,7 @@
         return;
       }
 
-      // 5️⃣ Proceed with API request after all validations
+      // 6️⃣ Proceed with API request after all validations
       console.log("✅ All validations passed, proceeding with Klaviyo subscription");
       const KLAVIYO_PUBLIC_API_KEY = "VqRB85";
       const LIST_ID = "Xd8yqJ";
