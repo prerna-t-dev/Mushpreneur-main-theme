@@ -196,8 +196,19 @@
         // Only render if not already rendered
         if (!turnstileWidgetId) {
           try {
+            // Get the site key from the Shopify settings
+            const siteKey = "{{ settings.cf_turnstile_site_key }}";
+            
+            if (!siteKey || siteKey.trim() === '') {
+              console.error("Turnstile site key is missing or empty");
+              responseMessage.innerText = "Verification service configuration error. Please contact support.";
+              return;
+            }
+            
+            console.log("Using site key:", siteKey);
+            
             turnstileWidgetId = turnstile.render('#cf-turnstile-container', {
-              sitekey: '{{ settings.cf_turnstile_site_key }}',
+              sitekey: siteKey,
               callback: function(token) {
                 console.log("Turnstile callback received");
                 // Auto-submit the form if token is received
