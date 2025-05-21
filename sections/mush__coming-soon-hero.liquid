@@ -128,6 +128,7 @@
     function loadTurnstileScript(callback) {
       // If script is already loaded, just call the callback
       if (isTurnstileScriptLoaded()) {
+        console.log("Turnstile already loaded, calling callback directly");
         if (callback) callback();
         return;
       }
@@ -135,18 +136,26 @@
       // If script is already in the DOM but not loaded yet, don't add another
       const existingScript = document.querySelector('script[src*="challenges.cloudflare.com/turnstile"]');
       if (existingScript) {
+        console.log("Turnstile script tag already exists in DOM, waiting for it to load");
         existingScript.onload = callback;
         return;
       }
       
       // Create and add the script
+      console.log("Creating new Turnstile script tag");
       const script = document.createElement('script');
       script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback";
       script.async = true;
       script.defer = true;
-      script.onload = callback;
+      script.onload = function() {
+        console.log("Turnstile script loaded via dynamic insertion");
+        if (callback) callback();
+      };
+      script.onerror = function(e) {
+        console.error("Error loading Turnstile script:", e);
+      };
       document.head.appendChild(script);
-      console.log("Manually loading Turnstile script");
+      console.log("Manually loading Turnstile script - added to DOM");
     }
     
     // Function to check if turnstile is loaded
