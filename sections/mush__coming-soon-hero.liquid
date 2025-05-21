@@ -204,7 +204,17 @@
       responseMessage.classList.remove("text-orange", "text-successgreen");
 
       try {
-        const zerobounceResponse = await fetch(`https://api.zerobounce.net/v2/validate?api_key={{ settings.zerobounce_api_key | json }}&email=${encodeURIComponent(email)}`);
+        // Using proxy endpoint instead of direct API call
+        const zerobounceResponse = await fetch('/apps/validate-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: email
+          })
+        });
+        
         const validationData = await zerobounceResponse.json();
         
         console.log('ZeroBounce validation data:', validationData);
