@@ -14,7 +14,8 @@
     } */
 
     .cf-turnstile {
-      display: none;
+      display: block; /* Always show the Turnstile */
+      margin: 20px auto;
     }
     .cf-turnstile.visible {
         display: block;
@@ -153,33 +154,6 @@
         return;
       }
       */
-
-      // 5️⃣ Server-side Turnstile Validation
-      try {
-        const turnstileValidationResponse = await fetch('/apps/validate-turnstile', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            token: turnstileResponse
-          })
-        });
-
-        const validationResult = await turnstileValidationResponse.json();
-        
-        if (!validationResult.success) {
-          responseMessage.innerText = "Verification failed. Please try again.";
-          responseMessage.classList.add("text-orange");
-          return;
-        }
-      } catch (error) {
-        console.error("Turnstile validation error:", error);
-        responseMessage.innerText = "Verification failed. Please try again.";
-        responseMessage.classList.add("text-orange");
-        return;
-      }
-      
 
       // 3️⃣ NOW Check If User is in the USA
       try {
