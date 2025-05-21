@@ -111,7 +111,7 @@
     const turnstileSiteKey = "{{ settings.cf_turnstile_site_key }}";
     if (!turnstileSiteKey || turnstileSiteKey.trim() === '') {
       console.error("ERROR: Cloudflare Turnstile site key is not configured in theme settings.");
-      console.error("Please go to Theme Settings > Cloudflare Turnstile and enter your site key.");
+      console.error("Please go to Theme Settings > Third-Party Integrations > Cloudflare Turnstile and enter your site key.");
     } else {
       console.log("Turnstile site key configured:", turnstileSiteKey);
     }
