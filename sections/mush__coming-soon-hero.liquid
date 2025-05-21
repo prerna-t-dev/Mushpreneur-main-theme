@@ -220,10 +220,10 @@
         // Only render if not already rendered
         if (!turnstileWidgetId) {
           try {
-            // Get the site key from the Shopify settings
-            const siteKey = "{{ settings.cf_turnstile_site_key }}";
+            // Get the site key from the Shopify settings and ensure it's a string
+            const siteKey = String("{{ settings.cf_turnstile_site_key }}").trim();
             
-            if (!siteKey || siteKey.trim() === '') {
+            if (!siteKey) {
               console.error("Turnstile site key is missing or empty");
               responseMessage.innerText = "Verification service configuration error. Please contact support.";
               return;
