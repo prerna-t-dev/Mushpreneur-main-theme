@@ -240,8 +240,8 @@
             console.log("Using site key:", siteKey);
             
             turnstileWidgetId = turnstile.render('#cf-turnstile-container', {
-              sitekey: siteKey,
-              callback: function(token) {
+              "sitekey": "0x4AAAAABeBT0ggatQl3Tpt", // Hardcoded key from your logs
+              "callback": function(token) {
                 console.log("Turnstile callback received");
                 // Auto-submit the form if token is received
                 if (token) {
