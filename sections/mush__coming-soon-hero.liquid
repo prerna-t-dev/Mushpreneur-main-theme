@@ -161,13 +161,13 @@
       const turnstileToken = turnstileResponse.value;
       // console.log("✅ Turnstile response found:", turnstileToken);
 
-      // 5️⃣ ZeroBounce Email Validation and Turnstile Server-Side Validation
+      // 5️⃣ ZeroBounce Email Validation and Turnstile Server-Side Validation (now also handles Klaviyo)
       responseMessage.innerText = "Validating email and verification...";
       responseMessage.style.color = "";
 
       try {
-        // Using Netlify Function for both ZeroBounce validation and Turnstile verification
-        const zerobounceResponse = await fetch('https://mushpreneur-email-validation.netlify.app/.netlify/functions/validate-email', {
+        // Using Netlify Function for all validation and Klaviyo subscription
+        const validationResponse = await fetch('https://mushpreneur-email-validation.netlify.app/.netlify/functions/validate-email', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -177,13 +177,12 @@
             turnstileToken: turnstileToken
           })
         });
-        
-        if (!zerobounceResponse.ok) {
-          throw new Error(`HTTP error! status: ${zerobounceResponse.status}`);
+
+        if (!validationResponse.ok) {
+          throw new Error(`HTTP error! status: ${validationResponse.status}`);
         }
-        
-        const validationData = await zerobounceResponse.json();
-        // console.log('Validation data:', validationData);
+
+        const validationData = await validationResponse.json();
 
         // Check if turnstile verification failed
         if (validationData.turnstileError) {
@@ -194,113 +193,32 @@
           }
           return;
         }
-        console.log("✅ Turnstile server-side verification passed");
-
-        // ZeroBounce status can be: valid, invalid, catch-all, unknown, spamtrap, abuse, do_not_mail
+        // Check if ZeroBounce failed
         if (validationData.status !== "valid") {
           responseMessage.innerText = "Invalid or undeliverable email address.";
           responseMessage.style.color = "#e45825";
           return;
         }
-        console.log("✅ ZeroBounce email validation passed");
+        // Check if Klaviyo failed
+        if (validationData.klaviyo && validationData.klaviyo.errors) {
+          responseMessage.innerText = `Klaviyo error: ${validationData.klaviyo.errors[0]?.detail || "Something went wrong"}`;
+          responseMessage.style.color = "#e45825";
+          return;
+        }
 
+        // Success!
+        responseMessage.style.color = "#4caf50";
+        responseMessage.innerText =
+          "Thank you for joining the Day Shrooms Launch List! Your first email is on its way to your inbox.";
+        emailInput.value = ''; // Clear just the email input
+        if (window.turnstile) {
+          window.turnstile.reset();
+        }
       } catch (error) {
         console.error("Validation error:", error);
         responseMessage.innerText = "Validation failed. Please try again.";
         responseMessage.style.color = "#e45825";
         return;
-      }
-
-      // 6️⃣ Proceed with API request after all validations
-      console.log("✅ All validations passed, proceeding with Klaviyo subscription");
-      const KLAVIYO_PUBLIC_API_KEY = "VqRB85";
-      const LIST_ID = "Xd8yqJ";
-      const url = `https://a.klaviyo.com/client/subscriptions?company_id=${KLAVIYO_PUBLIC_API_KEY}`;
-
-      const payload = JSON.stringify({
-        data: {
-          type: "subscription",
-          attributes: {
-            profile: {
-              data: {
-                type: "profile",
-                attributes: {
-                  email: email,
-                  subscriptions: {
-                    email: {
-                      marketing: {
-                        consent: "SUBSCRIBED",
-                        consented_at: new Date().toISOString(),
-                      },
-                    },
-                  },
-                },
-              },
-            },
-            custom_source: "Coming Soon",
-          },
-          relationships: {
-            list: {
-              data: {
-                type: "list",
-                id: LIST_ID,
-              },
-            },
-          },
-        },
-      });
-
-      const options = {
-        method: "POST",
-        headers: {
-          accept: "application/vnd.api+json",
-          "content-type": "application/vnd.api+json",
-          revision: "2025-01-15",
-        },
-        body: payload,
-      };
-
-      try {
-        const response = await fetch(url, options);
-        const text = await response.text();
-
-        console.log("Raw Response:", text); // Debugging
-
-        let result;
-        if (text) {
-          try {
-            result = JSON.parse(text);
-          } catch (jsonError) {
-            console.warn("Response is not valid JSON:", text);
-            result = { message: text };
-          }
-        } else {
-          result = { message: "Success (no response body)" };
-        }
-
-        if (response.ok) {
-          responseMessage.style.color = "#4caf50";
-          responseMessage.innerText =
-            "Thank you for joining the Day Shrooms Launch List! Your first email is on its way to your inbox.";
-          emailInput.value = ''; // Clear just the email input
-          if (window.turnstile) {
-            window.turnstile.reset();
-          }
-        } else {
-          console.error("Klaviyo API Error:", result);
-          responseMessage.style.color = "#e45825";
-          responseMessage.innerText = `Error: ${
-            result.errors?.[0]?.detail || "Something went wrong"
-          }`;
-        }
-      } catch (error) {
-        console.error("Network Error Details:", {
-          message: error.message,
-          stack: error.stack,
-          name: error.name
-        });
-        responseMessage.style.color = "#e45825";
-        responseMessage.innerText = "Network error. Please try again later.";
       }
     });
   });
