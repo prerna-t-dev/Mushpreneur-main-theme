@@ -19,7 +19,7 @@
 </style>
 
 
-<section id="mush--coming-soon-hero">
+{% comment %} <section id="mush--coming-soon-hero">
     <div class="section-wrapper flex flex-col items-center xl:flex-row gap-[42px] xl:gap-[75px] text-white relative px-6 lg:px-20 xl:px-[86px] bg-black pt-[126px] pb-11 lg:pt-[184px] xl:py-[184px] xl:pb-[100px] xl:min-h-screen">
         <div class="coming-soon--content xl:w-3/5 relative z-2">
             <div class="lg:px-16 xl:px-0 mx-auto relative z-[2] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
@@ -96,13 +96,13 @@
             </div>
         </div>
     </div>
-</section>
+</section> {% endcomment %}
 
 
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
-{% comment %} 
-<script>
+
+{% comment %} <script>
   document.addEventListener("DOMContentLoaded", function () {
 
 
@@ -154,6 +154,8 @@
       // 4️⃣ Get Turnstile token - simplified approach
       const turnstileResponse = document.querySelector('[name="cf-turnstile-response"]');
       if (!turnstileResponse || !turnstileResponse.value) {
+        responseMessage.innerText = "Please verify the captcha before submitting.";
+        responseMessage.style.color = "#e45825";
         return;
       }
       const turnstileToken = turnstileResponse.value;
@@ -303,4 +305,5 @@
     });
   });
 </script> {% endcomment %}
+
 
