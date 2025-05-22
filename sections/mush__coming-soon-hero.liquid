@@ -13,13 +13,9 @@
         }
     } */
 
-    .g-recaptcha {
-      display: none;
+    .cf-turnstile {
+      margin: 20px auto;
     }
-    .g-recaptcha.visible {
-        display: block;
-    }
-    
 </style>
 
 
@@ -57,8 +53,10 @@
                           <button type="submit" class="coming-soon--submit-btn w-full min-h-[54px] btn bg-gradient-to-r from-[#F2008C] to-[#E74936] text-black uppercase cursor-pointer text-sm xl:text-xl font-semibold leading-[1.1] tracking-[-0.7px] xl:tracking-[-1.037px] max-w-[250px]">JOIN THE LIST</button>
                         </div>
 
-                         <!-- Google reCAPTCHA -->
-                        <div class="g-recaptcha" data-sitekey="6Le5quIqAAAAABo6yQdjut4XvCdKMg9Q0C9nH_B6"></div>
+                        <!-- Cloudflare Turnstile - Using class-based approach from their docs -->
+                        <div class="cf-turnstile" data-sitekey="0x4AAAAAABeBT0ggatQ13Tpt">
+
+                        </div>
 
     
                     </form>
@@ -101,177 +99,126 @@
 </section>
 
 
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
-<!-- Google reCAPTCHA script -->
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
+
+
+
+
     const form = document.getElementById("klaviyo-signup-form--comingsoon");
     const emailInput = document.getElementById("comingsoon-newsletter-email");
     const honeypotField = document.getElementById("honeypot-field");
-    const recaptcha = document.querySelector(".g-recaptcha");
     const responseMessage = document.getElementById("response-message-cs");
-
-    let captchaTriggered = false;
-
+    
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
 
       const email = emailInput.value;
-      const captchaResponse = grecaptcha.getResponse();
 
       // 1️⃣ Basic Email Validation (Regex)
       const emailPattern = /^[a-zA-Z0-9.]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
       if (!emailPattern.test(email)) {
         responseMessage.innerText = "Invalid email address.";
-        responseMessage.classList.add("text-orange");
+        responseMessage.style.color = "#e45825";
         return;
       }
+      console.log("✅ Basic email format validation passed");
 
       // 2️⃣ Honeypot Check (If filled, stop submission)
       if (honeypotField.value) {
         console.warn("Spam bot detected. Form submission aborted.");
         return;
       }
+      console.log("✅ Honeypot check passed");
 
-      // 3️⃣ If CAPTCHA is not yet shown, show it and stop form submission
-      if (!captchaTriggered) {
-        recaptcha.classList.add("visible");
-        captchaTriggered = true;
-        return;
-      }
-
-      // 4️⃣ reCAPTCHA Validation (if visible)
-      if (!captchaResponse) {
-        responseMessage.innerText = "Please complete the CAPTCHA.";
-        responseMessage.classList.add("text-orange");
-        return;
-      }
-
-      // 5️⃣ NOW Check If User is in the USA
+      // 3️⃣ Check If User is in the USA
       try {
         const geoResponse = await fetch("https://ipapi.co/json/");
         const geoData = await geoResponse.json();
         if (geoData.country !== "US" && geoData.country !== "IN") {
           responseMessage.innerText = "Sorry! Submissions outside of US are not allowed at the moment.";
-          responseMessage.classList.add("text-orange");
+          responseMessage.style.color = "#e45825";
           return;
         }
+        console.log("✅ Geolocation check passed - User is from allowed country");
       } catch (error) {
         console.error("Geolocation API failed", error);
         responseMessage.innerText = "Unable to verify location. Please try again later.";
-        responseMessage.classList.add("text-orange");
+        responseMessage.style.color = "#e45825";
         return;
       }
+      
+      // 4️⃣ Get Turnstile token - simplified approach
+      const turnstileResponse = document.querySelector('[name="cf-turnstile-response"]');
+      if (!turnstileResponse || !turnstileResponse.value) {
+        responseMessage.innerText = "Please verify the captcha before submitting.";
+        responseMessage.style.color = "#e45825";
+        return;
+      }
+      const turnstileToken = turnstileResponse.value;
+      // console.log("✅ Turnstile response found:", turnstileToken);
 
-      // 6️⃣ ZeroBounce Email Validation
-      responseMessage.innerText = "Validating email...";
-      responseMessage.classList.remove("text-orange", "text-successgreen");
+      // 5️⃣ ZeroBounce Email Validation and Turnstile Server-Side Validation (now also handles Klaviyo)
+      responseMessage.innerText = "Validating email and verification...";
+      responseMessage.style.color = "";
 
       try {
-        const zerobounceResponse = await fetch(`https://api.zerobounce.net/v2/validate?api_key={{ settings.zerobounce_api_key | json }}&email=${encodeURIComponent(email)}&ip_address=${geoData.ip}`);
-        const validationData = await zerobounceResponse.json();
-        
-        console.log('ZeroBounce validation data:', validationData);
+        // Using Netlify Function for all validation and Klaviyo subscription
+        const validationResponse = await fetch('https://mushpreneur-email-validation.netlify.app/.netlify/functions/validate-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: email,
+            turnstileToken: turnstileToken
+          })
+        });
 
-        // ZeroBounce status can be: valid, invalid, catch-all, unknown, spamtrap, abuse, do_not_mail
+        if (!validationResponse.ok) {
+          throw new Error(`HTTP error! status: ${validationResponse.status}`);
+        }
+
+        const validationData = await validationResponse.json();
+
+        // Check if turnstile verification failed
+        if (validationData.turnstileError) {
+          responseMessage.innerText = "Verification challenge failed. Please try again.";
+          responseMessage.style.color = "#e45825";
+          if (window.turnstile) {
+            window.turnstile.reset();
+          }
+          return;
+        }
+        // Check if ZeroBounce failed
         if (validationData.status !== "valid") {
           responseMessage.innerText = "Invalid or undeliverable email address.";
-          responseMessage.classList.add("text-orange");
+          responseMessage.style.color = "#e45825";
+          return;
+        }
+        // Check if Klaviyo failed
+        if (validationData.klaviyo && validationData.klaviyo.errors) {
+          responseMessage.innerText = `Klaviyo error: ${validationData.klaviyo.errors[0]?.detail || "Something went wrong"}`;
+          responseMessage.style.color = "#e45825";
           return;
         }
 
+        // Success!
+        responseMessage.style.color = "#4caf50";
+        responseMessage.innerText =
+          "Thank you for joining the Day Shrooms Launch List! Your first email is on its way to your inbox.";
+        emailInput.value = ''; // Clear just the email input
+        if (window.turnstile) {
+          window.turnstile.reset();
+        }
       } catch (error) {
-        console.error("ZeroBounce error:", error);
-        responseMessage.innerText = "Email validation failed. Please try again.";
-        responseMessage.classList.add("text-orange");
+        console.error("Validation error:", error);
+        responseMessage.innerText = "Validation failed. Please try again.";
+        responseMessage.style.color = "#e45825";
         return;
-      }
-
-      // 7️⃣ Proceed with API request after CAPTCHA verification
-      const KLAVIYO_PUBLIC_API_KEY = "VqRB85";
-      const LIST_ID = "Xd8yqJ";
-      const url = `https://a.klaviyo.com/client/subscriptions?company_id=${KLAVIYO_PUBLIC_API_KEY}`;
-
-      const payload = JSON.stringify({
-        data: {
-          type: "subscription",
-          attributes: {
-            profile: {
-              data: {
-                type: "profile",
-                attributes: {
-                  email: email,
-                  subscriptions: {
-                    email: {
-                      marketing: {
-                        consent: "SUBSCRIBED",
-                        consented_at: new Date().toISOString(),
-                      },
-                    },
-                  },
-                },
-              },
-            },
-            custom_source: "Coming Soon",
-          },
-          relationships: {
-            list: {
-              data: {
-                type: "list",
-                id: LIST_ID,
-              },
-            },
-          },
-        },
-      });
-
-      const options = {
-        method: "POST",
-        headers: {
-          accept: "application/vnd.api+json",
-          "content-type": "application/vnd.api+json",
-          revision: "2025-01-15",
-        },
-        body: payload,
-      };
-
-      try {
-        const response = await fetch(url, options);
-        const text = await response.text();
-
-        console.log("Raw Response:", text); // Debugging
-
-        let result;
-        if (text) {
-          try {
-            result = JSON.parse(text);
-          } catch (jsonError) {
-            console.warn("Response is not valid JSON:", text);
-            result = { message: text };
-          }
-        } else {
-          result = { message: "Success (no response body)" };
-        }
-
-        if (response.ok) {
-          responseMessage.classList.add("text-successgreen");
-          responseMessage.innerText =
-            "Thank you for joining the Day Shrooms Launch List! Your first email is on its way to your inbox.";
-          form.reset();
-          grecaptcha.reset();
-          recaptcha.classList.remove("visible"); // Hide CAPTCHA after success
-          captchaTriggered = false;
-        } else {
-          console.error("Klaviyo API Error:", result);
-          responseMessage.classList.add("text-orange");
-          responseMessage.innerText = `Error: ${
-            result.errors?.[0]?.detail || "Something went wrong"
-          }`;
-        }
-      } catch (error) {
-        console.error("Network Error:", error);
       }
     });
   });
@@ -336,7 +283,3 @@
 {% endschema %}
 
 
-{% comment %} client site key:  6Le5quIqAAAAABo6yQdjut4XvCdKMg9Q0C9nH_B6 {% endcomment %}
- {% comment %} server side key: 6Le5quIqAAAAAP9Ee6SojzW3wIyA3PoDt_JgI4uw {% endcomment %}
-{% comment %} verifalia user: 1795045dadd04f18b96699689c79e8c5
-verifalia pw: Prernadev@123 {% endcomment %}
