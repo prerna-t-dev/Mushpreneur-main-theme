@@ -4241,6 +4241,11 @@ body[data-template="blog"] sticky-header header{
     padding-right: 2.5rem;
   }
 
+  .xl\:px-2 {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
   .xl\:px-20 {
     padding-left: 5rem;
     padding-right: 5rem;
@@ -4444,11 +4449,6 @@ body[data-template="blog"] sticky-header header{
   .xl\:py-\[96px\] {
     padding-top: 96px;
     padding-bottom: 96px;
-  }
-
-  .xl\:px-2 {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
   }
 
   .xl\:pb-0 {

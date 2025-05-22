@@ -13,13 +13,14 @@
         }
     } */
 
+    /* Turnstile styles - commented out for now
     .cf-turnstile {
       display: none;
     }
     .cf-turnstile.visible {
         display: block;
     }
-    
+    */
 </style>
 
 
@@ -58,7 +59,7 @@
                         </div>
 
                          <!-- Cloudflare Turnstile -->
-                        <div class="cf-turnstile" data-sitekey="YOUR_SITE_KEY"></div>
+                        {% comment %} <div class="cf-turnstile" data-sitekey="0x4AAAAAABeBT0ggatQ13Tpt"></div> {% endcomment %}
 
     
                     </form>
@@ -87,7 +88,7 @@
 
         <div class="xl:w-2/5">
             <!-- Coming Soon Image Banner: Desktop-->
-            <div class="hidden xl:block xl:px-10 relative z-0">
+            <div class="hidden xl:block xl:px-2 relative z-0">
               <img src="{{ section.settings.image_desk |  img_url: 'master' }}" alt="Coming Soon">
             </div>
 
@@ -102,24 +103,26 @@
 
 
 
-<!-- Cloudflare Turnstile script -->
+<!-- Cloudflare Turnstile script - commented out for now -->
+{% comment %}
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+{% endcomment %}
 
-<script>
+{% comment %} <script>
   document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("klaviyo-signup-form--comingsoon");
     const emailInput = document.getElementById("comingsoon-newsletter-email");
     const honeypotField = document.getElementById("honeypot-field");
-    const turnstile = document.querySelector(".cf-turnstile");
+    // const turnstile = document.querySelector(".cf-turnstile");
     const responseMessage = document.getElementById("response-message-cs");
 
-    let turnstileTriggered = false;
+    // let turnstileTriggered = false;
 
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
 
       const email = emailInput.value;
-      const turnstileResponse = turnstile.getResponse();
+      // const turnstileResponse = turnstile.getResponse();
 
       // 1️⃣ Basic Email Validation (Regex)
       const emailPattern = /^[a-zA-Z0-9.]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -128,13 +131,16 @@
         responseMessage.classList.add("text-orange");
         return;
       }
+      console.log("✅ Basic email format validation passed");
 
       // 2️⃣ Honeypot Check (If filled, stop submission)
       if (honeypotField.value) {
         console.warn("Spam bot detected. Form submission aborted.");
         return;
       }
+      console.log("✅ Honeypot check passed");
 
+      /* Turnstile validation - commented out for now
       // 3️⃣ If Turnstile is not yet shown, show it and stop form submission
       if (!turnstileTriggered) {
         turnstile.classList.add("visible");
@@ -149,7 +155,34 @@
         return;
       }
 
-      // 5️⃣ NOW Check If User is in the USA
+      // 5️⃣ Server-side Turnstile Validation
+      try {
+        const turnstileValidationResponse = await fetch('/apps/validate-turnstile', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            token: turnstileResponse
+          })
+        });
+
+        const validationResult = await turnstileValidationResponse.json();
+        
+        if (!validationResult.success) {
+          responseMessage.innerText = "Verification failed. Please try again.";
+          responseMessage.classList.add("text-orange");
+          return;
+        }
+      } catch (error) {
+        console.error("Turnstile validation error:", error);
+        responseMessage.innerText = "Verification failed. Please try again.";
+        responseMessage.classList.add("text-orange");
+        return;
+      }
+      */
+
+      // 3️⃣ NOW Check If User is in the USA
       try {
         const geoResponse = await fetch("https://ipapi.co/json/");
         const geoData = await geoResponse.json();
@@ -158,6 +191,7 @@
           responseMessage.classList.add("text-orange");
           return;
         }
+        console.log("✅ Geolocation check passed - User is from allowed country");
       } catch (error) {
         console.error("Geolocation API failed", error);
         responseMessage.innerText = "Unable to verify location. Please try again later.";
@@ -165,40 +199,46 @@
         return;
       }
 
-      // 6️⃣ Verifalia Email Validation
+      // 4️⃣ ZeroBounce Email Validation
       responseMessage.innerText = "Validating email...";
       responseMessage.classList.remove("text-orange", "text-successgreen");
 
       try {
-        const verifaliaResponse = await fetch("https://api.verifalia.com/v2.5/email-validations", {
-          method: "POST",
+        // Using Netlify Function for ZeroBounce validation
+        const zerobounceResponse = await fetch('https://mushpreneur-email-validation.netlify.app/.netlify/functions/validate-email', {
+          method: 'POST',
           headers: {
-            Authorization: "Basic " + btoa("1795045dadd04f18b96699689c79e8c5:Prernadev@123"),
-            "Content-Type": "application/json"
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            entries: [{ inputData: email }]
+            email: email
           })
         });
+        
+        if (!zerobounceResponse.ok) {
+          throw new Error(`HTTP error! status: ${zerobounceResponse.status}`);
+        }
+        
+        const validationData = await zerobounceResponse.json();
+        console.log('ZeroBounce validation data:', validationData);
 
-        const validationData = await verifaliaResponse.json();
-        const result = validationData.entries.data[0]?.classification;
-        console.log('validationData', validationData)
-        console.log('Verifalia result: ', result)
-
-        if (result !== "Deliverable") {
+        // ZeroBounce status can be: valid, invalid, catch-all, unknown, spamtrap, abuse, do_not_mail
+        if (validationData.status !== "valid") {
           responseMessage.innerText = "Invalid or undeliverable email address.";
           responseMessage.classList.add("text-orange");
           return;
         }
+        console.log("✅ ZeroBounce email validation passed");
+
       } catch (error) {
-        console.error("Verifalia error:", error);
+        console.error("ZeroBounce error:", error);
         responseMessage.innerText = "Email validation failed. Please try again.";
         responseMessage.classList.add("text-orange");
         return;
       }
 
-      // 7️⃣ Proceed with API request after Turnstile verification
+      // 5️⃣ Proceed with API request after all validations
+      console.log("✅ All validations passed, proceeding with Klaviyo subscription");
       const KLAVIYO_PUBLIC_API_KEY = "VqRB85";
       const LIST_ID = "Xd8yqJ";
       const url = `https://a.klaviyo.com/client/subscriptions?company_id=${KLAVIYO_PUBLIC_API_KEY}`;
@@ -269,9 +309,9 @@
           responseMessage.innerText =
             "Thank you for joining the Day Shrooms Launch List! Your first email is on its way to your inbox.";
           form.reset();
-          turnstile.reset();
-          turnstile.classList.remove("visible"); // Hide Turnstile after success
-          turnstileTriggered = false;
+          // turnstile.reset();
+          // turnstile.classList.remove("visible"); // Hide Turnstile after success
+          // turnstileTriggered = false;
         } else {
           console.error("Klaviyo API Error:", result);
           responseMessage.classList.add("text-orange");
@@ -284,64 +324,5 @@
       }
     });
   });
-</script>
-
-
-
-
-{%  schema  %} 
-    {
-        "name": "Coming Soon - Hero",
-        "class": "section--coming-soon-hero",
-        "settings": [
-            {
-                "type": "color",
-                "id": "background",
-                "label": "Background Color"
-            },
-            {
-                "type": "image_picker",
-                "id": "image_desk",
-                "label": "Image Desktop"
-            },
-            {
-                "type": "image_picker",
-                "id": "image_mob",
-                "label": "Image Mobile"
-            },
-            {
-                "type": "textarea",
-                "id": "header",
-                "label": "Header",
-                "default": "Mushrooms are smart. <br/> Day Shrooms are smarter."
-            },
-            {
-                "type": "text",
-                "id": "subheader",
-                "label": "Subheader",
-                "default": "Meet Day Shrooms—a lifestyle upgrade for those tired of the midday slump. Challenge your morning joe with a smarter, better way to fuel productivity, focus, flow, and well-being. Join the launch list now for exclusive early access and updates."
-            }
-        ],
-        "blocks": [
-            {
-                "name": "USP",
-                "type": "usp",
-                "limit": 5,
-                "settings": [
-                    {
-                        "type": "text",
-                        "id": "usp",
-                        "label": "USP"
-                    }
-                ]
-            }
-        ],
-        "presets": [
-            {
-                "name": "Coming Soon - Hero"
-            }
-        ]
-    } 
-{% endschema %}
-
+</script> {% endcomment %}
 
