@@ -3999,6 +3999,10 @@ body[data-template="blog"] sticky-header header{
     height: 98px;
   }
 
+  .xl\:h-screen {
+    height: 100vh;
+  }
+
   .xl\:min-h-screen {
     min-height: 100vh;
   }
