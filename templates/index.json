@@ -65,7 +65,14 @@
     },
     "mush_image_with_text_gLBtzW": {
       "type": "mush__image-with-text",
-      "settings": {}
+      "settings": {
+        "desktop_image": "shopify://shop_images/day-shroom-prod--desk.jpg",
+        "mobile_image": "shopify://shop_images/day-shroom-prod--mob.jpg",
+        "heading": "The Productivity Boost\nYou've Been Craving",
+        "description": "Crafted for those who think big and do bigger, Day Shrooms delivers clean, steady energy to power through your day without jitters or midday slumps. Perfect for early mornings, intense focus sessions, and every productive moment in between.",
+        "button_text": "TRY DAY SHROOMS",
+        "button_link": "/products/day-shrooms"
+      }
     },
     "mush_usp_marquee_scroll_Xit33t": {
       "type": "mush__usp-marquee-scroll",
