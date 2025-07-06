@@ -1,8 +1,7 @@
-
 <style>
 
     #mush--hero-banner{
-        background: url(https://cdn.shopify.com/s/files/1/0569/9217/0159/files/Home_Page_-_Hero_Banner_Mobile_optimized_1.png?v=1736421830);
+        background: url({{ section.settings.mobile_background_image | image_url }});
         background-repeat: no-repeat; 
         background-size: 100%; 
         background-position: center bottom 25%;
@@ -11,7 +10,7 @@
 
     @media (min-width: 990px) {
         #mush--hero-banner{
-            background-image: url(https://cdn.shopify.com/s/files/1/0569/9217/0159/files/Home_Page_-_Hero_Banner_optimized_1.png?v=1736494312);
+            background-image: url({{ section.settings.desktop_background_image | image_url }});
         }
     }
 
@@ -22,20 +21,20 @@
     <div class="px-7 lg:px-12 xl:px-[114px] flex items-center justify-center lg:justify-start pt-[30px] lg:pt-[146px] pb-[355px] lg:pb-[190px] 3xl:pt-[220px] 3xl:pb-[380px] h-screen_">
         <div class="text-center lg:text-left leading-tight lg:pr-20 xl:pr-0">
             <h1 class="text-[36px] lg:text-[48px] font-bold leading-tight mb-2 tracking-[-1.8px] lg:tracking-[-2.4px] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}" >
-                Rise and thrive with&nbsp;&nbsp;Day Shrooms
+                {{ section.settings.heading }}
             </h1>
             <p class="text-xl lg:text-[40px] font-medium leading-tight mb-2 lg:mb-4 tracking-[-0.997px] lg:tracking-[-2px]">
-                Your new go-to productivity booster 
+                {{ section.settings.subheading }}
             </p>
 
 
             <p class="text-base lg:text-[28px] mb-4 lg:mb-10 tracking-[-0.8px] lg:tracking-[-1.4px] leading-[1.1]">
-                Try our new ultimate coffee alternative designed to <br/> supercharge productivity, focus, and daily flow.
+                {{ section.settings.description }}
             </p>
 
 
-            <a href="/products/day-shrooms" class="btn btn-primary block mx-auto lg:ml-0">
-                TRY DAY SHROOMS
+            <a href="{{ section.settings.button_link }}" class="btn btn-primary block mx-auto lg:ml-0">
+                {{ section.settings.button_text }}
             </a>
         </div> 
     </div>
@@ -53,7 +52,48 @@
         "name": "Homepage Banner",
         "class": "section--homepage-banner",
         "settings": [
-
+            {
+                "type": "image_picker",
+                "id": "mobile_background_image",
+                "label": "Mobile Background Image",
+                "info": "Recommended size: 750x1334px"
+            },
+            {
+                "type": "image_picker",
+                "id": "desktop_background_image",
+                "label": "Desktop Background Image",
+                "info": "Recommended size: 1920x1080px"
+            },
+            {
+                "type": "text",
+                "id": "heading",
+                "label": "Heading",
+                "default": "Rise and thrive with Day Shrooms"
+            },
+            {
+                "type": "text",
+                "id": "subheading",
+                "label": "Subheading",
+                "default": "Your new go-to productivity booster"
+            },
+            {
+                "type": "textarea",
+                "id": "description",
+                "label": "Description",
+                "default": "Try our new ultimate coffee alternative designed to supercharge productivity, focus, and daily flow."
+            },
+            {
+                "type": "text",
+                "id": "button_text",
+                "label": "Button Text",
+                "default": "TRY DAY SHROOMS"
+            },
+            {
+                "type": "text",
+                "id": "button_link",
+                "label": "Button Link",
+                "default": "/products/day-shrooms"
+            }
         ],
         "presets": [
             {
