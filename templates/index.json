@@ -24,6 +24,7 @@
     "mush_benefits_overview_f6QziP": {
       "type": "mush__benefits-overview",
       "settings": {
+        "mobile_background_image": "shopify://shop_images/Benefits_Overview_1.png",
         "desktop_background_image": "shopify://shop_images/Group_12351_3.jpg",
         "main_heading": "Coffee Is Canceled.\nIt's Time for Day Shrooms.",
         "main_description": "Tired of coffee's jitters, crashes, and chaos? Day Shrooms rewrites the rules with a powerful blend of functional mushrooms, nootropics, adaptogens, and vitamins to fuel your focus, energy, and calm—all without the side effects.",
@@ -39,7 +40,20 @@
     },
     "mush_product_highlights_CygcxX": {
       "type": "mush__product-highlights",
-      "settings": {}
+      "settings": {
+        "main_heading": "What Powers Day Shrooms?",
+        "main_description": "A powerful blend of functional mushrooms, nootropics, adaptogens, and vitamins —all working together to fuel your focus, energy, and calm.",
+        "highlight_1_value": "2000mg",
+        "highlight_1_description": "Fruiting Body <br> Mushrooms",
+        "highlight_2_value": "60mg",
+        "highlight_2_description": "Caffeine derived <br> from Green Tea",
+        "highlight_3_value": "850mg",
+        "highlight_3_description": "Natural Nootropics & <br> Adaptogens",
+        "highlight_4_value": "200mg",
+        "highlight_4_description": "L-theanine for <br> reduced jitters",
+        "highlight_5_value": "100% DV",
+        "highlight_5_description": "100%of your daily <br> vitamins B12 & D2"
+      }
     },
     "mush_comparison_table_cmDJGq": {
       "type": "mush__comparison-table",
