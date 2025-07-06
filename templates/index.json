@@ -11,7 +11,15 @@
   "sections": {
     "mush_hero_banner_tMVcCA": {
       "type": "mush__hero-banner",
-      "settings": {}
+      "settings": {
+        "mobile_background_image": "shopify://shop_images/mush--hero-banner-mob.png",
+        "desktop_background_image": "shopify://shop_images/mush_-_hero-banner-desk.jpg",
+        "heading": "Rise and thrive with Day Shrooms",
+        "subheading": "Your new go-to productivity booster",
+        "description": "Try our new ultimate coffee alternative designed to <br> supercharge productivity, focus, and daily flow.",
+        "button_text": "TRY DAY SHROOMS",
+        "button_link": "/products/day-shrooms"
+      }
     },
     "mush_benefits_overview_f6QziP": {
       "type": "mush__benefits-overview",
