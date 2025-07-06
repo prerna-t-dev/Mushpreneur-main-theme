@@ -1442,6 +1442,10 @@ body {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
 }
+.border-mustard {
+  --tw-border-opacity: 1;
+  border-color: rgb(254 163 12 / var(--tw-border-opacity, 1));
+}
 .\!bg-black {
   --tw-bg-opacity: 1 !important;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1)) !important;
