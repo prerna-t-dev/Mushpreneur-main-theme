@@ -1429,7 +1429,7 @@ body {
 }
 .border-mustard {
   --tw-border-opacity: 1;
-  border-color: rgb(254 170 11 / var(--tw-border-opacity, 1));
+  border-color: rgb(254 163 12 / var(--tw-border-opacity, 1));
 }
 .border-orange {
   --tw-border-opacity: 1;
@@ -1464,7 +1464,7 @@ body {
 }
 .bg-mustard {
   --tw-bg-opacity: 1;
-  background-color: rgb(254 170 11 / var(--tw-bg-opacity, 1));
+  background-color: rgb(254 163 12 / var(--tw-bg-opacity, 1));
 }
 .bg-orange {
   --tw-bg-opacity: 1;
@@ -2162,10 +2162,6 @@ body {
 .text-lightorange {
   --tw-text-opacity: 1;
   color: rgb(254 163 12 / var(--tw-text-opacity, 1));
-}
-.text-mustard {
-  --tw-text-opacity: 1;
-  color: rgb(254 170 11 / var(--tw-text-opacity, 1));
 }
 .text-orange {
   --tw-text-opacity: 1;
@@ -3238,14 +3234,14 @@ body[data-template="blog"] sticky-header header{
     border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
   }
 
-    .lg\:bg-mustard {
-    --tw-bg-opacity: 1;
-    background-color: rgb(254 170 11 / var(--tw-bg-opacity, 1));
-  }
-
     .lg\:bg-black {
     --tw-bg-opacity: 1;
     background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
+  }
+
+    .lg\:bg-mustard {
+    --tw-bg-opacity: 1;
+    background-color: rgb(254 163 12 / var(--tw-bg-opacity, 1));
   }
 
     .lg\:px-0 {
