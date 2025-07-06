@@ -26,7 +26,7 @@
             {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}
             "      
             >
-                {{ section.settings.main_heading }}
+                {{ section.settings.main_heading | newline_to_br }}
             </h2>
 
             <p class="lg:px-20 text-black text-base lg:text-[28px] tracking-[-0.8px] lg:tracking-[-1.4px] leading-[1.1] pb-[393px] lg:pb-[164px]">
@@ -100,7 +100,7 @@
                 "info": "Recommended size: 1920x1080px"
             },
             {
-                "type": "text",
+                "type": "textarea",
                 "id": "main_heading",
                 "label": "Main Heading",
                 "default": "Coffee Is Canceled.\nIt's Time for Day Shrooms."
@@ -121,7 +121,7 @@
                 "type": "textarea",
                 "id": "benefit_1_description",
                 "label": "Benefit 1 Description",
-                "default": "No more jitters or crashes— just calm, productive energy."
+                "default": "No more jitters or crashes— <br/> just calm, productive energy."
             },
             {
                 "type": "text",
@@ -133,7 +133,7 @@
                 "type": "textarea",
                 "id": "benefit_2_description",
                 "label": "Benefit 2 Description",
-                "default": "All-day stamina fueled by natural nootropics and adaptogens."
+                "default": "All-day stamina fueled by natural <br/> nootropics and adaptogens."
             },
             {
                 "type": "text",
@@ -145,7 +145,7 @@
                 "type": "textarea",
                 "id": "benefit_3_description",
                 "label": "Benefit 3 Description",
-                "default": "Stay cool under pressure with calm confidence."
+                "default": "Stay cool under pressure with <br/> calm confidence."
             },
             {
                 "type": "text",
@@ -157,7 +157,7 @@
                 "type": "textarea",
                 "id": "benefit_4_description",
                 "label": "Benefit 4 Description",
-                "default": "Minimize distractions and unlock your productivity potential."
+                "default": "Minimize distractions and unlock <br/> your productivity potential."
             }
         ],
         "presets": [
