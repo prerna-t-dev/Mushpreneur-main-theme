@@ -35,13 +35,11 @@
     <div class="section-wrapper pt-[42px] lg:pt-[64px] px-7 lg:px-[94px] relative z-2 bg-skyblue">
 
         <h2 class="text-2xl lg:text-[42px] xl::text-[64px] font-medium mb-6 lg:mb-20 text-center tracking-[-1.206px] lg:tracking-[-2.1px] xl:tracking-[-3.2px] leading-none {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
-            How <span class="font-bold tracking-[-1.206px] lg:tracking-[-3.2px]">Day Shrooms</span> Fits Your Life.
-            <br/>
-            One Cup. All the Benefits.
+            {{ section.settings.main_heading | newline_to_br }}
         </h2>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-9 lg:gap-[92px] mb-6 lg:mb-[120px]">
-            <img class="px-9 lg:px-0" src="https://cdn.shopify.com/s/files/1/0569/9217/0159/files/mush--benefits.png?v=1736149870" alt="">
+            <img class="px-9 lg:px-0" src="{{ section.settings.main_image | image_url }}" alt="{{ section.settings.main_image.alt | escape }}">
 
             <div class="flex flex-col gap-6 lg:gap-12">
                 <div class="flex gap-5 items-center">
@@ -49,8 +47,8 @@
                         <img src="https://cdn.shopify.com/s/files/1/0569/9217/0159/files/mush--icon-spoon.png?v=1736150293" alt="Spoon">
                     </div>
                     <div class="{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
-                        <h4 class="uppercase text-xl xl:text-[40px] font-semibold leading-tight tracking-[-0.991px] xl:tracking-[-2px]">spoon</h4>
-                        <p class="text-base xl:text-2xl leading-none tracking-[-0.8px] pt-1 xl:tracking-[-1.2px] leading-[1.1]">Add Day Shrooms to your favorite mug.</p>
+                        <h4 class="uppercase text-xl xl:text-[40px] font-semibold leading-tight tracking-[-0.991px] xl:tracking-[-2px]">{{ section.settings.step_1_title }}</h4>
+                        <p class="text-base xl:text-2xl leading-none tracking-[-0.8px] pt-1 xl:tracking-[-1.2px] leading-[1.1]">{{ section.settings.step_1_description }}</p>
                     </div>
                 </div>
                 <div class="flex gap-5 items-center">
@@ -58,8 +56,8 @@
                         <img src="https://cdn.shopify.com/s/files/1/0569/9217/0159/files/mush--icon-stir.png?v=1736150293" alt="Stir">
                     </div>
                     <div class="{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
-                        <h4 class="uppercase text-xl xl:text-[40px] font-semibold leading-tight tracking-[-0.991px] xl:tracking-[-2px]">stir</h4>
-                        <p class="text-base xl:text-2xl leading-none tracking-[-0.8px] pt-1 xl:tracking-[-1.2px] leading-[1.1]">With 6-8oz water, if desired add milk & sweetener</p>
+                        <h4 class="uppercase text-xl xl:text-[40px] font-semibold leading-tight tracking-[-0.991px] xl:tracking-[-2px]">{{ section.settings.step_2_title }}</h4>
+                        <p class="text-base xl:text-2xl leading-none tracking-[-0.8px] pt-1 xl:tracking-[-1.2px] leading-[1.1]">{{ section.settings.step_2_description }}</p>
                     </div>
                 </div>
                 <div class="flex gap-5 items-center">
@@ -67,13 +65,13 @@
                         <img src="https://cdn.shopify.com/s/files/1/0569/9217/0159/files/mush--icon-sip.png?v=1736150293" alt="Sip">
                     </div>
                     <div class="{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
-                        <h4 class="uppercase text-xl xl:text-[40px] font-semibold leading-tight tracking-[-0.991px] xl:tracking-[-2px]">sip</h4>
-                        <p class="text-base xl:text-2xl leading-none tracking-[-0.8px] pt-1 xl:tracking-[-1.2px] leading-[1.1]">Enjoy hot or iced and feel the flow in minutes</p>
+                        <h4 class="uppercase text-xl xl:text-[40px] font-semibold leading-tight tracking-[-0.991px] xl:tracking-[-2px]">{{ section.settings.step_3_title }}</h4>
+                        <p class="text-base xl:text-2xl leading-none tracking-[-0.8px] pt-1 xl:tracking-[-1.2px] leading-[1.1]">{{ section.settings.step_3_description }}</p>
                     </div>
                 </div>
 
-                <a href="#" class="btn btn-secondary mx-auto block mb-9 lg:mb-0">
-                    Try now
+                <a href="{{ section.settings.button_link }}" class="btn btn-secondary mx-auto block mb-9 lg:mb-0">
+                    {{ section.settings.button_text }}
                 </a>
 
             </div>
@@ -82,7 +80,7 @@
 
     </div>
 
-    <img src="https://cdn.shopify.com/s/files/1/0569/9217/0159/files/Call_To_Action_1.png?v=1736150294" alt="Call to Action">
+    <img src="{{ section.settings.bottom_image | image_url }}" alt="{{ section.settings.bottom_image.alt | escape }}">
 
 </section>
 
@@ -92,7 +90,72 @@
         "name": "How it Works",
         "class": "section--how-it-works",
         "settings": [
-
+            {
+                "type": "textarea",
+                "id": "main_heading",
+                "label": "Main Heading",
+                "default": "How Day Shrooms Fits Your Life.\nOne Cup. All the Benefits."
+            },
+            {
+                "type": "image_picker",
+                "id": "main_image",
+                "label": "Main Image",
+                "info": "Recommended size: 600x600px"
+            },
+            {
+                "type": "text",
+                "id": "step_1_title",
+                "label": "Step 1 Title",
+                "default": "spoon"
+            },
+            {
+                "type": "text",
+                "id": "step_1_description",
+                "label": "Step 1 Description",
+                "default": "Add Day Shrooms to your favorite mug."
+            },
+            {
+                "type": "text",
+                "id": "step_2_title",
+                "label": "Step 2 Title",
+                "default": "stir"
+            },
+            {
+                "type": "text",
+                "id": "step_2_description",
+                "label": "Step 2 Description",
+                "default": "With 6-8oz water, if desired add milk & sweetener"
+            },
+            {
+                "type": "text",
+                "id": "step_3_title",
+                "label": "Step 3 Title",
+                "default": "sip"
+            },
+            {
+                "type": "text",
+                "id": "step_3_description",
+                "label": "Step 3 Description",
+                "default": "Enjoy hot or iced and feel the flow in minutes"
+            },
+            {
+                "type": "text",
+                "id": "button_text",
+                "label": "Button Text",
+                "default": "Try now"
+            },
+            {
+                "type": "text",
+                "id": "button_link",
+                "label": "Button Link",
+                "default": "/products/day-shrooms"
+            },
+            {
+                "type": "image_picker",
+                "id": "bottom_image",
+                "label": "Bottom Image",
+                "info": "Recommended size: 1920x400px"
+            }
         ],
         "presets": [
             {
