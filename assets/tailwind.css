@@ -3239,6 +3239,11 @@ body[data-template="blog"] sticky-header header{
     background-color: rgb(255 62 173 / var(--tw-bg-opacity, 1));
   }
 
+  .lg\:bg-mustard {
+    --tw-bg-opacity: 1;
+    background-color: rgb(254 163 12 / var(--tw-bg-opacity, 1));
+  }
+
   .lg\:px-0 {
     padding-left: 0px;
     padding-right: 0px;
