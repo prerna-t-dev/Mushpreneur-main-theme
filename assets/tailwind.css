@@ -4838,5 +4838,9 @@ body[data-template="blog"] sticky-header header{
   .\33xl\:pt-\[220px\] {
     padding-top: 220px;
   }
+
+  .\33xl\:pb-\[280px\] {
+    padding-bottom: 280px;
+  }
 }
 
