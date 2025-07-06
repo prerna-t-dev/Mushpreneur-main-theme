@@ -37,7 +37,8 @@
     }
 
     .btn-primary{
-        background: var(--Primary-CTA-BG, linear-gradient(90deg, #F2008C 0%, #E74936 100%));
+        /* background: var(--Primary-CTA-BG, linear-gradient(90deg, #F2008C 0%, #E74936 100%)); */
+        background: var(--Primary-CTA-BG, linear-gradient(90deg, #FFC107 0%, #E74936 100%));
         color: #ffffff !important;
     }
 
