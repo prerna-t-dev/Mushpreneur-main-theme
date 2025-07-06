@@ -1,7 +1,7 @@
 <style>
 
     #mush--benefits-overview .section-bg{
-        background-image: url(https://cdn.shopify.com/s/files/1/0569/9217/0159/files/mush--benefits-mob.png?v=1736230177); 
+        background-image: url({{ section.settings.mobile_background_image | image_url }}); 
         background-size: 100%; 
         background-repeat: no-repeat;
         background-position: center 15%;
@@ -9,7 +9,7 @@
 
     @media (min-width: 990px) {
         #mush--benefits-overview .section-bg{
-            background-image: url(https://cdn.shopify.com/s/files/1/0569/9217/0159/files/Mush--benefits-desktop_1.png?v=1736007972);background-size: 100%; 
+            background-image: url({{ section.settings.desktop_background_image | image_url }});background-size: 100%; 
             background-repeat: no-repeat;
             background-position: center bottom 25%;
         }
@@ -26,13 +26,11 @@
             {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}
             "      
             >
-                Coffee Is Canceled.
-                <br/>
-                It's Time for Day Shrooms.
+                {{ section.settings.main_heading }}
             </h2>
 
             <p class="lg:px-20 text-black text-base lg:text-[28px] tracking-[-0.8px] lg:tracking-[-1.4px] leading-[1.1] pb-[393px] lg:pb-[164px]">
-                Tired of coffee's jitters, crashes, and chaos? Day Shrooms rewrites the rules with a powerful blend of functional mushrooms, nootropics, adaptogens, and vitamins to fuel your focus, energy, and calm—all without the side effects.
+                {{ section.settings.main_description }}
             </p>
 
 
@@ -40,18 +38,18 @@
                 <div class="text-black">
                     <div class="mb-6 lg:mb-[64px]">
                         <h3 class="text-base lg:text-2xl xl:text-[34px] text-black font-semibold tracking-[-0.8px] lg:tracking-[-1.2px] xl:tracking-[-1.7px] leading-none mb-1 lg:mb-2 xl:mb-2.5">
-                            Focus Without the Chaos
+                            {{ section.settings.benefit_1_title }}
                         </h3>
                         <p class="text-[11px] lg:text-xl xl:text-[28px] leading-[1.1] tracking-[-0.55px] lg:tracking-[-0.9px] lg:tracking-[-1.4px]">
-                            No more jitters or crashes— <br/> just calm, productive energy.
+                            {{ section.settings.benefit_1_description }}
                         </p>
                     </div>
                     <div class="">
                         <h3 class="text-base lg:text-2xl xl:text-[34px] text-black font-semibold tracking-[-0.8px] lg:tracking-[-1.2px] xl:tracking-[-1.7px] leading-none mb-1 lg:mb-2 xl:mb-2.5">
-                            Sustained Energy
+                            {{ section.settings.benefit_2_title }}
                         </h3>
                         <p class="text-[11px] lg:text-xl xl:text-[28px] leading-[1.1] tracking-[-0.55px] lg:tracking-[-0.9px] lg:tracking-[-1.4px]">
-                            All-day stamina fueled by natural <br/> nootropics and adaptogens.
+                            {{ section.settings.benefit_2_description }}
                         </p>
                     </div>
                 </div>
@@ -60,18 +58,18 @@
                 <div class="text-black">
                     <div class="mb-6 lg:mb-[64px]">
                         <h3 class="text-base lg:text-2xl xl:text-[34px] text-black font-semibold tracking-[-0.8px] lg:tracking-[-1.2px] xl:tracking-[-1.7px] leading-none mb-1 lg:mb-2 xl:mb-2.5">
-                            Stress-Free Performance
+                            {{ section.settings.benefit_3_title }}
                         </h3>
                         <p class="text-[11px] lg:text-xl xl:text-[28px] leading-[1.1] tracking-[-0.55px] lg:tracking-[-0.9px] lg:tracking-[-1.4px]">
-                            Stay cool under pressure with <br/> calm confidence.
+                            {{ section.settings.benefit_3_description }}
                         </p>
                     </div>
                     <div class="">
                         <h3 class="text-base lg:text-2xl xl:text-[34px] text-black font-semibold tracking-[-0.8px] lg:tracking-[-1.2px] xl:tracking-[-1.7px] leading-none mb-1 lg:mb-2 xl:mb-2.5">
-                            Daily Flow
+                            {{ section.settings.benefit_4_title }}
                         </h3>
                         <p class="text-[11px] lg:text-xl xl:text-[28px] leading-[1.1] tracking-[-0.55px] lg:tracking-[-0.9px] lg:tracking-[-1.4px]">
-                            Minimize distractions and unlock <br/> your productivity potential.
+                            {{ section.settings.benefit_4_description }}
                         </p>
                     </div>
                 </div>
@@ -89,7 +87,78 @@
         "name": "Benefits Overview",
         "class": "section--benefits-overview",
         "settings": [
-
+            {
+                "type": "image_picker",
+                "id": "mobile_background_image",
+                "label": "Mobile Background Image",
+                "info": "Recommended size: 750x1334px"
+            },
+            {
+                "type": "image_picker",
+                "id": "desktop_background_image",
+                "label": "Desktop Background Image",
+                "info": "Recommended size: 1920x1080px"
+            },
+            {
+                "type": "text",
+                "id": "main_heading",
+                "label": "Main Heading",
+                "default": "Coffee Is Canceled.\nIt's Time for Day Shrooms."
+            },
+            {
+                "type": "textarea",
+                "id": "main_description",
+                "label": "Main Description",
+                "default": "Tired of coffee's jitters, crashes, and chaos? Day Shrooms rewrites the rules with a powerful blend of functional mushrooms, nootropics, adaptogens, and vitamins to fuel your focus, energy, and calm—all without the side effects."
+            },
+            {
+                "type": "text",
+                "id": "benefit_1_title",
+                "label": "Benefit 1 Title",
+                "default": "Focus Without the Chaos"
+            },
+            {
+                "type": "textarea",
+                "id": "benefit_1_description",
+                "label": "Benefit 1 Description",
+                "default": "No more jitters or crashes— just calm, productive energy."
+            },
+            {
+                "type": "text",
+                "id": "benefit_2_title",
+                "label": "Benefit 2 Title",
+                "default": "Sustained Energy"
+            },
+            {
+                "type": "textarea",
+                "id": "benefit_2_description",
+                "label": "Benefit 2 Description",
+                "default": "All-day stamina fueled by natural nootropics and adaptogens."
+            },
+            {
+                "type": "text",
+                "id": "benefit_3_title",
+                "label": "Benefit 3 Title",
+                "default": "Stress-Free Performance"
+            },
+            {
+                "type": "textarea",
+                "id": "benefit_3_description",
+                "label": "Benefit 3 Description",
+                "default": "Stay cool under pressure with calm confidence."
+            },
+            {
+                "type": "text",
+                "id": "benefit_4_title",
+                "label": "Benefit 4 Title",
+                "default": "Daily Flow"
+            },
+            {
+                "type": "textarea",
+                "id": "benefit_4_description",
+                "label": "Benefit 4 Description",
+                "default": "Minimize distractions and unlock your productivity potential."
+            }
         ],
         "presets": [
             {
