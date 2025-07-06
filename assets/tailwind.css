@@ -4003,6 +4003,10 @@ body[data-template="blog"] sticky-header header{
     height: 100vh;
   }
 
+  .xl\:h-\[70vh\] {
+    height: 70vh;
+  }
+
   .xl\:min-h-screen {
     min-height: 100vh;
   }
