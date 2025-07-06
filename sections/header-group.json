@@ -7,8 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-
- {
+{
   "name": "t:sections.header.name",
   "type": "header",
   "sections": {
@@ -26,6 +25,7 @@
       "block_order": [
         "announcement-bar-0"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "",
         "show_line_separator": true,
