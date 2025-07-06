@@ -171,7 +171,19 @@
     },
     "mush_how_it_works_HkMDpw": {
       "type": "mush__how-it-works",
-      "settings": {}
+      "settings": {
+        "main_heading": "How Day Shrooms Fits Your Life.\nOne Cup. All the Benefits.",
+        "main_image": "shopify://shop_images/mush--cup-img.jpg",
+        "step_1_title": "spoon",
+        "step_1_description": "Add Day Shrooms to your favorite mug.",
+        "step_2_title": "stir",
+        "step_2_description": "With 6-8oz water, if desired add milk & sweetener",
+        "step_3_title": "sip",
+        "step_3_description": "Enjoy hot or iced and feel the flow in minutes",
+        "button_text": "Try now",
+        "button_link": "/products/day-shrooms",
+        "bottom_image": "shopify://shop_images/mush-home-footer.jpg"
+      }
     }
   },
   "order": [
