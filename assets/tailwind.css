@@ -1896,6 +1896,9 @@ body {
 .pt-\[24px\] {
   padding-top: 24px;
 }
+.pt-\[50px\] {
+  padding-top: 50px;
+}
 .text-left {
   text-align: left;
 }
@@ -4620,6 +4623,10 @@ body[data-template="blog"] sticky-header header{
 
   .xl\:pt-\[94px\] {
     padding-top: 94px;
+  }
+
+  .xl\:pt-\[200px\] {
+    padding-top: 200px;
   }
 
   .xl\:text-left {
