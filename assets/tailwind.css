@@ -3713,6 +3713,10 @@ body[data-template="blog"] sticky-header header{
     line-height: 1.75rem;
   }
 
+    .lg\:text-\[20px\] {
+    font-size: 20px;
+  }
+
     .lg\:font-medium {
     font-weight: 500;
   }
