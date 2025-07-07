@@ -4027,6 +4027,10 @@ body[data-template="blog"] sticky-header header{
     min-height: 100vh;
   }
 
+  .xl\:min-h-\[80vh\] {
+    min-height: 80vh;
+  }
+
   .xl\:w-1\/2 {
     width: 50%;
   }
