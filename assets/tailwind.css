@@ -1908,6 +1908,9 @@ body {
 .pt-20 {
   padding-top: 5rem;
 }
+.pt-\[70px\] {
+  padding-top: 70px;
+}
 .text-left {
   text-align: left;
 }
