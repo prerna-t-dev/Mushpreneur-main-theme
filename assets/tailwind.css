@@ -1390,6 +1390,9 @@ body {
 .rounded-xl {
   border-radius: 0.75rem;
 }
+.rounded-\[26px\] {
+  border-radius: 26px;
+}
 .rounded-b-\[42px\] {
   border-bottom-right-radius: 42px;
   border-bottom-left-radius: 42px;
@@ -1547,6 +1550,9 @@ body {
 }
 .p-9 {
   padding: 2.25rem;
+}
+.p-4 {
+  padding: 1rem;
 }
 .\!px-0 {
   padding-left: 0px !important;
@@ -3254,6 +3260,10 @@ body[data-template="blog"] sticky-header header{
     border-radius: 46px;
   }
 
+    .lg\:rounded-\[42px\] {
+    border-radius: 42px;
+  }
+
     .lg\:rounded-t-\[42px\] {
     border-top-left-radius: 42px;
     border-top-right-radius: 42px;
@@ -3280,6 +3290,10 @@ body[data-template="blog"] sticky-header header{
     .lg\:bg-mustard {
     --tw-bg-opacity: 1;
     background-color: rgb(254 163 12 / var(--tw-bg-opacity, 1));
+  }
+
+    .lg\:p-8 {
+    padding: 2rem;
   }
 
     .lg\:px-0 {
