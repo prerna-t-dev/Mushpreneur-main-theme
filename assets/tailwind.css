@@ -3156,6 +3156,10 @@ body[data-template="blog"] sticky-header header{
     width: 45%;
   }
 
+    .lg\:w-\[150px\] {
+    width: 150px;
+  }
+
     .lg\:max-w-\[430px\] {
     max-width: 430px;
   }
@@ -4093,6 +4097,10 @@ body[data-template="blog"] sticky-header header{
 
   .xl\:h-\[98px\] {
     height: 98px;
+  }
+
+  .xl\:h-\[200px\] {
+    height: 200px;
   }
 
   .xl\:min-h-\[80vh\] {
