@@ -3276,6 +3276,10 @@ body[data-template="blog"] sticky-header header{
     border-width: 5px;
   }
 
+    .lg\:border-4 {
+    border-width: 4px;
+  }
+
     .lg\:border-b {
     border-bottom-width: 1px;
   }
