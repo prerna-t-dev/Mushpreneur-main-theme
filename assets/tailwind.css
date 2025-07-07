@@ -1378,6 +1378,9 @@ body {
 .rounded-full {
   border-radius: 9999px;
 }
+.rounded-xl {
+  border-radius: 0.75rem;
+}
 .rounded-b-\[42px\] {
   border-bottom-right-radius: 42px;
   border-bottom-left-radius: 42px;
@@ -1401,6 +1404,9 @@ body {
   border-width: 2.5px;
 }
 .border-\[2px\] {
+  border-width: 2px;
+}
+.border-2 {
   border-width: 2px;
 }
 .border-b {
