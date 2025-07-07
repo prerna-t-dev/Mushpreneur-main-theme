@@ -1,10 +1,17 @@
 <section id="mush--about-founder">
-
+    <div class="section-wrapper text-white relative" style="background-color: {{ section.settings.background }};">
+    </div>
 </section>
 
 {% schema %}
     {
         "name": "About Founder",
-        "settings": []
+        "settings": [
+            {
+                "type": "color",
+                "id": "background",
+                "label": "Background Color"
+            }
+        ]
     }
 {% endschema %}
