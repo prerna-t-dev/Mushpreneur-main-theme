@@ -3160,6 +3160,10 @@ body[data-template="blog"] sticky-header header{
     width: 150px;
   }
 
+    .lg\:w-\[300px\] {
+    width: 300px;
+  }
+
     .lg\:max-w-\[430px\] {
     max-width: 430px;
   }
@@ -4103,6 +4107,10 @@ body[data-template="blog"] sticky-header header{
     height: 200px;
   }
 
+  .xl\:h-\[300px\] {
+    height: 300px;
+  }
+
   .xl\:min-h-\[80vh\] {
     min-height: 80vh;
   }
@@ -4181,6 +4189,10 @@ body[data-template="blog"] sticky-header header{
 
   .xl\:w-full {
     width: 100%;
+  }
+
+  .xl\:w-\[300px\] {
+    width: 300px;
   }
 
   .xl\:-translate-x-full {
