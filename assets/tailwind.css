@@ -1061,6 +1061,9 @@ body {
 .h-screen {
   height: 100vh;
 }
+.h-\[100px\] {
+  height: 100px;
+}
 .min-h-\[54px\] {
   min-height: 54px;
 }
@@ -3070,6 +3073,10 @@ body[data-template="blog"] sticky-header header{
 
     .lg\:h-\[44px\] {
     height: 44px;
+  }
+
+    .lg\:h-\[150px\] {
+    height: 150px;
   }
 
     .lg\:w-2\/3 {
