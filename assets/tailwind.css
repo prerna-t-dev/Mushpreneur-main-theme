@@ -3588,6 +3588,10 @@ body[data-template="blog"] sticky-header header{
     padding-top: 56px;
   }
 
+    .lg\:pb-\[56px\] {
+    padding-bottom: 56px;
+  }
+
     .lg\:text-left {
     text-align: left;
   }
