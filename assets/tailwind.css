@@ -3112,6 +3112,10 @@ body[data-template="blog"] sticky-header header{
     width: 56px;
   }
 
+    .lg\:w-1\/2 {
+    width: 50%;
+  }
+
     .lg\:max-w-\[430px\] {
     max-width: 430px;
   }
