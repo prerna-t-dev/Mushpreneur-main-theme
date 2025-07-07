@@ -2,7 +2,7 @@
     <div class="px-7 lg:px-12 xl:px-[114px] grid grid-cols-1 lg:grid-cols-3 gap-7 lg:gap-12 pt-[24px] lg:pt-[56px] pb-[32px] lg:pb-[48px]">
         {% for block in section.blocks %}
             <div class="p-4 lg:p-8 bg-mustard rounded-[26px] lg:rounded-[42px] border-2 border-black">
-                <h2 class="text-base lg:text-[28px] font-bold text-black leading-tight mb-2 tracking-[-1.8px] lg:tracking-[-2.4px]">{{ block.settings.title }}</h2>
+                <h2 class="text-base lg:text-[28px] leading-tight mb-2 tracking-[-1.8px] lg:tracking-[-2.4px]">{{ block.settings.title }}</h2>
                 <p class="text-base lg:text-[28px] text-black leading-tight mb-2 tracking-[-1.8px] lg:tracking-[-2.4px]">{{ block.settings.description }}</p>
             </div>
         {% endfor %}
