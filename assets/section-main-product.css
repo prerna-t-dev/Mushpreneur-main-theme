@@ -1336,16 +1336,11 @@ a.product__text {
   .product-media-container {
     max-width: 100% !important;
     width: 100% !important;
+    border-radius: var(--media-radius, 16px) !important;
+    overflow: hidden !important;
   }
-
-  .product-media-container.media-fit-cover {
-    display: flex;
-    align-self: stretch;
-  }
-
-  .product-media-container.media-fit-cover .media {
-    /* allow media img element to scale relative to modal-opener/product-media-container */
-    position: initial;
+  .product-media-container img {
+    border-radius: inherit !important;
   }
 }
 
