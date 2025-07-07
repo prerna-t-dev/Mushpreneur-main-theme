@@ -1887,6 +1887,9 @@ body {
 .pt-\[66px\] {
   padding-top: 66px;
 }
+.pt-\[24px\] {
+  padding-top: 24px;
+}
 .text-left {
   text-align: left;
 }
@@ -3558,6 +3561,14 @@ body[data-template="blog"] sticky-header header{
 
     .lg\:pt-\[78px\] {
     padding-top: 78px;
+  }
+
+    .lg\:pb-\[48px\] {
+    padding-bottom: 48px;
+  }
+
+    .lg\:pt-\[56px\] {
+    padding-top: 56px;
   }
 
     .lg\:text-left {
