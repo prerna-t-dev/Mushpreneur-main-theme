@@ -1070,6 +1070,9 @@ body {
 .h-\[20px\] {
   height: 20px;
 }
+.h-\[150px\] {
+  height: 150px;
+}
 .min-h-\[54px\] {
   min-height: 54px;
 }
@@ -1145,6 +1148,9 @@ body {
 }
 .w-full {
   width: 100%;
+}
+.w-\[150px\] {
+  width: 150px;
 }
 .max-w-\[1024px\] {
   max-width: 1024px;
