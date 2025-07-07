@@ -3059,6 +3059,10 @@ body[data-template="blog"] sticky-header header{
     margin-top: 62px;
   }
 
+    .lg\:mb-8 {
+    margin-bottom: 2rem;
+  }
+
     .lg\:\!block {
     display: block !important;
   }
