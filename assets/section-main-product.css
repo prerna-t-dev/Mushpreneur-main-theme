@@ -1529,3 +1529,16 @@ a.product__text {
 .thumbnail-slider .slider-button {
   display: none !important;
 }
+
+/* Hide scrollbars for product image and thumbnail sliders */
+.product__media-list.slider,
+.thumbnail-slider .thumbnail-list.slider,
+.thumbnail-slider .thumbnail-list.slider--tablet-up {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+.product__media-list.slider::-webkit-scrollbar,
+.thumbnail-slider .thumbnail-list.slider::-webkit-scrollbar,
+.thumbnail-slider .thumbnail-list.slider--tablet-up::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
