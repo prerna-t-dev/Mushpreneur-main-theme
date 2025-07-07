@@ -1,6 +1,9 @@
 <section id="mush--about-founder">
     <div class="section-wrapper text-white relative pt-[50px] xl:pt-[200px]" style="background-color: {{ section.settings.background }};">
-        <div class="rounded-t-[26px] lg:rounded-t-[42px] xl:rounded-t-[96px] px-[26px] lg:px-12 xl:px-[140px] py-[30px] pb-0 lg:py-[60px] xl:py-[110px]" style="background: {{ section.settings.foreground }};">
+        <div class="rounded-t-[26px] lg:rounded-t-[42px] xl:rounded-t-[96px] relative px-[26px] lg:px-12 xl:px-[140px] py-[30px] pb-0 lg:py-[60px] xl:py-[110px]" style="background: {{ section.settings.foreground }};">
+            <div class="absolute top-0 left-0 w-full h-full">
+                <img src="{{ section.settings.image | image_url }}" alt="{{ section.settings.image.alt }}" class="w-full h-full object-cover">
+            </div>
 
         </div>
     </div>
