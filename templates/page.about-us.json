@@ -26,10 +26,44 @@
         "heading": "Mushrooms Reimagined  \nfor Modern Minds.",
         "description": "Forget the wellness clichés—mushrooms aren’t just for superfood fanatics anymore. They’re the ultimate productivity hack for modern thinkers, creators, and doers. Smarter, cleaner solutions to fuel your focus, energy, and creativity—without compromise."
       }
+    },
+    "mush_about_grid_8jUcYV": {
+      "type": "mush__about-grid",
+      "blocks": {
+        "about_grid_item_mimWaB": {
+          "type": "about_grid_item",
+          "settings": {
+            "title": "The Modern \nProductivity Tool",
+            "description": "We’re shaking things up as the first functional mushroom brand to put productivity first. Our mission? To empower high-level thinkers—entrepreneurs, creators, and decision-makers—to thrive with the power of functional mushrooms. With adaptogens, nootropics, and clean ingredients, you’ll fuel your best work—without the BS."
+          }
+        },
+        "about_grid_item_9eRcbK": {
+          "type": "about_grid_item",
+          "settings": {
+            "title": "Enhance Your Routine \nWithout Changing It",
+            "description": "Wellness shouldn’t feel like a full-time job. Our functional mushroom blends fit into your routine—boosting focus, creativity, and energy without the overhaul. Accessible, science-backed, and refreshingly simple—because wellness should work for your life, not the other way around."
+          }
+        },
+        "about_grid_item_QzmKr4": {
+          "type": "about_grid_item",
+          "settings": {
+            "title": "Functional Mushrooms \nReimagined",
+            "description": "Forget the stereotypes. Mushrooms aren’t just for wellness warriors—they’re for anyone ready to thrive. Inspired by innovators, creators, and rule breakers, we’ve reimagined mushrooms as tools for the modern hustle. From 9-to-5 grinds to late-night breakthroughs, mushrooms are the edge you didn’t know you needed."
+          }
+        }
+      },
+      "block_order": [
+        "about_grid_item_mimWaB",
+        "about_grid_item_9eRcbK",
+        "about_grid_item_QzmKr4"
+      ],
+      "name": "About Grid",
+      "settings": {}
     }
   },
   "order": [
     "main",
-    "mush_about_hero_jq4ghY"
+    "mush_about_hero_jq4ghY",
+    "mush_about_grid_8jUcYV"
   ]
 }
