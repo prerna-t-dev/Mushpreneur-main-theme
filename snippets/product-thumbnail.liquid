@@ -78,7 +78,7 @@
     </span>
     {% comment %} {%- render 'loading-spinner' -%} {% endcomment %}
     <div class="product__media media media--transparent rounded-[12px] bg-orange">
-      {% comment %} {{
+      {{
         media.preview_image
         | image_url: width: 1946
         | image_tag:
@@ -86,7 +86,7 @@
           loading: lazy,
           sizes: sizes,
           widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946'
-      }} {% endcomment %}
+      }} 
     </div>
     <button
       class="product__media-toggle quick-add-hidden product__media-zoom-{{ section.settings.image_zoom }}"
