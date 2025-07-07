@@ -23,6 +23,7 @@ module.exports = {
         pinkorange: '#E74639',
         lightorange: '#FEA30C',
         yellow: '#FFC107',
+        mustard: '#FEA30C',
         skyblue: '#98E1FF',
         successgreen: '#81C784'
       },

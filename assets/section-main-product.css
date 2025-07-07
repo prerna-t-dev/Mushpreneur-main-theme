@@ -399,41 +399,29 @@ a.product__text {
 }
 
 /* Product media */
+.product__media-list li{
+  width: 100%;
+  max-width: 100%;
+}
 .product__media-list video {
   border-radius: calc(var(--media-radius) - var(--media-border-width));
 }
 
 @media screen and (max-width: 749px) {
-  .product__media-list {
-    margin-left: -2.5rem;
-    margin-bottom: 3rem;
-    width: calc(100% + 4rem);
+  /* Main product image gallery as horizontal slider */
+  .product__media-list.slider {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory;
+    gap: 0;
+    padding: 0;
   }
-
-  .product__media-wrapper slider-component:not(.thumbnail-slider--no-slide) {
-    margin-left: -1.5rem;
-    margin-right: -1.5rem;
-  }
-
-  .slider.product__media-list::-webkit-scrollbar {
-    height: 0.2rem;
-    width: 0.2rem;
-  }
-
-  .product__media-list::-webkit-scrollbar-thumb {
-    background-color: rgb(var(--color-foreground));
-  }
-
-  .product__media-list::-webkit-scrollbar-track {
-    background-color: rgba(var(--color-foreground), 0.2);
-  }
-
-  .product__media-list .product__media-item {
-    width: calc(100% - 3rem - var(--grid-mobile-horizontal-spacing));
-  }
-
-  .product--mobile-columns .product__media-item {
-    width: calc(50% - 1.5rem - var(--grid-mobile-horizontal-spacing));
+  .product__media-item.slider__slide {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    scroll-snap-align: start;
+    width: 100% !important;
   }
 }
 
@@ -980,15 +968,22 @@ a.product__text {
     align-items: center;
   }
 
-  .thumbnail-slider .thumbnail-list.slider {
-    display: flex;
-    padding: 0.5rem;
-    flex: 1;
-    scroll-padding-left: 0.5rem;
+  .thumbnail-slider .thumbnail-list.slider,
+  .thumbnail-slider .thumbnail-list.slider--tablet-up,
+  .thumbnail-slider .thumbnail-list {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    gap: 1rem !important;
+    padding: 0.5rem !important;
+    flex: 1 !important;
+    scroll-padding-left: 0.5rem !important;
   }
-
-  .thumbnail-list__item.slider__slide {
-    width: calc(33% - 0.6rem);
+  .thumbnail-slider .thumbnail-list__item.slider__slide {
+    flex: 0 0 auto !important;
+    width: 80px !important;
+    max-width: 100px !important;
+    min-width: 60px !important;
   }
 }
 
@@ -1338,14 +1333,14 @@ a.product__text {
 }
 
 @media screen and (max-width: 749px) {
-  .product-media-container.media-fit-cover {
-    display: flex;
-    align-self: stretch;
+  .product-media-container {
+    max-width: 100% !important;
+    width: 100% !important;
+    border-radius: var(--media-radius, 16px) !important;
+    overflow: hidden !important;
   }
-
-  .product-media-container.media-fit-cover .media {
-    /* allow media img element to scale relative to modal-opener/product-media-container */
-    position: initial;
+  .product-media-container img {
+    border-radius: inherit !important;
   }
 }
 
@@ -1509,4 +1504,41 @@ a.product__text {
   .recipient-form > input[type='checkbox']:checked + label .icon-checkmark {
     border: none;
   }
+}
+
+/* --- Fix for product thumbnail slider horizontal layout --- */
+.thumbnail-slider .thumbnail-list.slider,
+.thumbnail-slider .thumbnail-list.slider--tablet-up {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  overflow-x: auto;
+  padding: 0.5rem;
+  flex: 1;
+  scroll-padding-left: 0.5rem;
+  gap: 1rem;
+}
+
+.thumbnail-slider .thumbnail-list__item.slider__slide {
+  flex: 0 0 auto;
+  width: 80px;
+  max-width: 100px;
+  min-width: 60px;
+}
+
+/* Hide thumbnail slider navigation buttons */
+.thumbnail-slider .slider-button {
+  display: none !important;
+}
+
+/* Hide scrollbars for product image and thumbnail sliders */
+.product__media-list.slider,
+.thumbnail-slider .thumbnail-list.slider,
+.thumbnail-slider .thumbnail-list.slider--tablet-up {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+.product__media-list.slider::-webkit-scrollbar,
+.thumbnail-slider .thumbnail-list.slider::-webkit-scrollbar,
+.thumbnail-slider .thumbnail-list.slider--tablet-up::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }

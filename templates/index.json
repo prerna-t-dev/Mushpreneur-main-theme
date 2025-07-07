@@ -7,19 +7,53 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "sections": {
     "mush_hero_banner_tMVcCA": {
       "type": "mush__hero-banner",
-      "settings": {}
+      "settings": {
+        "mobile_background_image": "shopify://shop_images/mush--hero-banner-mob.png",
+        "desktop_background_image": "shopify://shop_images/mush_-_hero-banner-desk.jpg",
+        "heading": "Rise and thrive with Day Shrooms",
+        "subheading": "Your new go-to productivity booster",
+        "description": "Try our new ultimate coffee alternative designed to <br> supercharge productivity, focus, and daily flow.",
+        "button_text": "TRY DAY SHROOMS",
+        "button_link": "/products/day-shrooms"
+      }
     },
     "mush_benefits_overview_f6QziP": {
       "type": "mush__benefits-overview",
-      "settings": {}
+      "settings": {
+        "mobile_background_image": "shopify://shop_images/Benefits_Overview_1.png",
+        "desktop_background_image": "shopify://shop_images/Group_12351_3.jpg",
+        "main_heading": "Coffee Is Canceled.\nIt's Time for Day Shrooms.",
+        "main_description": "Tired of coffee's jitters, crashes, and chaos? Day Shrooms rewrites the rules with a powerful blend of functional mushrooms, nootropics, adaptogens, and vitamins to fuel your focus, energy, and calm—all without the side effects.",
+        "benefit_1_title": "Focus Without the Chaos",
+        "benefit_1_description": "No more jitters or crashes— <br> just calm, productive energy.",
+        "benefit_2_title": "Sustained Energy",
+        "benefit_2_description": "All-day stamina fueled by natural <br> nootropics and adaptogens.",
+        "benefit_3_title": "Stress-Free Performance",
+        "benefit_3_description": "Stay cool under pressure with <br> calm confidence.",
+        "benefit_4_title": "Daily Flow",
+        "benefit_4_description": "Minimize distractions and unlock <br> your productivity potential."
+      }
     },
     "mush_product_highlights_CygcxX": {
       "type": "mush__product-highlights",
-      "settings": {}
+      "settings": {
+        "main_heading": "What Powers Day Shrooms?",
+        "main_description": "A powerful blend of functional mushrooms, nootropics, adaptogens, and vitamins —all working together to fuel your focus, energy, and calm.",
+        "highlight_1_value": "2000mg",
+        "highlight_1_description": "Fruiting Body <br> Mushrooms",
+        "highlight_2_value": "60mg",
+        "highlight_2_description": "Caffeine derived <br> from Green Tea",
+        "highlight_3_value": "850mg",
+        "highlight_3_description": "Natural Nootropics & <br> Adaptogens",
+        "highlight_4_value": "200mg",
+        "highlight_4_description": "L-theanine for <br> reduced jitters",
+        "highlight_5_value": "100% DV",
+        "highlight_5_description": "100%of your daily <br> vitamins B12 & D2"
+      }
     },
     "mush_comparison_table_cmDJGq": {
       "type": "mush__comparison-table",
@@ -31,7 +65,14 @@
     },
     "mush_image_with_text_gLBtzW": {
       "type": "mush__image-with-text",
-      "settings": {}
+      "settings": {
+        "desktop_image": "shopify://shop_images/day-shroom-prod--desk.jpg",
+        "mobile_image": "shopify://shop_images/day-shroom-prod--mob.jpg",
+        "heading": "The Productivity Boost\nYou've Been Craving",
+        "description": "Crafted for those who think big and do bigger, Day Shrooms delivers clean, steady energy to power through your day without jitters or midday slumps. Perfect for early mornings, intense focus sessions, and every productive moment in between.",
+        "button_text": "TRY DAY SHROOMS",
+        "button_link": "/products/day-shrooms"
+      }
     },
     "mush_usp_marquee_scroll_Xit33t": {
       "type": "mush__usp-marquee-scroll",
@@ -130,7 +171,19 @@
     },
     "mush_how_it_works_HkMDpw": {
       "type": "mush__how-it-works",
-      "settings": {}
+      "settings": {
+        "main_heading": "How Day Shrooms Fits Your Life.\nOne Cup. All the Benefits.",
+        "main_image": "shopify://shop_images/Image_3.png",
+        "step_1_title": "spoon",
+        "step_1_description": "Add Day Shrooms to your favorite mug.",
+        "step_2_title": "stir",
+        "step_2_description": "With 6-8oz water, if desired add milk & sweetener",
+        "step_3_title": "sip",
+        "step_3_description": "Enjoy hot or iced and feel the flow in minutes",
+        "button_text": "Try now",
+        "button_link": "/products/day-shrooms",
+        "bottom_image": "shopify://shop_images/mush-home-footer_1.png"
+      }
     }
   },
   "order": [
