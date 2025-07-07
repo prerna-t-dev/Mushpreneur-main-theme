@@ -1514,3 +1514,22 @@ a.product__text {
     border: none;
   }
 }
+
+/* --- Fix for product thumbnail slider horizontal layout --- */
+.thumbnail-slider .thumbnail-list.slider,
+.thumbnail-slider .thumbnail-list.slider--tablet-up {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  overflow-x: auto;
+  padding: 0.5rem;
+  flex: 1;
+  scroll-padding-left: 0.5rem;
+  gap: 1rem;
+}
+
+.thumbnail-slider .thumbnail-list__item.slider__slide {
+  flex: 0 0 auto;
+  width: 80px;
+  max-width: 100px;
+  min-width: 60px;
+}
