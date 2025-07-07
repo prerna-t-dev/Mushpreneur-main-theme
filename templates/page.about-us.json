@@ -70,12 +70,18 @@
         "header": "From Café Roots to \nReimagining Productivity",
         "description": "<p>In NYC’s East Village, I ran a tiny tea spot that wasn’t just a café—it was a hub of creativity and wellness. Poets performed, dancers gathered, and customers sipped bold creations like Ayur Chai—a masala chai infused with ashwagandha—and Lucky Bamboo, a green tea with bamboo shoots that became a cult favorite for its euphoric energy. It wasn’t just about the drinks; it was about fostering a community of people who craved something better—a place where wellness met curiosity and culture. </p><p>By day, I navigated the corporate grind, honing problem-solving skills and improving business processes. But on the weekends, the café became my creative escape—a space to challenge wellness norms, experiment with functional ingredients, and build connections that sparked inspiration for the next bold experiment.I’ll never forget the day one of my regulars casually remarked, “The next big thing will be mushroom coffee.” At the time, it sounded wild. But it planted a seed, sparked an idea, and issued a challenge: to create something bolder, smarter, and purpose-driven.</p><p>Mushpreneur is the evolution of that spirit. It’s about breaking the status quo, reimagining productivity, and building tools for modern thinkers who want to feel sharp—not strung out. From blending tea to blending functional mushrooms, the mission has always been the same:</p><p>To help creators, innovators, and decision-makers unlock their potential—on their terms.For those bold enough to rethink productivity, welcome to Mushpreneur.</p><p> —<strong>Julie</strong>, Founder</p><p></p>"
       }
+    },
+    "mush_about_upsell_hEC6fh": {
+      "type": "mush__about-upsell",
+      "name": "About Upsell",
+      "settings": {}
     }
   },
   "order": [
     "main",
     "mush_about_hero_jq4ghY",
     "mush_about_grid_8jUcYV",
-    "mush_about_founder_JyR3i6"
+    "mush_about_founder_JyR3i6",
+    "mush_about_upsell_hEC6fh"
   ]
 }
