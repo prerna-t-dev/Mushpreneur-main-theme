@@ -1533,3 +1533,8 @@ a.product__text {
   max-width: 100px;
   min-width: 60px;
 }
+
+/* Hide thumbnail slider navigation buttons */
+.thumbnail-slider .slider-button {
+  display: none !important;
+}
