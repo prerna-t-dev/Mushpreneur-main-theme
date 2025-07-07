@@ -1,0 +1,36 @@
+<section id="mush--about-grid">
+
+</section>
+
+{% schema %}
+    {
+        "name": "About Grid",
+        "settings": [
+            
+        ],
+        "blocks": [
+            {
+                "type": "about_grid_item",
+                "name": "About Grid Item",
+                "settings": [
+                    {
+                        "type": "textarea",
+                        "id": "title",
+                        "label": "Title",
+                        "default": "About Us"
+                    },
+                    {
+                        "type": "textarea",
+                        "id": "description",
+                        "label": "Description"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "About Grid"
+            }
+        ]
+    }
+{% endschema %}
