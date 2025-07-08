@@ -74,7 +74,12 @@
     "mush_about_upsell_hEC6fh": {
       "type": "mush__about-upsell",
       "name": "About Upsell",
-      "settings": {}
+      "settings": {
+        "header": "Redefine How \nYou Work, Create, \nand Thrive",
+        "description": "<p>This isn’t just about mushrooms—it’s about redefining how modern thinkers fuel their day.<br/> Mushpreneur was built for the creators, the builders, the bold ones who push boundaries and rewrite the rules.<br/>Your potential deserves better.<br/> Fuel your focus, energy, and creativity with Day Shrooms—the smarter way to thrive.<br/></p>",
+        "button_text": "TRY DAY SHROOMS",
+        "button_link": "/products/day-shrooms"
+      }
     }
   },
   "order": [
