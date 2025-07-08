@@ -4254,6 +4254,10 @@ body[data-template="blog"] sticky-header header{
     flex-direction: column;
   }
 
+  .xl\:items-start {
+    align-items: flex-start;
+  }
+
   .xl\:justify-start {
     justify-content: flex-start;
   }
