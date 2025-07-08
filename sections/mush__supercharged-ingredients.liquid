@@ -85,7 +85,7 @@
 
             <!-- Ingredients Slider -->
             <div class="swiper-container swiper-supercharged-ingredients relative w-full mt-[38px] xl:mt-[64px] z-[10]">
-                <div class="swiper-wrapper slick--supercharged-ingredients">
+                <div class="swiper-wrapper slick--supercharged-ingredients relative">
                     {% for block in section.blocks %}
                         <div class="w-full h-full">
                     <div class="w-full h-full bg-white px-4 xl:px-7 py-4 xl:py-8 rounded-[20px] xl:rounded-[38px] cursor-pointer" {% if block.settings.image %} style="background-image: url({{ block.settings.image | img_url: 'master' }});background-repeat: no-repeat; background-size: contain; background-position: bottom right;" {% endif %}>
