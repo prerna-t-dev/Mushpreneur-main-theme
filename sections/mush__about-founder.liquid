@@ -1,0 +1,62 @@
+<style>
+    #mush--about-founder .section-description p{
+        margin-bottom: 24px
+    } 
+</style>
+
+<section id="mush--about-founder">
+    <div class="section-wrapper text-white relative pt-[70px] xl:pt-[200px]" style="background-color: {{ section.settings.background }};">
+        <div class="text-white rounded-t-[26px] lg:rounded-t-[42px] xl:rounded-t-[96px] relative px-[26px] lg:px-12 xl:px-[140px] py-[30px] lg:py-[60px] xl:py-[110px]" style="background: {{ section.settings.foreground }};">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2  w-[150px] h-[150px] xl:w-[300px] xl:h-[300px] rounded-full overflow-hidden">
+                <img src="{{ section.settings.image | image_url }}" alt="{{ section.settings.image.alt }}" class="w-full h-full object-cover">
+            </div>
+
+            <h2 class="text-center text-2xl lg:text-[32px] text-white pt-20 xl:text-[48px] font-bold leading-tight mb-8 lg:mb-12 tracking-[-1px] lg:tracking-[-1.6px]">{{ section.settings.header | newline_to_br }}</h2>
+
+            <div class="section-description text-base lg:text-[20px] xl:text-[28px] leading-tight mb-2 tracking-[-0.8px] lg:tracking-[-1px] xl:tracking-[-1.4px]">{{ section.settings.description | newline_to_br }}</div>
+
+        </div>
+    </div>
+</section>
+
+{% schema %}
+    {
+        "name": "About Founder",
+        "settings": [
+            {
+                "type": "color",
+                "id": "background",
+                "label": "Background Color"
+            },
+            {
+                "type": "color_background",
+                "id": "foreground",
+                "label": "Foreground Color"
+            },
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            },
+            {
+                "type": "textarea",
+                "id": "header",
+                "label": "Header"
+            },
+            {
+                "type": "richtext",
+                "id": "description",
+                "label": "Description"
+            }
+            
+            
+            
+            
+        ],
+        "presets": [
+            {
+                "name": "About Founder"
+            }
+        ]
+    }
+{% endschema %}

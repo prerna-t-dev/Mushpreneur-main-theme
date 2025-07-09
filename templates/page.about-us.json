@@ -1,0 +1,84 @@
+
+ {
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "mush_about_hero_jq4ghY": {
+      "type": "mush__about-hero",
+      "name": "About Us Hero",
+      "settings": {
+        "mobile_background_image": "shopify://shop_images/about--hero--mob.jpg",
+        "desktop_background_image": "shopify://shop_images/about--hero.jpg",
+        "heading": "Mushrooms Reimagined  \nfor Modern Minds.",
+        "description": "Forget the wellness clichés—mushrooms aren’t just for superfood fanatics anymore. They’re the ultimate productivity hack for modern thinkers, creators, and doers. Smarter, cleaner solutions to fuel your focus, energy, and creativity—without compromise."
+      }
+    },
+    "mush_about_grid_8jUcYV": {
+      "type": "mush__about-grid",
+      "blocks": {
+        "about_grid_item_mimWaB": {
+          "type": "about_grid_item",
+          "settings": {
+            "title": "The Modern \nProductivity Tool",
+            "description": "We’re shaking things up as the first functional mushroom brand to put productivity first. Our mission? To empower high-level thinkers—entrepreneurs, creators, and decision-makers—to thrive with the power of functional mushrooms. With adaptogens, nootropics, and clean ingredients, you’ll fuel your best work—without the BS."
+          }
+        },
+        "about_grid_item_9eRcbK": {
+          "type": "about_grid_item",
+          "settings": {
+            "title": "Enhance Your Routine \nWithout Changing It",
+            "description": "Wellness shouldn’t feel like a full-time job. Our functional mushroom blends fit into your routine—boosting focus, creativity, and energy without the overhaul. Accessible, science-backed, and refreshingly simple—because wellness should work for your life, not the other way around."
+          }
+        },
+        "about_grid_item_QzmKr4": {
+          "type": "about_grid_item",
+          "settings": {
+            "title": "Functional Mushrooms \nReimagined",
+            "description": "Forget the stereotypes. Mushrooms aren’t just for wellness warriors—they’re for anyone ready to thrive. Inspired by innovators, creators, and rule breakers, we’ve reimagined mushrooms as tools for the modern hustle. From 9-to-5 grinds to late-night breakthroughs, mushrooms are the edge you didn’t know you needed."
+          }
+        }
+      },
+      "block_order": [
+        "about_grid_item_mimWaB",
+        "about_grid_item_9eRcbK",
+        "about_grid_item_QzmKr4"
+      ],
+      "name": "About Grid",
+      "settings": {}
+    },
+    "mush_about_founder_JyR3i6": {
+      "type": "mush__about-founder",
+      "name": "About Founder",
+      "settings": {
+        "background": "#ffffff",
+        "foreground": "linear-gradient(90deg, rgba(242, 0, 140, 1), rgba(231, 73, 54, 1) 100%)",
+        "image": "shopify://shop_images/Founder_s_Icon_541d3c7c-5689-4e1a-a864-cf378dfaff30.jpg",
+        "header": "From Café Roots to \nReimagining Productivity",
+        "description": "<p>In NYC’s East Village, I ran a tiny tea spot that wasn’t just a café—it was a hub of creativity and wellness. Poets performed, dancers gathered, and customers sipped bold creations like Ayur Chai—a masala chai infused with ashwagandha—and Lucky Bamboo, a green tea with bamboo shoots that became a cult favorite for its euphoric energy. It wasn’t just about the drinks; it was about fostering a community of people who craved something better—a place where wellness met curiosity and culture. </p><p>By day, I navigated the corporate grind, honing problem-solving skills and improving business processes. But on the weekends, the café became my creative escape—a space to challenge wellness norms, experiment with functional ingredients, and build connections that sparked inspiration for the next bold experiment.I’ll never forget the day one of my regulars casually remarked, “The next big thing will be mushroom coffee.” At the time, it sounded wild. But it planted a seed, sparked an idea, and issued a challenge: to create something bolder, smarter, and purpose-driven.</p><p>Mushpreneur is the evolution of that spirit. It’s about breaking the status quo, reimagining productivity, and building tools for modern thinkers who want to feel sharp—not strung out. From blending tea to blending functional mushrooms, the mission has always been the same:</p><p>To help creators, innovators, and decision-makers unlock their potential—on their terms.For those bold enough to rethink productivity, welcome to Mushpreneur.</p><p> —<strong>Julie</strong>, Founder</p><p></p>"
+      }
+    },
+    "mush_about_upsell_hEC6fh": {
+      "type": "mush__about-upsell",
+      "name": "About Upsell",
+      "settings": {
+        "header": "Redefine How \nYou Work, Create, \nand Thrive",
+        "description": "<p>This isn’t just about mushrooms—it’s about redefining how modern thinkers fuel their day.</p><p><br/> Mushpreneur was built for the creators, the builders, the bold ones who push boundaries and rewrite the rules.Your potential deserves better.</p><p><br/> Fuel your focus, energy, and creativity with Day Shrooms—the smarter way to thrive.</p>",
+        "button_text": "TRY DAY SHROOMS",
+        "button_link": "/products/day-shrooms"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "mush_about_hero_jq4ghY",
+    "mush_about_grid_8jUcYV",
+    "mush_about_founder_JyR3i6",
+    "mush_about_upsell_hEC6fh"
+  ]
+}
