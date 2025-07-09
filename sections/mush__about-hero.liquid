@@ -1,0 +1,77 @@
+<style>
+
+    #mush--about-hero{
+        background: url({{ section.settings.mobile_background_image | image_url }});
+        background-repeat: no-repeat; 
+        background-size: 100%; 
+        background-position: center top 25%;
+        background-size: cover;
+    }
+
+
+    @media (min-width: 990px) {
+        #mush--about-hero{
+            background-image: url({{ section.settings.desktop_background_image | image_url }});
+        }
+    }
+
+</style>
+
+
+<section id="mush--about-hero" class="relative">
+    <div class="px-7 lg:px-12 xl:px-[114px] flex items-center justify-center lg:justify-start pt-[30px] lg:pt-[146px] pb-[355px] lg:pb-[190px] 3xl:pt-[220px] 3xl:pb-[280px] h-screen_ xl:min-h-[80vh]">
+        <div class="text-center lg:text-left leading-tight lg:pr-20 xl:pr-0 text-black">
+            <h1 class="text-[36px] lg:text-[48px] font-bold text-black leading-tight mb-2 tracking-[-1.8px] lg:tracking-[-2.4px] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}" >
+                {{ section.settings.heading | newline_to_br }}
+            </h1>
+            
+            <p class="text-base lg:text-[28px] lg:w-[45%] mb-4 lg:mb-10 tracking-[-0.8px] lg:tracking-[-1.4px] leading-[1.1]">
+                {{ section.settings.description }}
+            </p>  
+        </div> 
+    </div>
+
+    <div class="w-full bg-white rounded-t-[26px] lg:rounded-t-[42px] absolute bottom-0 left-0 right-0 h-[30px] lg:h-[50px]">
+        
+    </div>
+
+    
+</section>
+
+{%  schema  %} 
+    {
+        "name": "About Us Hero",
+        "class": "section--about-hero",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "mobile_background_image",
+                "label": "Mobile Background Image",
+                "info": "Recommended size: 750x1334px"
+            },
+            {
+                "type": "image_picker",
+                "id": "desktop_background_image",
+                "label": "Desktop Background Image",
+                "info": "Recommended size: 1920x1080px"
+            },
+            {
+                "type": "textarea",
+                "id": "heading",
+                "label": "Heading",
+                "default": "Mushrooms Reimagined <br/> for Modern Minds."
+            },
+            {
+                "type": "textarea",
+                "id": "description",
+                "label": "Description",
+                "default": "Forget the wellness clichés—mushrooms aren’t just for superfood fanatics anymore. They’re the ultimate productivity hack for modern thinkers, creators, and doers. Smarter, cleaner solutions to fuel your focus, energy, and creativity—without compromise."
+            }
+        ],
+        "presets": [
+            {
+                "name": "About Us Hero"
+            }
+        ]
+    }
+{% endschema %}

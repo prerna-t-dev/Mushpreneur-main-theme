@@ -1031,6 +1031,9 @@ body {
 .h-8 {
   height: 2rem;
 }
+.h-\[150px\] {
+  height: 150px;
+}
 .h-\[18px\] {
   height: 18px;
 }
@@ -1105,6 +1108,9 @@ body {
 }
 .w-\[148px\] {
   width: 148px;
+}
+.w-\[150px\] {
+  width: 150px;
 }
 .w-\[18px\] {
   width: 18px;
@@ -1357,6 +1363,9 @@ body {
 .rounded-\[25px\] {
   border-radius: 25px;
 }
+.rounded-\[26px\] {
+  border-radius: 26px;
+}
 .rounded-\[28px\] {
   border-radius: 28px;
 }
@@ -1400,13 +1409,13 @@ body {
 .border {
   border-width: 1px;
 }
+.border-2 {
+  border-width: 2px;
+}
 .border-\[2\.5px\] {
   border-width: 2.5px;
 }
 .border-\[2px\] {
-  border-width: 2px;
-}
-.border-2 {
   border-width: 2px;
 }
 .border-b {
@@ -1532,6 +1541,9 @@ body {
 }
 .\!p-5 {
   padding: 1.25rem !important;
+}
+.p-4 {
+  padding: 1rem;
 }
 .p-5 {
   padding: 1.25rem;
@@ -1839,6 +1851,9 @@ body {
 .pt-2 {
   padding-top: 0.5rem;
 }
+.pt-20 {
+  padding-top: 5rem;
+}
 .pt-3 {
   padding-top: 0.75rem;
 }
@@ -1856,6 +1871,9 @@ body {
 }
 .pt-\[22px\] {
   padding-top: 22px;
+}
+.pt-\[24px\] {
+  padding-top: 24px;
 }
 .pt-\[30px\] {
   padding-top: 30px;
@@ -1878,6 +1896,9 @@ body {
 .pt-\[66px\] {
   padding-top: 66px;
 }
+.pt-\[70px\] {
+  padding-top: 70px;
+}
 .text-left {
   text-align: left;
 }
@@ -1886,6 +1907,9 @@ body {
 }
 .text-right {
   text-align: right;
+}
+.font-primary {
+  font-family: Figtree, sans-serif;
 }
 .\!text-2xl {
   font-size: 1.5rem !important;
@@ -2855,7 +2879,7 @@ body[data-template="blog"] sticky-header header{
 
 .shopify-policy__body p,
 .shopify-policy__body ul li{
-    font-size: 0.875rem;
+    font-size: 1rem;
     line-height: 1.25rem;
     margin-bottom: 15px;
 }
@@ -2958,6 +2982,10 @@ body[data-template="blog"] sticky-header header{
 
     .lg\:mb-6 {
     margin-bottom: 1.5rem;
+  }
+
+    .lg\:mb-8 {
+    margin-bottom: 2rem;
   }
 
     .lg\:mb-9 {
@@ -3072,6 +3100,10 @@ body[data-template="blog"] sticky-header header{
     height: 44px;
   }
 
+    .lg\:h-\[50px\] {
+    height: 50px;
+  }
+
     .lg\:w-2\/3 {
     width: 66.666667%;
   }
@@ -3106,6 +3138,10 @@ body[data-template="blog"] sticky-header header{
 
     .lg\:w-\[44px\] {
     width: 44px;
+  }
+
+    .lg\:w-\[45\%\] {
+    width: 45%;
   }
 
     .lg\:w-\[56px\] {
@@ -3218,6 +3254,10 @@ body[data-template="blog"] sticky-header header{
     border-radius: 38.973px;
   }
 
+    .lg\:rounded-\[42px\] {
+    border-radius: 42px;
+  }
+
     .lg\:rounded-\[46px\] {
     border-radius: 46px;
   }
@@ -3225,6 +3265,10 @@ body[data-template="blog"] sticky-header header{
     .lg\:rounded-t-\[42px\] {
     border-top-left-radius: 42px;
     border-top-right-radius: 42px;
+  }
+
+    .lg\:border-4 {
+    border-width: 4px;
   }
 
     .lg\:border-\[5px\] {
@@ -3248,6 +3292,10 @@ body[data-template="blog"] sticky-header header{
     .lg\:bg-mustard {
     --tw-bg-opacity: 1;
     background-color: rgb(254 163 12 / var(--tw-bg-opacity, 1));
+  }
+
+    .lg\:p-8 {
+    padding: 2rem;
   }
 
     .lg\:px-0 {
@@ -3447,6 +3495,10 @@ body[data-template="blog"] sticky-header header{
     padding-bottom: 42px;
   }
 
+    .lg\:pb-\[56px\] {
+    padding-bottom: 56px;
+  }
+
     .lg\:pb-\[82px\] {
     padding-bottom: 82px;
   }
@@ -3550,6 +3602,10 @@ body[data-template="blog"] sticky-header header{
 
     .lg\:text-\[20\.477px\] {
     font-size: 20.477px;
+  }
+
+    .lg\:text-\[20px\] {
+    font-size: 20px;
   }
 
     .lg\:text-\[22px\] {
@@ -4015,12 +4071,20 @@ body[data-template="blog"] sticky-header header{
     height: 2px;
   }
 
+  .xl\:h-\[300px\] {
+    height: 300px;
+  }
+
   .xl\:h-\[50px\] {
     height: 50px;
   }
 
   .xl\:h-\[98px\] {
     height: 98px;
+  }
+
+  .xl\:min-h-\[80vh\] {
+    min-height: 80vh;
   }
 
   .xl\:min-h-screen {
@@ -4087,6 +4151,10 @@ body[data-template="blog"] sticky-header header{
     width: 25%;
   }
 
+  .xl\:w-\[300px\] {
+    width: 300px;
+  }
+
   .xl\:w-\[75\%\] {
     width: 75%;
   }
@@ -4140,6 +4208,10 @@ body[data-template="blog"] sticky-header header{
 
   .xl\:flex-col {
     flex-direction: column;
+  }
+
+  .xl\:items-start {
+    align-items: flex-start;
   }
 
   .xl\:justify-start {
@@ -4535,6 +4607,10 @@ body[data-template="blog"] sticky-header header{
 
   .xl\:pt-\[160px\] {
     padding-top: 160px;
+  }
+
+  .xl\:pt-\[200px\] {
+    padding-top: 200px;
   }
 
   .xl\:pt-\[66px\] {

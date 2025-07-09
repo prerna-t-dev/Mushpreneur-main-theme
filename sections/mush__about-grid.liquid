@@ -1,0 +1,43 @@
+<section id="mush--about-grid">
+    <div class="px-7 lg:px-12 xl:px-[114px] grid grid-cols-1 lg:grid-cols-3 gap-7 lg:gap-12 pt-[24px] lg:pt-[64px] pb-[32px] lg:pb-[56px]">
+        {% for block in section.blocks %}
+            <div class="p-4 lg:p-8 bg-yellow rounded-[26px] lg:rounded-[42px] border-2 lg:border-4 border-black font-primary">
+                <h2 class="text-xl lg:text-[32px] font-semibold leading-tight mb-2 tracking-[-1px] lg:tracking-[-1.6px]">{{ block.settings.title }}</h2>
+                <p class="text-base lg:text-[20px] text-black leading-tight mb-2 tracking-[-0.8px] lg:tracking-[-1px]">{{ block.settings.description }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% schema %}
+    {
+        "name": "About Grid",
+        "settings": [
+            
+        ],
+        "blocks": [
+            {
+                "type": "about_grid_item",
+                "name": "About Grid Item",
+                "settings": [
+                    {
+                        "type": "textarea",
+                        "id": "title",
+                        "label": "Title",
+                        "default": "About Us"
+                    },
+                    {
+                        "type": "textarea",
+                        "id": "description",
+                        "label": "Description"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "About Grid"
+            }
+        ]
+    }
+{% endschema %}
