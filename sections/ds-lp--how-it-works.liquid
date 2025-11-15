@@ -1,0 +1,798 @@
+{% comment %}
+  Day Shrooms Landing Page - How It Works Section
+{% endcomment %}
+
+<style>
+  .ds-lp-how-it-works {
+    background: linear-gradient(180deg, #FDF1E9 0%, #F9C9A7 100%);
+    color: #000000;
+  }
+  
+  .ds-lp-how-it-works__label {
+    display: inline-block;
+    color: #EC008C;
+  }
+  
+  .ds-lp-how-it-works__headline {
+    color: #000000;
+    margin-bottom: 24px;
+  }
+
+  .ds-lp-how-it-works__headline h2{
+    line-height: 1.1;
+    letter-spacing: -1.2px;
+  }
+  
+  .ds-lp-how-it-works__intro-text {
+    color: #000000;
+  }
+  
+  /* .ds-lp-how-it-works__benefit-block {
+    margin-bottom: 32px;
+  } */
+  
+  .ds-lp-how-it-works__benefit-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin: auto;
+    margin-bottom: 16px;
+  }
+  
+  .ds-lp-how-it-works__benefit-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .ds-lp-how-it-works__benefit-title {
+    color: #000000;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  
+  .ds-lp-how-it-works__benefit-description {
+    color: #000000;
+  }
+  
+  .ds-lp-how-it-works__benefits-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  
+  .ds-lp-how-it-works__product-image {
+    width: 100%;
+    max-width: 400px;
+    margin: 48px auto 0;
+    display: block;
+  }
+  
+  .ds-lp-how-it-works__product-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  .ds-lp-how-it-works__benefits-left,
+  .ds-lp-how-it-works__benefits-right {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+  
+  .ds-lp-how-it-works__desktop-layout {
+    display: none !important;
+  }
+  
+  @media (min-width: 1024px) {
+    .ds-lp-how-it-works__desktop-layout {
+      display: flex !important;
+    }
+
+    .ds-lp-how-it-works__headline h2{
+        letter-spacing: -1.6px;
+    }
+    
+    .ds-lp-how-it-works__benefits-wrapper {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 40px;
+    }
+    
+    .ds-lp-how-it-works__benefits-left,
+    .ds-lp-how-it-works__benefits-right {
+      flex: 1;
+      max-width: calc(50% - 20px);
+    }
+    
+    .ds-lp-how-it-works__product-image {
+      margin: 0;
+      max-width: 45%;
+      flex-shrink: 0;
+      align-self: center;
+    }
+  }
+  
+  .ds-lp-how-it-works__timeline-wrapper {
+    background: #FDF1E9;
+    border-radius: 20px;
+    padding: 32px 16px;
+    text-align: left;
+  }
+  
+  /* Mobile: Vertical Timeline */
+  .ds-lp-how-it-works__timeline-line {
+    position: relative;
+    padding-left: 32px;
+  }
+  
+  .ds-lp-how-it-works__timeline-line::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #000000;
+  }
+  
+  .ds-lp-how-it-works__timeline-item {
+    position: relative;
+    margin-bottom: 32px;
+  }
+  
+  .ds-lp-how-it-works__timeline-item:last-child {
+    margin-bottom: 0;
+  }
+  
+  .ds-lp-how-it-works__timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -25px;
+    top: 18px;
+    width: 16px;
+    height: 16px;
+    background-color: #EC008C;
+    border-radius: 50%;
+    z-index: 2;
+  }
+
+  .ds-lp-how-it-works__timeline-item::after {
+    content: '';
+    position: absolute;
+    left: -25px;
+    top: -14px;
+    width: 16px;
+    height: 80px;
+    background-color: #FDF1E9;
+    z-index: 1;
+  }
+  
+  .ds-lp-how-it-works__timeline-label {
+    position: relative;
+    top: 0;
+    background-color: #EC008C;
+    color: #FFFFFF;
+    padding: 8px 24px;
+    border-radius: 100px;
+    font-size: 18px;
+    line-height: 1.2;
+    letter-spacing: -0.9px;
+    font-weight: 700;
+    width: fit-content;
+    white-space: nowrap;
+    margin-bottom: 16px;
+    z-index: 3;
+    display: block;
+  }
+  
+  .ds-lp-how-it-works__timeline-item {
+    text-align: left;
+    /* padding-top: 32px; */
+  }
+  
+
+  
+  .ds-lp-how-it-works__timeline-title {
+    color: #000000;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  
+  .ds-lp-how-it-works__timeline-title p {
+    margin: 0;
+    display: inline;
+  }
+  
+  .ds-lp-how-it-works__timeline-title h1,
+  .ds-lp-how-it-works__timeline-title h2,
+  .ds-lp-how-it-works__timeline-title h3,
+  .ds-lp-how-it-works__timeline-title h4,
+  .ds-lp-how-it-works__timeline-title h5,
+  .ds-lp-how-it-works__timeline-title h6 {
+    margin: 0;
+    display: inline;
+  }
+  
+  .ds-lp-how-it-works__timeline-description {
+    color: #000000;
+  }
+  
+  .ds-lp-how-it-works__timeline-items-container {
+    display: block;
+  }
+  
+  @media (min-width: 1024px) {
+    .ds-lp-how-it-works__benefit-icon {
+      width: 80px;
+      height: 80px;
+    }
+    
+    .ds-lp-how-it-works__timeline-wrapper {
+      padding: 0;
+      background: transparent;
+    }
+    
+    /* Desktop: Horizontal Timeline */
+    .ds-lp-how-it-works__timeline-line {
+      position: relative;
+      padding-left: 0;
+      padding-top: 22px;
+    }
+    
+    .ds-lp-how-it-works__timeline-line::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 20px;
+      bottom: auto;
+      width: 100%;
+      height: 2px;
+      background-color: #000000;
+    }
+    
+    .ds-lp-how-it-works__timeline-item {
+      position: relative;
+      margin-bottom: 0;
+      margin-right: 40px;
+      flex: 1;
+      max-width: calc(33.333% - 27px);
+    }
+    
+    .ds-lp-how-it-works__timeline-item:last-child {
+      margin-right: 0;
+    }
+    
+    .ds-lp-how-it-works__timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: -16px;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 30px;
+      background-color: #EC008C;
+      border-radius: 50%;
+      border: 8px solid #fad3b7;
+      z-index: 2;
+    }
+
+    .ds-lp-how-it-works__timeline-item::after{
+        content: unset;
+    }
+    
+    .ds-lp-how-it-works__timeline-label {
+      position: relative;
+      top: 0;
+      display: block;
+      background-color: #EC008C;
+      color: #FFFFFF;
+      padding: 8px 24px;
+      border-radius: 100px;
+      font-size: 24px;
+      line-height: 1.2;
+      letter-spacing: -1.2px;
+      font-weight: 700;
+      margin-top: 22px;
+      margin-bottom: 16px;
+      margin-left: auto;
+      margin-right: auto;
+      width: fit-content;
+      z-index: 3;
+    }
+    
+    .ds-lp-how-it-works__timeline-item {
+      padding-top: 0;
+      text-align: center;
+    }
+    
+    .ds-lp-how-it-works__timeline-content {
+      /* background-color: #FFFFFF; */
+      border-radius: 12px;
+      padding: 0 20px;
+      margin-top: 0;
+    }
+    
+    .ds-lp-how-it-works__timeline-items-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  }
+</style>
+
+<section class="ds-lp-how-it-works" id="ds-lp--how-it-works">
+  <div class="mx-auto px-5 sm:px-6 lg:px-16 py-12 pt-16 lg:py-20 text-center">
+    {% comment %} Section Label {% endcomment %}
+    {% if section.settings.section_label != blank %}
+      <div class="ds-lp-how-it-works__label text-sm leading-[1.5] tracking-[-0.7px] mb-4 font-bold">
+        {{ section.settings.section_label }}
+      </div>
+    {% endif %}
+    
+    {% comment %} Headline {% endcomment %}
+    {% if section.settings.headline != blank %}
+      <div class="ds-lp-how-it-works__headline w-4/5 mx-auto text-[32px] lg:text-[48px] font-bold leading-[1.2] tracking-[-1.6px] lg:tracking-[-2.4px] mb-6 font-bold">
+        {{ section.settings.headline }}
+      </div>
+    {% endif %}
+    
+    {% comment %} Intro Text {% endcomment %}
+    {% if section.settings.intro_text != blank %}
+      <div class="ds-lp-how-it-works__intro-text text-base lg:text-lg leading-[1.5] tracking-[-0.8px] lg:tracking-[-0.9px] max-w-xl mx-auto text-center mb-12 lg:mb-20">
+        {{ section.settings.intro_text }}
+      </div>
+    {% endif %}
+    
+    {% comment %} Mobile Layout: Benefits Grid + Image Below {% endcomment %}
+    {% if section.blocks.size > 0 or section.settings.product_image != blank %}
+      <div class="lg:hidden mb-0">
+        {% if section.blocks.size > 0 %}
+          <div class="grid grid-cols-2 gap-x-4 gap-y-12 mb-12">
+            {% for block in section.blocks %}
+              {% case block.type %}
+                {% when 'benefit_block' %}
+                  <div class="ds-lp-how-it-works__benefit-block">
+                    {% if block.settings.icon != blank %}
+                      <div class="ds-lp-how-it-works__benefit-icon">
+                        {% assign icon_image = block.settings.icon %}
+                        {% if icon_image.src contains '.svg' or icon_image.width == blank %}
+                          <img 
+                            src="{{ icon_image | image_url }}"
+                            alt="{{ block.settings.title | escape }}"
+                            width="60"
+                            height="60"
+                            loading="lazy"
+                          >
+                        {% else %}
+                          <img 
+                            src="{{ icon_image | image_url: width: 120 }}"
+                            srcset="{{ icon_image | image_url: width: 120 }} 1x, {{ icon_image | image_url: width: 240 }} 2x"
+                            alt="{{ block.settings.title | escape }}"
+                            width="60"
+                            height="60"
+                            loading="lazy"
+                          >
+                        {% endif %}
+                      </div>
+                    {% endif %}
+                    
+                    {% if block.settings.title != blank %}
+                      <div class="ds-lp-how-it-works__benefit-title text-xl leading-[1.3] tracking-[-0.8px] font-bold">
+                        {{ block.settings.title }}
+                      </div>
+                    {% endif %}
+                    
+                    {% if block.settings.description != blank %}
+                      <p class="ds-lp-how-it-works__benefit-description text-sm leading-[1.5] tracking-[-0.7px]">
+                        {{ block.settings.description }}
+                      </p>
+                    {% endif %}
+                  </div>
+              {% endcase %}
+            {% endfor %}
+          </div>
+        {% endif %}
+        
+        {% if section.settings.product_image != blank %}
+          <div class="ds-lp-how-it-works__product-image">
+            {% assign product_img = section.settings.product_image %}
+            {% if product_img.src contains '.svg' or product_img.width == blank %}
+              <img 
+                src="{{ product_img | image_url }}"
+                alt="{{ section.settings.product_image_alt | default: 'Day Shrooms Product' | escape }}"
+                width="400"
+                height="600"
+                loading="lazy"
+              >
+            {% else %}
+              <img 
+                src="{{ product_img | image_url: width: 800 }}"
+                srcset="{{ product_img | image_url: width: 400 }} 400w, {{ product_img | image_url: width: 800 }} 800w"
+                sizes="100vw"
+                alt="{{ section.settings.product_image_alt | default: 'Day Shrooms Product' | escape }}"
+                width="{{ product_img.width }}"
+                height="{{ product_img.height }}"
+                loading="lazy"
+              >
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+    
+    {% comment %} Desktop Layout: Flex with Benefits Left, Image Center, Benefits Right {% endcomment %}
+    {% if section.blocks.size > 0 or section.settings.product_image != blank %}
+      <div class="ds-lp-how-it-works__desktop-layout ds-lp-how-it-works__benefits-wrapper mb-12">
+        {% if section.blocks.size > 0 %}
+          <div class="ds-lp-how-it-works__benefits-left">
+            {% for block in section.blocks limit: 2 %}
+              {% case block.type %}
+                {% when 'benefit_block' %}
+                  <div class="ds-lp-how-it-works__benefit-block max-w-[260px] mx-auto">
+                    {% if block.settings.icon != blank %}
+                      <div class="ds-lp-how-it-works__benefit-icon">
+                        {% assign icon_image = block.settings.icon %}
+                        {% if icon_image.src contains '.svg' or icon_image.width == blank %}
+                          <img 
+                            src="{{ icon_image | image_url }}"
+                            alt="{{ block.settings.title | escape }}"
+                            width="60"
+                            height="60"
+                            loading="lazy"
+                          >
+                        {% else %}
+                          <img 
+                            src="{{ icon_image | image_url: width: 120 }}"
+                            srcset="{{ icon_image | image_url: width: 120 }} 1x, {{ icon_image | image_url: width: 240 }} 2x"
+                            alt="{{ block.settings.title | escape }}"
+                            width="60"
+                            height="60"
+                            loading="lazy"
+                          >
+                        {% endif %}
+                      </div>
+                    {% endif %}
+                    
+                    {% if block.settings.title != blank %}
+                      <div class="ds-lp-how-it-works__benefit-title text-xl lg:text-2xl leading-[1.3] tracking-[-0.8px] lg:tracking-[-1.2px] font-bold">
+                        {{ block.settings.title }}
+                      </div>
+                    {% endif %}
+                    
+                    {% if block.settings.description != blank %}
+                      <p class="ds-lp-how-it-works__benefit-description text-base leading-[1.5] tracking-[-0.8px]">
+                        {{ block.settings.description }}
+                      </p>
+                    {% endif %}
+                  </div>
+              {% endcase %}
+            {% endfor %}
+          </div>
+        {% endif %}
+        
+        {% if section.settings.product_image != blank %}
+          <div class="ds-lp-how-it-works__product-image">
+            {% assign product_img = section.settings.product_image %}
+            {% if product_img.src contains '.svg' or product_img.width == blank %}
+              <img 
+                src="{{ product_img | image_url }}"
+                alt="{{ section.settings.product_image_alt | default: 'Day Shrooms Product' | escape }}"
+                width="400"
+                height="600"
+                loading="lazy"
+              >
+            {% else %}
+              <img 
+                src="{{ product_img | image_url: width: 800 }}"
+                srcset="{{ product_img | image_url: width: 400 }} 400w, {{ product_img | image_url: width: 800 }} 800w, {{ product_img | image_url: width: 1200 }} 1200w"
+                sizes="300px"
+                alt="{{ section.settings.product_image_alt | default: 'Day Shrooms Product' | escape }}"
+                width="{{ product_img.width }}"
+                height="{{ product_img.height }}"
+                loading="lazy"
+              >
+            {% endif %}
+          </div>
+        {% endif %}
+        
+        {% if section.blocks.size > 2 %}
+          <div class="ds-lp-how-it-works__benefits-right">
+            {% for block in section.blocks offset: 2 %}
+              {% case block.type %}
+                {% when 'benefit_block' %}
+                  <div class="ds-lp-how-it-works__benefit-block max-w-[260px] mx-auto">
+                    {% if block.settings.icon != blank %}
+                      <div class="ds-lp-how-it-works__benefit-icon">
+                        {% assign icon_image = block.settings.icon %}
+                        {% if icon_image.src contains '.svg' or icon_image.width == blank %}
+                          <img 
+                            src="{{ icon_image | image_url }}"
+                            alt="{{ block.settings.title | escape }}"
+                            width="60"
+                            height="60"
+                            loading="lazy"
+                          >
+                        {% else %}
+                          <img 
+                            src="{{ icon_image | image_url: width: 120 }}"
+                            srcset="{{ icon_image | image_url: width: 120 }} 1x, {{ icon_image | image_url: width: 240 }} 2x"
+                            alt="{{ block.settings.title | escape }}"
+                            width="60"
+                            height="60"
+                            loading="lazy"
+                          >
+                        {% endif %}
+                      </div>
+                    {% endif %}
+                    
+                    {% if block.settings.title != blank %}
+                      <div class="ds-lp-how-it-works__benefit-title text-xl lg:text-2xl leading-[1.3] tracking-[-0.8px] lg:tracking-[-1px] font-bold">
+                        {{ block.settings.title }}
+                      </div>
+                    {% endif %}
+                    
+                    {% if block.settings.description != blank %}
+                      <p class="ds-lp-how-it-works__benefit-description text-base leading-[1.5] tracking-[-0.8px]">
+                        {{ block.settings.description }}
+                      </p>
+                    {% endif %}
+                  </div>
+              {% endcase %}
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+    
+    {% comment %} Timeline Section {% endcomment %}
+    {% if section.settings.show_timeline %}
+      <div class="ds-lp-how-it-works__timeline-wrapper">
+        <div class="ds-lp-how-it-works__timeline-line">
+          <div class="ds-lp-how-it-works__timeline-items-container">
+            {% comment %} Day 1 {% endcomment %}
+            {% if section.settings.day1_label != blank or section.settings.day1_title != blank %}
+              <div class="ds-lp-how-it-works__timeline-item">
+                <div class="ds-lp-how-it-works__timeline-label">
+                  {{ section.settings.day1_label | default: 'Day 1' }}
+                </div>
+                <div class="ds-lp-how-it-works__timeline-content">
+                  {% if section.settings.day1_title != blank %}
+                    <div class="ds-lp-how-it-works__timeline-title text-2xl lg:text-[32px] leading-[1.3] tracking-[-1.2px] lg:tracking-[-1.6px] mb-2 font-bold">
+                      {% assign title_text = section.settings.day1_title | replace: '</p><p>', '<br>' | replace: '</p>', '' | replace: '<p>', '' | replace: '<br/>', '<br>' | replace: '<br />', '<br>' %}
+                      {{ title_text }}
+                    </div>
+                  {% endif %}
+                  {% if section.settings.day1_description != blank %}
+                    <p class="ds-lp-how-it-works__timeline-description text-sm lg:text-base leading-[1.5] tracking-[-0.7px] lg:tracking-[-0.8px]">
+                      {{ section.settings.day1_description }}
+                    </p>
+                  {% endif %}
+                </div>
+              </div>
+            {% endif %}
+            
+            {% comment %} Day 7 {% endcomment %}
+            {% if section.settings.day7_label != blank or section.settings.day7_title != blank %}
+              <div class="ds-lp-how-it-works__timeline-item">
+                <div class="ds-lp-how-it-works__timeline-label">
+                  {{ section.settings.day7_label | default: 'Day 7' }}
+                </div>
+                <div class="ds-lp-how-it-works__timeline-content">
+                  {% if section.settings.day7_title != blank %}
+                    <div class="ds-lp-how-it-works__timeline-title text-2xl lg:text-[32px] leading-[1.3] tracking-[-1.2px] lg:tracking-[-1.6px] mb-2 font-bold">
+                      {% assign title_text = section.settings.day7_title | replace: '</p><p>', '<br>' | replace: '</p>', '' | replace: '<p>', '' | replace: '<br/>', '<br>' | replace: '<br />', '<br>' %}
+                      {{ title_text }}
+                    </div>
+                  {% endif %}
+                  {% if section.settings.day7_description != blank %}
+                    <p class="ds-lp-how-it-works__timeline-description text-sm lg:text-base leading-[1.5] tracking-[-0.7px] lg:tracking-[-0.8px]">
+                      {{ section.settings.day7_description }}
+                    </p>
+                  {% endif %}
+                </div>
+              </div>
+            {% endif %}
+            
+            {% comment %} Day 30 {% endcomment %}
+            {% if section.settings.day30_label != blank or section.settings.day30_title != blank %}
+              <div class="ds-lp-how-it-works__timeline-item">
+                <div class="ds-lp-how-it-works__timeline-label">
+                  {{ section.settings.day30_label | default: 'Day 30' }}
+                </div>
+                <div class="ds-lp-how-it-works__timeline-content">
+                  {% if section.settings.day30_title != blank %}
+                    <div class="ds-lp-how-it-works__timeline-title text-2xl lg:text-[32px] leading-[1.3] tracking-[-1.2px] lg:tracking-[-1.6px] mb-2 font-bold">
+                      {% assign title_text = section.settings.day30_title | replace: '</p><p>', '<br>' | replace: '</p>', '' | replace: '<p>', '' | replace: '<br/>', '<br>' | replace: '<br />', '<br>' %}
+                      {{ title_text }}
+                    </div>
+                  {% endif %}
+                  {% if section.settings.day30_description != blank %}
+                    <p class="ds-lp-how-it-works__timeline-description text-sm lg:text-base leading-[1.5] tracking-[-0.7px] lg:tracking-[-0.8px]">
+                      {{ section.settings.day30_description }}
+                    </p>
+                  {% endif %}
+                </div>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "DS LP - How It Works",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_label",
+      "label": "Section Label",
+      "default": "How Day Shrooms Works"
+    },
+    {
+      "type": "richtext",
+      "id": "headline",
+      "label": "Headline",
+      "default": "<h2>Productivity isn't about hustle. It's about alignment.</h2>"
+    },
+    {
+      "type": "textarea",
+      "id": "intro_text",
+      "label": "Intro Text",
+      "default": "Most drinks give you a spike. Day Shrooms gives you control—working with your mind and body to eliminate burnout, sharpen focus, and unlock better outputs. Here's how we built it to help you flow:"
+    },
+    {
+      "type": "header",
+      "content": "Product Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image",
+      "label": "Product Image"
+    },
+    {
+      "type": "text",
+      "id": "product_image_alt",
+      "label": "Product Image Alt Text",
+      "default": "Day Shrooms Product"
+    },
+    {
+      "type": "header",
+      "content": "Timeline Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_timeline",
+      "label": "Show Timeline",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "day1_label",
+      "label": "Day 1 Label",
+      "default": "Day 1"
+    },
+    {
+      "type": "richtext",
+      "id": "day1_title",
+      "label": "Day 1 Title",
+      "default": "<p>A Smooth Lift Not a Spike</p>"
+    },
+    {
+      "type": "textarea",
+      "id": "day1_description",
+      "label": "Day 1 Description",
+      "default": "You won't feel a jolt. That's the point. Instead, just a steady, feel-good lift, clear focus, calm energy, no crash. You're switched on, in the zone for hours, and actually enjoying it."
+    },
+    {
+      "type": "text",
+      "id": "day7_label",
+      "label": "Day 7 Label",
+      "default": "Day 7"
+    },
+    {
+      "type": "richtext",
+      "id": "day7_title",
+      "label": "Day 7 Title",
+      "default": "<p>Mental Clarity + Stress Support</p>"
+    },
+    {
+      "type": "textarea",
+      "id": "day7_description",
+      "label": "Day 7 Description",
+      "default": "You're thinking clearer. Less reactive. More steady. More grounded. Adaptogens start calming your system, while nootropics like Lion's Mane sharpen focus and flow."
+    },
+    {
+      "type": "text",
+      "id": "day30_label",
+      "label": "Day 30 Label",
+      "default": "Day 30"
+    },
+    {
+      "type": "richtext",
+      "id": "day30_title",
+      "label": "Day 30 Title",
+      "default": "<p>Elevated Focus. Better Baseline.</p>"
+    },
+    {
+      "type": "textarea",
+      "id": "day30_description",
+      "label": "Day 30 Description",
+      "default": "You've created a new rhythm, no more energy slumps. Less fatigue. Deeper sleep. Fewer high caffeine cravings. Tasks feel easier, decisions come faster, and you stay focused longer."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit_block",
+      "name": "Benefit Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Title",
+          "default": "<p>Benefit Title</p>"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Benefit description text goes here."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "DS LP - How It Works",
+      "blocks": [
+        {
+          "type": "benefit_block",
+          "settings": {
+            "title": "<p>Block Distractions. Sharpen Focus.</p>",
+            "description": "Lion's Mane supports memory and concentration so you can actually finish what you start."
+          }
+        },
+        {
+          "type": "benefit_block",
+          "settings": {
+            "title": "<p>Find Your Flow State.</p>",
+            "description": "L-Theanine and Bacopa unlock calm, alert energy so you stay in the zone."
+          }
+        },
+        {
+          "type": "benefit_block",
+          "settings": {
+            "title": "<p>Boost Energy Without the Crash.</p>",
+            "description": "Cordyceps powers stamina while green tea caffeine provides smooth energy."
+          }
+        },
+        {
+          "type": "benefit_block",
+          "settings": {
+            "title": "<p>Recharge Smarter. Not Harder.</p>",
+            "description": "KSM-66 Ashwagandha supports stress response and sleep cycle."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
