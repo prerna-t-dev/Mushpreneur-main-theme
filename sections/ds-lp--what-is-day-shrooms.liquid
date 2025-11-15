@@ -1,0 +1,328 @@
+{% comment %}
+  Day Shrooms Landing Page - What is Day Shrooms Section
+{% endcomment %}
+
+<style>
+  .ds-lp-what-is {
+    background: linear-gradient(180deg, #FDF1E9 0%, #F9C9A7 100%);
+    position: relative;
+  }
+  
+  .ds-lp-what-is__headline {
+    color: {{ section.settings.headline_color | default: '#000000' }};
+  }
+  
+  .ds-lp-what-is__intro-text {
+    color: {{ section.settings.intro_text_color | default: '#000000' }};
+  }
+  
+  .ds-lp-what-is__description {
+    color: {{ section.settings.description_color | default: '#000000' }};
+  }
+  
+  .ds-lp-what-is__feature-item {
+    background-color: {{ section.settings.feature_bg_color | default: '#ffffff' }};
+    color: {{ section.settings.feature_text_color | default: '#000000' }};
+  }
+  
+  .ds-lp-what-is__checkmark {
+    background-color: {{ section.settings.checkmark_bg_color | default: '#F14D55' }};
+    color: {{ section.settings.checkmark_color | default: '#ffffff' }};
+  }
+  
+  .ds-lp-what-is__image-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 300px;
+  }
+  
+  .ds-lp-what-is__image {
+    position: absolute !important;
+    width: {{ section.settings.image_mobile_width | default: 200 }}px !important;
+    left: {{ section.settings.image_mobile_left | default: 0 }}px !important;
+    bottom: {{ section.settings.image_mobile_bottom | default: 0 }}px !important;
+    height: auto;
+    object-fit: cover;
+    z-index: 1;
+  }
+  
+  @media (min-width: 1024px) {
+    .ds-lp-what-is__image-wrapper {
+      min-height: 400px;
+    }
+    
+    .ds-lp-what-is__image {
+      width: {{ section.settings.image_desktop_width | default: 300 }}px !important;
+      left: {{ section.settings.image_desktop_left | default: 0 }}px !important;
+      bottom: {{ section.settings.image_desktop_bottom | default: 0 }}px !important;
+    }
+  }
+</style>
+
+<section class="ds-lp-what-is" id="ds-lp--what-is-day-shrooms">
+  <div class="mx-auto px-5 sm:px-6 lg:px-16 py-12 pb-24 lg:py-20">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-30 items-start">
+      {% comment %} Left Column - Headline Only {% endcomment %}
+      <div class="">
+        <div class="ds-lp-what-is__headline text-[48px] lg:text-[80px] font-bold leading-[1.1] tracking-[-1.2px] lg:tracking-[-2px]">
+          {% if section.settings.headline != blank %}
+            {{ section.settings.headline }}
+          {% else %}
+            <h2>What is Day Shrooms?</h2>
+          {% endif %}
+        </div>
+      </div>
+      
+      {% comment %} Right Column - Content and Image {% endcomment %}
+      <div class="">
+        <p class="ds-lp-what-is__intro-text text-lg lg:text-xl font-bold leading-[1.5] tracking-[-0.8px] lg:tracking-[-1px]">
+          {{ section.settings.intro_text | default: "Not a coffee. Not an energy drink." }}
+        </p>
+        
+        <p class="ds-lp-what-is__description text-lg lg:text-xl leading-[1.5] tracking-[-0.8px] lg:tracking-[-1px] mb-8">
+          {{ section.settings.description | default: "It's the smarter blend built for modern minds. Day Shrooms is a cacao-based powerhouse stacked with functional mushrooms, adaptogens, and nootropics, crafted to fuel focus, boost energy, and support mental clarity without the crash, anxiety, or artificial hacks." }}
+        </p>
+        
+        {% comment %} Features List {% endcomment %}
+        {% if section.blocks.size > 0 %}
+          <div class="flex flex-wrap gap-4">
+            {% for block in section.blocks %}
+              {% case block.type %}
+                {% when 'feature' %}
+                  <div class="ds-lp-what-is__feature-item flex items-center gap-2 px-2 py-2 pr-4 rounded-full">
+                    <div class="ds-lp-what-is__checkmark flex-shrink-0 w-6 h-6 lg:w-7 lg:h-7 rounded-full flex items-center justify-center">
+                      <svg class="w-4 h-4 lg:w-5 lg:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                    <p class="ds-lp-what-is__feature-item text-sm lg:text-base font-medium leading-[1.5] tracking-[-0.6px] lg:tracking-[-0.7px]">
+                      {{ block.settings.feature_text }}
+                    </p>
+                  </div>
+              {% endcase %}
+            {% endfor %}
+          </div>
+        {% endif %}
+        
+        {% comment %} Image {% endcomment %}
+        {% if section.settings.section_image != blank %}
+          <img 
+            src="{{ section.settings.section_image | image_url }}"
+            alt="{{ section.settings.section_image.alt | default: section.settings.headline }}"
+            class="ds-lp-what-is__image"
+            width="{{ section.settings.image_desktop_width | default: 300 }}"
+            height="auto"
+            loading="lazy"
+          >
+        {% else %}
+          <div class="ds-lp-what-is__image-wrapper bg-gray-200 flex items-center justify-center">
+            <p class="text-gray-400">Section Image</p>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "DS LP What is Day Shrooms",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "section_image",
+      "label": "Section Image"
+    },
+    {
+      "type": "header",
+      "content": "Image Position - Mobile"
+    },
+    {
+      "type": "range",
+      "id": "image_mobile_width",
+      "label": "Image Width - Mobile (px)",
+      "min": 100,
+      "max": 500,
+      "step": 10,
+      "default": 200,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "image_mobile_left",
+      "label": "Image Left Position - Mobile (px)",
+      "min": -100,
+      "max": 200,
+      "step": 5,
+      "default": 0,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "image_mobile_bottom",
+      "label": "Image Bottom Position - Mobile (px)",
+      "min": -200,
+      "max": 200,
+      "step": 5,
+      "default": 0,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Image Position - Desktop"
+    },
+    {
+      "type": "range",
+      "id": "image_desktop_width",
+      "label": "Image Width - Desktop (px)",
+      "min": 200,
+      "max": 800,
+      "step": 10,
+      "default": 300,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "image_desktop_left",
+      "label": "Image Left Position - Desktop (px)",
+      "min": -200,
+      "max": 400,
+      "step": 10,
+      "default": 0,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "image_desktop_bottom",
+      "label": "Image Bottom Position - Desktop (px)",
+      "min": -300,
+      "max": 400,
+      "step": 10,
+      "default": 0,
+      "unit": "px"
+    },
+    {
+      "type": "richtext",
+      "id": "headline",
+      "label": "Headline",
+      "default": "<h2>What is Day Shrooms?</h2>"
+    },
+    {
+      "type": "text",
+      "id": "intro_text",
+      "label": "Intro Text (Bold)",
+      "default": "Not a coffee. Not an energy drink."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "It's the smarter blend built for modern minds. Day Shrooms is a cacao-based powerhouse stacked with functional mushrooms, adaptogens, and nootropics, crafted to fuel focus, boost energy, and support mental clarity without the crash, anxiety, or artificial hacks."
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "headline_color",
+      "label": "Headline Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "intro_text_color",
+      "label": "Intro Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "feature_bg_color",
+      "label": "Feature Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "feature_text_color",
+      "label": "Feature Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "checkmark_bg_color",
+      "label": "Checkmark Background Color",
+      "default": "#F14D55"
+    },
+    {
+      "type": "color",
+      "id": "checkmark_color",
+      "label": "Checkmark Icon Color",
+      "default": "#ffffff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "text",
+          "id": "feature_text",
+          "label": "Feature Text",
+          "default": "2000mg fruiting body mushrooms"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "DS LP What is Day Shrooms",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "feature_text": "2000mg fruiting body mushrooms"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature_text": "850mg active natural nutropics"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature_text": "100% daily value of vitamins B12 & D2"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature_text": "60mg caffeine from green tea"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature_text": "7x more L-theanine than matcha"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

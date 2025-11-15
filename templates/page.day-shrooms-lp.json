@@ -1,0 +1,242 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+ {
+    "sections": {
+      "main": {
+        "type": "main-page",
+        "disabled": true,
+        "settings": {
+          "padding_top": 28,
+          "padding_bottom": 28
+        }
+      },
+      "ds_lp_header_nEkJN7": {
+        "type": "ds-lp--header",
+        "name": "DS LP Header",
+        "settings": {
+          "brand_image": "shopify://shop_images/Mushpreneur_Logo_--_Black.png",
+          "brand_image_mobile_width": 160,
+          "brand_image_desktop_width": 160,
+          "brand_name": "Mushpreneur",
+          "brand_link": "/",
+          "nav_link_1": "Why it Works",
+          "nav_link_2": "How it Works",
+          "nav_link_3": "Comparison",
+          "nav_link_4": "Founder's Message",
+          "nav_link_5": "Testimonials",
+          "nav_link_6": "FAQ",
+          "cta_text": "Join the List",
+          "background_color": "#ffffff",
+          "text_color": "#000000",
+          "border_color": "#e5e7eb",
+          "button_color": "#000000",
+          "button_text_color": "#ffffff"
+        }
+      },
+      "ds_lp_hero_banner_XYjKVQ": {
+        "type": "ds-lp--hero-banner",
+        "blocks": {
+          "benefit_HHLTxK": {
+            "type": "benefit",
+            "settings": {
+              "title": "Sustained Energy",
+              "icon_image": "shopify://shop_images/Icon.png",
+              "icon_emoji": "⚡"
+            }
+          },
+          "benefit_XUnRNR": {
+            "type": "benefit",
+            "settings": {
+              "title": "Laser Sharp Focus",
+              "icon_image": "shopify://shop_images/Icon_1.png",
+              "icon_emoji": "🎯"
+            }
+          },
+          "benefit_TdRwNH": {
+            "type": "benefit",
+            "settings": {
+              "title": "Mood Nootropics",
+              "icon_image": "shopify://shop_images/Icon_2.png",
+              "icon_emoji": "😊"
+            }
+          },
+          "benefit_HVW6QM": {
+            "type": "benefit",
+            "settings": {
+              "title": "Jitter Free",
+              "icon_image": "shopify://shop_images/Icon_3.png",
+              "icon_emoji": "✨"
+            }
+          }
+        },
+        "block_order": [
+          "benefit_HHLTxK",
+          "benefit_XUnRNR",
+          "benefit_TdRwNH",
+          "benefit_HVW6QM"
+        ],
+        "name": "DS LP Hero Banner",
+        "settings": {
+          "hero_image": "shopify://shop_images/Placeholder_Image_1.png",
+          "headline": "Don't Quit Coffee. Outsmart It.",
+          "subheadline": "Another coffee won't fix it. But this mushroom-powered upgrade just might.",
+          "show_pricing": true,
+          "pricing_part1_text": "Only $2/day.",
+          "pricing_part1_color": "#ff3ead",
+          "pricing_part2_text": "Free shipping included.",
+          "pricing_part2_color": "#000000",
+          "cta_text": "Try It Before We Sell Out",
+          "show_small_print": true,
+          "small_print_text": "Limited pre-launch drop. $39 for 20 servings.",
+          "show_benefits": true,
+          "benefit_icon_mobile_size": 60,
+          "benefit_icon_desktop_size": 60,
+          "background_color": "#ffffff",
+          "headline_color": "#000000",
+          "subheadline_color": "#000000",
+          "cta_gradient_start": "#e74639",
+          "cta_gradient_end": "#fea30c",
+          "cta_text_color": "#ffffff",
+          "small_print_color": "#000000"
+        }
+      },
+      "ds_lp_what_is_day_shrooms_tLBfad": {
+        "type": "ds-lp--what-is-day-shrooms",
+        "blocks": {
+          "feature_KfT3eE": {
+            "type": "feature",
+            "settings": {
+              "feature_text": "2000mg fruiting body mushrooms"
+            }
+          },
+          "feature_NrdA6r": {
+            "type": "feature",
+            "settings": {
+              "feature_text": "850mg active natural nutropics"
+            }
+          },
+          "feature_8k4GQK": {
+            "type": "feature",
+            "settings": {
+              "feature_text": "100% daily value of vitamins B12 & D2"
+            }
+          },
+          "feature_EMHNpB": {
+            "type": "feature",
+            "settings": {
+              "feature_text": "60mg caffeine from green tea"
+            }
+          },
+          "feature_U6D9qw": {
+            "type": "feature",
+            "settings": {
+              "feature_text": "7x more L-theanine than matcha"
+            }
+          }
+        },
+        "block_order": [
+          "feature_KfT3eE",
+          "feature_NrdA6r",
+          "feature_8k4GQK",
+          "feature_EMHNpB",
+          "feature_U6D9qw"
+        ],
+        "name": "DS LP What is Day Shrooms",
+        "settings": {
+          "section_image": "shopify://shop_images/mush--spoon-img-mob_1_1_1.png",
+          "image_mobile_width": 380,
+          "image_mobile_left": 0,
+          "image_mobile_bottom": -175,
+          "image_desktop_width": 640,
+          "image_desktop_left": 0,
+          "image_desktop_bottom": -230,
+          "headline": "<p>What is </p><p>Day Shrooms?</p>",
+          "intro_text": "Not a coffee. Not an energy drink.",
+          "description": "It's the smarter blend built for modern minds. Day Shrooms is a cacao-based powerhouse stacked with functional mushrooms, adaptogens, and nootropics, crafted to fuel focus, boost energy, and support mental clarity without the crash, anxiety, or artificial hacks.",
+          "headline_color": "#000000",
+          "intro_text_color": "#000000",
+          "description_color": "#000000",
+          "feature_bg_color": "#ffffff",
+          "feature_text_color": "#000000",
+          "checkmark_bg_color": "#f14d55",
+          "checkmark_color": "#ffffff"
+        }
+      },
+      "ds_lp_why_it_works_TYtP78": {
+        "type": "ds-lp--why-it-works",
+        "blocks": {
+          "benefit_niq3Ep": {
+            "type": "benefit",
+            "settings": {
+              "icon_image": "shopify://shop_images/Relume.png",
+              "title": "Functional Mushrooms (Lion's Mane, Cordyceps)",
+              "description": "Enhance cognition, stamina, and nervous system function."
+            }
+          },
+          "benefit_kkAJKp": {
+            "type": "benefit",
+            "settings": {
+              "icon_image": "shopify://shop_images/Relume_0e3e4390-97e6-4767-b997-4c0610ecd754.png",
+              "title": "Raw Cacao + Black Maca",
+              "description": "Boost mood and endurance—without the sugar bomb."
+            }
+          },
+          "benefit_4xCp3C": {
+            "type": "benefit",
+            "settings": {
+              "icon_image": "shopify://shop_images/Relume_494da7b6-8120-4ad4-b54f-1d14e5d456ae.png",
+              "title": "Adaptogens (KSM-66 Ashwagandha)",
+              "description": "Regulate stress, mood, and long-term resilience."
+            }
+          },
+          "benefit_cPQGNM": {
+            "type": "benefit",
+            "settings": {
+              "icon_image": "shopify://shop_images/Relume_6a1b4bb6-5a48-4654-93db-963b147dbae4.png",
+              "title": "Clean Caffeine (Green Tea)",
+              "description": "60mg of smooth, crash-free energy."
+            }
+          },
+          "benefit_xPApdi": {
+            "type": "benefit",
+            "settings": {
+              "icon_image": "shopify://shop_images/Relume_1b6a372a-aba4-4b84-935a-0b06b67578de.png",
+              "title": "Nootropics (L-Theanine, Bacopa)",
+              "description": "Support memory, mental clarity, and flow state."
+            }
+          }
+        },
+        "block_order": [
+          "benefit_niq3Ep",
+          "benefit_kkAJKp",
+          "benefit_4xCp3C",
+          "benefit_cPQGNM",
+          "benefit_xPApdi"
+        ],
+        "name": "DS LP Why It Works",
+        "settings": {
+          "section_label": "Why it Works",
+          "headline": "<p>Smarter Synergy. <br/>Sharper You.</p>",
+          "intro_text": "You've heard of mushrooms. You've heard of nootropics. You've heard of clean energy. But the real power? It's in the synergy. Day Shrooms was built to work with your brain—not against it. While coffee spikes and crashes, this formula delivers smooth, sustained focus—without the chaos.",
+          "desktop_image": "shopify://shop_images/Placeholder_Image_2_1.png",
+          "mobile_image": "shopify://shop_images/Placeholder_Image_1_027d06e8-03c5-4fd1-9c7a-f142c71e979e.png",
+          "tagline": "<p>This isn't just a better blend. <br/>It's a smarter system for how <br/>your brain actually works.</p>"
+        }
+      }
+    },
+    "order": [
+      "main",
+      "ds_lp_header_nEkJN7",
+      "ds_lp_hero_banner_XYjKVQ",
+      "ds_lp_what_is_day_shrooms_tLBfad",
+      "ds_lp_why_it_works_TYtP78"
+    ]
+  }
+  

@@ -1,0 +1,409 @@
+{% comment %}
+  Day Shrooms Landing Page Hero Banner Section
+{% endcomment %}
+
+<style>
+  .ds-lp-hero-banner {
+    background: linear-gradient(180deg, #FFFFFF 0%, #FDF1E9 100%);
+  }
+  
+  .ds-lp-hero-banner__image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .ds-lp-hero-banner__headline {
+    color: {{ section.settings.headline_color | default: '#000000' }};
+  }
+  
+  .ds-lp-hero-banner__subheadline {
+    color: {{ section.settings.subheadline_color | default: '#000000' }};
+  }
+  
+  .ds-lp-hero-banner__pricing {
+    display: inline-block;
+  }
+  
+  .ds-lp-hero-banner__pricing-part1 {
+    color: {{ section.settings.pricing_part1_color | default: '#FF3EAD' }};
+  }
+  
+  .ds-lp-hero-banner__pricing-part2 {
+    color: {{ section.settings.pricing_part2_color | default: '#000000' }};
+  }
+  
+  .ds-lp-hero-banner__cta-button-wrapper {
+    background: linear-gradient(0deg, #F14D55, #F14D55), linear-gradient(90deg, #F14D55 0%, #EF7822 81.6%);
+    border-radius: 9999px;
+    padding: 1px;
+    display: inline-block;
+    width: 100%;
+  }
+  
+  .ds-lp-hero-banner__cta-button {
+    background: linear-gradient(90deg, {{ section.settings.cta_gradient_start | default: '#E74639' }}, {{ section.settings.cta_gradient_end | default: '#FEA30C' }});
+    color: {{ section.settings.cta_text_color | default: '#ffffff' }};
+    transition: all 0.3s ease;
+    border-radius: 9999px;
+    width: 100%;
+    display: block;
+  }
+  
+  .ds-lp-hero-banner__cta-button:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .ds-lp-hero-banner__small-print {
+    color: {{ section.settings.small_print_color | default: '#666666' }};
+  }
+  
+  .ds-lp-hero-banner__benefit-icon-wrapper {
+    width: {{ section.settings.benefit_icon_mobile_size }}px;
+    height: {{ section.settings.benefit_icon_mobile_size }}px;
+  }
+  
+  .ds-lp-hero-banner__benefit-icon {
+    width: {{ section.settings.benefit_icon_mobile_size }}px;
+    height: {{ section.settings.benefit_icon_mobile_size }}px;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  @media (min-width: 1024px) {
+    .ds-lp-hero-banner__benefit-icon-wrapper {
+      width: {{ section.settings.benefit_icon_desktop_size }}px !important;
+      height: {{ section.settings.benefit_icon_desktop_size }}px !important;
+    }
+    
+    .ds-lp-hero-banner__benefit-icon {
+      width: {{ section.settings.benefit_icon_desktop_size }}px !important;
+      height: {{ section.settings.benefit_icon_desktop_size }}px !important;
+    }
+  }
+</style>
+
+<section class="ds-lp-hero-banner" id="ds-lp--hero-banner">
+  <div class="max-w-7xl_ mx-auto px-5 sm:px-6 lg:px-16 py-16 lg:py-20">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
+      {% comment %} Left Column - Image {% endcomment %}
+      <div class="order-1 lg:order-1"> 
+        {% if section.settings.hero_image != blank %}
+          <div class="relative">
+            <img 
+              src="{{ section.settings.hero_image | image_url }}"
+              alt="{{ section.settings.hero_image.alt | default: section.settings.headline }}"
+              class="ds-lp-hero-banner__image rounded-lg"
+              width="{{ section.settings.hero_image.width }}"
+              height="{{ section.settings.hero_image.height }}"
+              loading="eager"
+            >
+          </div>
+        {% else %}
+          <div class="bg-gray-200 rounded-lg aspect-[4/3] flex items-center justify-center">
+            <p class="text-gray-400">Hero Image</p>
+          </div>
+        {% endif %}
+      </div>
+      
+      {% comment %} Right Column - Content {% endcomment %}
+      <div class="order-2 lg:order-2">
+        <h1 class="ds-lp-hero-banner__headline text-[38px] lg:text-[56px] font-bold leading-none mb-2 tracking-[-1.8px] lg:tracking-[-2.4px] xl:w-4/5">
+          {{ section.settings.headline | default: "Don't Quit Coffee. Outsmart It." }}
+        </h1>
+        
+        <p class="ds-lp-hero-banner__subheadline text-lg lg:text-xl mb-6 leading-[1.5] tracking-[-0.9px] lg:tracking-[-1px] xl:w-3/5">
+          {{ section.settings.subheadline | default: "Another coffee won't fix it. But this mushroom-powered upgrade just might." }}
+        </p>
+        
+        {% if section.settings.show_pricing %}
+          <p class="ds-lp-hero-banner__pricing text-xl lg:text-2xl mb-6 lg:mb-8 leading-[1.4] tracking-[-0.9px] lg:tracking-[-1px]">
+            <span class="ds-lp-hero-banner__pricing-part1 font-medium">
+              {{ section.settings.pricing_part1_text | default: "Only $2/day. " }}
+            </span>
+            <span class="ds-lp-hero-banner__pricing-part2 block lg:inline-block">
+              {{ section.settings.pricing_part2_text | default: "Free shipping included." }}
+            </span>
+          </p>
+        {% endif %}
+        
+        <div class="ds-lp-hero-banner__cta-button-wrapper mb-4">
+          <a 
+            href="#ds-lp--buy-box" 
+            class="ds-lp-hero-banner__cta-button ds-lp-scroll-to px-8 py-3 lg:px-10 text-base lg:text-xl font-semibold text-center leading-[1.5] tracking-[-0.8px] lg:tracking-[-1px]"
+            data-scroll-target="#ds-lp--buy-box"
+          >
+            {{ section.settings.cta_text | default: "Try It Before We Sell Out" }}
+          </a>
+        </div>
+        
+        {% if section.settings.show_small_print %}
+          <p class="ds-lp-hero-banner__small-print text-xs text-center leading-[1.5] tracking-[-0.6px]">
+            {{ section.settings.small_print_text | default: "Limited pre-launch drop. $39 for 20 servings." }}
+          </p>
+        {% endif %}
+        
+        {% comment %} Benefits Icons {% endcomment %}
+        {% if section.settings.show_benefits %}
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-6 mt-8 lg:mt-6">
+            {% for block in section.blocks %}
+              {% case block.type %} 
+                {% when 'benefit' %}
+                  <div class="flex flex-col items-center text-center">
+                    {% if block.settings.icon_image != blank %}
+                      <div class="ds-lp-hero-banner__benefit-icon-wrapper flex items-center justify-center mb-4" style="width: {{ section.settings.benefit_icon_mobile_size }}px; height: {{ section.settings.benefit_icon_mobile_size }}px;">
+                        <img 
+                          src="{{ block.settings.icon_image | image_url }}"
+                          alt="{{ block.settings.title }}"
+                          style="width: {{ section.settings.benefit_icon_mobile_size }}px; height: {{ section.settings.benefit_icon_mobile_size }}px; max-width: 100%; height: auto;"
+                          class="ds-lp-hero-banner__benefit-icon"
+                          width="{{ section.settings.benefit_icon_desktop_size }}"
+                          height="{{ section.settings.benefit_icon_desktop_size }}"
+                        >
+                      </div>
+                    {% else %}
+                      <div class="ds-lp-hero-banner__benefit-icon-wrapper flex items-center justify-center mb-4" style="width: {{ section.settings.benefit_icon_mobile_size }}px; height: {{ section.settings.benefit_icon_mobile_size }}px;">
+                        <span class="text-2xl">{{ block.settings.icon_emoji | default: "⚡" }}</span>
+                      </div>
+                    {% endif %}
+                    <p class="text-base font-semibold leading-[1.5] tracking-[-0.8px]">
+                      {{ block.settings.title }}
+                    </p>
+                  </div>
+              {% endcase %}
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "DS LP Hero Banner",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image"
+    },
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Don't Quit Coffee. Outsmart It."
+    },
+    {
+      "type": "textarea",
+      "id": "subheadline",
+      "label": "Subheadline",
+      "default": "Another coffee won't fix it. But this mushroom-powered upgrade just might."
+    },
+    {
+      "type": "header",
+      "content": "Pricing"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pricing",
+      "label": "Show Pricing",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "pricing_part1_text",
+      "label": "Pricing Text Part 1",
+      "default": "Only $2/day. "
+    },
+    {
+      "type": "color",
+      "id": "pricing_part1_color",
+      "label": "Pricing Part 1 Color",
+      "default": "#FF3EAD"
+    },
+    {
+      "type": "text",
+      "id": "pricing_part2_text",
+      "label": "Pricing Text Part 2",
+      "default": "Free shipping included."
+    },
+    {
+      "type": "color",
+      "id": "pricing_part2_color",
+      "label": "Pricing Part 2 Color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "CTA Button"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Button Text",
+      "default": "Try It Before We Sell Out"
+    },
+    {
+      "type": "header",
+      "content": "Small Print"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_small_print",
+      "label": "Show Small Print",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "small_print_text",
+      "label": "Small Print Text",
+      "default": "Limited pre-launch drop. $39 for 20 servings."
+    },
+    {
+      "type": "header",
+      "content": "Benefits"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_benefits",
+      "label": "Show Benefits Icons",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "benefit_icon_mobile_size",
+      "label": "Benefit Icon Size - Mobile (px)",
+      "min": 30,
+      "max": 100,
+      "step": 5,
+      "default": 60,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "benefit_icon_desktop_size",
+      "label": "Benefit Icon Size - Desktop (px)",
+      "min": 30,
+      "max": 100,
+      "step": 5,
+      "default": 60,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "headline_color",
+      "label": "Headline Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "subheadline_color",
+      "label": "Subheadline Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "cta_gradient_start",
+      "label": "CTA Gradient Start Color",
+      "default": "#E74639"
+    },
+    {
+      "type": "color",
+      "id": "cta_gradient_end",
+      "label": "CTA Gradient End Color",
+      "default": "#FEA30C"
+    },
+    {
+      "type": "color",
+      "id": "cta_text_color",
+      "label": "CTA Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "small_print_color",
+      "label": "Small Print Color",
+      "default": "#666666"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Sustained Energy"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Icon Image"
+        },
+        {
+          "type": "text",
+          "id": "icon_emoji",
+          "label": "Icon Emoji (if no image)",
+          "default": "⚡",
+          "info": "Use an emoji if you don't have an icon image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "DS LP Hero Banner",
+      "blocks": [
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Sustained Energy",
+            "icon_emoji": "⚡"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Laser Sharp Focus",
+            "icon_emoji": "🎯"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Mood Nootropics",
+            "icon_emoji": "😊"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Jitter Free",
+            "icon_emoji": "✨"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
