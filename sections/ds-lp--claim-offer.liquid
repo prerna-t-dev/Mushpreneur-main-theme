@@ -1,0 +1,229 @@
+{% comment %}
+  Day Shrooms Landing Page - Claim Offer Section
+{% endcomment %}
+
+<style>
+  .ds-lp-claim-offer {
+    background: linear-gradient(90deg, #E74936 0%, #EC008C 100%);
+    color: #000000;
+    padding: 64px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .ds-lp-claim-offer__content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* max-width: 1200px; */
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+  
+  .ds-lp-claim-offer__text-block {
+    background: #000000;
+    padding: 40px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .ds-lp-claim-offer__headline {
+    color: #FFFFFF;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -1.6px;
+    margin: 0;
+  }
+  
+  .ds-lp-claim-offer__body-text {
+    color: #FFFFFF;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.8px;
+    margin: 0;
+  }
+  
+  .ds-lp-claim-offer__cta-wrapper {
+    margin-top: 16px;
+  }
+  
+  .ds-lp-claim-offer__cta-button {
+    display: inline-block;
+    background: #E4FF52;
+    color: #000000;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.8px;
+    padding: 12px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .ds-lp-claim-offer__cta-button:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .ds-lp-claim-offer__image-block {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .ds-lp-claim-offer__image-block img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 1;
+  }
+  
+  @media (min-width: 1024px) {
+    .ds-lp-claim-offer {
+      padding: 112px 64px;
+    }
+    
+    .ds-lp-claim-offer__content-wrapper {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      border-radius: 20px;
+    }
+    
+    .ds-lp-claim-offer__text-block {
+      padding: 64px 48px;
+      min-height: 500px;
+      padding-right: 84px;
+
+    }
+    
+    
+    .ds-lp-claim-offer__headline {
+      font-size: 48px;
+      letter-spacing: -2.4px;
+    }
+    
+    .ds-lp-claim-offer__body-text {
+      font-size: 18px;
+      letter-spacing: -0.9px;
+    }
+    
+    .ds-lp-claim-offer__cta-button {
+      font-size: 18px;
+      letter-spacing: -0.9px;
+      padding: 12px 40px;
+      width: 100%;
+    }
+
+    .ds-lp-claim-offer__image-block{
+        height: 100%;
+    }
+
+    .ds-lp-claim-offer__image-block img {
+        aspect-ratio: auto;
+        height: 100%;
+    }
+  }
+</style>
+
+<section id="ds-lp--claim-offer" class="ds-lp-claim-offer">
+  <div class="ds-lp-claim-offer__content-wrapper">
+    <div class="ds-lp-claim-offer__text-block">
+      {% if section.settings.headline != blank %}
+        <h2 class="ds-lp-claim-offer__headline">
+          {{ section.settings.headline }}
+        </h2>
+      {% endif %}
+      
+      {% if section.settings.body_text != blank %}
+        <p class="ds-lp-claim-offer__body-text">
+          {{ section.settings.body_text }}
+        </p>
+      {% endif %}
+      
+      {% if section.settings.cta_text != blank %}
+        <div class="ds-lp-claim-offer__cta-wrapper">
+          <a 
+            href="#ds-lp--buy-box" 
+            class="ds-lp-claim-offer__cta-button ds-lp-scroll-to"
+            data-scroll-target="#ds-lp--buy-box"
+          >
+            {{ section.settings.cta_text }}
+          </a>
+        </div>
+      {% endif %}
+    </div>
+    
+    {% if section.settings.image != blank %}
+      <div class="ds-lp-claim-offer__image-block">
+        {% assign claim_img = section.settings.image %}
+        {% if claim_img.src contains '.svg' or claim_img.width == blank %}
+          <img 
+            src="{{ claim_img | image_url }}"
+            alt="{{ section.settings.image_alt | default: 'Day Shrooms Product' | escape }}"
+            width="600"
+            height="500"
+            loading="lazy"
+          >
+        {% else %}
+          <img 
+            src="{{ claim_img | image_url: width: 1200 }}"
+            srcset="{{ claim_img | image_url: width: 600 }} 600w, {{ claim_img | image_url: width: 1200 }} 1200w"
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            alt="{{ section.settings.image_alt | default: 'Day Shrooms Product' | escape }}"
+            width="{{ claim_img.width }}"
+            height="{{ claim_img.height }}"
+            loading="lazy"
+          >
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "DS LP Claim Offer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Still wondering if it's for you?"
+    },
+    {
+      "type": "textarea",
+      "id": "body_text",
+      "label": "Body Text",
+      "default": "Try one jar. Feel the shift. You can always come back for the 3-pack (if it's still in stock)."
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Button Text",
+      "default": "Claim my Offer"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image Alt Text",
+      "default": "Day Shrooms Product"
+    }
+  ],
+  "presets": [
+    {
+      "name": "DS LP Claim Offer"
+    }
+  ]
+}
+{% endschema %}
+

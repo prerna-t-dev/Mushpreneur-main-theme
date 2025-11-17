@@ -496,6 +496,215 @@
         "coffee_image_left": 0,
         "coffee_image_bottom": -200
       }
+    },
+    "ds_lp_testimonials_4xBLat": {
+      "type": "ds-lp--testimonials",
+      "blocks": {
+        "ugc_video_aEwabQ": {
+          "type": "ugc_video",
+          "settings": {
+            "video_thumbnail": "shopify://shop_images/Placeholder_Lightbox.png",
+            "video_url": "",
+            "video_alt": "Video testimonial"
+          }
+        },
+        "ugc_video_FqBFE3": {
+          "type": "ugc_video",
+          "settings": {
+            "video_thumbnail": "shopify://shop_images/Placeholder_Lightbox_1.png",
+            "video_url": "",
+            "video_alt": "Video testimonial"
+          }
+        },
+        "ugc_video_CmcyaJ": {
+          "type": "ugc_video",
+          "settings": {
+            "video_thumbnail": "shopify://shop_images/Placeholder_Lightbox_2.png",
+            "video_url": "",
+            "video_alt": "Video testimonial"
+          }
+        },
+        "testimonial_tiR4B4": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "quote": "Honestly didn't expect much... but I've been way more focused and calm. It's a quiet kind of energy not like a wired coffee buzz.",
+            "customer_name": "Customer Name",
+            "customer_title": "Software Engineer, Seattle"
+          }
+        },
+        "testimonial_Cghhnk": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "quote": "Lorem Ipsum dolor sit amet",
+            "customer_name": "Customer Name",
+            "customer_title": "Software Engineer, Seattle"
+          }
+        }
+      },
+      "block_order": [
+        "ugc_video_aEwabQ",
+        "ugc_video_FqBFE3",
+        "ugc_video_CmcyaJ",
+        "testimonial_tiR4B4",
+        "testimonial_Cghhnk"
+      ],
+      "name": "DS LP Testimonials",
+      "settings": {
+        "label": "Customer Stories",
+        "label_color": "#ec008c",
+        "headline": "<p>What Our First Customers Are Saying</p>",
+        "tagline": "Early adopters. High-level thinkers. Now obsessed."
+      }
+    },
+    "ds_lp_steps_qbEngd": {
+      "type": "ds-lp--steps",
+      "blocks": {
+        "step_Mgkkqe": {
+          "type": "step",
+          "settings": {
+            "step_image": "shopify://shop_images/mush--gif--3.gif",
+            "step_text": "Mix 4 teaspoons with 6-8 oz water."
+          }
+        },
+        "step_jUYApH": {
+          "type": "step",
+          "settings": {
+            "step_image": "shopify://shop_images/mush--gif--2.gif",
+            "step_text": "Froth or stir well."
+          }
+        },
+        "step_ztXJqf": {
+          "type": "step",
+          "settings": {
+            "step_image": "shopify://shop_images/mush--gif--1.gif",
+            "step_text": "Top with milk, pour over ice, or sweeten."
+          }
+        }
+      },
+      "block_order": [
+        "step_Mgkkqe",
+        "step_jUYApH",
+        "step_ztXJqf"
+      ],
+      "name": "DS LP Steps",
+      "settings": {
+        "section_label": "3 Quick Steps",
+        "headline": "<p>Quick & Easy to Make</p>",
+        "coffee_image": "shopify://shop_images/Dayshrooms_cacao_powder.png",
+        "coffee_image_top": -95,
+        "coffee_image_right": 0,
+        "coffee_image_alt": "Coffee"
+      }
+    },
+    "ds_lp_faq_4yqPFj": {
+      "type": "ds-lp--faq",
+      "blocks": {
+        "faq_item_h93Hx9": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is there caffeine in Day Shrooms?",
+            "answer": "<p>No, Day Shrooms is caffeine-free.</p>"
+          }
+        },
+        "faq_item_pVJMDT": {
+          "type": "faq_item",
+          "settings": {
+            "question": "When should I take it?",
+            "answer": "<p>Take it in the morning or whenever you need a natural energy boost.</p>"
+          }
+        },
+        "faq_item_wexcU6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will I trip out on mushrooms?",
+            "answer": "<p>No, Day Shrooms uses functional mushrooms that do not cause psychedelic effects.</p>"
+          }
+        },
+        "faq_item_AeD4Yc": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will I get jitters or crash?",
+            "answer": "<p>No, Day Shrooms provides smooth, sustained energy without the crash.</p>"
+          }
+        },
+        "faq_item_eNeWR6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Wait, what are adaptogens and nootropics again?",
+            "answer": "<p>Adaptogens help your body adapt to stress, while nootropics support cognitive function.</p>"
+          }
+        },
+        "faq_item_Xiw7qJ": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How is this different from coffee?",
+            "answer": "<p>Day Shrooms provides sustained energy without caffeine, jitters, or crashes.</p>"
+          }
+        },
+        "faq_item_yLGqmf": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will it actually help me focus?",
+            "answer": "<p>Yes, the nootropic ingredients in Day Shrooms are designed to support focus and mental clarity.</p>"
+          }
+        },
+        "faq_item_mPCHPb": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What does it taste like?",
+            "answer": "<p>Day Shrooms has a smooth, earthy flavor that's easy to enjoy.</p>"
+          }
+        },
+        "faq_item_Tqa9bp": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's inside each jar?",
+            "answer": "<p>Each jar contains a blend of functional mushrooms, adaptogens, and nootropics.</p>"
+          }
+        },
+        "faq_item_LznbzU": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long until I feel it?",
+            "answer": "<p>Most people notice effects within 30-60 minutes of consumption.</p>"
+          }
+        },
+        "faq_item_xEbLw9": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is it vegan? Gluten-free? Non-GMO?",
+            "answer": "<p>Yes, Day Shrooms is vegan, gluten-free, and non-GMO.</p>"
+          }
+        },
+        "faq_item_FQRkBe": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's the best way to use it?",
+            "answer": "<p>Mix 4 teaspoons with 6-8 oz of water, froth or stir well, and enjoy!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_h93Hx9",
+        "faq_item_pVJMDT",
+        "faq_item_wexcU6",
+        "faq_item_AeD4Yc",
+        "faq_item_eNeWR6",
+        "faq_item_Xiw7qJ",
+        "faq_item_yLGqmf",
+        "faq_item_mPCHPb",
+        "faq_item_Tqa9bp",
+        "faq_item_LznbzU",
+        "faq_item_xEbLw9",
+        "faq_item_FQRkBe"
+      ],
+      "name": "DS LP FAQ",
+      "settings": {
+        "headline": "<h2>Got Questions?</h2>",
+        "intro_text": "We've got you covered. Here's everything high-level thinkers want to know before making the switch."
+      }
     }
   },
   "order": [
@@ -507,6 +716,9 @@
     "ds_lp_prod_info_box_aQQhHD",
     "ds_lp_how_it_works_GYceHm",
     "ds_lp_comparison_table_tJ7UGN",
-    "ds_lp_founders_note_XWeHNk"
+    "ds_lp_founders_note_XWeHNk",
+    "ds_lp_testimonials_4xBLat",
+    "ds_lp_steps_qbEngd",
+    "ds_lp_faq_4yqPFj"
   ]
 }

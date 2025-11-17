@@ -1,0 +1,338 @@
+{% comment %}
+  Day Shrooms Landing Page - Steps Section
+{% endcomment %}
+
+<style>
+  .ds-lp-steps {
+    background: #FDF1E9;
+    color: #000000;
+    padding: 64px 20px;
+    position: relative;
+  }
+  
+  .ds-lp-steps__label {
+    display: inline-block;
+    color: #EC008C;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: -0.7px;
+    margin-bottom: 16px;
+  }
+  
+  .ds-lp-steps__headline {
+    color: #000000;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -1.6px;
+    margin-bottom: 48px;
+    width: 55%;
+  }
+  
+  .ds-lp-steps__steps-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .ds-lp-steps__step-item {
+    /* background: #FFFFFF; */
+    /* border-radius: 20px; */
+    /* padding: 24px; */
+    position: relative;
+  }
+  
+  .ds-lp-steps__step-number {
+    position: absolute;
+    top: -12px;
+    left: -12px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #EC008C;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: 700;
+    z-index: 10;
+  }
+  
+  .ds-lp-steps__step-image {
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    border: 1px solid #000000;
+    aspect-ratio: 335 / 200;
+  }
+  
+  .ds-lp-steps__step-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .ds-lp-steps__step-text {
+    color: #000000;
+    font-size: 20px;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    font-weight: 500;
+    text-align: left;
+  }
+  
+  .ds-lp-steps__coffee-image {
+    display: none;
+    position: absolute;
+    z-index: 5;
+  }
+  
+  .ds-lp-steps__coffee-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  @media (min-width: 1024px) {
+    .ds-lp-steps {
+      padding: 112px 140px;
+    }
+    
+    .ds-lp-steps__headline{
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -2.4px;
+      width: 100%;
+      margin-bottom: 80px;
+    }
+    
+    .ds-lp-steps__steps-wrapper {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+    }
+    
+    .ds-lp-steps__step-item {
+      /* padding: 32px; */
+    }
+    
+    .ds-lp-steps__step-number {
+      width: 36px;
+      height: 36px;
+      font-size: 24px;
+      top: -18px;
+      left: -18px;
+    }
+
+    .ds-lp-steps__step-image {
+      aspect-ratio: 1;
+      margin-bottom: 32px;
+    }
+    
+    .ds-lp-steps__step-text {
+      font-size: 32px;
+      letter-spacing: -1.6px;
+      font-weight: 500;
+    }
+    
+    .ds-lp-steps__coffee-image {
+      display: block;
+    }
+  }
+</style>
+
+<section id="ds-lp--steps" class="ds-lp-steps">
+  {% if section.settings.coffee_image != blank %}
+    <div class="ds-lp-steps__coffee-image" style="
+      top: {{ section.settings.coffee_image_top | default: 0 }}px;
+      right: {{ section.settings.coffee_image_right | default: 0 }}px;
+      width: 345px;
+    ">
+      {% assign coffee_img = section.settings.coffee_image %}
+      {% assign coffee_width = 345 %}
+      {% assign coffee_width_2x = coffee_width | times: 2 %}
+      {% if coffee_img.src contains '.svg' or coffee_img.width == blank %}
+        <img 
+          src="{{ coffee_img | image_url }}"
+          alt="{{ section.settings.coffee_image_alt | default: 'Coffee' | escape }}"
+          width="{{ coffee_width }}"
+          height="{{ coffee_width | times: 1.5 }}"
+          loading="lazy"
+        >
+      {% else %}
+        <img 
+          src="{{ coffee_img | image_url: width: coffee_width_2x }}"
+          srcset="{{ coffee_img | image_url: width: coffee_width }} {{ coffee_width }}w, {{ coffee_img | image_url: width: coffee_width_2x }} {{ coffee_width_2x }}w"
+          sizes="345px"
+          alt="{{ section.settings.coffee_image_alt | default: 'Coffee' | escape }}"
+          width="{{ coffee_img.width }}"
+          height="{{ coffee_img.height }}"
+          loading="lazy"
+        >
+      {% endif %}
+    </div>
+  {% endif %}
+  
+  <div class="max-w-7xl mx-auto">
+    {% if section.settings.section_label != blank %}
+      <div class="ds-lp-steps__label">
+        {{ section.settings.section_label }}
+      </div>
+    {% endif %}
+    
+    {% if section.settings.headline != blank %}
+      <div class="ds-lp-steps__headline">
+        {{ section.settings.headline }}
+      </div>
+    {% endif %}
+    
+    {% if section.blocks.size > 0 %}
+      <div class="ds-lp-steps__steps-wrapper">
+        {% for block in section.blocks %}
+          <div class="ds-lp-steps__step-item" data-block-id="{{ block.id }}">
+            <div class="ds-lp-steps__step-number">
+              {{ forloop.index }}
+            </div>
+            
+            {% if block.settings.step_image != blank %}
+              <div class="ds-lp-steps__step-image">
+                {% assign step_img = block.settings.step_image %}
+                {% if step_img.src contains '.svg' or step_img.width == blank %}
+                  <img 
+                    src="{{ step_img | image_url }}"
+                    alt="{{ block.settings.step_text | default: 'Step' | escape }}"
+                    width="400"
+                    height="300"
+                    loading="lazy"
+                  >
+                {% else %}
+                  <img 
+                    src="{{ step_img | image_url: width: 800 }}"
+                    srcset="{{ step_img | image_url: width: 400 }} 400w, {{ step_img | image_url: width: 800 }} 800w"
+                    sizes="(min-width: 1024px) 33vw, 100vw"
+                    alt="{{ block.settings.step_text | default: 'Step' | escape }}"
+                    width="{{ step_img.width }}"
+                    height="{{ step_img.height }}"
+                    loading="lazy"
+                  >
+                {% endif %}
+              </div>
+            {% endif %}
+            
+            {% if block.settings.step_text != blank %}
+              <div class="ds-lp-steps__step-text">
+                {{ block.settings.step_text }}
+              </div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "DS LP Steps",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_label",
+      "label": "Section Label",
+      "default": "3 Quick Steps"
+    },
+    {
+      "type": "richtext",
+      "id": "headline",
+      "label": "Headline",
+      "default": "<h2>Quick & Easy to Make</h2>"
+    },
+    {
+      "type": "header",
+      "content": "Coffee Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "coffee_image",
+      "label": "Coffee Image",
+      "info": "Desktop only"
+    },
+    {
+      "type": "range",
+      "id": "coffee_image_top",
+      "label": "Coffee Image Top Position",
+      "min": -200,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "coffee_image_right",
+      "label": "Coffee Image Right Position",
+      "min": -200,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "text",
+      "id": "coffee_image_alt",
+      "label": "Coffee Image Alt Text",
+      "default": "Coffee"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "step_image",
+          "label": "Step Image"
+        },
+        {
+          "type": "text",
+          "id": "step_text",
+          "label": "Step Text",
+          "default": "Mix 4 teaspoons with 6-8 oz water."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "DS LP Steps",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "step_text": "Mix 4 teaspoons with 6-8 oz water."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "step_text": "Froth or stir well."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "step_text": "Top with milk, pour over ice, or sweeten."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
