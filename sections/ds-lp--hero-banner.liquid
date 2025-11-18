@@ -108,7 +108,7 @@
       
       {% comment %} Right Column - Content {% endcomment %}
       <div class="order-2 lg:order-2">
-        <h1 class="ds-lp-hero-banner__headline text-[38px] lg:text-[56px] font-bold leading-none mb-2 tracking-[-1.8px] lg:tracking-[-2.4px] xl:w-4/5">
+        <h1 class="ds-lp-hero-banner__headline text-[38px] lg:text-[56px] font-bold leading-none mb-2 tracking-[-1.9px] lg:tracking-[-2.8px] xl:w-4/5">
           {{ section.settings.headline | default: "Don't Quit Coffee. Outsmart It." }}
         </h1>
         
@@ -117,7 +117,7 @@
         </p>
         
         {% if section.settings.show_pricing %}
-          <p class="ds-lp-hero-banner__pricing text-xl lg:text-2xl mb-6 lg:mb-8 leading-[1.4] tracking-[-0.9px] lg:tracking-[-1px]">
+          <p class="ds-lp-hero-banner__pricing text-xl lg:text-2xl mb-6 lg:mb-8 leading-[1.4] tracking-[-1px] lg:tracking-[-1.2px]">
             <span class="ds-lp-hero-banner__pricing-part1 font-medium">
               {{ section.settings.pricing_part1_text | default: "Only $2/day. " }}
             </span>
@@ -129,9 +129,9 @@
         
         <div class="ds-lp-hero-banner__cta-button-wrapper mb-4">
           <a 
-            href="#ds-lp--buy-box" 
+            href="#ds-lp--prod-buy-box" 
             class="ds-lp-hero-banner__cta-button ds-lp-scroll-to px-8 py-3 lg:px-10 text-base lg:text-xl font-semibold text-center leading-[1.5] tracking-[-0.8px] lg:tracking-[-1px]"
-            data-scroll-target="#ds-lp--buy-box"
+            data-scroll-target="#ds-lp--prod-buy-box"
           >
             {{ section.settings.cta_text | default: "Try It Before We Sell Out" }}
           </a>

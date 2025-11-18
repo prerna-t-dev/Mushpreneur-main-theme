@@ -320,8 +320,9 @@
         {% comment %} CTA Button {% endcomment %}
         {% if section.settings.cta_text != blank %}
           <a 
-            href="{{ section.settings.cta_url | default: '#' }}"
-            class="ds-lp-prod-info-box__cta-button text-base lg:text-lg leading-[1.5] tracking-[-0.7px] lg:tracking-[-0.8px] mb-4"
+            href="#ds-lp--prod-buy-box"
+            class="ds-lp-prod-info-box__cta-button ds-lp-scroll-to text-base lg:text-lg leading-[1.5] tracking-[-0.7px] lg:tracking-[-0.8px] mb-4"
+            data-scroll-target="#ds-lp--prod-buy-box"
           >
             {{ section.settings.cta_text }}
           </a>

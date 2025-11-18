@@ -130,55 +130,70 @@
   
   .ds-lp-prod-buy-box__buy-option {
     background: #1A1A1A;
-    border: 2px solid #FFFFFF40;
-    border-radius: 12px;
-    padding: 20px;
+    border: 1px solid #FFFFFF40;
+    border-radius: 16px;
+    padding: 12px 16px;
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
+    opacity: 0.5;
   }
   
   .ds-lp-prod-buy-box__buy-option.selected {
-    border-color: #E4FF52;
     background: #1A1A1A;
+    opacity: 1;
   }
   
   .ds-lp-prod-buy-box__buy-option-header {
     display: flex;
     align-items: center;
     gap: 12px;
+    /* margin-bottom: 16px; */
+  }
+  
+  .ds-lp-prod-buy-box__buy-option[data-option="bundle"] .ds-lp-prod-buy-box__buy-option-header {
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(217, 217, 217, 0.25);
     margin-bottom: 16px;
   }
   
   .ds-lp-prod-buy-box__radio {
-    width: 20px;
-    height: 20px;
-    border: 2px solid #FFFFFF;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #FFFFFF80;
     border-radius: 50%;
     position: relative;
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0F0F0F;
+    transition: all 0.3s ease;
   }
   
   .ds-lp-prod-buy-box__buy-option.selected .ds-lp-prod-buy-box__radio {
-    border-color: #E4FF52;
+    border-color: #EC008C;
+    background: #EC008C;
   }
   
-  .ds-lp-prod-buy-box__radio::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 10px;
+  .ds-lp-prod-buy-box__radio-check {
+    width: 12px;
     height: 10px;
-    border-radius: 50%;
-    background: #E4FF52;
     opacity: 0;
     transition: opacity 0.3s ease;
   }
   
-  .ds-lp-prod-buy-box__buy-option.selected .ds-lp-prod-buy-box__radio::after {
+  .ds-lp-prod-buy-box__buy-option.selected .ds-lp-prod-buy-box__radio-check {
     opacity: 1;
+  }
+  
+  .ds-lp-prod-buy-box__buy-option-title-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    gap: 12px;
+    width: 100%;
   }
   
   .ds-lp-prod-buy-box__buy-option-title {
@@ -187,30 +202,34 @@
     line-height: 1.4;
     letter-spacing: -0.9px;
     color: #FFFFFF;
-    flex: 1;
   }
   
   .ds-lp-prod-buy-box__price-wrapper {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 16px;
+    justify-content: flex-end;
+    min-width: fit-content;
   }
   
   .ds-lp-prod-buy-box__price {
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 700;
     line-height: 1.2;
-    letter-spacing: -1.6px;
+    letter-spacing: -1.2px;
     color: #FFFFFF;
+  }
+  
+  .ds-lp-prod-buy-box__buy-option[data-option="bundle"] .ds-lp-prod-buy-box__price {
+    color: #E4FF52;
   }
   
   .ds-lp-prod-buy-box__price-strikethrough {
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 1.2;
     letter-spacing: -1px;
-    color: #FFFFFF80;
+    color: rgba(255, 255, 255, 0.4);
     text-decoration: line-through;
   }
   
@@ -244,7 +263,8 @@
     display: flex;
     align-items: center;
     gap: 16px;
-    margin: 8px 0;
+    margin: 16px 0;
+    width: 100%;
   }
   
   .ds-lp-prod-buy-box__separator-line {
@@ -318,6 +338,22 @@
   .ds-lp-prod-buy-box__tab-content.active {
     display: block;
   }
+  
+  @media (min-width: 1024px) {
+    .ds-lp-prod-buy-box__buy-option {
+      padding: 24px;
+    }
+    
+    .ds-lp-prod-buy-box__buy-option-title {
+      font-size: 24px;
+      letter-spacing: -1.2px;
+    }
+    
+    .ds-lp-prod-buy-box__benefit-text {
+      font-size: 16px;
+      letter-spacing: -0.8px;
+    }
+  }
 </style>
 
 <section class="ds-lp-prod-buy-box" id="ds-lp--prod-buy-box">
@@ -378,16 +414,22 @@
           {% comment %} Option 1: Buy 2 Get 1 Free {% endcomment %}
           <div class="ds-lp-prod-buy-box__buy-option selected" data-option="bundle">
             <div class="ds-lp-prod-buy-box__buy-option-header">
-              <div class="ds-lp-prod-buy-box__radio"></div>
-              <div class="ds-lp-prod-buy-box__buy-option-title">
-                {{ section.settings.bundle_option_title | default: "Buy 2, Get 1 Free" }}
+              <div class="ds-lp-prod-buy-box__radio">
+                <svg class="ds-lp-prod-buy-box__radio-check" width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3.91869 6.90412L1.17719 4.16262L0 5.33981L3.91869 9.2585L12 1.17719L10.8228 0L3.91869 6.90412Z" fill="white"/>
+                </svg>
               </div>
-            </div>
-            <div class="ds-lp-prod-buy-box__price-wrapper">
-              <span class="ds-lp-prod-buy-box__price">{{ section.settings.bundle_price | default: "$78" }}</span>
-              {% if section.settings.bundle_price_original != blank %}
-                <span class="ds-lp-prod-buy-box__price-strikethrough">{{ section.settings.bundle_price_original }}</span>
-              {% endif %}
+              <div class="ds-lp-prod-buy-box__buy-option-title-wrapper">
+                <div class="ds-lp-prod-buy-box__buy-option-title">
+                  {{ section.settings.bundle_option_title | default: "Buy 2, Get 1 Free" }}
+                </div>
+                <div class="ds-lp-prod-buy-box__price-wrapper">
+                  <span class="ds-lp-prod-buy-box__price">{{ section.settings.bundle_price | default: "$78" }}</span>
+                  {% if section.settings.bundle_price_original != blank %}
+                    <span class="ds-lp-prod-buy-box__price-strikethrough">{{ section.settings.bundle_price_original }}</span>
+                  {% endif %}
+                </div>
+              </div>
             </div>
             {% if section.blocks.size > 0 %}
               <div class="ds-lp-prod-buy-box__benefits">
@@ -421,21 +463,31 @@
           
           {% comment %} Separator {% endcomment %}
           <div class="ds-lp-prod-buy-box__separator">
-            <div class="ds-lp-prod-buy-box__separator-line"></div>
+            <div class="ds-lp-prod-buy-box__separator-line">
+
+            </div>
             <div class="ds-lp-prod-buy-box__separator-text">OR</div>
-            <div class="ds-lp-prod-buy-box__separator-line"></div>
+            <div class="ds-lp-prod-buy-box__separator-line">
+
+            </div>
           </div>
           
           {% comment %} Option 2: Buy One Time {% endcomment %}
           <div class="ds-lp-prod-buy-box__buy-option" data-option="single">
             <div class="ds-lp-prod-buy-box__buy-option-header">
-              <div class="ds-lp-prod-buy-box__radio"></div>
-              <div class="ds-lp-prod-buy-box__buy-option-title">
-                {{ section.settings.single_option_title | default: "Buy One Time" }}
+              <div class="ds-lp-prod-buy-box__radio">
+                <svg class="ds-lp-prod-buy-box__radio-check" width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3.91869 6.90412L1.17719 4.16262L0 5.33981L3.91869 9.2585L12 1.17719L10.8228 0L3.91869 6.90412Z" fill="white"/>
+                </svg>
               </div>
-            </div>
-            <div class="ds-lp-prod-buy-box__price-wrapper">
-              <span class="ds-lp-prod-buy-box__price">{{ section.settings.single_price | default: "$39" }}</span>
+              <div class="ds-lp-prod-buy-box__buy-option-title-wrapper">
+                <div class="ds-lp-prod-buy-box__buy-option-title">
+                  {{ section.settings.single_option_title | default: "Buy One Time" }}
+                </div>
+                <div class="ds-lp-prod-buy-box__price-wrapper">
+                  <span class="ds-lp-prod-buy-box__price">{{ section.settings.single_price | default: "$39" }}</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

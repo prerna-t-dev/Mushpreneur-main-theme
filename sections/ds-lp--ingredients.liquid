@@ -1,0 +1,761 @@
+{% comment %}
+  Day Shrooms Landing Page - Ingredients Section
+{% endcomment %}
+
+<style>
+  .ds-lp-ingredients {
+    background: linear-gradient(180deg, #F9C9A7 0%, #FCE4D3 100%);
+    color: #000000;
+    padding: 0 0px 64px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ingredients-text-container{
+    padding-right: 20px;
+  }
+  
+  @media (min-width: 1024px) {
+    .ds-lp-ingredients {
+      padding: 80px 0 80px 64px;
+    }
+  }
+  
+  .ds-lp-ingredients__label {
+    display: inline-block;
+    color: #EC008C;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: -0.7px;
+    margin-bottom: 16px;
+  }
+  
+  .ds-lp-ingredients__headline {
+    color: #000000;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -1.6px;
+    margin-bottom: 24px;
+  }
+  
+  .ds-lp-ingredients__intro {
+    color: #000000;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.8px;
+    margin-bottom: 24px;
+  }
+  
+  .ds-lp-ingredients__profile-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  
+  .ds-lp-ingredients__profile-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  
+  .ds-lp-ingredients__speech-bubble {
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 12px 16px;
+    position: relative;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: -0.7px;
+    color: #000000;
+  }
+  
+  .ds-lp-ingredients__speech-bubble::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid #FFFFFF;
+  }
+  
+  .ds-lp-ingredients__view-all-button {
+    display: inline-block;
+    background: #FFFFFF;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.7px;
+    padding: 12px 24px;
+    border-radius: 50px;
+    border: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    /* margin-bottom: 32px; */
+    text-decoration: none;
+  }
+  
+  .ds-lp-ingredients__view-all-button:hover {
+    background: #000000;
+    color: #FFFFFF;
+  }
+  
+  .ds-lp-ingredients__modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .ds-lp-ingredients__modal.active {
+    display: flex;
+  }
+  
+  .ds-lp-ingredients__modal-content {
+    position: relative;
+    width: 85%;
+    max-height: 80%;
+    aspect-ratio: 1/1;
+    background: #FFFFFF;
+    border-radius: 16px;
+    overflow: auto;
+  }
+  
+  .ds-lp-ingredients__modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: #000000;
+    color: #FFFFFF;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    line-height: 1;
+    z-index: 10;
+  }
+  
+  .ds-lp-ingredients__modal-close:hover {
+    background: #333333;
+  }
+  
+  .ds-lp-ingredients__modal-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+  }
+  
+  .ds-lp-ingredients__whats-inside {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    color: #000000;
+    margin-bottom: 40px;
+  }
+  
+  .ingredients-slider-container {
+    overflow: hidden;
+  }
+  
+  .ds-lp-ingredients__slider-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  
+  .ds-lp-ingredients__slide {
+    padding: 0 8px;
+  }
+  
+  .ds-lp-ingredients__slide-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .ds-lp-ingredients__slider .slick-list {
+    overflow: visible;
+  }
+  
+  .ds-lp-ingredients__slider .slick-list .slick-slide {
+    padding: 0 8px;
+  }
+  
+  .ds-lp-ingredients__ingredient-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    height: 100%;
+  }
+  
+  .ds-lp-ingredients__ingredient-image {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+  
+  .ds-lp-ingredients__ingredient-content {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    flex: 1;
+  }
+  
+  .ds-lp-ingredients__ingredient-name {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: -0.9px;
+    color: #000000;
+    margin-bottom: 8px;
+  }
+  
+  .ds-lp-ingredients__ingredient-benefit {
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: -0.7px;
+    color: #000000;
+  }
+  
+  .ds-lp-ingredients__slider-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 24px;
+    padding-right: 20px;
+  }
+  
+  .ds-lp-ingredients__slider-dots .slick-dots {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 8px !important;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .ds-lp-ingredients__slider-dots li {
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    margin: 0;
+  }
+  
+  .ds-lp-ingredients__slider-dots li button {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #D1D1D1;
+    border: none;
+    padding: 0;
+    font-size: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+  }
+  
+  .ds-lp-ingredients__slider-dots li.slick-active button {
+    background: #000000;
+  }
+  
+  .ds-lp-ingredients__slider-arrows {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .ds-lp-ingredients__slider-arrow {
+    width: 48px;
+    height: 48px;
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+  }
+  
+  .ds-lp-ingredients__slider-arrow:hover {
+    opacity: 0.7;
+  }
+  
+  .ds-lp-ingredients__slider-arrow svg {
+    width: 48px;
+    height: 48px;
+    display: block;
+  }
+  
+  @media (max-width: 1023px) {
+    .ds-lp-ingredients__slider-arrows {
+      display: flex;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .ds-lp-ingredients__slider-arrows {
+      display: flex;
+    }
+
+    .ds-lp-ingredients__slider-nav{
+        padding-right: 64px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .ds-lp-ingredients__grid {
+      display: grid !important;
+      grid-template-columns: 1fr 1.5fr !important;
+    }
+    
+    .ds-lp-ingredients__grid > div {
+      min-width: 0;
+    }
+    
+    .ds-lp-ingredients__grid > div:last-child {
+      min-width: 0;
+      max-width: 100%;
+      /* overflow: visible; */
+    }
+    
+    .ds-lp-ingredients__headline {
+      font-size: 48px;
+      letter-spacing: -2.4px;
+      margin-bottom: 24px;
+    }
+
+    .ds-lp-ingredients__modal-content{
+        width: 60%;
+    }
+    
+    .ds-lp-ingredients__intro {
+      font-size: 18px;
+      letter-spacing: -0.9px;
+      margin-bottom: 32px;
+    }
+    
+    .ds-lp-ingredients__profile-image {
+      width: 80px;
+      height: 80px;
+    }
+    
+    .ds-lp-ingredients__whats-inside {
+      font-size: 24px;
+      letter-spacing: -1.2px;
+      margin-bottom: 40px;
+    }
+    
+    .ds-lp-ingredients__slide {
+      padding: 0 12px;
+    }
+    
+    .ds-lp-ingredients__slide-column {
+      gap: 24px;
+    }
+    
+    .ds-lp-ingredients__slider .slick-list .slick-slide {
+      padding: 0 12px;
+    }
+    
+    .ds-lp-ingredients__slider-wrapper {
+      width: 100%;
+      max-width: 100%;
+      overflow: visible;
+    }
+    
+    .ds-lp-ingredients__grid > div:last-child {
+      /* overflow: visible; */
+    }
+    
+    .ds-lp-ingredients__ingredient-image {
+      width: 100px;
+      height: 100px;
+    }
+    
+    .ds-lp-ingredients__ingredient-card {
+      gap: 20px;
+    }
+    
+    .ds-lp-ingredients__ingredient-name {
+      font-size: 20px;
+      letter-spacing: -1px;
+    }
+    
+    .ds-lp-ingredients__ingredient-benefit {
+      font-size: 16px;
+      letter-spacing: -0.8px;
+    }
+  }
+</style>
+
+<section id="ds-lp--ingredients" class="ds-lp-ingredients">
+  <div class="max-w-full mx-auto">
+    <div class="ds-lp-ingredients__grid grid grid-cols-1 gap-12 lg:gap-20">
+      {% comment %} Left Column - Text Content {% endcomment %}
+      <div class="ingredients-text-container">
+        {% if section.settings.section_label != blank %}
+          <div class="ds-lp-ingredients__label">
+            {{ section.settings.section_label }}
+          </div>
+        {% endif %}
+        
+        {% if section.settings.headline != blank %}
+          <div class="ds-lp-ingredients__headline">
+            {{ section.settings.headline }}
+          </div>
+        {% endif %}
+        
+        {% if section.settings.intro_text != blank %}
+          <div class="ds-lp-ingredients__intro">
+            {{ section.settings.intro_text }}
+          </div>
+        {% endif %}
+        
+        
+        {% if section.settings.view_all_button_text != blank and section.settings.popup_image != blank %}
+          <button type="button" class="ds-lp-ingredients__view-all-button" onclick="document.getElementById('ds-lp-ingredients-modal-{{ section.id }}').classList.add('active')">
+            {{ section.settings.view_all_button_text }}
+          </button>
+        {% endif %}
+      </div>
+      
+      {% comment %} Right Column - Ingredient Slider {% endcomment %}
+      <div class="ingredients-slider-container">
+        {% if section.settings.whats_inside_label != blank %}
+          <div class="ds-lp-ingredients__whats-inside">
+            {{ section.settings.whats_inside_label }}
+          </div>
+        {% endif %}
+        {% if section.blocks.size > 0 %}
+          <div class="ds-lp-ingredients__slider-wrapper">
+            <div class="ds-lp-ingredients__slider slick--ingredients">
+              {% assign items_per_slide = 4 %}
+              {% assign ingredient_count = 0 %}
+              
+              {% for block in section.blocks %}
+                {% case block.type %}
+                  {% when 'ingredient' %}
+                    {% assign ingredient_count = ingredient_count | plus: 1 %}
+                    {% assign item_in_slide = ingredient_count | minus: 1 | modulo: items_per_slide %}
+                    
+                    {% if item_in_slide == 0 %}
+                      <div class="ds-lp-ingredients__slide">
+                        <div class="ds-lp-ingredients__slide-column">
+                    {% endif %}
+                    
+                    <div class="ds-lp-ingredients__ingredient-card" data-block-id="{{ block.id }}">
+                      {% if block.settings.ingredient_image != blank %}
+                        {% assign ing_img = block.settings.ingredient_image %}
+                        {% if ing_img.src contains '.svg' or ing_img.width == blank %}
+                          <img 
+                            src="{{ ing_img | image_url }}"
+                            alt="{{ block.settings.title | default: 'Ingredient' | escape }}"
+                            class="ds-lp-ingredients__ingredient-image"
+                            width="80"
+                            height="80"
+                            loading="lazy"
+                          >
+                        {% else %}
+                          <img 
+                            src="{{ ing_img | image_url: width: 200 }}"
+                            srcset="{{ ing_img | image_url: width: 160 }} 160w, {{ ing_img | image_url: width: 200 }} 200w"
+                            sizes="(min-width: 1024px) 100px, 80px"
+                            alt="{{ block.settings.title | default: 'Ingredient' | escape }}"
+                            class="ds-lp-ingredients__ingredient-image"
+                            width="{{ ing_img.width }}"
+                            height="{{ ing_img.height }}"
+                            loading="lazy"
+                          >
+                        {% endif %}
+                      {% endif %}
+                      
+                      <div class="ds-lp-ingredients__ingredient-content">
+                        {% if block.settings.title != blank %}
+                          <div class="ds-lp-ingredients__ingredient-name">
+                            {{ block.settings.title }}
+                          </div>
+                        {% endif %}
+                        
+                        {% if block.settings.ingredient_benefit != blank %}
+                          <div class="ds-lp-ingredients__ingredient-benefit">
+                            {{ block.settings.ingredient_benefit }}
+                          </div>
+                        {% endif %}
+                      </div>
+                    </div>
+                    
+                    {% if item_in_slide == 3 %}
+                        </div>
+                      </div>
+                    {% endif %}
+                {% endcase %}
+              {% endfor %}
+              
+              {% comment %} Close the last slide if it doesn't have exactly 4 items {% endcomment %}
+              {% assign remaining_items = ingredient_count | modulo: items_per_slide %}
+              {% if remaining_items != 0 and ingredient_count > 0 %}
+                  </div>
+                </div>
+              {% endif %}
+            </div>
+            
+            <div class="ds-lp-ingredients__slider-nav">
+              <ul class="ds-lp-ingredients__slider-dots"></ul>
+              <div class="ds-lp-ingredients__slider-arrows">
+                <button type="button" class="ds-lp-ingredients__slider-arrow ds-lp-ingredients__slider-arrow--prev" aria-label="Previous">
+                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.5" y="0.5" width="47" height="47" rx="23.5" stroke="black"></rect>
+                    <path d="M32 23H19.83L25.42 17.41L24 16L16 24L24 32L25.41 30.59L19.83 25H32V23Z" fill="black"></path>
+                  </svg>
+                </button>
+                <button type="button" class="ds-lp-ingredients__slider-arrow ds-lp-ingredients__slider-arrow--next" aria-label="Next">
+                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.5" y="0.5" width="47" height="47" rx="23.5" stroke="black"></rect>
+                    <path d="M24 16L22.59 17.41L28.17 23H16V25H28.17L22.59 30.59L24 32L32 24L24 16Z" fill="black"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% comment %} Popup Modal {% endcomment %}
+{% if section.settings.popup_image != blank %}
+  <div id="ds-lp-ingredients-modal-{{ section.id }}" class="ds-lp-ingredients__modal" onclick="if(event.target === this) this.classList.remove('active')">
+    <div class="ds-lp-ingredients__modal-content">
+      <button type="button" class="ds-lp-ingredients__modal-close" onclick="document.getElementById('ds-lp-ingredients-modal-{{ section.id }}').classList.remove('active')" aria-label="Close">
+        ×
+      </button>
+      {% assign popup_img = section.settings.popup_image %}
+      {% if popup_img.src contains '.svg' or popup_img.width == blank %}
+        <img 
+          src="{{ popup_img | image_url }}"
+          alt="{{ section.settings.popup_image_alt | default: 'Ingredients label' | escape }}"
+          class="ds-lp-ingredients__modal-image"
+          width="800"
+          height="1000"
+          loading="lazy"
+        >
+      {% else %}
+        <img 
+          src="{{ popup_img | image_url: width: 1200 }}"
+          srcset="{{ popup_img | image_url: width: 800 }} 800w, {{ popup_img | image_url: width: 1200 }} 1200w, {{ popup_img | image_url: width: 1600 }} 1600w"
+          sizes="(max-width: 768px) 90vw, 80vw"
+          alt="{{ section.settings.popup_image_alt | default: 'Ingredients label' | escape }}"
+          class="ds-lp-ingredients__modal-image"
+          width="{{ popup_img.width }}"
+          height="{{ popup_img.height }}"
+          loading="lazy"
+        >
+      {% endif %}
+    </div>
+  </div>
+{% endif %}
+
+<script>
+(function() {
+  var sectionId = '{{ section.id }}';
+  var sliderSelector = '#shopify-section-' + sectionId + ' .slick--ingredients';
+  
+  $(document).ready(function(){
+    if ($(sliderSelector).length && !$(sliderSelector).hasClass('slick-initialized')) {
+      var $slider = $(sliderSelector);
+      var $prevArrow = $slider.siblings('.ds-lp-ingredients__slider-nav').find('.ds-lp-ingredients__slider-arrow--prev');
+      var $nextArrow = $slider.siblings('.ds-lp-ingredients__slider-nav').find('.ds-lp-ingredients__slider-arrow--next');
+      var $dots = $slider.siblings('.ds-lp-ingredients__slider-nav').find('.ds-lp-ingredients__slider-dots');
+      
+      $slider.slick({
+        infinite: false,
+        speed: 300,
+        slidesToShow: 2.5,
+        slidesToScroll: 1,
+        dots: true,
+        appendDots: $dots,
+        prevArrow: $prevArrow,
+        nextArrow: $nextArrow,
+        arrows: true,
+        responsive: [
+          {
+            breakpoint: 1023,
+            settings: {
+              slidesToShow: 1.5,
+              slidesToScroll: 1,
+              infinite: false
+            }
+          }
+        ]
+      });
+    }
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "DS LP Ingredients",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_label",
+      "label": "Section Label",
+      "default": "Ingredients"
+    },
+    {
+      "type": "richtext",
+      "id": "headline",
+      "label": "Headline",
+      "default": "<h2>Real ingredients. Real synergy. Real results.</h2>"
+    },
+    {
+      "type": "textarea",
+      "id": "intro_text",
+      "label": "Intro Text",
+      "default": "Each serving of Day Shrooms is a calibrated blend of functional ingredients chosen to support your brain, body, mood and no fluff."
+    },
+    {
+      "type": "text",
+      "id": "view_all_button_text",
+      "label": "View All Button Text",
+      "default": "View All Ingredients"
+    },
+    {
+      "type": "image_picker",
+      "id": "popup_image",
+      "label": "Popup Image"
+    },
+    {
+      "type": "text",
+      "id": "popup_image_alt",
+      "label": "Popup Image Alt Text",
+      "default": "Ingredients label"
+    },
+    {
+      "type": "text",
+      "id": "whats_inside_label",
+      "label": "What's Inside Label",
+      "default": "What's Inside:"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "ingredient_image",
+          "label": "Ingredient Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Ingredient Name",
+          "default": "Raw Cacao"
+        },
+        {
+          "type": "text",
+          "id": "ingredient_benefit",
+          "label": "Ingredient Benefit",
+          "default": "Mood elevation"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "DS LP Ingredients",
+      "blocks": [
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "Raw Cacao",
+            "ingredient_benefit": "Mood elevation"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "Cordyceps",
+            "ingredient_benefit": "Energy & Stamina"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "Lion's Mane",
+            "ingredient_benefit": "Sharper focus & clarity"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "Bacopa Monnieri",
+            "ingredient_benefit": "Brain boost"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "Ashwagandha",
+            "ingredient_benefit": "Stress relief"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "Black Maca",
+            "ingredient_benefit": "Endurance"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "Green Tea Caffeine",
+            "ingredient_benefit": "No crash energy"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "L-Theanine",
+            "ingredient_benefit": "Calm alertness"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

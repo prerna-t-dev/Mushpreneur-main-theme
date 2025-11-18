@@ -32,7 +32,7 @@
         "nav_link_4": "Founder's Message",
         "nav_link_5": "Testimonials",
         "nav_link_6": "FAQ",
-        "cta_text": "Join the List",
+        "cta_text": "Try Now",
         "background_color": "#ffffff",
         "text_color": "#000000",
         "border_color": "#e5e7eb",
@@ -293,9 +293,9 @@
         "tab_details_label": "Details",
         "tab_details_content": "<p>Each serving delivers 2000mg of fruiting body mushrooms, 850mg of natural nootropics, 200mg of L-theanine, and 60mg of clean caffeine from green tea. Designed for sustained energy and all-day flow, Day Shrooms is vegan, non-GMO, gluten-free, and free of sugar alcohols. With a hint of sweet from maple and monk fruit, it's a clean, satisfying boost to fuel your day.</p>",
         "tab_ingredients_label": "Ingredients",
-        "tab_ingredients_content": "<p>content</p>",
+        "tab_ingredients_content": "<p>Organic Raw Cacao Powder, Organic Maple Sugar, Organic Lions Mane Extract (Fruiting Body), Organic Cordyceps Militaris Extract (Fruiting Body), Organic Raw Black Maca Powder, L-theanine , Organic Biologically Active Vitamin B12 (From Quinoa Sprouts) [PANMOL®], Rhodiola Rosea Root Powder, Ashwagandha Root Extract [KSM-66®], Bacopa Monnieri Extract, Organic Rice Fiber, Natural Caffeine (from Green Tea), Baja Gold Sea Salt , Organic Luo Han Guo (Monk Fruit) Extract, Organic Vitamin D2 (From Mushrooms).</p>",
         "tab_easy_to_make_label": "Easy to Make",
-        "tab_easy_to_make_content": "",
+        "tab_easy_to_make_content": "<p>Your productivity ritual, your way:</p><ul><li><strong>Straight Up</strong>: Mix with hot or cold water, stir or froth, and drink straight.</li><li><strong>Iced Latte</strong>: Froth it, pour over ice, and add your favorite milk.</li><li><strong>Supercharged Boos</strong>t: Mix into your instant espresso or coffee to curb midday slumps.</li><li><strong>Multipurpose</strong>: Mix with anything from baked goods to smoothies</li><li><strong>Start Slow</strong>: New to functional mushrooms? Begin with half a serving for a gentle boost.</li></ul>",
         "tab_guarantee_label": "Guarantee",
         "tab_guarantee_content": ""
       }
@@ -359,6 +359,122 @@
         "day30_label": "Day 30",
         "day30_title": "<p>Elevated Focus. </p><p>Better Baseline.</p>",
         "day30_description": "You've created a new rhythm, no more energy slumps. Less fatigue. Deeper sleep. Fewer high caffeine cravings. Tasks feel easier, decisions come faster, and you stay focused longer."
+      }
+    },
+    "ds_lp_ingredients_bDCRpX": {
+      "type": "ds-lp--ingredients",
+      "blocks": {
+        "ingredient_eCw7hi": {
+          "type": "ingredient",
+          "settings": {
+            "ingredient_image": "shopify://shop_images/Placeholder_Image_7.png",
+            "title": "Raw Cacao",
+            "ingredient_benefit": "Mood elevation"
+          }
+        },
+        "ingredient_iCm8KC": {
+          "type": "ingredient",
+          "settings": {
+            "ingredient_image": "shopify://shop_images/Placeholder_Image_6.png",
+            "title": "Lion’s Mane",
+            "ingredient_benefit": "Sharper focus & clarity"
+          }
+        },
+        "ingredient_rHTcFa": {
+          "type": "ingredient",
+          "settings": {
+            "ingredient_image": "shopify://shop_images/Placeholder_Image_7_1edac703-3c52-4121-8c34-b055d58fcceb.png",
+            "title": "Ashwagandha",
+            "ingredient_benefit": "Stress relief"
+          }
+        },
+        "ingredient_8JmqDQ": {
+          "type": "ingredient",
+          "settings": {
+            "ingredient_image": "shopify://shop_images/Placeholder_Image_8.png",
+            "title": "Green Tea Caffeine",
+            "ingredient_benefit": "No crash energy"
+          }
+        },
+        "ingredient_wXQiXH": {
+          "type": "ingredient",
+          "settings": {
+            "ingredient_image": "shopify://shop_images/Placeholder_Image_9.png",
+            "title": "Cordyceps",
+            "ingredient_benefit": "Energy & Stamina"
+          }
+        },
+        "ingredient_rg8imm": {
+          "type": "ingredient",
+          "settings": {
+            "ingredient_image": "shopify://shop_images/Placeholder_Image_10.png",
+            "title": "Bacopa Monnieri",
+            "ingredient_benefit": "Brain boost"
+          }
+        },
+        "ingredient_zjPXaq": {
+          "type": "ingredient",
+          "settings": {
+            "ingredient_image": "shopify://shop_images/black-maca-lepidium-meyenii_m_1.png",
+            "title": "Black Maca",
+            "ingredient_benefit": "Endurance"
+          }
+        },
+        "ingredient_HegmDe": {
+          "type": "ingredient",
+          "settings": {
+            "ingredient_image": "shopify://shop_images/l-theanine_1.png",
+            "title": "L-Theanine",
+            "ingredient_benefit": "Calm alertness"
+          }
+        },
+        "ingredient_fnkLPj": {
+          "type": "ingredient",
+          "settings": {
+            "ingredient_image": "shopify://shop_images/Mushpreneur_VItamin_B12_1.png",
+            "title": "Vitamin B12",
+            "ingredient_benefit": "Supports energy"
+          }
+        },
+        "ingredient_tq8KVr": {
+          "type": "ingredient",
+          "settings": {
+            "ingredient_image": "shopify://shop_images/D2_Mushroom_Powder_1.png",
+            "title": "Vitamin D2",
+            "ingredient_benefit": "Immune & mood"
+          }
+        },
+        "ingredient_6iqAbe": {
+          "type": "ingredient",
+          "settings": {
+            "ingredient_image": "shopify://shop_images/Placeholder_Image_11.png",
+            "title": "Baja Sea Salt",
+            "ingredient_benefit": "Electrolytes"
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_eCw7hi",
+        "ingredient_iCm8KC",
+        "ingredient_rHTcFa",
+        "ingredient_8JmqDQ",
+        "ingredient_wXQiXH",
+        "ingredient_rg8imm",
+        "ingredient_zjPXaq",
+        "ingredient_HegmDe",
+        "ingredient_fnkLPj",
+        "ingredient_tq8KVr",
+        "ingredient_6iqAbe"
+      ],
+      "name": "DS LP Ingredients",
+      "settings": {
+        "section_label": "Ingredients",
+        "headline": "<p>Real ingredients. Real synergy. Real results.</p>",
+        "intro_text": "Each serving of Day Shrooms is a calibrated blend of functional ingredients chosen to support your brain, body, mood and no fluff.",
+        "view_all_button_text": "View All Ingredients",
+        "popup_image": "shopify://shop_images/Screenshot_2025-11-19_at_1.08.39_AM.png",
+        "popup_image_alt": "Ingredients label",
+        "whats_inside_label": "What's Inside:"
       }
     },
     "ds_lp_comparison_table_tJ7UGN": {
@@ -471,7 +587,7 @@
         "coffee_icon": "shopify://shop_images/Placeholder_Image_3.png",
         "coffee_title": "Coffee",
         "energy_drinks_icon": "shopify://shop_images/Placeholder_Image_4.png",
-        "energy_drinks_title": "Energy Shots & Drinks",
+        "energy_drinks_title": "Energy Drinks",
         "cta_text": "Switch to Day Shrooms",
         "cta_url": ""
       }
@@ -558,6 +674,79 @@
         "tagline": "Early adopters. High-level thinkers. Now obsessed."
       }
     },
+    "ds_lp_prod_buy_box_bjMJj8": {
+      "type": "ds-lp--prod-buy-box",
+      "blocks": {
+        "bundle_benefit_BgwXJc": {
+          "type": "bundle_benefit",
+          "settings": {
+            "text": "60 Servings"
+          }
+        },
+        "bundle_benefit_zXgzpj": {
+          "type": "bundle_benefit",
+          "settings": {
+            "text": "$1.30/day"
+          }
+        },
+        "bundle_benefit_Nn6pxV": {
+          "type": "bundle_benefit",
+          "settings": {
+            "text": "Free Shipping"
+          }
+        },
+        "bundle_benefit_9nz4Fp": {
+          "type": "bundle_benefit",
+          "settings": {
+            "text": "Save $39"
+          }
+        },
+        "bundle_benefit_LrDNRW": {
+          "type": "bundle_benefit",
+          "settings": {
+            "text": "$1.30/day"
+          }
+        }
+      },
+      "block_order": [
+        "bundle_benefit_BgwXJc",
+        "bundle_benefit_zXgzpj",
+        "bundle_benefit_Nn6pxV",
+        "bundle_benefit_9nz4Fp",
+        "bundle_benefit_LrDNRW"
+      ],
+      "name": "DS LP Product Buy Box",
+      "settings": {
+        "product": "day-shrooms",
+        "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "show",
+        "hide_variants": false,
+        "enable_sticky_info": false,
+        "media_size": "large",
+        "enable_video_looping": false,
+        "media_fit": "contain",
+        "constrain_to_viewport": true,
+        "image_zoom": "none",
+        "rating_text": "Tested by 84 beta testers",
+        "headline": "Ready to Feel the Shift?",
+        "tagline": "Fuel your brain. Skip the crash. Find your flow.",
+        "bundle_option_title": "Buy 2, Get 1 Free",
+        "bundle_price": "$78",
+        "bundle_price_original": "$117",
+        "single_option_title": "Buy One Time",
+        "single_price": "$39",
+        "cta_text": "Add to Cart",
+        "free_shipping_text": "Free shipping",
+        "tab_details_label": "Details",
+        "tab_details_content": "<p>Each serving delivers 2000mg of fruiting body mushrooms, 850mg of natural nootropics, 200mg of L-theanine, and 60mg of clean caffeine from green tea. Designed for sustained energy and all-day flow, Day Shrooms is vegan, non-GMO, gluten-free, and free of sugar alcohols. With a hint of sweet from maple and monk fruit, it's a clean, satisfying boost to fuel your day.</p>",
+        "tab_ingredients_label": "Ingredients",
+        "tab_ingredients_content": "<p>Organic Raw Cacao Powder, Organic Maple Sugar, Organic Lions Mane Extract (Fruiting Body), Organic Cordyceps Militaris Extract (Fruiting Body), Organic Raw Black Maca Powder, L-theanine , Organic Biologically Active Vitamin B12 (From Quinoa Sprouts) [PANMOL®], Rhodiola Rosea Root Powder, Ashwagandha Root Extract [KSM-66®], Bacopa Monnieri Extract, Organic Rice Fiber, Natural Caffeine (from Green Tea), Baja Gold Sea Salt , Organic Luo Han Guo (Monk Fruit) Extract, Organic Vitamin D2 (From Mushrooms).</p>",
+        "tab_easy_to_make_label": "Easy to Make",
+        "tab_easy_to_make_content": "<p>Your productivity ritual, your way:</p><ul><li><strong>Straight Up</strong>: Mix with hot or cold water, stir or froth, and drink straight.</li><li><strong>Iced Latte</strong>: Froth it, pour over ice, and add your favorite milk.</li><li><strong>Supercharged Boos</strong>t: Mix into your instant espresso or coffee to curb midday slumps.</li><li><strong>Multipurpose</strong>: Mix with anything from baked goods to smoothies</li><li><strong>Start Slow</strong>: New to functional mushrooms? Begin with half a serving for a gentle boost.</li></ul>",
+        "tab_guarantee_label": "Guarantee",
+        "tab_guarantee_content": ""
+      }
+    },
     "ds_lp_steps_qbEngd": {
       "type": "ds-lp--steps",
       "blocks": {
@@ -605,84 +794,84 @@
           "type": "faq_item",
           "settings": {
             "question": "Is there caffeine in Day Shrooms?",
-            "answer": "<p>No, Day Shrooms is caffeine-free.</p>"
+            "answer": "<p>Yes, but only 60mg. Just enough to spark focus, not fry your nervous system.<br/>It’s clean green tea caffeine paired with L-theanine, so you get smooth, sustained energy without the jitters, spikes, or shame spirals. You stay dialed in — not wired and weird.</p>"
           }
         },
         "faq_item_pVJMDT": {
           "type": "faq_item",
           "settings": {
             "question": "When should I take it?",
-            "answer": "<p>Take it in the morning or whenever you need a natural energy boost.</p>"
+            "answer": "<p>When you want to get sh*t done.Morning, mid-day, before a deep work sesh, or even as a creative warmup. Mix it with water, milk, your coffee, or your favorite flow-state ritual. It’s your call — just stay focused while you’re at it.</p>"
           }
         },
         "faq_item_wexcU6": {
           "type": "faq_item",
           "settings": {
             "question": "Will I trip out on mushrooms?",
-            "answer": "<p>No, Day Shrooms uses functional mushrooms that do not cause psychedelic effects.</p>"
+            "answer": "<p><strong>Only in the “I crushed my to-do list” kind of way.</strong></p><p>We use <strong>functional mushrooms</strong> — Lion’s Mane and Cordyceps — not the psychedelic kind. No hallucinations, no weird vibes. Just clean, brain-boosting benefits.</p>"
           }
         },
         "faq_item_AeD4Yc": {
           "type": "faq_item",
           "settings": {
             "question": "Will I get jitters or crash?",
-            "answer": "<p>No, Day Shrooms provides smooth, sustained energy without the crash.</p>"
+            "answer": "<p>Nope. No crash. Zero jitters.That’s the whole point. Green tea caffeine + L-theanine = energy that flows <em>with</em> you, not against you. Cordyceps adds stamina and keeps the engine running without burnout.</p>"
           }
         },
         "faq_item_eNeWR6": {
           "type": "faq_item",
           "settings": {
             "question": "Wait, what are adaptogens and nootropics again?",
-            "answer": "<p>Adaptogens help your body adapt to stress, while nootropics support cognitive function.</p>"
+            "answer": "<p>Glad you asked.</p><p><strong>Adaptogens</strong> help your body handle stress without frying your circuits. Think Ashwagandha and Rhodiola.</p><p><strong>Nootropics</strong> are cognitive enhancers, like L-Theanine and Bacopa that help to boost focus, memory, and motivation without the crash.</p>"
           }
         },
         "faq_item_Xiw7qJ": {
           "type": "faq_item",
           "settings": {
             "question": "How is this different from coffee?",
-            "answer": "<p>Day Shrooms provides sustained energy without caffeine, jitters, or crashes.</p>"
+            "answer": "<p>Coffee spikes you, then crashes you.</p><p>Day Shrooms builds you up with functional synergy with mushrooms, clean caffeine, nootropics, and adaptogens working together to keep you clear, calm, and focused. It’s not just a better buzz. </p><p>It’s a better system for getting things done.</p>"
           }
         },
         "faq_item_yLGqmf": {
           "type": "faq_item",
           "settings": {
             "question": "Will it actually help me focus?",
-            "answer": "<p>Yes, the nootropic ingredients in Day Shrooms are designed to support focus and mental clarity.</p>"
+            "answer": "<p>That’s <em>literally</em> the point.</p><p>We designed Day Shrooms with high-functioning brains in mind — stacking mushrooms, nootropics, adaptogens, and vitamins to help you lock in, block distractions, and actually finish what you start.</p>"
           }
         },
         "faq_item_mPCHPb": {
           "type": "faq_item",
           "settings": {
             "question": "What does it taste like?",
-            "answer": "<p>Day Shrooms has a smooth, earthy flavor that's easy to enjoy.</p>"
+            "answer": "<p>Cacao-forward. Earthy. Smooth.</p><p>Like if a mocha coffee got a productivity upgrade and decided to go work on a startup. No bitter mushrooms or nonsense. Just rich, cacao vibes your brain and taste buds will thank you for.</p>"
           }
         },
         "faq_item_Tqa9bp": {
           "type": "faq_item",
           "settings": {
             "question": "What's inside each jar?",
-            "answer": "<p>Each jar contains a blend of functional mushrooms, adaptogens, and nootropics.</p>"
+            "answer": "<p>Each jar includes 20 full servings of our full-stack formula:</p><ul><li>🍄 2000mg functional mushrooms (fruiting body only)</li><li>🧠 850mg real nootropics + adaptogens</li><li>🌿 100% Daily value of vitamins B12 + D2 (from mushrooms)</li><li>☕ Clean caffeine from green tea </li></ul>"
           }
         },
         "faq_item_LznbzU": {
           "type": "faq_item",
           "settings": {
             "question": "How long until I feel it?",
-            "answer": "<p>Most people notice effects within 30-60 minutes of consumption.</p>"
+            "answer": "<p>Some people feel the shift on day one. Others notice the difference over the first few days of consistent use. Most people are likely to feel more clarity, calmer, more focused, and less fatigued. This isn’t a quick fix. It’s a smarter system for sustainable performance.</p>"
           }
         },
         "faq_item_xEbLw9": {
           "type": "faq_item",
           "settings": {
             "question": "Is it vegan? Gluten-free? Non-GMO?",
-            "answer": "<p>Yes, Day Shrooms is vegan, gluten-free, and non-GMO.</p>"
+            "answer": "<p>All of the above.</p><p>Day Shrooms is vegan, non-GMO, gluten-free, and keto-friendly. Most of our ingredients are USDA organic, and all are chosen for maximum function. Check the label if you’re strict — we keep it clean.</p>"
           }
         },
         "faq_item_FQRkBe": {
           "type": "faq_item",
           "settings": {
             "question": "What's the best way to use it?",
-            "answer": "<p>Mix 4 teaspoons with 6-8 oz of water, froth or stir well, and enjoy!</p>"
+            "answer": "<p>Start your day with it, or use it before you need to lock in.</p><p>Just mix 4 teaspoons with hot water, add milk or pour over ice. Frother optional. It also blends beautifully into coffee, smoothies, and your flow-state rituals.</p>"
           }
         }
       },
@@ -702,8 +891,31 @@
       ],
       "name": "DS LP FAQ",
       "settings": {
-        "headline": "<h2>Got Questions?</h2>",
+        "headline": "<p>Got Questions?</p>",
         "intro_text": "We've got you covered. Here's everything high-level thinkers want to know before making the switch."
+      }
+    },
+    "ds_lp_claim_offer_zCRNt7": {
+      "type": "ds-lp--claim-offer",
+      "name": "DS LP Claim Offer",
+      "settings": {
+        "headline": "Still wondering if it's for you?",
+        "body_text": "Try one jar. Feel the shift. You can always come back for the 3-pack (if it's still in stock).",
+        "cta_text": "Claim my Offer",
+        "image": "shopify://shop_images/Placeholder_Image_6_1.png",
+        "image_alt": "Day Shrooms Product"
+      }
+    },
+    "ds_lp_footer_aryLjj": {
+      "type": "ds-lp--footer",
+      "name": "DS LP Footer",
+      "settings": {
+        "brand_image": "shopify://shop_images/Mushpreneur_Logo_1.png",
+        "brand_image_alt": "Brand Logo",
+        "brand_name": "Mūshprenėüz",
+        "disclaimer_text": "These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.",
+        "cookies_link_text": "Manage Cookies",
+        "cookies_link_url": ""
       }
     }
   },
@@ -715,10 +927,14 @@
     "ds_lp_why_it_works_TYtP78",
     "ds_lp_prod_info_box_aQQhHD",
     "ds_lp_how_it_works_GYceHm",
+    "ds_lp_ingredients_bDCRpX",
     "ds_lp_comparison_table_tJ7UGN",
     "ds_lp_founders_note_XWeHNk",
     "ds_lp_testimonials_4xBLat",
+    "ds_lp_prod_buy_box_bjMJj8",
     "ds_lp_steps_qbEngd",
-    "ds_lp_faq_4yqPFj"
+    "ds_lp_faq_4yqPFj",
+    "ds_lp_claim_offer_zCRNt7",
+    "ds_lp_footer_aryLjj"
   ]
 }

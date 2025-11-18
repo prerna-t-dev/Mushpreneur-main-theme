@@ -286,6 +286,12 @@
       right: -40px;
     }
   }
+
+  @media (max-width: 768px) {
+    .ds-lp-testimonials__arrow {
+      display: none !important;
+    }
+  }
 </style>
 
 <section class="ds-lp-testimonials" id="ds-lp--testimonials">
@@ -469,7 +475,8 @@
               slidesToScroll: 1,
               infinite: true,
               centerMode: false,
-              dots: false
+              dots: false,
+              arrows: true
             }
           }
         ]
