@@ -1,0 +1,264 @@
+{% comment %}
+  Day Shrooms Landing Page - Footer Section
+{% endcomment %}
+
+<style>
+  .ds-lp-footer {
+    background: #FFFFFF;
+    color: #000000;
+    padding: 64px 20px;
+  }
+  
+  .ds-lp-footer__content {
+    /* max-width: 1200px; */
+    margin: 0 auto;
+  }
+  
+  .ds-lp-footer__top-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid #000000;
+  }
+  
+  .ds-lp-footer__brand {
+    text-align: left;
+  }
+  
+  .ds-lp-footer__brand img {
+    display: block;
+    width: 162px;
+    height: auto;
+  }
+  
+  .ds-lp-footer__disclaimer {
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: -0.7px;
+    color: #000000;
+    text-align: right;
+  }
+  
+  .ds-lp-footer__divider {
+    width: 100%;
+    height: 1px;
+    background: #000000;
+    margin: 32px 0;
+  }
+  
+  .ds-lp-footer__bottom-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: center;
+  }
+  
+  .ds-lp-footer__links {
+    text-align: left;
+  }
+  
+  .ds-lp-footer__link {
+    color: #000000;
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: -0.7px;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+  
+  .ds-lp-footer__link:hover {
+    opacity: 0.7;
+  }
+  
+  .ds-lp-footer__copyright {
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: -0.7px;
+    color: #000000;
+    text-align: right;
+  }
+  
+  @media (min-width: 1024px) {
+    .ds-lp-footer {
+      padding: 80px 64px;
+    }
+    
+    .ds-lp-footer__top-section {
+      gap: 48px;
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+    }
+    
+    .ds-lp-footer__brand img {
+      width: 162px;
+    }
+    
+    .ds-lp-footer__disclaimer {
+      font-size: 14px;
+      letter-spacing: -0.7px;
+      max-width: 400px;
+      margin: auto;
+      margin-right: 0;
+    }
+    
+    .ds-lp-footer__divider {
+      margin: 40px 0;
+    }
+    
+    .ds-lp-footer__bottom-section {
+      gap: 48px;
+    }
+    
+    .ds-lp-footer__link {
+      font-size: 14px;
+      letter-spacing: -0.7px;
+    }
+    
+    .ds-lp-footer__copyright {
+      font-size: 14px;
+      letter-spacing: -0.7px;
+    }
+  }
+  
+  @media (max-width: 1023px) {
+    .ds-lp-footer__top-section {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    
+    .ds-lp-footer__brand {
+      text-align: center;
+    }
+    
+    .ds-lp-footer__brand img {
+      margin: 0 auto;
+    }
+    
+    .ds-lp-footer__disclaimer {
+      text-align: center;
+    }
+    
+    .ds-lp-footer__bottom-section {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      text-align: center;
+    }
+    
+    .ds-lp-footer__links {
+      text-align: center;
+    }
+    
+    .ds-lp-footer__copyright {
+      text-align: center;
+    }
+  }
+</style>
+
+<section id="ds-lp--footer" class="ds-lp-footer">
+  <div class="ds-lp-footer__content">
+    <div class="ds-lp-footer__top-section">
+      <div class="ds-lp-footer__brand">
+        {% if section.settings.brand_image != blank %}
+          {% assign brand_img = section.settings.brand_image %}
+          {% if brand_img.src contains '.svg' or brand_img.width == blank %}
+            <img 
+              src="{{ brand_img | image_url }}"
+              alt="{{ section.settings.brand_image_alt | default: 'Brand Logo' | escape }}"
+              width="200"
+              height="60"
+              loading="lazy"
+            >
+          {% else %}
+            <img 
+              src="{{ brand_img | image_url: width: 400 }}"
+              srcset="{{ brand_img | image_url: width: 200 }} 200w, {{ brand_img | image_url: width: 400 }} 400w"
+              sizes="(min-width: 1024px) 400px, 200px"
+              alt="{{ section.settings.brand_image_alt | default: 'Brand Logo' | escape }}"
+              width="{{ brand_img.width }}"
+              height="{{ brand_img.height }}"
+              loading="lazy"
+            >
+          {% endif %}
+        {% elsif section.settings.brand_name != blank %}
+          <div style="font-size: 32px; font-weight: 700; line-height: 1.2; letter-spacing: -1.6px; color: #000000;">
+            {{ section.settings.brand_name }}
+          </div>
+        {% endif %}
+      </div>
+      
+      {% if section.settings.disclaimer_text != blank %}
+        <div class="ds-lp-footer__disclaimer">
+          {{ section.settings.disclaimer_text }}
+        </div>
+      {% endif %}
+    </div>
+    
+    <div class="ds-lp-footer__divider"></div>
+    
+    <div class="ds-lp-footer__bottom-section">
+      <div class="ds-lp-footer__links">
+        {% if section.settings.cookies_link_text != blank and section.settings.cookies_link_url != blank %}
+          <a href="{{ section.settings.cookies_link_url }}" class="ds-lp-footer__link">
+            {{ section.settings.cookies_link_text }}
+          </a>
+        {% endif %}
+      </div>
+      
+      <div class="ds-lp-footer__copyright">
+        © {{ 'now' | date: '%Y' }} Mushpreneur LLC. All rights reserved.
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "DS LP Footer",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "brand_image",
+      "label": "Brand Logo Image"
+    },
+    {
+      "type": "text",
+      "id": "brand_image_alt",
+      "label": "Brand Logo Alt Text",
+      "default": "Brand Logo"
+    },
+    {
+      "type": "text",
+      "id": "brand_name",
+      "label": "Brand Name (Fallback)",
+      "default": "Mūshprenėüz",
+      "info": "Used if no image is uploaded"
+    },
+    {
+      "type": "textarea",
+      "id": "disclaimer_text",
+      "label": "Disclaimer Text",
+      "default": "These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease."
+    },
+    {
+      "type": "text",
+      "id": "cookies_link_text",
+      "label": "Cookies Link Text",
+      "default": "Manage Cookies"
+    },
+    {
+      "type": "url",
+      "id": "cookies_link_url",
+      "label": "Cookies Link URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "DS LP Footer"
+    }
+  ]
+}
+{% endschema %}
+

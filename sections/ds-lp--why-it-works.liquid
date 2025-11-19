@@ -1,0 +1,371 @@
+<style>
+  .ds-lp-why-it-works {
+    background: linear-gradient(90deg, #E74936 0%, #EC008C 100%);
+    color: #FFFFFF;
+  }
+  
+  .ds-lp-why-it-works__label {
+    display: inline-block;
+    background-color: #000000;
+    color: #E4FF52;
+    padding: 6px 16px;
+    border-radius: 9999px;
+    letter-spacing: 0.7px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 24px;
+  }
+  
+  .ds-lp-why-it-works__headline {
+    color: #FFFFFF;
+    margin-bottom: 24px;
+  }
+  
+  .ds-lp-why-it-works__intro-text {
+    color: #FFFFFF;
+    margin-bottom: 48px;
+  }
+  
+  .ds-lp-why-it-works__benefit-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  
+  .ds-lp-why-it-works__benefit-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 12px;
+  }
+  
+  .ds-lp-why-it-works__tagline-wrapper {
+    margin-top: 48px;
+    position: relative;
+  }
+  
+  .ds-lp-why-it-works__arrow {
+    position: absolute;
+    width: 44px;
+    height: 127px;
+    transform: scale(0.5);
+    transform-origin: bottom right;
+    bottom: 100%;
+    right: 25%;
+    margin-bottom: 16px;
+  }
+  
+  .ds-lp-why-it-works__arrow svg {
+    width: 100%;
+    height: 100%;
+  }
+  
+  @media (min-width: 1024px) {
+    .ds-lp-why-it-works__arrow {
+      transform: scale(1);
+      right: 20%;
+    }
+  }
+  
+  .ds-lp-why-it-works__tagline {
+    color: #FFFFFF;
+    font-family: 'Caveat', cursive;
+  }
+  
+  @media (min-width: 1024px) {
+    .ds-lp-why-it-works__benefit-icon {
+      width: 80px;
+      height: 80px;
+    }
+  }
+</style>
+
+<section class="ds-lp-why-it-works" id="ds-lp--why-it-works">
+  <div class="mx-auto px-5 sm:px-6 lg:px-16 py-12 pt-24 lg:py-20">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-start">
+      {% comment %} Left Column - Content {% endcomment %}
+      <div class="order-1 lg:order-1">
+        {% comment %} Label {% endcomment %}
+        {% if section.settings.section_label != blank %}
+          <div class="ds-lp-why-it-works__label">
+            {{ section.settings.section_label }}
+          </div>
+        {% endif %}
+        
+        {% comment %} Headline {% endcomment %}
+        {% if section.settings.headline != blank %}
+          <div class="ds-lp-why-it-works__headline text-[32px] lg:text-[48px] font-bold leading-[1.2] tracking-[-1.6px] lg:tracking-[-2.4px] mb-6">
+            {{ section.settings.headline }}
+          </div>
+        {% endif %}
+        
+        {% comment %} Intro Text {% endcomment %}
+        {% if section.settings.intro_text != blank %}
+          <p class="ds-lp-why-it-works__intro-text text-base lg:text-xl leading-[1.5] tracking-[-0.8px] lg:tracking-[-0.9px] mb-8">
+            {{ section.settings.intro_text }}
+          </p>
+        {% endif %}
+        
+        {% comment %} Benefits Grid {% endcomment %}
+        {% if section.blocks.size > 0 %}
+          <div class="grid grid-cols-2 gap-8 lg:gap-y-12 mb-8 lg:mb-12">
+            {% for block in section.blocks %}
+              {% if forloop.index <= 4 %}
+                {% comment %} First 4 blocks in 2x2 grid {% endcomment %}
+                <div class="ds-lp-why-it-works__benefit-item flex flex-col items-start gap-4">
+                  {% if block.settings.icon_image != blank %}
+                    <div class="ds-lp-why-it-works__benefit-icon">
+                      <img 
+                        src="{{ block.settings.icon_image | image_url }}"
+                        alt="{{ block.settings.title }}"
+                        width="60"
+                        height="60"
+                        loading="lazy"
+                      >
+                    </div>
+                  {% endif %}
+                  <div class="flex-1">
+                    <h3 class="text-lg lg:text-2xl font-bold mb-4 text-white leading-[1.4] tracking-[-0.8px] lg:tracking-[-1.2px]">
+                      {{ block.settings.title }}
+                    </h3>
+                    <p class="text-sm lg:text-base leading-[1.5] tracking-[-0.7px] lg:tracking-[-0.8px] text-white">
+                      {{ block.settings.description }}
+                    </p>
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          
+          {% comment %} Fifth block spans full width {% endcomment %}
+          {% assign fifth_block = section.blocks[4] %}
+          {% if fifth_block %}
+            <div class="ds-lp-why-it-works__benefit-item flex flex-col items-start gap-4">
+              {% if fifth_block.settings.icon_image != blank %}
+                <div class="ds-lp-why-it-works__benefit-icon">
+                  <img 
+                    src="{{ fifth_block.settings.icon_image | image_url }}"
+                    alt="{{ fifth_block.settings.title }}"
+                    width="60"
+                    height="60"
+                    loading="lazy"
+                  >
+                </div>
+              {% endif %}
+              <div class="flex-1">
+                <h3 class="text-lg lg:text-2xl font-bold mb-4 text-white leading-[1.4] tracking-[-0.8px] lg:tracking-[-1.2px]">
+                  {{ fifth_block.settings.title }}
+                </h3>
+                <p class="text-sm lg:text-base leading-[1.5] tracking-[-0.7px] lg:tracking-[-0.8px] text-white">
+                  {{ fifth_block.settings.description }}
+                </p>
+              </div>
+            </div>
+          {% endif %}
+        {% endif %}
+      </div>
+      
+      {% comment %} Right Column - Image and Tagline {% endcomment %}
+      <div class="order-2 lg:order-2">
+        {% comment %} Desktop Image {% endcomment %}
+        {% if section.settings.desktop_image != blank %}
+          {%- liquid
+            assign desktop_img = section.settings.desktop_image
+            if desktop_img.width and desktop_img.height
+              assign desktop_width = desktop_img.width
+              assign desktop_height = desktop_img.height
+            else
+              assign desktop_width = 800
+              assign desktop_height = 600
+            endif
+          -%}
+          <div class="hidden lg:block mb-6">
+            <img 
+              src="{{ section.settings.desktop_image | image_url }}"
+              alt="{{ section.settings.desktop_image.alt | default: section.settings.headline }}"
+              class="w-full h-auto rounded-lg"
+              width="{{ desktop_width }}"
+              height="{{ desktop_height }}"
+              loading="lazy"
+            >
+          </div>
+        {% endif %}
+        
+        {% comment %} Mobile Image {% endcomment %}
+        {% if section.settings.mobile_image != blank %}
+          {%- liquid
+            assign mobile_img = section.settings.mobile_image
+            if mobile_img.width and mobile_img.height
+              assign mobile_width = mobile_img.width
+              assign mobile_height = mobile_img.height
+            else
+              assign mobile_width = 400
+              assign mobile_height = 300
+            endif
+          -%}
+          <div class="block lg:hidden mb-6">
+            <img 
+              src="{{ section.settings.mobile_image | image_url }}"
+              alt="{{ section.settings.mobile_image.alt | default: section.settings.headline }}"
+              class="w-full h-auto rounded-lg"
+              width="{{ mobile_width }}"
+              height="{{ mobile_height }}"
+              loading="lazy"
+            >
+          </div>
+        {% endif %}
+        
+        {% comment %} Arrow and Tagline {% endcomment %}
+        {% if section.settings.tagline != blank %}
+          <div class="ds-lp-why-it-works__tagline-wrapper">
+            {% comment %} Arrow SVG - Absolutely Positioned {% endcomment %}
+            <div class="ds-lp-why-it-works__arrow">
+              <svg width="44" height="127" viewBox="0 0 44 127" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_1_2955_{{ section.id }})">
+                  <path d="M27.9602 7.50087C23.8312 8.53587 19.8065 9.46263 15.2542 10.612C15.5205 7.84475 17.1915 6.2193 19.0934 5.54555C24.7993 3.52431 30.6134 1.60724 36.5441 0.219122C39.9327 -0.589257 41.7872 1.81873 40.7867 5.13113C39.1907 10.6859 37.2738 16.1405 35.4651 21.6993C35.3649 22.0199 35.2667 22.4467 35.056 22.557C34.3218 23.1022 33.4772 23.437 32.6346 23.8781C32.3013 23.1408 31.5428 22.4116 31.6369 21.7724C31.9133 19.5362 32.4045 17.4021 32.7892 15.27C32.9796 14.0978 33.2783 13.0297 32.7142 11.3408C31.4604 12.5333 30.1003 13.7279 28.8466 14.9204C4.02066 40.6787 -0.57204 78.6925 17.1491 109.8C19.4593 113.792 22.1888 117.458 24.7097 121.341C25.5867 122.705 26.3575 124.072 27.2346 125.436C27.028 125.759 26.713 125.977 26.5064 126.3C25.5433 125.999 24.2652 125.918 23.613 125.186C21.3352 122.893 19.0575 120.599 17.0926 117.981C-2.55157 92.0097 -3.99586 55.3861 13.7528 26.6822C17.1586 21.1991 21.5335 16.3349 25.4791 11.2665C26.3095 10.1883 27.2503 9.32044 28.1891 8.34639C28.2914 8.13196 28.179 7.8154 27.9602 7.50087Z" fill="black"/>
+                </g>
+                <defs>
+                  <clipPath id="clip0_1_2955_{{ section.id }}">
+                    <rect width="126" height="41" fill="white" transform="translate(40.9927) rotate(88.9056)"/>
+                  </clipPath>
+                </defs>
+              </svg>
+            </div>
+            <div class="ds-lp-why-it-works__tagline text-2xl lg:text-3xl text-right lg:text-right leading-none">
+              {{ section.settings.tagline }}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "DS LP Why It Works",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "section_label",
+      "label": "Section Label",
+      "default": "Why it Works"
+    },
+    {
+      "type": "richtext",
+      "id": "headline",
+      "label": "Headline",
+      "default": "<h2>Smarter Synergy. Sharper You.</h2>"
+    },
+    {
+      "type": "textarea",
+      "id": "intro_text",
+      "label": "Intro Text",
+      "default": "You've heard of mushrooms. You've heard of nootropics. You've heard of clean energy. But the real power? It's in the synergy. Day Shrooms was built to work with your brain—not against it. While coffee spikes and crashes, this formula delivers smooth, sustained focus—without the chaos."
+    },
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_image",
+      "label": "Desktop Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "header",
+      "content": "Tagline"
+    },
+    {
+      "type": "richtext",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "<p>This isn't just a better blend. It's a smarter system for how your brain actually works.</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Icon Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Benefit Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Benefit description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "DS LP Why It Works",
+      "blocks": [
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Functional Mushrooms (Lion's Mane, Cordyceps)",
+            "description": "Enhance cognition, stamina, and nervous system function."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Raw Cacao + Black Maca",
+            "description": "Boost mood and endurance—without the sugar bomb."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Adaptogens (KSM-66 Ashwagandha)",
+            "description": "Regulate stress, mood, and long-term resilience."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Clean Caffeine (Green Tea)",
+            "description": "60mg of smooth, crash-free energy."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Nootropics (L-Theanine, Bacopa)",
+            "description": "Support memory, mental clarity, and flow state."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

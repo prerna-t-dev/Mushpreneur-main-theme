@@ -1,0 +1,288 @@
+<style>
+  .ds-lp-founders-note {
+    position: relative;
+    background: linear-gradient(180deg, #FFFFFF 0%, #FDF1E9 100%);
+    padding: 64px 20px;
+    /* overflow: hidden; */
+  }
+  
+  .ds-lp-founders-note__coffee-image {
+    position: absolute !important;
+    display: none; /* Hidden on mobile */
+    z-index: 1;
+  }
+  
+  .ds-lp-founders-note__coffee-image img {
+    width: auto;
+    height: auto;
+  }
+  
+  .ds-lp-founders-note__signature-image {
+    width: 70px;
+    height: auto;
+  }
+  
+  @media (min-width: 1024px) {
+    .ds-lp-founders-note {
+      padding: 112px 64px;
+    }
+    
+    .ds-lp-founders-note__coffee-image {
+      display: block !important; /* Show on desktop */
+    }
+  }
+</style>
+
+<section class="ds-lp-founders-note" id="ds-lp--founders-message">
+  {% comment %} Coffee Product Image (Absolute Positioned, Desktop Only) {% endcomment %}
+  {% if section.settings.coffee_image != blank %}
+    <div class="ds-lp-founders-note__coffee-image" style="
+      left: {{ section.settings.coffee_image_left }}px;
+      bottom: {{ section.settings.coffee_image_bottom }}px;
+    ">
+      <style>
+        #ds-lp--founders-note .ds-lp-founders-note__coffee-image img {
+          max-width: 700px !important;
+        }
+      </style>
+      {% assign coffee_img = section.settings.coffee_image %}
+      {% assign coffee_width = section.settings.coffee_image_width | default: 200 %}
+      {% assign coffee_width_2x = coffee_width | times: 2 %}
+      {% if coffee_img != blank %}
+        {% if coffee_img.src contains '.svg' or coffee_img.width == blank %}
+          <img 
+            src="{{ coffee_img | image_url }}"
+            alt="{{ section.settings.coffee_image_alt | default: 'Day Shrooms Product' | escape }}"
+            width="{{ coffee_width }}"
+            height="{{ coffee_width | times: 1.5 }}"
+            loading="lazy"
+          >
+        {% else %}
+          <img 
+            src="{{ coffee_img | image_url: width: coffee_width_2x }}"
+            srcset="{{ coffee_img | image_url: width: coffee_width }} {{ coffee_width }}w, {{ coffee_img | image_url: width: coffee_width_2x }} {{ coffee_width_2x }}w"
+            sizes="{{ coffee_width }}px"
+            alt="{{ section.settings.coffee_image_alt | default: 'Day Shrooms Product' | escape }}"
+            width="{{ coffee_img.width }}"
+            height="{{ coffee_img.height }}"
+            loading="lazy"
+          >
+        {% endif %}
+      {% endif %}
+    </div>
+  {% endif %}
+  
+  <div class="max-w-4xl mx-auto">
+    {% comment %} Section Label {% endcomment %}
+    {% if section.settings.label != blank %}
+      <div class="text-center text-sm font-bold leading-[1.5] tracking-[-0.7px] mb-4" style="color: {{ section.settings.label_color | default: '#EC008C' }};">
+        {{ section.settings.label }}
+      </div>
+    {% endif %}
+    
+    {% comment %} Headline {% endcomment %}
+    {% if section.settings.headline != blank %}
+      <div class="text-center text-[32px] lg:text-[48px] font-bold leading-[1.2] tracking-[-1.6px] lg:tracking-[-2.4px] mb-6 lg:mb-10 text-black">
+        {{ section.settings.headline }}
+      </div>
+    {% endif %}
+    
+    {% comment %} Body Text {% endcomment %}
+    {% if section.settings.body_text != blank %}
+      <div class="text-center font-medium text-sm lg:text-base leading-[1.5] tracking-[-0.7px] lg:tracking-[-0.8px] text-black mb-10 lg:mb-12 text-left [&_p]:mb-4 [&_p:last-child]:mb-0">
+        {% assign body_content = section.settings.body_text | replace: '<br><br>', '<br>' | replace: '<br/><br/>', '<br>' | replace: '<br /><br />', '<br>' | replace: '</p><p>', '<br>' | replace: '</p>', '' | replace: '<p>', '' %}
+        {{ body_content }}
+      </div>
+    {% endif %}
+    
+    {% comment %} Signature and Founder Info {% endcomment %}
+    <div class="text-center mb-6">
+      {% if section.settings.signature_image != blank %}
+        {% assign signature_img = section.settings.signature_image %}
+        {% if signature_img.src contains '.svg' or signature_img.width == blank %}
+          <img 
+            src="{{ signature_img | image_url }}"
+            alt="{{ section.settings.signature_image_alt | default: 'Signature' | escape }}"
+            class="ds-lp-founders-note__signature-image mx-auto mb-2 block"
+            width="70"
+            height="70"
+            loading="lazy"
+          >
+        {% else %}
+          <img 
+            src="{{ signature_img | image_url: width: 140 }}"
+            srcset="{{ signature_img | image_url: width: 70 }} 70w, {{ signature_img | image_url: width: 140 }} 140w"
+            sizes="70px"
+            alt="{{ section.settings.signature_image_alt | default: 'Signature' | escape }}"
+            class="ds-lp-founders-note__signature-image mx-auto mb-2 block"
+            width="{{ signature_img.width }}"
+            height="{{ signature_img.height }}"
+            loading="lazy"
+          >
+        {% endif %}
+      {% elsif section.settings.signature != blank %}
+        <div class="font-['Caveat'] text-3xl font-semibold text-black mb-2">
+          {{ section.settings.signature }}
+        </div>
+      {% endif %}
+      
+      {% if section.settings.founder_title != blank %}
+        <div class="text-base font-bold text-black leading-[1.4] tracking-[-0.8px]">
+          {{ section.settings.founder_title }}
+        </div>
+      {% endif %}
+    </div>
+    
+    
+    
+    {% comment %} Founder Image {% endcomment %}
+    {% if section.settings.founder_image != blank %}
+      <div class="text-center mt-8">
+        {% assign founder_img = section.settings.founder_image %}
+        {% if founder_img.src contains '.svg' or founder_img.width == blank %}
+          <img 
+            src="{{ founder_img | image_url }}"
+            alt="{{ section.settings.founder_image_alt | default: 'Founder' | escape }}"
+            class="w-[120px] h-[120px] lg:w-[150px] lg:h-[150px] rounded-full object-cover border-2 border-black mx-auto"
+            width="120"
+            height="120"
+            loading="lazy"
+          >
+        {% else %}
+          <img 
+            src="{{ founder_img | image_url: width: 300 }}"
+            srcset="{{ founder_img | image_url: width: 240 }} 240w, {{ founder_img | image_url: width: 300 }} 300w"
+            sizes="120px"
+            alt="{{ section.settings.founder_image_alt | default: 'Founder' | escape }}"
+            class="w-[120px] h-[120px] lg:w-[150px] lg:h-[150px] rounded-full object-cover border-2 border-black mx-auto"
+            width="{{ founder_img.width }}"
+            height="{{ founder_img.height }}"
+            loading="lazy"
+          >
+        {% endif %}
+      </div>
+    {% endif %}
+
+
+    {% comment %} Horizontal Divider {% endcomment %}
+    <div class="w-full h-px bg-[#00000040] mt-12 lg:mt-20 mx-auto max-w-5xl">
+        
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Founder's Note",
+  "tag": "section",
+  "class": "ds-lp-founders-note-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Section Label",
+      "default": "Message from the founder"
+    },
+    {
+      "type": "color",
+      "id": "label_color",
+      "label": "Label Color",
+      "default": "#EC008C"
+    },
+    {
+      "type": "richtext",
+      "id": "headline",
+      "label": "Headline",
+      "default": "<h2>From Café Roots to Reimagining Productivity</h2>"
+    },
+    {
+      "type": "richtext",
+      "id": "body_text",
+      "label": "Body Text",
+      "default": "<p>In NYC's East Village, I ran a tiny tea spot that wasn't just a café, it was a hub of creativity and wellness. Poets performed, dancers gathered, and customers sipped bold creations like Ayur Chai, a masala chai infused with ashwagandha and Lucky Bamboo, a green tea with bamboo shoots that became a cult favorite for its euphoric energy.</p><p>It wasn't just about the drinks; it was about fostering a community of people who craved something better, a place where wellness met curiosity and culture.</p>"
+    },
+    {
+      "type": "text",
+      "id": "signature",
+      "label": "Signature (Text)",
+      "default": "Julie",
+      "info": "Only shown if signature image is not provided"
+    },
+    {
+      "type": "image_picker",
+      "id": "signature_image",
+      "label": "Signature Image"
+    },
+    {
+      "type": "text",
+      "id": "signature_image_alt",
+      "label": "Signature Image Alt Text",
+      "default": "Signature"
+    },
+    {
+      "type": "text",
+      "id": "founder_title",
+      "label": "Founder Title",
+      "default": "The Founder"
+    },
+    {
+      "type": "image_picker",
+      "id": "founder_image",
+      "label": "Founder Image"
+    },
+    {
+      "type": "text",
+      "id": "founder_image_alt",
+      "label": "Founder Image Alt Text",
+      "default": "Founder"
+    },
+    {
+      "type": "image_picker",
+      "id": "coffee_image",
+      "label": "Coffee Product Image (Desktop Only)"
+    },
+    {
+      "type": "text",
+      "id": "coffee_image_alt",
+      "label": "Coffee Image Alt Text",
+      "default": "Day Shrooms Product"
+    },
+    {
+      "type": "range",
+      "id": "coffee_image_width",
+      "label": "Coffee Image Width (px)",
+      "min": 100,
+      "max": 700,
+      "step": 50,
+      "default": 200,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "coffee_image_left",
+      "label": "Coffee Image Left Position (px)",
+      "min": -200,
+      "max": 200,
+      "step": 10,
+      "default": 0,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "coffee_image_bottom",
+      "label": "Coffee Image Bottom Position (px)",
+      "min": -200,
+      "max": 400,
+      "step": 10,
+      "default": 0,
+      "unit": "px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Founder's Note"
+    }
+  ]
+}
+{% endschema %}
+

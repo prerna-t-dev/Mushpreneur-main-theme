@@ -1,0 +1,876 @@
+{% comment %}
+  Day Shrooms Landing Page - Comparison Table Section
+{% endcomment %}
+
+<style>
+  .ds-lp-comparison-table {
+    background: linear-gradient(180deg, #FDF1E9 0%, #F9C9A7 100%);
+    color: #000000;
+  }
+  
+  .ds-lp-comparison-table__headline {
+    color: #000000;
+    margin-bottom: 48px;
+  }
+  
+  .ds-lp-comparison-table__wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .ds-lp-comparison-table__row-divider {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+  }
+  
+  .ds-lp-comparison-table__left-section {
+    background: linear-gradient(90deg, #E74936 0%, #EC008C 100%);
+    color: #FFFFFF;
+    padding: 24px 20px 40px 20px;
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* gap: 16px; */
+  }
+  
+  .ds-lp-comparison-table__criteria-column {
+    /* display: none; */
+    flex-direction: column;
+    gap: 0;
+    align-items: flex-start;
+    justify-content: flex-start;
+    min-width: 120px;
+    padding-top: 0;
+    /* border: 1px solid rgba(255, 255, 255, 0.5); */
+  }
+  
+  .ds-lp-comparison-table__criteria-label-standalone {
+    font-weight: 500;
+    color: #FFFFFF;
+    text-align: left;
+    font-size: 14px;
+    letter-spacing: -0.7px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0;
+    min-height: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-bottom: 0;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  
+  .ds-lp-comparison-table__criteria-label-standalone:first-child {
+    margin-top: 0;
+  }
+  
+  .ds-lp-comparison-table__criteria-label-standalone:last-child {
+    border-bottom: none;
+  }
+  
+  .ds-lp-comparison-table__day-shrooms-column {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0;
+  }
+  
+  .ds-lp-comparison-table__comparison-rows {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    /* border: 1px solid rgba(255, 255, 255, 0.5); */
+  }
+  
+  .ds-lp-comparison-table__right-section {
+    background: #000000;
+    color: #FFFFFF;
+    padding: 40px 20px;
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto 1fr 1fr;
+    /* gap: 16px; */
+  }
+  
+  .ds-lp-comparison-table__right-criteria-column {
+    display: flex !important;
+    flex-direction: column;
+    gap: 0;
+    align-items: flex-start;
+    justify-content: flex-start;
+    min-width: 100px;
+    grid-column: 1;
+    /* border: 1px solid rgba(255, 255, 255, 0.5); */
+  }
+  
+  .ds-lp-comparison-table__right-criteria-placeholder-icon {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 10px;
+    /* display: block; */
+    opacity: 0;
+  }
+  
+  .ds-lp-comparison-table__right-criteria-placeholder-title {
+    width: 100%;
+    height: 70px;
+    /* margin-bottom: 24px; */
+    opacity: 0;
+  }
+  
+  .ds-lp-comparison-table__right-criteria-label {
+    font-weight: 500;
+    color: #FFFFFF;
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.2;
+    letter-spacing: -0.7px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0;
+    min-height: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  
+  .ds-lp-comparison-table__right-criteria-label:last-child {
+    border-bottom: none;
+  }
+  
+  .ds-lp-comparison-table__vs-icon {
+    position: absolute;
+    left: 50%;
+    top: -30px;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background-color: #FFFFFF;
+    border: 3px solid #000000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    font-weight: 700;
+    font-size: 20px;
+    color: #000000;
+  }
+  
+  .ds-lp-comparison-table__product-image {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 24px;
+    display: block;
+    position: relative;
+  }
+  
+  .ds-lp-comparison-table__product-image-mobile {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 32px;
+    display: block;
+    position: relative;
+  }
+  
+  .ds-lp-comparison-table__product-image-mobile img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .ds-lp-comparison-table__product-image-desktop {
+    display: none;
+  }
+  
+  .ds-lp-comparison-table__product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .ds-lp-comparison-table__product-title {
+    text-align: center;
+    font-weight: 700;
+    /* margin-bottom: 32px; */
+    min-height: 70px;
+  }
+  
+  .ds-lp-comparison-table__comparison-row {
+    display: grid;
+    /* grid-template-columns: 1fr 1fr; */
+    gap: 16px;
+    margin-bottom: 0;
+    align-items: center;
+    min-height: 48px;
+    height: 48px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  
+  /* Day Shrooms column comparison rows - single column on mobile */
+  .ds-lp-comparison-table__day-shrooms-column .ds-lp-comparison-table__comparison-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .ds-lp-comparison-table__comparison-row:last-child {
+    border-bottom: none;
+  }
+  
+  .ds-lp-comparison-table__criteria-label {
+    font-weight: 500;
+    margin-bottom: 0;
+    text-align: left;
+  }
+  
+  .ds-lp-comparison-table__value {
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  @media (min-width: 1024px) {
+    .ds-lp-comparison-table__comparison-row {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .ds-lp-comparison-table__icon {
+    width: 27px;
+    height: 27px;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  .ds-lp-comparison-table__icon svg {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .ds-lp-comparison-table__competitor-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  
+  .ds-lp-comparison-table__competitor-title {
+    text-align: center;
+    font-weight: 700;
+    /* margin-bottom: 24px; */
+    min-height: 70px;
+  }
+  
+  .ds-lp-comparison-table__competitor-icon {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 10px;
+    display: block;
+    position: relative;
+  }
+  
+  .ds-lp-comparison-table__competitor-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  @media (min-width: 1024px) {
+    .ds-lp-comparison-table__wrapper {
+      flex-direction: row;
+      gap: 0;
+    }
+    
+    .ds-lp-comparison-table__left-section {
+      padding: 64px 0 24px 64px;
+      flex: 1;
+      /* gap: 24px; */
+      grid-template-columns: 1fr 1fr; /* Criteria column + Day Shrooms column on desktop */
+    }
+    
+    .ds-lp-comparison-table__criteria-column {
+      display: flex !important; /* Show on desktop */
+      min-width: 180px;
+      /* padding-top: 330px;  */
+    }
+
+    .ds-lp-comparison-table__right-criteria-placeholder-icon{
+      width: 250px;
+      height: 250px;
+      margin: 0 auto 32px;
+    }
+    
+    .ds-lp-comparison-table__day-shrooms-column .ds-lp-comparison-table__comparison-rows {
+      padding-top: 0; /* No padding needed since criteria column is visible */
+    }
+    
+    .ds-lp-comparison-table__criteria-label-standalone {
+      font-size: 24px;
+      line-height: 1.2;
+      letter-spacing: -1.2px;
+      font-weight: 700;
+      margin-bottom: 0;
+      min-height: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .ds-lp-comparison-table__day-shrooms-column {
+      align-items: flex-start;
+    }
+    
+    .ds-lp-comparison-table__comparison-row {
+      margin-bottom: 0;
+      min-height: 48px;
+      height: 48px;
+      align-items: center;
+      padding-bottom: 0;
+    }
+    
+    .ds-lp-comparison-table__right-section {
+      padding: 64px 64px 24px 0;
+      flex: 1;
+      grid-template-columns: 1fr 1fr;
+      /* gap: 24px; */
+    }
+    
+    .ds-lp-comparison-table__right-criteria-column {
+      display: none !important; /* Hidden on desktop */
+    }
+    
+    .ds-lp-comparison-table__right-criteria-label {
+      font-size: 16px;
+      min-height: 48px;
+      height: 48px;
+    }
+    
+    .ds-lp-comparison-table__vs-icon {
+      width: 80px;
+      height: 80px;
+      font-size: 28px;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    .ds-lp-comparison-table__product-image-mobile {
+      display: none;
+    }
+    
+    .ds-lp-comparison-table__product-image-desktop {
+      display: block;
+    }
+    
+    .ds-lp-comparison-table__product-image {
+      width: 250px;
+      height: 250px;
+      margin-bottom: 32px;
+    }
+    
+    .ds-lp-comparison-table__competitor-icon {
+      width: 250px;
+      height: 250px;
+      margin-bottom: 32px;
+    }
+    
+    .ds-lp-comparison-table__comparison-row {
+      grid-template-columns: 1fr;
+      gap: 0;
+      /* margin-bottom: 32px; */
+      min-height: 80px;
+    }
+    
+    .ds-lp-comparison-table__criteria-label {
+      margin-bottom: 12px;
+    }
+    
+    .ds-lp-comparison-table__right-section {
+      grid-template-columns: 1fr 1fr;
+      /* gap: 24px; */
+    }
+    
+    .ds-lp-comparison-table__competitor-icon {
+      width: 250px;
+      height: 250px;
+      margin-bottom: 32px;
+    }
+  }
+</style>
+
+<section class="ds-lp-comparison-table" id="ds-lp--comparison">
+  <div class="mx-auto p-0" style="background: linear-gradient(90deg, #E74936 0%, #EC008C 100%);">
+    {% comment %} Headline {% endcomment %}
+    {% if section.settings.headline != blank %}
+      <div class="ds-lp-comparison-table__headline text-center text-3xl lg:text-5xl font-bold leading-[1.2] tracking-[-1px] lg:tracking-[-1.5px] mb-12">
+        {{ section.settings.headline }}
+      </div>
+    {% endif %}
+    
+    {% comment %} Product Image - Mobile Only (Outside Grid, Centered) {% endcomment %}
+    {% if section.settings.day_shrooms_image != blank %}
+      <div class="ds-lp-comparison-table__product-image-mobile">
+        {% assign product_img = section.settings.day_shrooms_image %}
+        {% if product_img.src contains '.svg' or product_img.width == blank %}
+          <img 
+            src="{{ product_img | image_url }}"
+            alt="{{ section.settings.day_shrooms_image_alt | default: 'Day Shrooms Product' | escape }}"
+            width="200"
+            height="200"
+            loading="lazy"
+          >
+        {% else %}
+          <img 
+            src="{{ product_img | image_url: width: 400 }}"
+            srcset="{{ product_img | image_url: width: 200 }} 200w, {{ product_img | image_url: width: 400 }} 400w"
+            sizes="200px"
+            alt="{{ section.settings.day_shrooms_image_alt | default: 'Day Shrooms Product' | escape }}"
+            width="{{ product_img.width }}"
+            height="{{ product_img.height }}"
+            loading="lazy"
+          >
+        {% endif %}
+
+        {% if section.settings.day_shrooms_title != blank %}
+          <div class="ds-lp-comparison-table__product-title text-white text-xl tracking-[-0.8px] lg:text-2xl font-bold">
+            {{ section.settings.day_shrooms_title }}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+    
+    {% comment %} Comparison Table {% endcomment %}
+    <div class="ds-lp-comparison-table__wrapper">
+      {% comment %} Left Section - Criteria Labels + Day Shrooms (Pink/Red Gradient) {% endcomment %}
+      <div class="ds-lp-comparison-table__left-section">
+        {% comment %} Criteria Labels Column (Desktop Only) {% endcomment %}
+        <div class="ds-lp-comparison-table__criteria-column">
+          {% comment %} Empty placeholder for image spacing {% endcomment %}
+          <div class="ds-lp-comparison-table__right-criteria-placeholder-icon hidden lg:block">
+          </div>
+          {% comment %} Empty placeholder for title spacing {% endcomment %}
+          <div class="ds-lp-comparison-table__right-criteria-placeholder-title hidden lg:block">
+          </div>
+          {% if section.blocks.size > 0 %}
+            {% for block in section.blocks %}
+              {% case block.type %}
+                {% when 'comparison_row' %}
+                  <div class="ds-lp-comparison-table__criteria-label-standalone">
+                    {{ block.settings.criteria_label }}
+                  </div>
+              {% endcase %}
+            {% endfor %}
+          {% endif %}
+        </div>
+        
+        {% comment %} Day Shrooms Column {% endcomment %}
+        <div class="ds-lp-comparison-table__day-shrooms-column">
+        {% if section.settings.day_shrooms_image != blank %}
+          <div class="ds-lp-comparison-table__product-image ds-lp-comparison-table__product-image-desktop">
+            {% assign product_img = section.settings.day_shrooms_image %}
+            {% if product_img.src contains '.svg' or product_img.width == blank %}
+              <img 
+                src="{{ product_img | image_url }}"
+                alt="{{ section.settings.day_shrooms_image_alt | default: 'Day Shrooms Product' | escape }}"
+                width="250"
+                height="300"
+                loading="lazy"
+              >
+            {% else %}
+              <img 
+                src="{{ product_img | image_url: width: 500 }}"
+                srcset="{{ product_img | image_url: width: 250 }} 250w, {{ product_img | image_url: width: 500 }} 500w"
+                sizes="250px"
+                alt="{{ section.settings.day_shrooms_image_alt | default: 'Day Shrooms Product' | escape }}"
+                width="{{ product_img.width }}"
+                height="{{ product_img.height }}"
+                loading="lazy"
+              >
+            {% endif %}
+
+            
+          </div>
+        {% endif %}
+        
+       {% if section.settings.day_shrooms_title != blank %}
+          <div class="ds-lp-comparison-table__product-title text-xl lg:text-xl lg:tracking-[-1px]  w-full font-bold hidden lg:block text-center">
+            {{ section.settings.day_shrooms_title }}
+          </div>
+        {% endif %}
+        
+        {% comment %} Comparison Rows {% endcomment %}
+        {% if section.blocks.size > 0 %}
+          <div class="ds-lp-comparison-table__comparison-rows">
+            {% for block in section.blocks %}
+              {% case block.type %}
+                  {% when 'comparison_row' %}
+                  <div class="ds-lp-comparison-table__comparison-row">
+                    <div class="ds-lp-comparison-table__value text-sm tracking-[-0.7px] lg:text-lg lg:tracking-[-0.9px]">
+                      {% if block.settings.day_shrooms_value != blank %}
+                        {{ block.settings.day_shrooms_value }}
+                      {% elsif block.settings.show_checkmark %}
+                        <div class="ds-lp-comparison-table__icon">
+                          <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11.4667 19.4667L20.8667 10.0667L19 8.2L11.4667 15.7333L7.66667 11.9333L5.8 13.8L11.4667 19.4667ZM13.3333 26.6667C11.4889 26.6667 9.75556 26.3167 8.13333 25.6167C6.51111 24.9167 5.1 23.9667 3.9 22.7667C2.7 21.5667 1.75 20.1556 1.05 18.5333C0.35 16.9111 0 15.1778 0 13.3333C0 11.4889 0.35 9.75556 1.05 8.13333C1.75 6.51111 2.7 5.1 3.9 3.9C5.1 2.7 6.51111 1.75 8.13333 1.05C9.75556 0.35 11.4889 0 13.3333 0C15.1778 0 16.9111 0.35 18.5333 1.05C20.1556 1.75 21.5667 2.7 22.7667 3.9C23.9667 5.1 24.9167 6.51111 25.6167 8.13333C26.3167 9.75556 26.6667 11.4889 26.6667 13.3333C26.6667 15.1778 26.3167 16.9111 25.6167 18.5333C24.9167 20.1556 23.9667 21.5667 22.7667 22.7667C21.5667 23.9667 20.1556 24.9167 18.5333 25.6167C16.9111 26.3167 15.1778 26.6667 13.3333 26.6667Z" fill="#E4FF52"/>
+                          </svg>
+                        </div>
+                      {% endif %}
+                    </div>
+                  </div>
+              {% endcase %}
+            {% endfor %}
+          </div>
+        {% endif %}
+        </div>
+      </div>
+      
+      {% comment %} VS Icon {% endcomment %}
+      {% comment %} <div class="ds-lp-comparison-table__vs-icon">
+        VS
+      </div> {% endcomment %}
+      
+      {% comment %} Right Section - Coffee & Energy Drinks (Black) {% endcomment %}
+      <div class="ds-lp-comparison-table__right-section">
+        {% comment %} Criteria Labels Column (Mobile Only) {% endcomment %}
+        <div class="ds-lp-comparison-table__right-criteria-column">
+          {% comment %} Empty placeholder for icon spacing {% endcomment %}
+          <div class="ds-lp-comparison-table__right-criteria-placeholder-icon">
+
+          </div>
+          {% comment %} Empty placeholder for title spacing {% endcomment %}
+          <div class="ds-lp-comparison-table__right-criteria-placeholder-title">
+
+          </div>
+          {% if section.blocks.size > 0 %}
+            {% for block in section.blocks %}
+              {% case block.type %}
+                {% when 'comparison_row' %}
+                  <div class="ds-lp-comparison-table__right-criteria-label">
+                    {{ block.settings.criteria_label }}
+                  </div>
+              {% endcase %}
+            {% endfor %}
+          {% endif %}
+        </div>
+        
+        {% comment %} Coffee Column {% endcomment %}
+        <div class="ds-lp-comparison-table__competitor-column">
+          {% if section.settings.coffee_icon != blank %}
+            <div class="ds-lp-comparison-table__competitor-icon">
+              {% assign coffee_icon_img = section.settings.coffee_icon %}
+              {% if coffee_icon_img.src contains '.svg' or coffee_icon_img.width == blank %}
+                <img 
+                  src="{{ coffee_icon_img | image_url }}"
+                  alt="Coffee"
+                  width="80"
+                  height="80"
+                  loading="lazy"
+                >
+              {% else %}
+                <img 
+                  src="{{ coffee_icon_img | image_url: width: 160 }}"
+                  srcset="{{ coffee_icon_img | image_url: width: 80 }} 80w, {{ coffee_icon_img | image_url: width: 160 }} 160w"
+                  alt="Coffee"
+                  width="80"
+                  height="80"
+                  loading="lazy"
+                >
+              {% endif %}
+            </div>
+          {% endif %}
+          
+          {% if section.settings.coffee_title != blank %}
+            <div class="ds-lp-comparison-table__competitor-title text-lg tracking-[-0.8px] lg:text-xl lg:tracking-[-1px] font-bold">
+              {{ section.settings.coffee_title }}
+            </div>
+          {% endif %}
+          
+          {% if section.blocks.size > 0 %}
+            <div class="ds-lp-comparison-table__comparison-rows">
+              {% for block in section.blocks %}
+                {% case block.type %}
+                  {% when 'comparison_row' %}
+                    <div class="ds-lp-comparison-table__comparison-row">
+                      <div class="ds-lp-comparison-table__value text-sm tracking-[-0.7px] lg:text-lg lg:tracking-[-0.9px]">
+                        {% if block.settings.coffee_value != blank %}
+                          {{ block.settings.coffee_value }}
+                        {% elsif block.settings.show_x_mark %}
+                          <div class="ds-lp-comparison-table__icon">
+                            <svg width="24" height="24" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M41.5526 13.707L13.8174 41.4422M41.5526 41.4422L13.8174 13.707" stroke="white" stroke-width="6.79512" stroke-linecap="round"/>
+                            </svg>
+                          </div>
+                        {% endif %}
+                      </div>
+                    </div>
+                {% endcase %}
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+        
+        {% comment %} Energy Drinks Column {% endcomment %}
+        <div class="ds-lp-comparison-table__competitor-column">
+          {% if section.settings.energy_drinks_icon != blank %}
+            <div class="ds-lp-comparison-table__competitor-icon">
+              {% assign energy_icon_img = section.settings.energy_drinks_icon %}
+              {% if energy_icon_img.src contains '.svg' or energy_icon_img.width == blank %}
+                <img 
+                  src="{{ energy_icon_img | image_url }}"
+                  alt="Energy Drinks"
+                  width="80"
+                  height="80"
+                  loading="lazy"
+                >
+              {% else %}
+                <img 
+                  src="{{ energy_icon_img | image_url: width: 160 }}"
+                  srcset="{{ energy_icon_img | image_url: width: 80 }} 80w, {{ energy_icon_img | image_url: width: 160 }} 160w"
+                  alt="Energy Drinks"
+                  width="80"
+                  height="80"
+                  loading="lazy"
+                >
+              {% endif %}
+            </div>
+          {% endif %}
+          
+          {% if section.settings.energy_drinks_title != blank %}
+            <div class="ds-lp-comparison-table__competitor-title text-lg tracking-[-0.8px] lg:text-xl lg:tracking-[-1px] font-bold">
+              {{ section.settings.energy_drinks_title }}
+            </div>
+          {% endif %}
+          
+          {% if section.blocks.size > 0 %}
+            <div class="ds-lp-comparison-table__comparison-rows">
+              {% for block in section.blocks %}
+                {% case block.type %}
+                  {% when 'comparison_row' %}
+                    <div class="ds-lp-comparison-table__comparison-row">
+                      <div class="ds-lp-comparison-table__value text-sm tracking-[-0.7px] lg:text-lg lg:tracking-[-0.9px]">
+                        {% if block.settings.energy_drinks_value != blank %}
+                          {{ block.settings.energy_drinks_value }}
+                        {% elsif block.settings.show_x_mark %}
+                          <div class="ds-lp-comparison-table__icon">
+                            <svg width="24" height="24" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M41.5526 13.707L13.8174 41.4422M41.5526 41.4422L13.8174 13.707" stroke="white" stroke-width="6.79512" stroke-linecap="round"/>
+                            </svg>
+                          </div>
+                        {% endif %}
+                      </div>
+                    </div>
+                {% endcase %}
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "DS LP - Comparison Table",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Day Shrooms Column"
+    },
+    {
+      "type": "image_picker",
+      "id": "day_shrooms_image",
+      "label": "Day Shrooms Product Image"
+    },
+    {
+      "type": "text",
+      "id": "day_shrooms_image_alt",
+      "label": "Day Shrooms Image Alt Text",
+      "default": "Day Shrooms Product"
+    },
+    {
+      "type": "text",
+      "id": "day_shrooms_title",
+      "label": "Day Shrooms Title",
+      "default": "Day Shrooms"
+    },
+    {
+      "type": "header",
+      "content": "Coffee Column"
+    },
+    {
+      "type": "image_picker",
+      "id": "coffee_icon",
+      "label": "Coffee Icon"
+    },
+    {
+      "type": "text",
+      "id": "coffee_title",
+      "label": "Coffee Title",
+      "default": "Coffee"
+    },
+    {
+      "type": "header",
+      "content": "Energy Drinks Column"
+    },
+    {
+      "type": "image_picker",
+      "id": "energy_drinks_icon",
+      "label": "Energy Drinks Icon"
+    },
+    {
+      "type": "text",
+      "id": "energy_drinks_title",
+      "label": "Energy Drinks Title",
+      "default": "Energy Shots & Drinks"
+    },
+    {
+      "type": "header",
+      "content": "CTA Button"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Button Text",
+      "default": "Switch to Day Shrooms"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "CTA Button URL"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "comparison_row",
+      "name": "Comparison Row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "criteria_label",
+          "label": "Criteria Label",
+          "default": "Sustained Energy"
+        },
+        {
+          "type": "text",
+          "id": "day_shrooms_value",
+          "label": "Day Shrooms Value",
+          "info": "Leave empty and enable checkmark to show green checkmark"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_checkmark",
+          "label": "Show Green Checkmark",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "coffee_value",
+          "label": "Coffee Value",
+          "info": "Leave empty and enable X mark to show red X"
+        },
+        {
+          "type": "text",
+          "id": "energy_drinks_value",
+          "label": "Energy Drinks Value",
+          "info": "Leave empty and enable X mark to show red X"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_x_mark",
+          "label": "Show Red X Mark (for Coffee & Energy Drinks)",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "DS LP - Comparison Table",
+      "blocks": [
+        {
+          "type": "comparison_row",
+          "settings": {
+            "criteria_label": "Sustained Energy",
+            "day_shrooms_value": "6-8 hours",
+            "coffee_value": "1-5 hours",
+            "energy_drinks_value": "4-6 hours"
+          }
+        },
+        {
+          "type": "comparison_row",
+          "settings": {
+            "criteria_label": "Caffeine Content",
+            "day_shrooms_value": "60mg",
+            "coffee_value": "95-160mg",
+            "energy_drinks_value": "200mg+"
+          }
+        },
+        {
+          "type": "comparison_row",
+          "settings": {
+            "criteria_label": "Increased Focus",
+            "day_shrooms_value": "Excellent",
+            "coffee_value": "Mid",
+            "energy_drinks_value": "Mid"
+          }
+        },
+        {
+          "type": "comparison_row",
+          "settings": {
+            "criteria_label": "Reduced Jitters",
+            "show_checkmark": true,
+            "show_x_mark": true
+          }
+        },
+        {
+          "type": "comparison_row",
+          "settings": {
+            "criteria_label": "Decreased Stress",
+            "show_checkmark": true,
+            "show_x_mark": true
+          }
+        },
+        {
+          "type": "comparison_row",
+          "settings": {
+            "criteria_label": "No Artificial Sweeteners",
+            "show_checkmark": true,
+            "show_x_mark": true
+          }
+        },
+        {
+          "type": "comparison_row",
+          "settings": {
+            "criteria_label": "Multipurpose",
+            "show_checkmark": true,
+            "show_x_mark": true
+          }
+        },
+        {
+          "type": "comparison_row",
+          "settings": {
+            "criteria_label": "Risk-free Guarantee",
+            "show_checkmark": true,
+            "show_x_mark": true
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

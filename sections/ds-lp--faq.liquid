@@ -1,0 +1,344 @@
+{% comment %}
+  Day Shrooms Landing Page - FAQ Section
+{% endcomment %}
+
+<style>
+  .ds-lp-faq {
+    background: #FCE4D3;
+    color: #000000;
+    padding: 64px 20px;
+  }
+  
+  .ds-lp-faq__headline {
+    color: #000000;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -1.6px;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  
+  .ds-lp-faq__intro {
+    color: #000000;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.8px;
+    margin-bottom: 40px;
+    text-align: center;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .ds-lp-faq__items-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    /* max-width: 1200px; */
+    margin: 0 auto;
+  }
+  
+  .ds-lp-faq__item {
+    background: #FFFFFF;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .ds-lp-faq__item details {
+    width: 100%;
+  }
+  
+  .ds-lp-faq__item summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+  }
+  
+  .ds-lp-faq__item summary::-webkit-details-marker {
+    display: none;
+  }
+  
+  .ds-lp-faq__question {
+    color: #000000;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: -0.7px;
+    flex: 1;
+    padding-right: 16px;
+  }
+  
+  .ds-lp-faq__icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+  
+  .ds-lp-faq__icon svg {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .ds-lp-faq__icon-plus {
+    position: absolute;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .ds-lp-faq__icon-minus {
+    position: absolute;
+    opacity: 0;
+    transform: rotate(90deg);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .ds-lp-faq__item details[open] .ds-lp-faq__icon-plus {
+    opacity: 0;
+    transform: rotate(90deg);
+  }
+  
+  .ds-lp-faq__item details[open] .ds-lp-faq__icon-minus {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  
+  .ds-lp-faq__answer {
+    padding: 0 20px 20px 20px;
+    color: #000000;
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: -0.7px;
+  }
+  
+  @media (min-width: 1024px) {
+    .ds-lp-faq {
+      padding: 80px 64px;
+    }
+    
+    .ds-lp-faq__headline {
+      font-size: 48px;
+      letter-spacing: -2.4px;
+      margin-bottom: 24px;
+    }
+    
+    .ds-lp-faq__intro {
+      font-size: 18px;
+      letter-spacing: -0.9px;
+      margin-bottom: 80px;
+    }
+    
+    .ds-lp-faq__items-wrapper {
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 16px;
+      column-gap: 64px;
+    }
+    
+    .ds-lp-faq__item summary {
+      padding: 22px 24px;
+    }
+    
+    .ds-lp-faq__question {
+      font-size: 20px;
+      letter-spacing: -1px;
+    }
+    
+    .ds-lp-faq__icon {
+      width: 28px;
+      height: 28px;
+    }
+    
+    .ds-lp-faq__answer {
+      padding: 0 24px 24px 24px;
+      font-size: 16px;
+      letter-spacing: -0.8px;
+    }
+  }
+</style>
+
+<section id="ds-lp--faq" class="ds-lp-faq">
+  <div class="max-w-7xl_ mx-auto">
+    {% if section.settings.headline != blank %}
+      <div class="ds-lp-faq__headline">
+        {{ section.settings.headline }}
+      </div>
+    {% endif %}
+    
+    {% if section.settings.intro_text != blank %}
+      <div class="ds-lp-faq__intro">
+        {{ section.settings.intro_text }}
+      </div>
+    {% endif %}
+    
+    {% if section.blocks.size > 0 %}
+      <div class="ds-lp-faq__items-wrapper">
+        {% for block in section.blocks %}
+          <div class="ds-lp-faq__item" data-block-id="{{ block.id }}">
+            <details id="Details-{{ block.id }}-{{ section.id }}">
+              <summary>
+                <div class="ds-lp-faq__question">
+                  {{ block.settings.question }}
+                </div>
+                <div class="ds-lp-faq__icon">
+                  <div class="ds-lp-faq__icon-plus">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 5V19M5 12H19" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <div class="ds-lp-faq__icon-minus">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5 12H19" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                </div>
+              </summary>
+              <div class="ds-lp-faq__answer">
+                {{ block.settings.answer }}
+              </div>
+            </details>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "DS LP FAQ",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "headline",
+      "label": "Headline",
+      "default": "<h2>Got Questions?</h2>"
+    },
+    {
+      "type": "textarea",
+      "id": "intro_text",
+      "label": "Intro Text",
+      "default": "We've got you covered. Here's everything high-level thinkers want to know before making the switch."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Is there caffeine in Day Shrooms?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>No, Day Shrooms is caffeine-free.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "DS LP FAQ",
+      "blocks": [
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is there caffeine in Day Shrooms?",
+            "answer": "<p>No, Day Shrooms is caffeine-free.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "When should I take it?",
+            "answer": "<p>Take it in the morning or whenever you need a natural energy boost.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will I trip out on mushrooms?",
+            "answer": "<p>No, Day Shrooms uses functional mushrooms that do not cause psychedelic effects.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will I get jitters or crash?",
+            "answer": "<p>No, Day Shrooms provides smooth, sustained energy without the crash.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Wait, what are adaptogens and nootropics again?",
+            "answer": "<p>Adaptogens help your body adapt to stress, while nootropics support cognitive function.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "How is this different from coffee?",
+            "answer": "<p>Day Shrooms provides sustained energy without caffeine, jitters, or crashes.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will it actually help me focus?",
+            "answer": "<p>Yes, the nootropic ingredients in Day Shrooms are designed to support focus and mental clarity.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "What does it taste like?",
+            "answer": "<p>Day Shrooms has a smooth, earthy flavor that's easy to enjoy.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's inside each jar?",
+            "answer": "<p>Each jar contains a blend of functional mushrooms, adaptogens, and nootropics.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long until I feel it?",
+            "answer": "<p>Most people notice effects within 30-60 minutes of consumption.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is it vegan? Gluten-free? Non-GMO?",
+            "answer": "<p>Yes, Day Shrooms is vegan, gluten-free, and non-GMO.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's the best way to use it?",
+            "answer": "<p>Mix 4 teaspoons with 6-8 oz of water, froth or stir well, and enjoy!</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
