@@ -29,6 +29,22 @@
     position: relative;
     border-radius: 12px;
     overflow: hidden;
+    aspect-ratio: 9 / 16;
+    width: 100%;
+  }
+  
+  .ds-lp-testimonials__video-item.is-playing .ds-lp-testimonials__video-thumbnail,
+  .ds-lp-testimonials__video-item.is-playing .ds-lp-testimonials__play-button {
+    display: none;
+  }
+  
+  .ds-lp-testimonials__inline-video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 12px;
+    background: #000000;
+    object-fit: cover;
   }
   
   @media (min-width: 768px) {
@@ -47,9 +63,10 @@
   
   .ds-lp-testimonials__video-thumbnail {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
     border-radius: 12px;
+    object-fit: cover;
   }
   
   .ds-lp-testimonials__play-button {
@@ -349,7 +366,7 @@
               {% endif %}
               
               {% if block.settings.video_url != blank %}
-                <div class="ds-lp-testimonials__play-button" onclick="openVideo('{{ block.settings.video_url }}')">
+                <div class="ds-lp-testimonials__play-button" onclick="openVideo(event, '{{ block.settings.video_url }}')">
                   <div class="ds-lp-testimonials__play-icon"></div>
                 </div>
               {% endif %}
@@ -506,18 +523,57 @@
   });
 })();
 
-function openVideo(url) {
-  if (url.includes('youtube.com') || url.includes('youtu.be')) {
+function openVideo(event, url) {
+  if (event && event.preventDefault) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+  
+  var button = event && event.currentTarget ? event.currentTarget : null;
+  var container = button ? button.closest('.ds-lp-testimonials__video-item') : null;
+  var isInlineVideo = url && (url.indexOf('cdn.shopify.com') !== -1 || /\.(mp4|mov|webm)(\?|$)/i.test(url));
+  
+  if (isInlineVideo && container) {
+    container.classList.add('is-playing');
+    var existingPlayer = container.querySelector('.ds-lp-testimonials__inline-video');
+    var videoEl = existingPlayer;
+    
+    if (!existingPlayer) {
+      videoEl = document.createElement('video');
+      videoEl.className = 'ds-lp-testimonials__inline-video';
+      videoEl.setAttribute('playsinline', '');
+      videoEl.setAttribute('controls', '');
+      videoEl.setAttribute('muted', '');
+      videoEl.src = url;
+      container.appendChild(videoEl);
+    }
+    
+    videoEl.currentTime = 0;
+    var playPromise = videoEl.play();
+    if (playPromise && playPromise.catch) {
+      playPromise.catch(function() {
+        videoEl.muted = true;
+        videoEl.play();
+      });
+    }
+    return;
+  }
+  
+  if (url && (url.includes('youtube.com') || url.includes('youtu.be'))) {
     const videoId = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/)?.[1];
     if (videoId) {
       window.open(`https://www.youtube.com/embed/${videoId}?autoplay=1`, '_blank');
+      return;
     }
-  } else if (url.includes('vimeo.com')) {
+  } else if (url && url.includes('vimeo.com')) {
     const videoId = url.match(/vimeo\.com\/(\d+)/)?.[1];
     if (videoId) {
       window.open(`https://player.vimeo.com/video/${videoId}?autoplay=1`, '_blank');
+      return;
     }
-  } else {
+  }
+  
+  if (url) {
     window.open(url, '_blank');
   }
 }
