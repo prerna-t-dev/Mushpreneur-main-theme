@@ -154,23 +154,23 @@
   }
   
   .ds-lp-comparison-table__vs-icon {
-    position: absolute;
-    left: 50%;
-    top: -30px;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 60px;
+    /* width: 60px;
+    height: auto; */
+    padding: 12px 24px;
     background-color: #FFFFFF;
-    border: 3px solid #000000;
-    border-radius: 50%;
+    border: 1px solid #000000;
+    border-radius: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 10;
-    font-weight: 700;
-    font-size: 20px;
+    font-weight: 900;
+    font-size: 24px;
+    letter-spacing: -1.2px;
+    line-height: 1;
     color: #000000;
   }
+
   
   .ds-lp-comparison-table__product-image {
     width: 120px;
@@ -356,14 +356,14 @@
       min-height: 48px;
       height: 48px;
     }
-    
+
     .ds-lp-comparison-table__vs-icon {
-      width: 80px;
-      height: 80px;
-      font-size: 28px;
-      top: 50%;
-      transform: translate(-50%, -50%);
+      top: 25%;
+      left: 0%;
+      transform: translateX(-50%);
     }
+    
+
     
     .ds-lp-comparison-table__product-image-mobile {
       display: none;
@@ -457,7 +457,7 @@
         {% comment %} Criteria Labels Column (Desktop Only) {% endcomment %}
         <div class="ds-lp-comparison-table__criteria-column">
           {% comment %} Empty placeholder for image spacing {% endcomment %}
-          <div class="ds-lp-comparison-table__right-criteria-placeholder-icon hidden lg:block">
+          <div class="ds-lp-comparison-table__right-criteria-placeholder-icon hidden lg:block top-[23%]">
           </div>
           {% comment %} Empty placeholder for title spacing {% endcomment %}
           <div class="ds-lp-comparison-table__right-criteria-placeholder-title hidden lg:block">
@@ -535,13 +535,16 @@
         </div>
       </div>
       
-      {% comment %} VS Icon {% endcomment %}
-      {% comment %} <div class="ds-lp-comparison-table__vs-icon">
-        VS
-      </div> {% endcomment %}
+      
       
       {% comment %} Right Section - Coffee & Energy Drinks (Black) {% endcomment %}
-      <div class="ds-lp-comparison-table__right-section">
+      <div class="ds-lp-comparison-table__right-section relative">
+        {% comment %} VS Icon {% endcomment %}
+        <div class="ds-lp-comparison-table__vs-icon text-2xl font-black absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 lg:top-[30%] lg:left-0 lg:transform-none">
+          VS
+        </div>
+
+
         {% comment %} Criteria Labels Column (Mobile Only) {% endcomment %}
         <div class="ds-lp-comparison-table__right-criteria-column">
           {% comment %} Empty placeholder for icon spacing {% endcomment %}
