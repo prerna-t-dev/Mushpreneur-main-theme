@@ -6,6 +6,10 @@
     overflow: hidden;
   }
   
+  .ds-lp-testimonials__video-carousel-wrapper {
+    position: relative;
+  }
+
   .ds-lp-testimonials__video-carousel {
     width: 100%;
     overflow: visible;
@@ -90,13 +94,9 @@
     transform: translate(-50%, -50%) scale(1.1);
   }
   
-  .ds-lp-testimonials__play-icon {
-    width: 0;
-    height: 0;
-    border-left: 20px solid #000;
-    border-top: 12px solid transparent;
-    border-bottom: 12px solid transparent;
-    margin-left: 4px;
+  .ds-lp-testimonials__play-button svg {
+    width: 54px;
+    height: 54px;
   }
   
   .ds-lp-testimonials__testimonial-carousel {
@@ -234,7 +234,8 @@
   }
   
   /* Custom arrow buttons */
-  .ds-lp-testimonials__arrow {
+  .ds-lp-testimonials__arrow,
+  .ds-lp-testimonials__video-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -247,7 +248,8 @@
     transition: opacity 0.3s ease;
   }
   
-  .ds-lp-testimonials__arrow:hover {
+  .ds-lp-testimonials__arrow:hover,
+  .ds-lp-testimonials__video-arrow:hover {
     opacity: 0.7;
   }
   
@@ -259,10 +261,19 @@
     right: 40px;
   }
   
-  .ds-lp-testimonials__arrow svg {
+  .ds-lp-testimonials__arrow svg,
+  .ds-lp-testimonials__video-arrow svg {
     display: block;
     width: 48px;
     height: 48px;
+  }
+
+  .ds-lp-testimonials__video-arrow--prev {
+    left: 0;
+  }
+
+  .ds-lp-testimonials__video-arrow--next {
+    right: 0;
   }
   
   @media (min-width: 1024px) {
@@ -289,7 +300,8 @@
         letter-spacing: -0.9px;
     }
     
-    .ds-lp-testimonials__arrow {
+    .ds-lp-testimonials__arrow,
+    .ds-lp-testimonials__video-arrow {
       display: block;
     }
     
@@ -302,10 +314,14 @@
       height: 100px;
       right: -40px;
     }
+    .ds-lp-testimonials__video-carousel-wrapper {
+      padding: 0 64px;
+    }
   }
 
-  @media (max-width: 768px) {
-    .ds-lp-testimonials__arrow {
+  @media (max-width: 1023px) {
+    .ds-lp-testimonials__arrow,
+    .ds-lp-testimonials__video-arrow {
       display: none !important;
     }
   }
@@ -337,9 +353,31 @@
     {% comment %} Video Carousel {% endcomment %}
     {% assign video_blocks = section.blocks | where: 'type', 'ugc_video' %}
     {% if video_blocks.size > 0 %}
-      <div class="ds-lp-testimonials__video-carousel mb-12 lg:mb-20 slick--testimonials-videos">
-        {% for block in video_blocks %}
+      <div class="ds-lp-testimonials__video-carousel-wrapper mb-12 lg:mb-20">
+        <button type="button" class="ds-lp-testimonials__video-arrow ds-lp-testimonials__video-arrow--prev" aria-label="Previous video">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.5" y="0.5" width="47" height="47" rx="23.5" stroke="black"/>
+            <path d="M32 23H19.83L25.42 17.41L24 16L16 24L24 32L25.41 30.59L19.83 25H32V23Z" fill="black"/>
+          </svg>
+        </button>
+        <div class="ds-lp-testimonials__video-carousel slick--testimonials-videos">
+          {% for block in video_blocks %}
           <div class="ds-lp-testimonials__video-item" data-block-id="{{ block.id }}">
+              {% assign fallback_video_thumb = '' %}
+              {% if block.settings.video_thumbnail == blank and block.settings.video_url != blank %}
+                {% assign raw_video_url = block.settings.video_url %}
+                {% if raw_video_url contains 'youtu.be/' %}
+                  {% assign fallback_video_thumb = raw_video_url | split: 'youtu.be/' | last | split: '?' | first %}
+                  {% assign fallback_video_thumb = 'https://img.youtube.com/vi/' | append: fallback_video_thumb | append: '/hqdefault.jpg' %}
+                {% elsif raw_video_url contains 'youtube.com/watch' %}
+                  {% assign fallback_video_thumb = raw_video_url | split: 'v=' | last | split: '&' | first %}
+                  {% assign fallback_video_thumb = 'https://img.youtube.com/vi/' | append: fallback_video_thumb | append: '/hqdefault.jpg' %}
+                {% elsif raw_video_url contains 'vimeo.com/' %}
+                  {% assign fallback_video_thumb = raw_video_url | split: 'vimeo.com/' | last | split: '?' | first | split: '/' | last %}
+                  {% assign fallback_video_thumb = 'https://vumbnail.com/' | append: fallback_video_thumb | append: '.jpg' %}
+                {% endif %}
+              {% endif %}
+
               {% if block.settings.video_thumbnail != blank %}
                 {% assign thumb_img = block.settings.video_thumbnail %}
                 {% if thumb_img.src contains '.svg' or thumb_img.width == blank %}
@@ -363,15 +401,43 @@
                     loading="lazy"
                   >
                 {% endif %}
+              {% elsif fallback_video_thumb != blank %} 
+                <img 
+                  src="{{ fallback_video_thumb }}"
+                  alt="{{ block.settings.video_alt | default: 'Video testimonial' | escape }}"
+                  class="ds-lp-testimonials__video-thumbnail"
+                  width="400"
+                  height="300"
+                  loading="lazy"
+                >
+              {% elsif block.settings.video_url != blank %}
+                <video
+                  class="ds-lp-testimonials__video-thumbnail"
+                  muted
+                  playsinline
+                  preload="metadata"
+                  aria-hidden="true"
+                >
+                  <source src="{{ block.settings.video_url }}" type="video/mp4">
+                </video>
               {% endif %}
               
               {% if block.settings.video_url != blank %}
-                <div class="ds-lp-testimonials__play-button" onclick="openVideo(event, '{{ block.settings.video_url }}')">
-                  <div class="ds-lp-testimonials__play-icon"></div>
-                </div>
+                <button type="button" class="ds-lp-testimonials__play-button" onclick="openVideo(event, '{{ block.settings.video_url }}')">
+                  <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 26.6667C0 11.9391 11.9391 0 26.6667 0C33.7391 0 40.5219 2.80952 45.5229 7.81046C50.5238 12.8115 53.3333 19.5943 53.3333 26.6667C53.3333 41.3943 41.3943 53.3334 26.6667 53.3334C11.9391 53.3334 0 41.3943 0 26.6667ZM21.7868 38.0801L37.3334 28.3734C37.9152 28.0008 38.2671 27.3576 38.2671 26.6667C38.2671 25.9759 37.9152 25.3326 37.3334 24.9601L21.7334 15.2534C21.119 14.866 20.3428 14.8422 19.7058 15.1911C19.0688 15.5401 18.671 16.207 18.6668 16.9334V36.4001C18.6582 37.1441 19.0633 37.8314 19.7184 38.1841C20.3735 38.5369 21.1703 38.4968 21.7868 38.0801Z" fill="white"/>
+                  </svg>
+                </button>
               {% endif %}
           </div>
-        {% endfor %}
+          {% endfor %}
+        </div>
+        <button type="button" class="ds-lp-testimonials__video-arrow ds-lp-testimonials__video-arrow--next" aria-label="Next video">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.5" y="0.5" width="47" height="47" rx="23.5" stroke="black"/>
+            <path d="M24 16L22.59 17.41L28.17 23H16V25H28.17L22.59 30.59L24 32L32 24L24 16Z" fill="black"/>
+          </svg>
+        </button>
       </div>
     {% endif %}
     
@@ -475,14 +541,21 @@
   $(document).ready(function(){
     // Video carousel
     if ($(videoCarouselSelector).length && !$(videoCarouselSelector).hasClass('slick-initialized')) {
-      $(videoCarouselSelector).slick({
+      var $videoCarousel = $(videoCarouselSelector);
+      var $videoWrapper = $videoCarousel.closest('.ds-lp-testimonials__video-carousel-wrapper');
+      var $videoPrevArrow = $videoWrapper.find('.ds-lp-testimonials__video-arrow--prev');
+      var $videoNextArrow = $videoWrapper.find('.ds-lp-testimonials__video-arrow--next');
+
+      $videoCarousel.slick({
         infinite: true,
         centerMode: true,
         speed: 300,
         slidesToShow: 1,
         slidesToScroll: 1,
         dots: false,
-        arrows: false,
+        arrows: true,
+        prevArrow: $videoPrevArrow,
+        nextArrow: $videoNextArrow,
         mobileFirst: true,
         responsive: [
           {
@@ -492,8 +565,7 @@
               slidesToScroll: 1,
               infinite: true,
               centerMode: false,
-              dots: false,
-              arrows: true
+              dots: false
             }
           }
         ]

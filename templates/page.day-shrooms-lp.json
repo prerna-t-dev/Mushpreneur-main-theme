@@ -619,24 +619,35 @@
         "ugc_video_aEwabQ": {
           "type": "ugc_video",
           "settings": {
-            "video_thumbnail": "shopify://shop_images/Placeholder_Lightbox.png",
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/1774e0d339fd4c4ea6c5e5ffa647b1ff.mp4",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/af8772d9a08847cdbe5d64774cbf8b50.mp4",
             "video_alt": "Video testimonial"
           }
         },
         "ugc_video_FqBFE3": {
           "type": "ugc_video",
           "settings": {
-            "video_thumbnail": "shopify://shop_images/Placeholder_Lightbox_1.png",
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/7d8ee797d7bf46fcacf5dfc623bed0c5.mp4",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/96f2821383d24d89b878928e80b5f8e9.mp4",
             "video_alt": "Video testimonial"
           }
         },
         "ugc_video_CmcyaJ": {
           "type": "ugc_video",
           "settings": {
-            "video_thumbnail": "shopify://shop_images/Placeholder_Lightbox_2.png",
-            "video_url": "",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/9b54b0ab429a4565b97b65ba3c730c03.mp4",
+            "video_alt": "Video testimonial"
+          }
+        },
+        "ugc_video_eehPMC": {
+          "type": "ugc_video",
+          "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/fe05dd819e624491a1bd5f2c05ab3947.mp4",
+            "video_alt": "Video testimonial"
+          }
+        },
+        "ugc_video_FGwXCy": {
+          "type": "ugc_video",
+          "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/afcc99bbef9c4c309bfe4c6e82774f6b.mp4",
             "video_alt": "Video testimonial"
           }
         },
@@ -690,6 +701,8 @@
         "ugc_video_aEwabQ",
         "ugc_video_FqBFE3",
         "ugc_video_CmcyaJ",
+        "ugc_video_eehPMC",
+        "ugc_video_FGwXCy",
         "testimonial_tiR4B4",
         "testimonial_Cghhnk",
         "testimonial_8UkqQA",
