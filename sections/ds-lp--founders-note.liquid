@@ -143,7 +143,7 @@
           <img 
             src="{{ founder_img | image_url }}"
             alt="{{ section.settings.founder_image_alt | default: 'Founder' | escape }}"
-            class="w-[120px] h-[120px] lg:w-[150px] lg:h-[150px] rounded-full object-cover border-2 border-black mx-auto"
+            class="w-[120px] h-[120px] lg:w-[150px] lg:h-[150px] rounded-full object-cover mx-auto"
             width="120"
             height="120"
             loading="lazy"
@@ -154,7 +154,7 @@
             srcset="{{ founder_img | image_url: width: 240 }} 240w, {{ founder_img | image_url: width: 300 }} 300w"
             sizes="120px"
             alt="{{ section.settings.founder_image_alt | default: 'Founder' | escape }}"
-            class="w-[120px] h-[120px] lg:w-[150px] lg:h-[150px] rounded-full object-cover border-2 border-black mx-auto"
+            class="w-[120px] h-[120px] lg:w-[150px] lg:h-[150px] rounded-full object-cover mx-auto"
             width="{{ founder_img.width }}"
             height="{{ founder_img.height }}"
             loading="lazy"
