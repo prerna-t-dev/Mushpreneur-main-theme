@@ -85,10 +85,10 @@
       "name": "DS LP Hero Banner",
       "settings": {
         "hero_image": "shopify://shop_images/Placeholder_Image_1.png",
-        "headline": "Don't Quit Coffee. Outsmart It.",
+        "headline": "<p>Don't Quit Coffee. <br/>Outsmart It.</p>",
         "subheadline": "Another coffee won't fix it. But this mushroom-powered upgrade just might.",
         "show_pricing": true,
-        "pricing_part1_text": "Only $2/day.",
+        "pricing_part1_text": "Only $1.95/day.",
         "pricing_part1_color": "#ff3ead",
         "pricing_part2_text": "Free shipping included.",
         "pricing_part2_color": "#000000",
@@ -297,7 +297,7 @@
         "tab_easy_to_make_label": "Easy to Make",
         "tab_easy_to_make_content": "<p>Your productivity ritual, your way:</p><ul><li><strong>Straight Up</strong>: Mix with hot or cold water, stir or froth, and drink straight.</li><li><strong>Iced Latte</strong>: Froth it, pour over ice, and add your favorite milk.</li><li><strong>Supercharged Boos</strong>t: Mix into your instant espresso or coffee to curb midday slumps.</li><li><strong>Multipurpose</strong>: Mix with anything from baked goods to smoothies</li><li><strong>Start Slow</strong>: New to functional mushrooms? Begin with half a serving for a gentle boost.</li></ul>",
         "tab_guarantee_label": "Guarantee",
-        "tab_guarantee_content": "<p>We’re passionate about delivering quality and satisfaction. Feel more focused and productive or Day Shrooms is on us! Just let us know within 30 days of your first purchase. Contact Us.[Note that Contact Us should be hyperlinked to email <a href=\"mailto:hey@mushpreneur.com\"><strong>hey@mushpreneur.com</strong></a></p>"
+        "tab_guarantee_content": "<p>We’re passionate about delivering quality and satisfaction. Feel more focused and productive or Day Shrooms is on us! Just let us know within 30 days of your first purchase.<a href=\"mailto:hey@mushpreneur.com\" title=\"mailto:hey@mushpreneur.com\"><strong> Contact Us</strong></a>.</p>"
       }
     },
     "ds_lp_how_it_works_GYceHm": {
@@ -787,7 +787,7 @@
         "tab_easy_to_make_label": "Easy to Make",
         "tab_easy_to_make_content": "<p>Your productivity ritual, your way:</p><ul><li><strong>Straight Up</strong>: Mix with hot or cold water, stir or froth, and drink straight.</li><li><strong>Iced Latte</strong>: Froth it, pour over ice, and add your favorite milk.</li><li><strong>Supercharged Boos</strong>t: Mix into your instant espresso or coffee to curb midday slumps.</li><li><strong>Multipurpose</strong>: Mix with anything from baked goods to smoothies</li><li><strong>Start Slow</strong>: New to functional mushrooms? Begin with half a serving for a gentle boost.</li></ul>",
         "tab_guarantee_label": "Guarantee",
-        "tab_guarantee_content": "<p>We’re passionate about delivering quality and satisfaction. Feel more focused and productive or Day Shrooms is on us! Just let us know within 30 days of your first purchase. Contact Us.[Note that Contact Us should be hyperlinked to email <a href=\"mailto:hey@mushpreneur.com\"><strong>hey@mushpreneur.com</strong></a></p>"
+        "tab_guarantee_content": "<p>We’re passionate about delivering quality and satisfaction. Feel more focused and productive or Day Shrooms is on us! Just let us know within 30 days of your first purchase.<a href=\"mailto:hey@mushpreneur.com\" title=\"mailto:hey@mushpreneur.com\"><strong> Contact Us</strong></a>.</p>"
       }
     },
     "ds_lp_steps_qbEngd": {

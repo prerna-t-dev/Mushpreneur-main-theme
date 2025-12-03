@@ -1,0 +1,191 @@
+<style>
+  .research-stress-epidemic__video {
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+  
+  .research-stress-epidemic__video-element {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+  
+  .research-stress-epidemic__image {
+    width: 100%;
+  }
+  
+  .research-stress-epidemic__image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+</style>
+
+<section class="research-stress-epidemic">
+  <div class="research-stress-epidemic__container">
+    <h2 class="research-stress-epidemic__heading" data-aos="fade-up">{{ section.settings.heading }}</h2>
+    <div class="research-stress-epidemic__content">
+      <div class="research-stress-epidemic__left">
+        {% if section.settings.video_url != blank %}
+          <div class="research-stress-epidemic__video" data-aos="fade-in">
+            <video 
+              autoplay 
+              muted 
+              loop 
+              playsinline
+              class="research-stress-epidemic__video-element"
+            >
+              <source src="{{ section.settings.video_url }}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        {% elsif section.settings.image != blank %}
+          <div class="research-stress-epidemic__image" data-aos="fade-in">
+            {% assign img = section.settings.image %}
+            <img 
+              src="{{ img | image_url: width: 600 }}" 
+              alt="{{ img.alt | escape }}"
+              width="{{ img.width | default: 600 }}"
+              height="{{ img.height | default: 400 }}"
+              loading="lazy"
+            >
+          </div>
+        {% endif %}
+        
+        <div class="research-stress-epidemic__features" data-aos="fade-up" data-aos-delay="100">
+          {% for block in section.blocks %}
+            {% if block.type == 'feature' %}
+              <div class="research-stress-epidemic__feature" {{ block.shopify_attributes }}>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_1_73)">
+                    <path d="M15.5 7.75002C15.5 12.0302 12.0302 15.5 7.75002 15.5C3.46978 15.5 0 12.0302 0 7.75002C0 3.46978 3.46978 0 7.75002 0C12.0302 0 15.5 3.46978 15.5 7.75002ZM6.85357 11.8536L12.6036 6.10357C12.7988 5.90831 12.7988 5.59172 12.6036 5.39647L11.8964 4.68938C11.7012 4.49409 11.3846 4.49409 11.1893 4.68938L6.49997 9.37869L4.31066 7.18931C4.11541 6.99411 3.79882 6.99411 3.60353 7.18931L2.89644 7.89645C2.70119 8.09171 2.70119 8.40826 2.89644 8.60352L6.14644 11.8535C6.34172 12.0488 6.6583 12.0488 6.85357 11.8536Z" fill="#E69043"></path>
+                    </g>
+                    <defs>
+                    <clipPath id="clip0_1_73">
+                    <rect width="16" height="16" fill="white"></rect>
+                    </clipPath>
+                    </defs>
+                </svg>
+                <span>{{ block.settings.feature_text }}</span>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      
+      <div class="research-stress-epidemic__right">
+        
+        
+        <div class="research-stress-epidemic__text">
+          <p class="research-stress-epidemic__problem" data-aos="fade-up">{{ section.settings.problem_text }}</p>
+          
+          <div class="research-stress-epidemic__solution">
+            <h3 class="research-stress-epidemic__solution-heading" data-aos="fade-up">{{ section.settings.solution_heading }}</h3>
+            <div class="research-stress-epidemic__quotes">
+                <svg width="97" height="72" viewBox="0 0 97 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22.5773 0C10.1081 0 0 10.111 0 22.5845C0 35.0537 10.1081 45.1647 22.5773 45.1647C22.5773 45.1647 22.4681 53.5537 15.6529 65.6278C14.8958 68.0471 16.2453 70.6234 18.6661 71.3761C20.3837 71.9163 22.1911 71.3912 23.3582 70.1687C39.029 53.0286 45.1632 32.8558 45.1632 22.5845C45.1632 10.111 35.0552 0 22.5773 0Z" fill="#525961" fill-opacity="0.15"/>
+                    <path d="M74.1633 0C61.6941 0 51.5859 10.1112 51.5859 22.5845C51.5859 35.0537 61.6941 45.1647 74.1633 45.1647C74.1633 45.1647 74.0541 53.5537 67.2388 65.6278C66.4818 68.0471 67.8315 70.6234 70.252 71.3761C71.9696 71.9163 73.777 71.3912 74.9439 70.1687C90.615 53.0286 96.7493 32.8558 96.7493 22.5845C96.7493 10.111 86.6412 0 74.1633 0Z" fill="#525961" fill-opacity="0.15"/>
+                </svg>
+
+            </div>
+          </div>
+          
+          <p class="research-stress-epidemic__elaboration" data-aos="fade-up">{{ section.settings.elaboration_text }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Research Stress Epidemic",
+  "settings": [
+    {
+      "type": "url",
+      "id": "video_url",
+      "label": "Video URL",
+      "info": "Enter a video URL (MP4). If both video and image are provided, video will be shown."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Main Image",
+      "info": "Will be shown if no video is provided"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "The Stress and Anxiousness Epidemic"
+    },
+    {
+      "type": "textarea",
+      "id": "problem_text",
+      "label": "Problem Statement",
+      "default": "Stress and anxiousness are no longer rare conditions. Nearly 1 in 5 adults in the U.S. experiences anxiousness. Stress affects almost everyone, and its long-term effects on the body and mind are serious: disrupted sleep, increased cortisol levels, mood swings, and even physical health issues."
+    },
+    {
+      "type": "text",
+      "id": "solution_heading",
+      "label": "Solution Heading",
+      "default": "We created Rē·prev as a better, more accessible solution."
+    },
+    {
+      "type": "textarea",
+      "id": "elaboration_text",
+      "label": "Elaboration Text",
+      "default": "Modern life only makes things worse. Between digital overload, poor nutrition, financial strain, and uncertainty about the future, stress levels are at an all-time high. And while therapy and medication work for some, they come with barriers like cost, availability, and unwanted side effects."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "text",
+          "id": "feature_text",
+          "label": "Feature Text",
+          "default": "Fast-acting"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Research Stress Epidemic",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "feature_text": "Fast-acting"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature_text": "Natural ingredients"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature_text": "Research-backed"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature_text": "Third-party tested"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

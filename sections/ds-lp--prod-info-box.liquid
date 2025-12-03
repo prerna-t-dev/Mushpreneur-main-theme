@@ -73,6 +73,78 @@
     transform: none !important;
   }
   
+  /* Gallery Navigation Arrows */
+  #ds-lp--prod-info-box .ds-lp-gallery-wrapper {
+    position: relative;
+  }
+  
+  #ds-lp--prod-info-box .ds-lp-gallery-arrow {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+  
+  #ds-lp--prod-info-box .ds-lp-gallery-arrow:hover {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.05);
+  }
+  
+  #ds-lp--prod-info-box .ds-lp-gallery-arrow:active {
+    transform: translateY(-50%) scale(0.95);
+  }
+  
+  #ds-lp--prod-info-box .ds-lp-gallery-arrow--prev {
+    left: 16px;
+  }
+  
+  #ds-lp--prod-info-box .ds-lp-gallery-arrow--next {
+    right: 16px;
+  }
+  
+  #ds-lp--prod-info-box .ds-lp-gallery-arrow svg {
+    width: 48px;
+    height: 48px;
+    display: block;
+  }
+  
+  #ds-lp--prod-info-box .ds-lp-gallery-arrow[disabled] {
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  
+  @media (min-width: 750px) {
+    #ds-lp--prod-info-box .ds-lp-gallery-arrow {
+      width: 56px;
+      height: 56px;
+    }
+    
+    #ds-lp--prod-info-box .ds-lp-gallery-arrow--prev {
+      left: 24px;
+    }
+    
+    #ds-lp--prod-info-box .ds-lp-gallery-arrow--next {
+      right: 24px;
+    }
+    
+    #ds-lp--prod-info-box .ds-lp-gallery-arrow svg {
+      width: 56px;
+      height: 56px;
+    }
+  }
+  
   /* Thumbnail sizes and spacing */
   #ds-lp--prod-info-box .thumbnail-slider {
     padding-left: 0 !important;
@@ -228,11 +300,38 @@
       {% comment %} Left Column - Product Images {% endcomment %}
       <div class="order-1 lg:order-1">
         {% if selected_product != blank and selected_product.media.size > 0 %}
-          {% render 'product-media-gallery', 
-            product: selected_product, 
-            variant_images: variant_images,
-            section: section
-          %}
+          <div class="ds-lp-gallery-wrapper">
+            {% render 'product-media-gallery', 
+              product: selected_product, 
+              variant_images: variant_images,
+              section: section
+            %}
+            {% comment %} Navigation Arrows {% endcomment %}
+            {% if selected_product.media.size > 1 %}
+              <button 
+                type="button"
+                class="ds-lp-gallery-arrow ds-lp-gallery-arrow--prev"
+                aria-label="Previous image"
+                data-gallery-prev
+              >
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="0.5" y="0.5" width="47" height="47" rx="23.5" stroke="black"></rect>
+                  <path d="M32 23H19.83L25.42 17.41L24 16L16 24L24 32L25.41 30.59L19.83 25H32V23Z" fill="black"></path>
+                </svg>
+              </button>
+              <button 
+                type="button"
+                class="ds-lp-gallery-arrow ds-lp-gallery-arrow--next"
+                aria-label="Next image"
+                data-gallery-next
+              >
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="0.5" y="0.5" width="47" height="47" rx="23.5" stroke="black"></rect>
+                  <path d="M24 16L22.59 17.41L28.17 23H16V25H28.17L22.59 30.59L24 32L32 24L24 16Z" fill="black"></path>
+                </svg>
+              </button>
+            {% endif %}
+          </div>
         {% else %}
           <div class="bg-gray-200 rounded-lg p-20 flex items-center justify-center">
             <p class="text-gray-400">No product selected or product has no images</p>
@@ -378,7 +477,7 @@
         {% comment %} Tab Content {% endcomment %}
         <div class="ds-lp-prod-info-box__tab-content active" id="tab-details-{{ section.id }}">
           {% if section.settings.tab_details_content != blank %}
-            <div class="text-white text-sm lg:text-base leading-[1.5] tracking-[-0.7px] lg:tracking-[-0.8px]">
+            <div class="text-white text-base lg:text-lg leading-[1.5] tracking-[-0.7px] lg:tracking-[-0.9px]">
               {{ section.settings.tab_details_content }}
             </div>
           {% endif %}
@@ -386,7 +485,7 @@
         
         <div class="ds-lp-prod-info-box__tab-content" id="tab-ingredients-{{ section.id }}">
           {% if section.settings.tab_ingredients_content != blank %}
-            <div class="text-white text-sm lg:text-base leading-[1.5] tracking-[-0.7px] lg:tracking-[-0.8px]">
+            <div class="text-white text-base lg:text-lg leading-[1.5] tracking-[-0.7px] lg:tracking-[-0.9px]">
               {{ section.settings.tab_ingredients_content }}
             </div>
           {% endif %}
@@ -394,7 +493,7 @@
         
         <div class="ds-lp-prod-info-box__tab-content" id="tab-easy-to-make-{{ section.id }}">
           {% if section.settings.tab_easy_to_make_content != blank %}
-            <div class="text-white text-sm lg:text-base leading-[1.5] tracking-[-0.7px] lg:tracking-[-0.8px]">
+            <div class="text-white text-base lg:text-lg leading-[1.5] tracking-[-0.7px] lg:tracking-[-0.9px]">
               {{ section.settings.tab_easy_to_make_content }}
             </div>
           {% endif %}
@@ -402,7 +501,7 @@
         
         <div class="ds-lp-prod-info-box__tab-content" id="tab-guarantee-{{ section.id }}">
           {% if section.settings.tab_guarantee_content != blank %}
-            <div class="text-white text-sm lg:text-base leading-[1.5] tracking-[-0.7px] lg:tracking-[-0.8px]">
+            <div class="text-white text-base lg:text-lg leading-[1.5] tracking-[-0.7px] lg:tracking-[-0.9px]">
               {{ section.settings.tab_guarantee_content }}
             </div>
           {% endif %}
@@ -418,6 +517,106 @@
     const section = document.getElementById('ds-lp--prod-info-box');
     
     if (section) {
+      // Gallery Navigation Arrows
+      const galleryWrapper = section.querySelector('.ds-lp-gallery-wrapper');
+      if (galleryWrapper) {
+        const mediaGallery = galleryWrapper.querySelector('media-gallery');
+        const viewer = galleryWrapper.querySelector('[id^="GalleryViewer"]');
+        const prevButton = galleryWrapper.querySelector('[data-gallery-prev]');
+        const nextButton = galleryWrapper.querySelector('[data-gallery-next]');
+        const mediaItems = galleryWrapper.querySelectorAll('.product__media-item[data-media-id]');
+        
+        function updateArrowStates() {
+          if (!mediaItems.length || !prevButton || !nextButton) return;
+          
+          const activeIndex = Array.from(mediaItems).findIndex(item => item.classList.contains('is-active'));
+          const totalItems = mediaItems.length;
+          
+          // Disable prev button if on first item
+          if (activeIndex === 0) {
+            prevButton.setAttribute('disabled', 'disabled');
+          } else {
+            prevButton.removeAttribute('disabled');
+          }
+          
+          // Disable next button if on last item
+          if (activeIndex === totalItems - 1) {
+            nextButton.setAttribute('disabled', 'disabled');
+          } else {
+            nextButton.removeAttribute('disabled');
+          }
+        }
+        
+        function navigateGallery(direction) {
+          if (!mediaGallery || !viewer) return;
+          
+          const activeItem = viewer.querySelector('.product__media-item.is-active');
+          if (!activeItem) return;
+          
+          const currentMediaId = activeItem.getAttribute('data-media-id');
+          const allMediaItems = Array.from(viewer.querySelectorAll('.product__media-item[data-media-id]'));
+          const currentIndex = allMediaItems.findIndex(item => item.getAttribute('data-media-id') === currentMediaId);
+          
+          let targetIndex;
+          if (direction === 'next') {
+            targetIndex = currentIndex + 1;
+            if (targetIndex >= allMediaItems.length) return;
+          } else {
+            targetIndex = currentIndex - 1;
+            if (targetIndex < 0) return;
+          }
+          
+          const targetMediaId = allMediaItems[targetIndex].getAttribute('data-media-id');
+          
+          // Try to use the media gallery's setActiveMedia method first
+          if (mediaGallery && typeof mediaGallery.setActiveMedia === 'function') {
+            mediaGallery.setActiveMedia(targetMediaId, false);
+          } else {
+            // Fallback: manually set active
+            allMediaItems.forEach(item => item.classList.remove('is-active'));
+            allMediaItems[targetIndex].classList.add('is-active');
+          }
+          
+          // Update arrow states after a short delay
+          setTimeout(updateArrowStates, 150);
+        }
+        
+        if (prevButton) {
+          prevButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            navigateGallery('prev');
+          });
+        }
+        
+        if (nextButton) {
+          nextButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            navigateGallery('next');
+          });
+        }
+        
+        // Update arrow states on initial load
+        updateArrowStates();
+        
+        // Update arrow states when slide changes (listen to custom event or use MutationObserver)
+        if (viewer) {
+          viewer.addEventListener('slideChanged', updateArrowStates);
+          
+          // Also use MutationObserver to watch for class changes
+          const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+              if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                updateArrowStates();
+              }
+            });
+          });
+          
+          mediaItems.forEach(item => {
+            observer.observe(item, { attributes: true, attributeFilter: ['class'] });
+          });
+        }
+      }
+      
       const tabs = section.querySelectorAll('.ds-lp-prod-info-box__tab[data-tab-target]');
       
       tabs.forEach(tab => {
