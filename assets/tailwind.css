@@ -5164,6 +5164,41 @@ body[data-template="blog"] sticky-header header{
   .\33xl\:pt-\[220px\] {
     padding-top: 220px;
   }
+
+  .\33xl\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .\33xl\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+  .\33xl\:text-\[72px\] {
+    font-size: 72px;
+  }
+
+  .\33xl\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .\33xl\:tracking-\[-0\.8px\] {
+    letter-spacing: -0.8px;
+  }
+
+  .\33xl\:tracking-\[-1\.2px\] {
+    letter-spacing: -1.2px;
+  }
+
+  .\33xl\:tracking-\[-1\.4px\] {
+    letter-spacing: -1.4px;
+  }
+
+  .\33xl\:tracking-\[-3\.8px\] {
+    letter-spacing: -3.8px;
+  }
 }
 
 .\[\&_p\:last-child\]\:mb-0 p:last-child {

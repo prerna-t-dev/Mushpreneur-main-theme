@@ -619,6 +619,7 @@
         "ugc_video_aEwabQ": {
           "type": "ugc_video",
           "settings": {
+            "video_thumbnail": "shopify://shop_images/Script_1_Thumbnail_1.png",
             "video_url": "https://cdn.shopify.com/videos/c/o/v/af8772d9a08847cdbe5d64774cbf8b50.mp4",
             "video_alt": "Video testimonial"
           }
@@ -626,6 +627,7 @@
         "ugc_video_FqBFE3": {
           "type": "ugc_video",
           "settings": {
+            "video_thumbnail": "shopify://shop_images/Script_2_Thumbnail_1.png",
             "video_url": "https://cdn.shopify.com/videos/c/o/v/96f2821383d24d89b878928e80b5f8e9.mp4",
             "video_alt": "Video testimonial"
           }
@@ -633,6 +635,7 @@
         "ugc_video_CmcyaJ": {
           "type": "ugc_video",
           "settings": {
+            "video_thumbnail": "shopify://shop_images/Script_3_Thumbnail_1.png",
             "video_url": "https://cdn.shopify.com/videos/c/o/v/9b54b0ab429a4565b97b65ba3c730c03.mp4",
             "video_alt": "Video testimonial"
           }
@@ -640,6 +643,7 @@
         "ugc_video_eehPMC": {
           "type": "ugc_video",
           "settings": {
+            "video_thumbnail": "shopify://shop_images/Script_4_Thumbnail_1.png",
             "video_url": "https://cdn.shopify.com/videos/c/o/v/fe05dd819e624491a1bd5f2c05ab3947.mp4",
             "video_alt": "Video testimonial"
           }
@@ -647,6 +651,7 @@
         "ugc_video_FGwXCy": {
           "type": "ugc_video",
           "settings": {
+            "video_thumbnail": "shopify://shop_images/Script_5_Thumbnails_1.png",
             "video_url": "https://cdn.shopify.com/videos/c/o/v/afcc99bbef9c4c309bfe4c6e82774f6b.mp4",
             "video_alt": "Video testimonial"
           }
@@ -778,7 +783,7 @@
         "bundle_price_original": "$117",
         "single_option_title": "Buy One Time",
         "single_price": "$39",
-        "cta_text": "Add to Cart",
+        "cta_text": "Claim My Pre-launch Offer",
         "free_shipping_text": "Free shipping",
         "tab_details_label": "Details",
         "tab_details_content": "<p>Each serving delivers 2000mg of fruiting body mushrooms, 850mg of natural nootropics, 200mg of L-theanine, and 60mg of clean caffeine from green tea. Designed for sustained energy and all-day flow, Day Shrooms is vegan, non-GMO, gluten-free, and free of sugar alcohols. With a hint of sweet from maple and monk fruit, it's a clean, satisfying boost to fuel your day.</p>",
@@ -825,7 +830,7 @@
         "section_label": "3 Quick Steps",
         "headline": "<p>Quick & Easy to Make</p>",
         "coffee_image": "shopify://shop_images/Dayshrooms_cacao_powder.png",
-        "coffee_image_top": -95,
+        "coffee_image_top": -45,
         "coffee_image_right": 0,
         "coffee_image_alt": "Coffee"
       }

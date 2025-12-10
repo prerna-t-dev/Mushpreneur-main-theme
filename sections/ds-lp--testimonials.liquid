@@ -78,15 +78,16 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 60px;
-    height: 60px;
-    background: rgba(255, 255, 255, 0.9);
+    width: 52px;
+    height: 52px;
+    /* background: rgba(255, 255, 255, 0.9); */
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease;
+    z-index: 2;
   }
   
   .ds-lp-testimonials__play-button:hover {
@@ -95,8 +96,27 @@
   }
   
   .ds-lp-testimonials__play-button svg {
-    width: 54px;
-    height: 54px;
+    width: 52px;
+    height: 52px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .ds-lp-testimonials__play-button-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 128px;
+    height: 103px;
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  .ds-lp-testimonials__play-button-background svg {
+    width: 100%;
+    height: 100%;
+    display: block;
   }
   
   .ds-lp-testimonials__testimonial-carousel {
@@ -423,6 +443,11 @@
               {% endif %}
               
               {% if block.settings.video_url != blank %}
+                <div class="ds-lp-testimonials__play-button-background">
+                  <svg width="128" height="103" viewBox="0 0 128 103" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12.8 0H115.2C122.269 0 128 5.73056 128 12.8V89.6C128 96.6694 122.269 102.4 115.2 102.4H12.8C5.73056 102.4 0 96.6694 0 89.6V12.8C0 5.73056 5.73056 0 12.8 0ZM58.688 71.808L83.584 55.168C84.9254 54.2938 85.7344 52.8013 85.7344 51.2C85.7344 49.5987 84.9254 48.1062 83.584 47.232L58.688 30.592C57.2179 29.5987 55.3203 29.497 53.7523 30.3277C52.185 31.1584 51.2032 32.7859 51.2 34.56V67.84C51.2032 69.6141 52.185 71.2416 53.7523 72.0723C55.3203 72.903 57.2179 72.8013 58.688 71.808Z" fill="black" fill-opacity="0.15"/>
+                  </svg>
+                </div>
                 <button type="button" class="ds-lp-testimonials__play-button" onclick="openVideo(event, '{{ block.settings.video_url }}')">
                   <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M0 26.6667C0 11.9391 11.9391 0 26.6667 0C33.7391 0 40.5219 2.80952 45.5229 7.81046C50.5238 12.8115 53.3333 19.5943 53.3333 26.6667C53.3333 41.3943 41.3943 53.3334 26.6667 53.3334C11.9391 53.3334 0 41.3943 0 26.6667ZM21.7868 38.0801L37.3334 28.3734C37.9152 28.0008 38.2671 27.3576 38.2671 26.6667C38.2671 25.9759 37.9152 25.3326 37.3334 24.9601L21.7334 15.2534C21.119 14.866 20.3428 14.8422 19.7058 15.1911C19.0688 15.5401 18.671 16.207 18.6668 16.9334V36.4001C18.6582 37.1441 19.0633 37.8314 19.7184 38.1841C20.3735 38.5369 21.1703 38.4968 21.7868 38.0801Z" fill="white"/>
@@ -562,6 +587,16 @@
             breakpoint: 768,
             settings: {
               slidesToShow: 3,
+              slidesToScroll: 1,
+              infinite: true,
+              centerMode: false,
+              dots: false
+            }
+          },
+          {
+            breakpoint: 1280,
+            settings: {
+              slidesToShow: 4,
               slidesToScroll: 1,
               infinite: true,
               centerMode: false,
