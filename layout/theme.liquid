@@ -339,6 +339,33 @@
     {% comment %} Cloudflare Turnstile Script {% endcomment %}
     {% comment %} <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script> {% endcomment %}
 
+    {% comment %} Landing Page Redirect Script {% endcomment %}
+    <script>
+      (function() {
+        // Landing page path
+        const landingPagePath = '/pages/day-shrooms';
+        
+        // Get current path and query string
+        const currentPath = window.location.pathname;
+        const queryString = window.location.search; // Includes UTM parameters and other query params
+        
+        // Check if we're already on the landing page
+        if (currentPath === landingPagePath || currentPath === landingPagePath + '/') {
+          return; // Don't redirect if already on landing page
+        }
+        
+        // Check if we're on an account page (don't redirect account pages)
+        if (currentPath.startsWith('/account') || 
+            currentPath.startsWith('/customers') ||
+            currentPath.startsWith('/checkout')) {
+          return; // Don't redirect account or checkout pages
+        }
+        
+        // Redirect to landing page, preserving query parameters (UTM, etc.)
+        window.location.href = landingPagePath + queryString;
+      })();
+    </script>
+
   </head>
 
   <body {{ template.suffix }} data-template-suffix="{{ template.suffix }}" data-template="{{ template.name }}" class="scrollbar-gutter-overlay_ gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">

@@ -108,16 +108,16 @@
       
       {% comment %} Right Column - Content {% endcomment %}
       <div class="order-2 lg:order-2">
-        <h1 class="ds-lp-hero-banner__headline text-[38px] lg:text-[56px] font-bold leading-none mb-2 tracking-[-1.9px] lg:tracking-[-2.8px] xl:w-4/5">
+        <h1 class="ds-lp-hero-banner__headline text-[38px] lg:text-[56px] 3xl:text-[72px] font-bold leading-none mb-2 tracking-[-1.9px] lg:tracking-[-2.8px] 3xl:tracking-[-3.8px] xl:w-4/5">
           {{ section.settings.headline | default: "Don't Quit Coffee. Outsmart It." }}
         </h1>
         
-        <p class="ds-lp-hero-banner__subheadline text-lg lg:text-xl mb-6 leading-[1.5] tracking-[-0.9px] lg:tracking-[-1px] xl:w-3/5">
+        <p class="ds-lp-hero-banner__subheadline text-lg lg:text-xl 3xl:text-2xl mb-6 leading-[1.5] tracking-[-0.9px] lg:tracking-[-1px] 3xl:tracking-[-1.2px] xl:w-3/5">
           {{ section.settings.subheadline | default: "Another coffee won't fix it. But this mushroom-powered upgrade just might." }}
         </p>
         
         {% if section.settings.show_pricing %}
-          <p class="ds-lp-hero-banner__pricing text-xl lg:text-2xl mb-6 lg:mb-8 leading-[1.4] tracking-[-1px] lg:tracking-[-1.2px]">
+          <p class="ds-lp-hero-banner__pricing text-xl lg:text-2xl 3xl:text-3xl mb-6 lg:mb-8 leading-[1.4] tracking-[-1px] lg:tracking-[-1.2px] 3xl:tracking-[-1.4px]">
             <span class="ds-lp-hero-banner__pricing-part1 font-medium">
               {{ section.settings.pricing_part1_text | default: "Only $2/day. " }}
             </span>
@@ -138,7 +138,7 @@
         </div>
         
         {% if section.settings.show_small_print %}
-          <p class="ds-lp-hero-banner__small-print text-xs text-center leading-[1.5] tracking-[-0.6px]">
+          <p class="ds-lp-hero-banner__small-print text-xs 3xl:text-base text-center leading-[1.5] tracking-[-0.6px] 3xl:tracking-[-0.8px]">
             {{ section.settings.small_print_text | default: "Limited pre-launch drop. $39 for 20 servings." }}
           </p>
         {% endif %}
