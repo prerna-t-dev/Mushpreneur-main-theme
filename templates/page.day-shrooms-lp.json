@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
     "main": {
       "type": "main-page",
@@ -97,7 +97,7 @@
         "small_print_text": "Limited pre-launch drop. $39 for 20 servings.",
         "show_benefits": true,
         "benefit_icon_mobile_size": 60,
-        "benefit_icon_desktop_size": 60,
+        "benefit_icon_desktop_size": 70,
         "background_color": "#ffffff",
         "headline_color": "#000000",
         "subheadline_color": "#000000",
@@ -119,7 +119,7 @@
         "feature_NrdA6r": {
           "type": "feature",
           "settings": {
-            "feature_text": "850mg active natural nutropics"
+            "feature_text": "850mg active natural nootropics"
           }
         },
         "feature_8k4GQK": {
@@ -185,7 +185,7 @@
           "settings": {
             "icon_image": "shopify://shop_images/Relume_0e3e4390-97e6-4767-b997-4c0610ecd754.png",
             "title": "Raw Cacao + Black Maca",
-            "description": "Boost mood and endurance—without the sugar bomb."
+            "description": "Boost mood and endurance without the sugar bomb."
           }
         },
         "benefit_4xCp3C": {
@@ -224,7 +224,7 @@
       "settings": {
         "section_label": "Why it Works",
         "headline": "<p>Smarter Synergy. <br/>Sharper You.</p>",
-        "intro_text": "You've heard of mushrooms. You've heard of nootropics. You've heard of clean energy. But the real power? It's in the synergy. Day Shrooms was built to work with your brain—not against it. While coffee spikes and crashes, this formula delivers smooth, sustained focus—without the chaos.",
+        "intro_text": "You've heard of mushrooms. You've heard of nootropics. You've heard of clean energy. But the real power? It's in the synergy. Day Shrooms was built to work with your brain, not against it. While coffee spikes and crashes, this formula delivers smooth, sustained focus.",
         "desktop_image": "shopify://shop_images/Placeholder_Image_2_1.png",
         "mobile_image": "shopify://shop_images/Placeholder_Image_1_027d06e8-03c5-4fd1-9c7a-f142c71e979e.png",
         "tagline": "<p>This isn't just a better blend. <br/>It's a smarter system for how <br/>your brain actually works.</p>"
@@ -346,7 +346,7 @@
       "settings": {
         "section_label": "How Day Shrooms Works",
         "headline": "<h2>Productivity isn't about hustle. </h2><h2>It's about alignment.</h2>",
-        "intro_text": "Most drinks give you a spike. Day Shrooms gives you control—working with your mind and body to eliminate burnout, sharpen focus, and unlock better outputs. Here's how we built it to help you flow:",
+        "intro_text": "Most drinks give you a spike. Day Shrooms gives you control working with your mind and body to eliminate burnout, sharpen focus, and unlock better outputs. Here's how we built it to help you flow:",
         "product_image": "shopify://shop_images/Placeholder_Image_1_f2e15d03-d68e-45d5-b5ca-bb7471a71ce5.png",
         "product_image_alt": "Day Shrooms Product",
         "show_timeline": true,
@@ -802,7 +802,7 @@
           "type": "step",
           "settings": {
             "step_image": "shopify://shop_images/mush--gif--3.gif",
-            "step_text": "Mix 4 teaspoons with 6-8 oz water."
+            "step_text": "Mix 4 teaspoons with 6-8oz water."
           }
         },
         "step_jUYApH": {
@@ -842,7 +842,7 @@
           "type": "faq_item",
           "settings": {
             "question": "Is there caffeine in Day Shrooms?",
-            "answer": "<p>Yes, but only 60mg. Just enough to spark focus, not fry your nervous system.<br/>It’s clean green tea caffeine paired with L-theanine, so you get smooth, sustained energy without the jitters, spikes, or shame spirals. You stay dialed in — not wired and weird.</p>"
+            "answer": "<p>Yes, but only 60mg. Just enough to spark focus, not fry your nervous system. It’s clean green tea caffeine paired with L-theanine, so you get smooth, sustained energy without the jitters, spikes, or shame spirals. You stay dialed in — not wired and weird.</p>"
           }
         },
         "faq_item_pVJMDT": {

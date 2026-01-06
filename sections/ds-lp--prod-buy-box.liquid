@@ -85,7 +85,7 @@
     z-index: 10;
     width: 48px;
     height: 48px;
-    display: flex;
+    display: none; /* Hidden on mobile */
     align-items: center;
     justify-content: center;
     cursor: pointer;
@@ -127,6 +127,7 @@
   
   @media (min-width: 750px) {
     #ds-lp--prod-buy-box .ds-lp-gallery-arrow {
+      display: flex; /* Show on tablet and desktop */
       width: 56px;
       height: 56px;
     }
@@ -838,6 +839,45 @@
             e.preventDefault();
             navigateGallery('next');
           });
+        }
+        
+        // Touch swipe support for mobile screen sizes
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const minSwipeDistance = 50; // Minimum distance in pixels to trigger a swipe
+        
+        function isMobileScreen() {
+          return window.innerWidth < 750;
+        }
+        
+        if (viewer) {
+          viewer.addEventListener('touchstart', function(e) {
+            if (isMobileScreen()) {
+              touchStartX = e.changedTouches[0].screenX;
+            }
+          }, { passive: true });
+          
+          viewer.addEventListener('touchend', function(e) {
+            if (isMobileScreen()) {
+              touchEndX = e.changedTouches[0].screenX;
+              handleSwipe();
+            }
+          }, { passive: true });
+        }
+        
+        function handleSwipe() {
+          if (!isMobileScreen()) return;
+          
+          const swipeDistance = touchStartX - touchEndX;
+          
+          // Swipe left (next)
+          if (swipeDistance > minSwipeDistance) {
+            navigateGallery('next');
+          }
+          // Swipe right (prev)
+          else if (swipeDistance < -minSwipeDistance) {
+            navigateGallery('prev');
+          }
         }
         
         // Update arrow states on initial load
