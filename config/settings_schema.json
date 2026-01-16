@@ -1465,5 +1465,25 @@
         "default": "scheme-1"
       }
     ]
+  },
+  {
+    "name": "Landing Page Redirect",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Landing Page Redirect Settings"
+      },
+      {
+        "type": "paragraph",
+        "content": "Configure the landing page redirect. All pages (except account, checkout, and the landing page itself) will redirect to the specified landing page path."
+      },
+      {
+        "type": "text",
+        "id": "landing_page_path",
+        "label": "Landing Page Path",
+        "default": "/pages/day-shrooms",
+        "info": "Enter the path to your landing page (e.g., /pages/day-shrooms). Leave empty to disable redirect."
+      }
+    ]
   }
 ]

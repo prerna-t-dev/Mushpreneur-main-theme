@@ -1,0 +1,275 @@
+{% comment %}
+  Day Shrooms Landing Page - Benefits Section
+{% endcomment %}
+
+<style>
+  .ds-lp-dayshroom-benefits {
+    background: {{ section.settings.background_color | default: '#FDF1E9' }};
+  }
+  
+  .ds-lp-dayshroom-benefits__container {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 20px;
+  }
+  
+  @media (min-width: 1024px) {
+    .ds-lp-dayshroom-benefits__container {
+      padding: 64px;
+    }
+  }
+  
+  .ds-lp-dayshroom-benefits__image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: {{ section.settings.image_border_radius }}px;
+  }
+  
+  .ds-lp-dayshroom-benefits__benefit-icon-wrapper {
+    width: {{ section.settings.icon_size_mobile }}px;
+    height: {{ section.settings.icon_size_mobile }}px;
+    background: {{ section.settings.icon_background_color | default: '#FF3EAD' }};
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  
+  .ds-lp-dayshroom-benefits__benefit-icon {
+    width: {{ section.settings.icon_size_mobile | times: 0.6 }}px;
+    height: {{ section.settings.icon_size_mobile | times: 0.6 }}px;
+    object-fit: contain;
+  }
+  
+  .ds-lp-dayshroom-benefits__benefit-title {
+    color: {{ section.settings.benefit_title_color | default: '#000000' }};
+    font-weight: {{ section.settings.benefit_title_weight | default: 600 }};
+  }
+  
+  .ds-lp-dayshroom-benefits__benefit-description {
+    color: {{ section.settings.benefit_description_color | default: '#666666' }};
+  }
+  
+  @media (min-width: 1024px) {
+    .ds-lp-dayshroom-benefits__benefit-icon-wrapper {
+      width: {{ section.settings.icon_size_desktop }}px;
+      height: {{ section.settings.icon_size_desktop }}px;
+    }
+    
+    .ds-lp-dayshroom-benefits__benefit-icon {
+      width: {{ section.settings.icon_size_desktop | times: 0.6 }}px;
+      height: {{ section.settings.icon_size_desktop | times: 0.6 }}px;
+    }
+  }
+</style>
+
+<section class="ds-lp-dayshroom-benefits" id="ds-lp--dayshroom-benefits">
+  <div class="mx-auto px-5 sm:px-6 lg:px-16 py-16 lg:pt-24 ">
+    <div class="ds-lp-dayshroom-benefits__container grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
+      {% comment %} Left Column - Image (Desktop) / Top (Mobile) {% endcomment %}
+      <div class="order-1 lg:order-1">
+        {% if section.settings.lifestyle_image != blank %}
+          <div class="relative">
+            <img 
+              src="{{ section.settings.lifestyle_image | image_url: width: 1200 }}"
+              alt="{{ section.settings.lifestyle_image.alt | default: 'Day Shrooms Lifestyle' }}"
+              class="ds-lp-dayshroom-benefits__image"
+              width="{{ section.settings.lifestyle_image.width }}"
+              height="{{ section.settings.lifestyle_image.height }}"
+              loading="lazy"
+            >
+          </div>
+        {% else %}
+          <div class="bg-gray-200 rounded-lg aspect-[4/5] flex items-center justify-center">
+            <p class="text-gray-400">Lifestyle Image</p>
+          </div>
+        {% endif %}
+      </div>
+      
+      {% comment %} Right Column - Benefits (Desktop) / Bottom (Mobile) {% endcomment %}
+      <div class="order-2 lg:order-2">
+        {% comment %} Benefits List {% endcomment %}
+        <div class="space-y-6 lg:space-y-8">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'benefit' %}
+                <div class="flex items-start gap-6" {{ block.shopify_attributes }}>
+                  {% comment %} Icon {% endcomment %}
+                  <div class="ds-lp-dayshroom-benefits__benefit-icon-wrapper">
+                    {% if block.settings.icon_image != blank %}
+                      <img 
+                        src="{{ block.settings.icon_image | image_url: width: 200 }}"
+                        alt="{{ block.settings.title }}"
+                        class="ds-lp-dayshroom-benefits__benefit-icon"
+                        width="200"
+                        height="200"
+                      >
+                    {% endif %}
+                  </div>
+                  
+                  {% comment %} Content {% endcomment %}
+                  <div class="flex-1">
+                    <h3 class="ds-lp-dayshroom-benefits__benefit-title text-xl lg:text-2xl mb-1 leading-tight tracking-[-1px] lg:tracking-[-1.2px]">
+                      {{ block.settings.title }}
+                    </h3>
+                    {% if block.settings.description != blank %}
+                      <p class="ds-lp-dayshroom-benefits__benefit-description text-base leading-none tracking-[-0.8px]">
+                        {{ block.settings.description }}
+                      </p>
+                    {% endif %}
+                  </div>
+                </div>
+              {% endcase %}
+            {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "DS SLP Benefits",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "lifestyle_image",
+      "label": "Lifestyle Image"
+    },
+    {
+      "type": "header",
+      "content": "Benefits Settings"
+    },
+    {
+      "type": "range",
+      "id": "icon_size_mobile",
+      "label": "Icon Size - Mobile (px)",
+      "min": 40,
+      "max": 120,
+      "step": 5,
+      "default": 60,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "icon_size_desktop",
+      "label": "Icon Size - Desktop (px)",
+      "min": 60,
+      "max": 150,
+      "step": 5,
+      "default": 80,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "icon_background_color",
+      "label": "Icon Background Color",
+      "default": "#FF3EAD"
+    },
+    {
+      "type": "color",
+      "id": "benefit_title_color",
+      "label": "Benefit Title Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "benefit_description_color",
+      "label": "Benefit Description Color",
+      "default": "#666666"
+    },
+    {
+      "type": "header",
+      "content": "Image Settings"
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "label": "Image Border Radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "default": 12,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Mushroom-powered clarity"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Mental strength & resilience"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Icon Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "DS SLP Benefits",
+      "blocks": [
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Mushroom-powered clarity",
+            "description": "Mental strength & resilience"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Smooth, sustained energy",
+            "description": "All-day stamina, no crash"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Zen-like focus",
+            "description": "Stay sharp, feel grounded"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Mood lifted",
+            "description": "Stress lowered"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

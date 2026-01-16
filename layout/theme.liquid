@@ -340,10 +340,11 @@
     {% comment %} <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script> {% endcomment %}
 
     {% comment %} Landing Page Redirect Script {% endcomment %}
+    {% if settings.landing_page_path != blank %}
     <script>
       (function() {
-        // Landing page path
-        const landingPagePath = '/pages/day-shrooms';
+        // Landing page path from theme settings
+        const landingPagePath = {{ settings.landing_page_path | json }};
         
         // Get current path and query string
         const currentPath = window.location.pathname;
@@ -365,6 +366,7 @@
         window.location.href = landingPagePath + queryString;
       })();
     </script>
+    {% endif %}
 
   </head>
 
@@ -377,7 +379,8 @@
       {%- render 'cart-drawer' -%}
     {%- endif -%}
 
-    {%- unless template.suffix == 'day-shrooms-lp' -%}
+    {% comment %} removing header from day-shrooms-short-lp and day-shrooms-lp {% endcomment %}
+    {%- unless template.suffix == 'day-shrooms-lp' or template.suffix == 'day-shrooms-short-lp' -%}
       {% sections 'header-group' %}
     {%- endunless -%}
 
@@ -385,7 +388,8 @@
       {{ content_for_layout }}
     </main>
 
-    {%- unless template.suffix == 'day-shrooms-lp' -%}
+    {% comment %} removing footer from day-shrooms-short-lp and day-shrooms-lp {% endcomment %}
+    {%- unless template.suffix == 'day-shrooms-lp' or template.suffix == 'day-shrooms-short-lp' -%}
       {% sections 'footer-group' %}
     {%- endunless -%}
 
