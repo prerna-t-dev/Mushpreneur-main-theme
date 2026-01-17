@@ -1441,6 +1441,10 @@ body {
   max-width: 36rem;
 }
 
+.max-w-6xl {
+  max-width: 72rem;
+}
+
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -1680,10 +1684,25 @@ body {
   row-gap: 3rem;
 }
 
+.gap-x-5 {
+  -moz-column-gap: 1.25rem;
+       column-gap: 1.25rem;
+}
+
+.gap-y-10 {
+  row-gap: 2.5rem;
+}
+
 .space-y-6 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+}
+
+.space-y-3 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
 }
 
 .divide-y > :not([hidden]) ~ :not([hidden]) {
@@ -1777,6 +1796,10 @@ body {
 
 .rounded-xl {
   border-radius: 0.75rem;
+}
+
+.rounded-2xl {
+  border-radius: 1rem;
 }
 
 .rounded-b-\[42px\] {
@@ -2680,6 +2703,10 @@ body {
   font-weight: 600;
 }
 
+.font-normal {
+  font-weight: 400;
+}
+
 .uppercase {
   text-transform: uppercase;
 }
@@ -2726,6 +2753,10 @@ body {
 
 .leading-relaxed {
   line-height: 1.625;
+}
+
+.leading-loose {
+  line-height: 2;
 }
 
 .\!tracking-\[-0\.7px\] {
@@ -3640,6 +3671,10 @@ body[data-template="blog"] sticky-header header{
     grid-column: span 2 / span 2;
   }
 
+  .lg\:col-span-1 {
+    grid-column: span 1 / span 1;
+  }
+
   .lg\:mx-0 {
     margin-left: 0px;
     margin-right: 0px;
@@ -3979,8 +4014,21 @@ body[data-template="blog"] sticky-header header{
     gap: 4rem;
   }
 
+  .lg\:gap-5 {
+    gap: 1.25rem;
+  }
+
   .lg\:gap-y-12 {
     row-gap: 3rem;
+  }
+
+  .lg\:gap-x-5 {
+    -moz-column-gap: 1.25rem;
+         column-gap: 1.25rem;
+  }
+
+  .lg\:gap-y-10 {
+    row-gap: 2.5rem;
   }
 
   .lg\:space-y-8 > :not([hidden]) ~ :not([hidden]) {
@@ -4199,6 +4247,11 @@ body[data-template="blog"] sticky-header header{
     padding-bottom: 90px;
   }
 
+  .lg\:py-16 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
   .lg\:pb-12 {
     padding-bottom: 3rem;
   }
@@ -4345,6 +4398,14 @@ body[data-template="blog"] sticky-header header{
 
   .lg\:pt-24 {
     padding-top: 6rem;
+  }
+
+  .lg\:pb-24 {
+    padding-bottom: 6rem;
+  }
+
+  .lg\:pt-16 {
+    padding-top: 4rem;
   }
 
   .lg\:text-left {
@@ -4497,6 +4558,10 @@ body[data-template="blog"] sticky-header header{
   .lg\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
+  }
+
+  .lg\:text-\[76px\] {
+    font-size: 76px;
   }
 
   .lg\:font-medium {
@@ -5071,6 +5136,10 @@ body[data-template="blog"] sticky-header header{
     gap: 75px;
   }
 
+  .xl\:gap-16 {
+    gap: 4rem;
+  }
+
   .xl\:rounded-\[114px\] {
     border-radius: 114px;
   }
@@ -5569,6 +5638,10 @@ body[data-template="blog"] sticky-header header{
     line-height: 1.75rem;
   }
 
+  .xl\:text-\[76px\] {
+    font-size: 76px;
+  }
+
   .xl\:\!tracking-\[-1\.2px\] {
     letter-spacing: -1.2px !important;
   }
@@ -5716,6 +5789,10 @@ body[data-template="blog"] sticky-header header{
   .xl\:tracking-\[-8\.1px\] {
     letter-spacing: -8.1px;
   }
+
+  .xl\:tracking-\[-3\.8px\] {
+    letter-spacing: -3.8px;
+  }
 }
 
 @media (min-width: 1440px) {
@@ -5778,6 +5855,11 @@ body[data-template="blog"] sticky-header header{
   .\33xl\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+
+  .\33xl\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
 
   .\33xl\:tracking-\[-0\.8px\] {
