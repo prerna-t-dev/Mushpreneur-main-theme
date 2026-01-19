@@ -1,0 +1,753 @@
+{% comment %}
+  Day Shrooms Short Landing Page - Email Capture + Testimonial Slider
+  Two-panel: email form (left/top) + testimonial slider (right/bottom)
+{% endcomment %}
+
+<style>
+  .ds-slp-email-testimonial {
+    background: {{ section.settings.background_color | default: '#FFFFFF' }};
+  }
+
+  .ds-slp-email-testimonial--wrapper {
+    border-radius: 0px;
+    overflow: hidden;
+  }
+  
+  .ds-slp-email-testimonial__card {
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 64px 20px 40px;
+  }
+  
+  @media (min-width: 1024px) {
+    .ds-slp-email-testimonial__card {
+      padding: 80px 64px;
+    }
+  }
+  
+  .ds-slp-email-testimonial__brand-name {
+    color: {{ section.settings.brand_color | default: '#000000' }};
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+  }
+  
+  .ds-slp-email-testimonial__brand-logo {
+    width: 162px;
+    height: auto;
+    margin-bottom: 40px;
+    display: block;
+  }
+
+  @media (min-width: 1024px) {
+    .ds-slp-email-testimonial__brand-logo {
+      margin-bottom: 80px;
+    }
+  }
+  
+  .ds-slp-email-testimonial__headline {
+    color: {{ section.settings.headline_color | default: '#000000' }};
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  
+  .ds-slp-email-testimonial__body-text {
+    color: {{ section.settings.text_color | default: '#000000' }};
+    margin-top: 16px;
+    margin-bottom: 24px;
+  }
+
+  .ds-slp-email-testimonial__benefit--wrapper {
+    margin-bottom: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+  }
+  
+  .ds-slp-email-testimonial__benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .ds-slp-email-testimonial__checkmark {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+  }
+  
+  .ds-slp-email-testimonial__benefit-text {
+    color: {{ section.settings.text_color | default: '#000000' }};
+    white-space: nowrap;
+  }
+  
+  .ds-slp-email-testimonial__form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  @media (min-width: 576px) {
+    .ds-slp-email-testimonial__form-row {
+      flex-direction: row;
+      align-items: stretch;
+      gap: 16px;
+    }
+  }
+  
+  .ds-slp-email-testimonial__input {
+    width: 100%;
+    padding: 8px 24px;
+    border: 1px solid {{ section.settings.input_border_color | default: '#E45825' }};
+    border-image-slice: 1;
+    border-radius: 100px;
+    font-size: 18px;
+    letter-spacing: -0.9px;
+    background: #FFFFFF;
+    appearance: none;
+    outline: none;
+    height: 45px;
+  }
+  
+  .ds-slp-email-testimonial__input::placeholder {
+    color: #EF7822;
+    opacity: 0.5;
+  }
+  
+  .ds-slp-email-testimonial__btn {
+    background: linear-gradient(90deg, #F14D55 0%, #EF7822 81.6%);
+    height: 45px;
+    color: #FFFFFF;
+    font-weight: 600;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    font-size: 18px;
+    letter-spacing: -0.9px;
+    white-space: nowrap;
+  }
+
+  @media (min-width: 576px) {
+    .ds-slp-email-testimonial__input,
+    .ds-slp-email-testimonial__btn {
+      padding: 12px 24px;
+      height: 56px;
+    }
+  }
+  
+  .ds-slp-email-testimonial__tagline {
+    color: {{ section.settings.tagline_color | default: '#6B7280' }};
+    font-size: 14px;
+    letter-spacing: -0.7px;
+    margin-top: 16px;
+  }
+  
+  /* Testimonial Slider Styles */
+  .ds-slp-email-testimonial__slider-wrapper {
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+  }
+  
+ 
+  
+  .ds-slp-email-testimonial__testimonial-carousel {
+    width: 100%;
+  }
+  
+  .ds-slp-email-testimonial__testimonial-carousel .slick-list {
+    overflow: hidden;
+  }
+  
+  .ds-slp-email-testimonial__testimonial-carousel .slick-track {
+    display: flex !important;
+    align-items: stretch;
+  }
+  
+  .ds-slp-email-testimonial__testimonial-carousel .slick-list .slick-slide {
+    padding: 0;
+    height: auto;
+  }
+  
+  .ds-slp-email-testimonial__testimonial-carousel .slick-slide {
+    height: auto;
+    display: flex;
+  }
+  
+  .ds-slp-email-testimonial__testimonial-carousel .slick-slide > div {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .ds-slp-email-testimonial__testimonial-item {
+    display: flex !important;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    background: transparent;
+  }
+  
+  .ds-slp-email-testimonial__testimonial-carousel .slick-slide {
+    background: transparent;
+  }
+  
+  .ds-slp-email-testimonial__testimonial-carousel .slick-slide.slick-active {
+    background: transparent;
+  }
+  
+  .ds-slp-email-testimonial__product-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 0;
+    object-fit: cover;
+    display: block;
+    align-self: stretch;
+  }
+  
+  .ds-slp-email-testimonial__testimonial-content {
+    padding: 32px 32px 24px 32px;
+    background: {{ section.settings.testimonial_bg_color | default: '#1F2937' }};
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+  
+
+  
+  .ds-slp-email-testimonial__stars {
+    display: flex;
+    gap: 6px;
+    justify-content: flex-start;
+    margin-bottom: 24px;
+  }
+  
+  .ds-slp-email-testimonial__star {
+    width: 14px;
+    height: 13px;
+  }
+  
+  .ds-slp-email-testimonial__quote {
+    color: {{ section.settings.quote_color | default: '#FFFFFF' }};
+    font-size: 16px;
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1.4;
+    letter-spacing: -0.8px;
+    margin-bottom: 4px;
+    max-width: 90%;
+  }
+  
+  @media (min-width: 1024px) {
+    .ds-slp-email-testimonial__quote {
+      font-size: 24px;
+    }
+  }
+  
+  .ds-slp-email-testimonial__attribution {
+    color: {{ section.settings.attribution_color | default: '#FFFFFF' }};
+    font-size: 14px;
+    letter-spacing: -0.7px;
+  }
+  
+  /* Navigation */
+  .ds-slp-email-testimonial__slider-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px 32px 32px;
+    background: {{ section.settings.testimonial_bg_color | default: '#1F2937' }};
+  }
+  
+  @media (min-width: 1024px) {
+    .ds-slp-email-testimonial__slider-nav {
+      padding: 0 40px 48px;
+    }
+  }
+  
+  .ds-slp-email-testimonial__slider-dots {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  
+  .ds-slp-email-testimonial__slider-dots ul.slick-dots {
+    display: flex !important;
+    gap: 8px;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .ds-slp-email-testimonial__slider-dots ul.slick-dots li {
+    margin: 0;
+    padding: 0;
+    width: auto;
+    height: auto;
+  }
+  
+  .ds-slp-email-testimonial__slider-dots ul.slick-dots li button {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #525252;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.3s ease;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+    overflow: hidden;
+  }
+  
+  .ds-slp-email-testimonial__slider-dots ul.slick-dots li.slick-active button {
+    background: #FFFFFF;
+  }
+  
+  .ds-slp-email-testimonial__slider-arrows {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .ds-slp-email-testimonial__slider-arrow.slick-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .ds-slp-email-testimonial__slider-arrow {
+    width: 48px;
+    height: 48px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+    padding: 0;
+  }
+  
+  .ds-slp-email-testimonial__slider-arrow:hover {
+    opacity: 0.8;
+  }
+  
+  .ds-slp-email-testimonial__slider-arrow:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .ds-slp-email-testimonial__slider-arrow svg {
+    width: 48px;
+    height: 48px;
+    display: block;
+  }
+</style>
+
+<section class="ds-slp-email-testimonial" id="ds-slp--email-testimonial">
+  <div class="mx-auto p-0">
+    <div class="ds-slp-email-testimonial--wrapper grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch mx-auto">
+      {% comment %} Left / Top - Email Form Card {% endcomment %}
+      <div class="ds-slp-email-testimonial__card order-1">
+        {% if section.settings.brand_logo != blank %}
+          <img
+            src="{{ section.settings.brand_logo | image_url: width: 324 }}"
+            alt="{{ section.settings.brand_logo.alt | default: section.settings.brand_name | default: 'Brand logo' | escape }}"
+            class="ds-slp-email-testimonial__brand-logo"
+            width="162"
+            height="auto"
+            loading="eager"
+          >
+        {% elsif section.settings.brand_name != blank %}
+          <div class="ds-slp-email-testimonial__brand-name">
+            {{ section.settings.brand_name }}
+          </div>
+        {% endif %}
+        
+        {% if section.settings.headline != blank %}
+          <h2 class="ds-slp-email-testimonial__headline font-bold text-[36px] lg:text-[48px] leading-[1.2] tracking-[-1.8px] lg:tracking-[-2.4px]">
+            {{ section.settings.headline }}
+          </h2>
+        {% endif %}
+        
+        {% if section.settings.body_text != blank %}
+          <p class="ds-slp-email-testimonial__body-text text-base lg:text-lg leading-relaxed tracking-[-0.7px] lg:tracking-[-0.8px]">
+            {{ section.settings.body_text }}
+          </p>
+        {% endif %}
+        
+        {% if section.blocks.size > 0 %}
+          <ul class="ds-slp-email-testimonial__benefit--wrapper space-y-4_">
+            {% for block in section.blocks %}
+              {% case block.type %}
+                {% when 'benefit' %}
+                  <li class="ds-slp-email-testimonial__benefit-item" {{ block.shopify_attributes }}>
+                    <svg class="ds-slp-email-testimonial__checkmark" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <circle cx="12" cy="12" r="12" fill="{{ section.settings.checkmark_color | default: '#FF3EAD' }}"/>
+                      <path d="M7.5 12.5L10.5 15.5L16.5 9.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="ds-slp-email-testimonial__benefit-text text-sm tracking-[-0.7px] leading-[1.5]">{{ block.settings.text }}</span>
+                  </li>
+              {% endcase %}
+            {% endfor %}
+          </ul>
+        {% endif %}
+        
+        <form class="ds-slp-email-testimonial__form" action="#" method="post" accept-charset="UTF-8">
+          <div class="ds-slp-email-testimonial__form-row">
+            <input
+              type="email"
+              name="contact[email]"
+              id="ds-slp-email-testimonial-{{ section.id }}"
+              class="ds-slp-email-testimonial__input"
+              placeholder="{{ section.settings.email_placeholder | default: 'Your email address' }}"
+              required
+              autocomplete="email"
+            >
+            <button type="submit" class="ds-slp-email-testimonial__btn">
+              {{ section.settings.button_text | default: 'Join the List' }}
+            </button>
+          </div>
+        </form>
+        
+        {% if section.settings.tagline != blank %}
+          <p class="ds-slp-email-testimonial__tagline">
+            {{ section.settings.tagline }}
+          </p>
+        {% endif %}
+      </div>
+      
+      {% comment %} Right / Bottom - Testimonial Slider {% endcomment %}
+      <div class="order-2 h-full">
+        <div class="ds-slp-email-testimonial__slider-wrapper">
+          <div class="ds-slp-email-testimonial__testimonial-carousel" id="testimonial-carousel-{{ section.id }}">
+            {% for block in section.blocks %}
+              {% case block.type %}
+                {% when 'testimonial' %}
+                  <div class="ds-slp-email-testimonial__testimonial-item" {{ block.shopify_attributes }}>
+                    {% if block.settings.product_image != blank %}
+                      <img
+                        src="{{ block.settings.product_image | image_url: width: 1200 }}"
+                        alt="{{ block.settings.product_image.alt | default: 'Product' | escape }}"
+                        class="ds-slp-email-testimonial__product-image"
+                        width="1200"
+                        height="600"
+                        loading="lazy"
+                      >
+                    {% endif %}
+                    
+                    <div class="ds-slp-email-testimonial__testimonial-content">
+                      {% if block.settings.show_stars != false %}
+                        <div class="ds-slp-email-testimonial__stars">
+                          {% for i in (1..5) %}
+                            <svg class="ds-slp-email-testimonial__star" width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M7 0.5C7.09154 0.5 7.15882 0.544565 7.19043 0.618164L8.61133 3.93457C8.78832 4.34765 9.18301 4.62078 9.62598 4.65527L13.3125 4.94238C13.4117 4.95024 13.4679 5.0068 13.4902 5.07324C13.5121 5.13851 13.4995 5.20606 13.4326 5.26172L10.625 7.59863C10.2804 7.8854 10.1236 8.34126 10.2314 8.78027L11.0898 12.2744C11.1075 12.3466 11.083 12.4114 11.0156 12.459C10.947 12.5072 10.8603 12.5163 10.7783 12.4678L7.62207 10.5947C7.23955 10.368 6.76045 10.3679 6.37793 10.5947L3.22168 12.4678C3.13974 12.5163 3.05305 12.5072 2.98438 12.459C2.91698 12.4114 2.89252 12.3466 2.91016 12.2744L3.76855 8.78027C3.8763 8.34151 3.72031 7.88547 3.37598 7.59863H3.375L0.567383 5.26172C0.500483 5.20606 0.487932 5.13851 0.509766 5.07324C0.532074 5.00681 0.58832 4.95024 0.6875 4.94238L4.37402 4.65527C4.81699 4.62078 5.21174 4.34776 5.38867 3.93457L6.80957 0.618164C6.84117 0.544562 6.90846 0.500005 7 0.5Z" fill="{{ section.settings.star_color | default: '#FFD32C' }}" stroke="{{ section.settings.star_color | default: '#FFD32C' }}"/>
+                            </svg>
+                          {% endfor %}
+                        </div>
+                      {% endif %}
+                      
+                      {% if block.settings.quote_text != blank %}
+                        <p class="ds-slp-email-testimonial__quote">
+                          "{{ block.settings.quote_text }}"
+                        </p>
+                      {% endif %}
+                      
+                      {% if block.settings.attribution != blank %}
+                        <p class="ds-slp-email-testimonial__attribution">
+                          {{ block.settings.attribution }}
+                        </p>
+                      {% endif %}
+                    </div>
+                  </div>
+              {% endcase %}
+            {% endfor %}
+          </div>
+          
+          {% if section.blocks.size > 1 %}
+            <div class="ds-slp-email-testimonial__slider-nav">
+              <div class="ds-slp-email-testimonial__slider-dots"></div>
+              
+              <div class="ds-slp-email-testimonial__slider-arrows">
+                <button type="button" class="ds-slp-email-testimonial__slider-arrow ds-slp-email-testimonial__slider-arrow--prev" aria-label="Previous testimonial">
+                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.5" y="0.5" width="47" height="47" rx="23.5" stroke="white"/>
+                    <path d="M24.707 29.293L23.293 30.707L16.586 24L23.293 17.293L24.707 18.707L20.414 23H30V25H20.414L24.707 29.293Z" fill="white"/>
+                  </svg>
+                </button>
+                
+                <button type="button" class="ds-slp-email-testimonial__slider-arrow ds-slp-email-testimonial__slider-arrow--next" aria-label="Next testimonial">
+                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.5" y="0.5" width="47" height="47" rx="23.5" stroke="white"/>
+                    <path d="M23.293 29.293L24.707 30.707L31.414 24L24.707 17.293L23.293 18.707L27.586 23H18V25H27.586L23.293 29.293Z" fill="white"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function() {
+  var sectionId = '{{ section.id }}';
+  var sliderSelector = '#testimonial-carousel-' + sectionId;
+  var testimonialBlocks = {{ section.blocks | where: 'type', 'testimonial' | size | json }};
+  
+  $(document).ready(function(){
+    if (testimonialBlocks > 1 && $(sliderSelector).length && !$(sliderSelector).hasClass('slick-initialized')) {
+      var $slider = $(sliderSelector);
+      var $prevArrow = $slider.siblings('.ds-slp-email-testimonial__slider-nav').find('.ds-slp-email-testimonial__slider-arrow--prev');
+      var $nextArrow = $slider.siblings('.ds-slp-email-testimonial__slider-nav').find('.ds-slp-email-testimonial__slider-arrow--next');
+      var $dots = $slider.siblings('.ds-slp-email-testimonial__slider-nav').find('.ds-slp-email-testimonial__slider-dots');
+      
+      $slider.slick({
+        infinite: false,
+        speed: 300,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: true,
+        appendDots: $dots,
+        prevArrow: $prevArrow,
+        nextArrow: $nextArrow,
+        arrows: true,
+        fade: false,
+        cssEase: 'ease',
+        autoplay: false
+      });
+    }
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "DS SLP Email Testimonial",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Email Section"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_logo",
+      "label": "Brand Logo",
+      "info": "If provided, this will be displayed instead of the brand name"
+    },
+    {
+      "type": "text",
+      "id": "brand_name",
+      "label": "Brand Name (Fallback)",
+      "default": "Mūshprenėür",
+      "info": "Used if no brand logo is provided"
+    },
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Something Smarter Than Coffee Is Coming."
+    },
+    {
+      "type": "textarea",
+      "id": "body_text",
+      "label": "Body Text",
+      "default": "You don't need more coffee, you need smarter energy. Day Shrooms is a powerful blend of mushrooms, nootropics, and adaptogens designed to unlock your full focus, without the crash."
+    },
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "Email Placeholder",
+      "default": "Your email address"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Join the List"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "Skip the crash. Score the upgrade. Start your flow."
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "brand_color",
+      "label": "Brand Name Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "headline_color",
+      "label": "Headline Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "checkmark_color",
+      "label": "Checkmark Color",
+      "default": "#FF3EAD"
+    },
+    {
+      "type": "color",
+      "id": "input_border_color",
+      "label": "Input Border Color",
+      "default": "#E45825"
+    },
+    {
+      "type": "color",
+      "id": "tagline_color",
+      "label": "Tagline Color",
+      "default": "#6B7280"
+    },
+    {
+      "type": "color",
+      "id": "testimonial_bg_color",
+      "label": "Testimonial Background Color",
+      "default": "#1F2937"
+    },
+    {
+      "type": "color",
+      "id": "star_color",
+      "label": "Star Color",
+      "default": "#FBBF24"
+    },
+    {
+      "type": "color",
+      "id": "quote_color",
+      "label": "Quote Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "attribution_color",
+      "label": "Attribution Color",
+      "default": "#FFFFFF"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Benefit Text",
+          "default": "2000mg fruiting body mushrooms"
+        }
+      ]
+    },
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "product_image",
+          "label": "Product Image"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_stars",
+          "label": "Show Star Rating",
+          "default": true
+        },
+        {
+          "type": "textarea",
+          "id": "quote_text",
+          "label": "Quote Text",
+          "default": "20 minutes after sipping, my brain just... clicked. I rode that clarity for hours."
+        },
+        {
+          "type": "text",
+          "id": "attribution",
+          "label": "Attribution",
+          "default": "Beta Tester"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "DS SLP Email Testimonial",
+      "blocks": [
+        {
+          "type": "benefit",
+          "settings": {
+            "text": "2000mg fruiting body mushrooms"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "text": "850mg active natural nutropics"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "text": "100% daily value of vitamins B12 & D2"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "text": "60mg caffeine from green tea"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "text": "7x more L-theanine than matcha"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote_text": "20 minutes after sipping, my brain just... clicked. I rode that clarity for hours.",
+            "attribution": "Beta Tester"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

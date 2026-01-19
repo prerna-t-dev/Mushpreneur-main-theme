@@ -17,6 +17,99 @@
         "padding_bottom": 28
       }
     },
+    "ds_slp_email_testimonial_qfK9TY": {
+      "type": "ds-slp--email-testimonial",
+      "blocks": {
+        "benefit_XfD3Xj": {
+          "type": "benefit",
+          "settings": {
+            "text": "2000mg fruiting body mushrooms"
+          }
+        },
+        "benefit_DrjcNx": {
+          "type": "benefit",
+          "settings": {
+            "text": "850mg active natural nutropics"
+          }
+        },
+        "benefit_WCX7kT": {
+          "type": "benefit",
+          "settings": {
+            "text": "100% daily value of vitamins B12 & D2"
+          }
+        },
+        "benefit_hXmDqx": {
+          "type": "benefit",
+          "settings": {
+            "text": "60mg caffeine from green tea"
+          }
+        },
+        "benefit_PfLJjA": {
+          "type": "benefit",
+          "settings": {
+            "text": "7x more L-theanine than matcha"
+          }
+        },
+        "testimonial_wqfHfn": {
+          "type": "testimonial",
+          "settings": {
+            "product_image": "shopify://shop_images/Image.png",
+            "show_stars": true,
+            "quote_text": "20 minutes after sipping, my brain just... clicked. I rode that clarity for hours.",
+            "attribution": "Beta Tester"
+          }
+        },
+        "testimonial_tn7GVc": {
+          "type": "testimonial",
+          "settings": {
+            "product_image": "shopify://shop_images/Image_1.png",
+            "show_stars": true,
+            "quote_text": "I swapped my second coffee for this and now I get more done and feel better doing it.",
+            "attribution": "Beta Tester"
+          }
+        },
+        "testimonial_rxpJAP": {
+          "type": "testimonial",
+          "settings": {
+            "product_image": "shopify://shop_images/Placeholder_Image_5_630ac19a-6c13-4916-8e01-e48d40c0c012.png",
+            "show_stars": true,
+            "quote_text": "I actually felt calm and energized. Wild.",
+            "attribution": "Beta Tester"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_XfD3Xj",
+        "benefit_DrjcNx",
+        "benefit_WCX7kT",
+        "benefit_hXmDqx",
+        "benefit_PfLJjA",
+        "testimonial_wqfHfn",
+        "testimonial_tn7GVc",
+        "testimonial_rxpJAP"
+      ],
+      "name": "DS SLP Email Testimonial",
+      "settings": {
+        "brand_logo": "shopify://shop_images/Mushpreneur_Logo_a08cac6e-637e-4439-a4c3-2a11c671d519.png",
+        "brand_name": "Mūshprenėür",
+        "headline": "Something Smarter Than Coffee Is Coming.",
+        "body_text": "You don't need more coffee, you need smarter energy. Day Shrooms is a powerful blend of mushrooms, nootropics, and adaptogens designed to unlock your full focus, without the crash.",
+        "email_placeholder": "Your email address",
+        "button_text": "Join the List",
+        "tagline": "Skip the crash. Score the upgrade. Start your flow.",
+        "background_color": "#ffffff",
+        "brand_color": "#000000",
+        "headline_color": "#000000",
+        "text_color": "#000000",
+        "checkmark_color": "#e74936",
+        "input_border_color": "#e45825",
+        "tagline_color": "#000000",
+        "testimonial_bg_color": "#000000",
+        "star_color": "#ffd32c",
+        "quote_color": "#ffffff",
+        "attribution_color": "#ffffff"
+      }
+    },
     "ds_lp_dayshroom_benefits_JcECTm": {
       "type": "ds-lp--dayshroom-benefits",
       "blocks": {
@@ -130,6 +223,7 @@
         "signature_text": "Julie",
         "founder_label": "The Founder",
         "whats_inside_label": "What's Inside:",
+        "more_ingredients_label": "+6 More Nootropics, Adaptogens & Brain Boosters",
         "background_color": "#fdf1e9",
         "quote_color": "#000000",
         "signature_color": "#000000",
@@ -174,12 +268,12 @@
         "button_text": "Join the List",
         "tagline": "Skip the crash. Score the upgrade. Start your flow.",
         "lifestyle_image": "shopify://shop_images/Content.png",
-        "background_color": "#FDF1E9",
+        "background_color": "#fdf1e9",
         "headline_color": "#000000",
         "text_color": "#000000",
-        "checkmark_color": "#FF3EAD",
-        "input_border_color": "#E45825",
-        "tagline_color": "#6B7280"
+        "checkmark_color": "#ec008c",
+        "input_border_color": "#ef7822",
+        "tagline_color": "#000000"
       }
     },
     "ds_lp_footer_F3TQmD": {
@@ -197,6 +291,7 @@
   },
   "order": [
     "main",
+    "ds_slp_email_testimonial_qfK9TY",
     "ds_lp_dayshroom_benefits_JcECTm",
     "ds_slp_dayshroom_ingredients_ERCdeE",
     "ds_slp_email_capture_box_ibFqyb",
