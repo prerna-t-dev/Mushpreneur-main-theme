@@ -1405,6 +1405,10 @@ body {
   max-width: 64rem;
 }
 
+.max-w-6xl {
+  max-width: 72rem;
+}
+
 .max-w-7xl {
   max-width: 80rem;
 }
@@ -1439,10 +1443,6 @@ body {
 
 .max-w-xl {
   max-width: 36rem;
-}
-
-.max-w-6xl {
-  max-width: 72rem;
 }
 
 .flex-1 {
@@ -1583,6 +1583,10 @@ body {
   align-items: center;
 }
 
+.items-stretch {
+  align-items: stretch;
+}
+
 .justify-start {
   justify-content: flex-start;
 }
@@ -1680,10 +1684,6 @@ body {
        column-gap: 1rem;
 }
 
-.gap-y-12 {
-  row-gap: 3rem;
-}
-
 .gap-x-5 {
   -moz-column-gap: 1.25rem;
        column-gap: 1.25rem;
@@ -1693,16 +1693,26 @@ body {
   row-gap: 2.5rem;
 }
 
-.space-y-6 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+.gap-y-12 {
+  row-gap: 3rem;
 }
 
 .space-y-3 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
+}
+
+.space-y-6 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+}
+
+.space-y-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
 
 .divide-y > :not([hidden]) ~ :not([hidden]) {
@@ -1714,6 +1724,10 @@ body {
 .divide-pink > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-opacity: 1;
   border-color: rgb(255 62 173 / var(--tw-divide-opacity, 1));
+}
+
+.self-center {
+  align-self: center;
 }
 
 .overflow-hidden {
@@ -1740,6 +1754,10 @@ body {
 
 .whitespace-nowrap {
   white-space: nowrap;
+}
+
+.rounded-2xl {
+  border-radius: 1rem;
 }
 
 .rounded-\[10px\] {
@@ -1796,10 +1814,6 @@ body {
 
 .rounded-xl {
   border-radius: 0.75rem;
-}
-
-.rounded-2xl {
-  border-radius: 1rem;
 }
 
 .rounded-b-\[42px\] {
@@ -2508,6 +2522,22 @@ body {
   padding-top: 70px;
 }
 
+.pb-16 {
+  padding-bottom: 4rem;
+}
+
+.pr-10 {
+  padding-right: 2.5rem;
+}
+
+.pr-\[10\%\] {
+  padding-right: 10%;
+}
+
+.pr-\[20\%\] {
+  padding-right: 20%;
+}
+
 .text-left {
   text-align: left;
 }
@@ -2699,12 +2729,12 @@ body {
   font-weight: 500;
 }
 
-.font-semibold {
-  font-weight: 600;
-}
-
 .font-normal {
   font-weight: 400;
+}
+
+.font-semibold {
+  font-weight: 600;
 }
 
 .uppercase {
@@ -2743,20 +2773,20 @@ body {
   line-height: 1.5;
 }
 
-.leading-none {
-  line-height: 1;
+.leading-loose {
+  line-height: 2;
 }
 
-.leading-tight {
-  line-height: 1.25;
+.leading-none {
+  line-height: 1;
 }
 
 .leading-relaxed {
   line-height: 1.625;
 }
 
-.leading-loose {
-  line-height: 2;
+.leading-tight {
+  line-height: 1.25;
 }
 
 .\!tracking-\[-0\.7px\] {
@@ -2929,10 +2959,6 @@ body {
 
 .tracking-tight {
   letter-spacing: -0.025em;
-}
-
-.tracking-\[-0\.4px\] {
-  letter-spacing: -0.4px;
 }
 
 .\!text-white {
@@ -3667,12 +3693,12 @@ body[data-template="blog"] sticky-header header{
     order: 2;
   }
 
-  .lg\:col-span-2 {
-    grid-column: span 2 / span 2;
-  }
-
   .lg\:col-span-1 {
     grid-column: span 1 / span 1;
+  }
+
+  .lg\:col-span-2 {
+    grid-column: span 2 / span 2;
   }
 
   .lg\:mx-0 {
@@ -4010,18 +4036,6 @@ body[data-template="blog"] sticky-header header{
     gap: 92px;
   }
 
-  .lg\:gap-16 {
-    gap: 4rem;
-  }
-
-  .lg\:gap-5 {
-    gap: 1.25rem;
-  }
-
-  .lg\:gap-y-12 {
-    row-gap: 3rem;
-  }
-
   .lg\:gap-x-5 {
     -moz-column-gap: 1.25rem;
          column-gap: 1.25rem;
@@ -4029,6 +4043,10 @@ body[data-template="blog"] sticky-header header{
 
   .lg\:gap-y-10 {
     row-gap: 2.5rem;
+  }
+
+  .lg\:gap-y-12 {
+    row-gap: 3rem;
   }
 
   .lg\:space-y-8 > :not([hidden]) ~ :not([hidden]) {
@@ -4187,6 +4205,11 @@ body[data-template="blog"] sticky-header header{
     padding-right: 94px;
   }
 
+  .lg\:py-16 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
   .lg\:py-2 {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
@@ -4247,17 +4270,16 @@ body[data-template="blog"] sticky-header header{
     padding-bottom: 90px;
   }
 
-  .lg\:py-16 {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
-
   .lg\:pb-12 {
     padding-bottom: 3rem;
   }
 
   .lg\:pb-20 {
     padding-bottom: 5rem;
+  }
+
+  .lg\:pb-24 {
+    padding-bottom: 6rem;
   }
 
   .lg\:pb-3 {
@@ -4340,6 +4362,14 @@ body[data-template="blog"] sticky-header header{
     padding-top: 3rem;
   }
 
+  .lg\:pt-16 {
+    padding-top: 4rem;
+  }
+
+  .lg\:pt-24 {
+    padding-top: 6rem;
+  }
+
   .lg\:pt-7 {
     padding-top: 1.75rem;
   }
@@ -4394,18 +4424,6 @@ body[data-template="blog"] sticky-header header{
 
   .lg\:pt-\[78px\] {
     padding-top: 78px;
-  }
-
-  .lg\:pt-24 {
-    padding-top: 6rem;
-  }
-
-  .lg\:pb-24 {
-    padding-bottom: 6rem;
-  }
-
-  .lg\:pt-16 {
-    padding-top: 4rem;
   }
 
   .lg\:text-left {
@@ -4555,15 +4573,6 @@ body[data-template="blog"] sticky-header header{
     line-height: 1.75rem;
   }
 
-  .lg\:text-4xl {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-  }
-
-  .lg\:text-\[76px\] {
-    font-size: 76px;
-  }
-
   .lg\:font-medium {
     font-weight: 500;
   }
@@ -4696,12 +4705,8 @@ body[data-template="blog"] sticky-header header{
     letter-spacing: -q.2px;
   }
 
-  .lg\:tracking-\[-0\.5px\] {
-    letter-spacing: -0.5px;
-  }
-
-  .lg\:tracking-\[-0\.6px\] {
-    letter-spacing: -0.6px;
+  .lg\:tracking-\[-2\.88px\] {
+    letter-spacing: -2.88px;
   }
 
   .lg\:text-white {
@@ -5134,10 +5139,6 @@ body[data-template="blog"] sticky-header header{
 
   .xl\:gap-\[75px\] {
     gap: 75px;
-  }
-
-  .xl\:gap-16 {
-    gap: 4rem;
   }
 
   .xl\:rounded-\[114px\] {
@@ -5614,6 +5615,10 @@ body[data-template="blog"] sticky-header header{
     font-size: 70px;
   }
 
+  .xl\:text-\[76px\] {
+    font-size: 76px;
+  }
+
   .xl\:text-\[80px\] {
     font-size: 80px;
   }
@@ -5636,10 +5641,6 @@ body[data-template="blog"] sticky-header header{
   .xl\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
-  }
-
-  .xl\:text-\[76px\] {
-    font-size: 76px;
   }
 
   .xl\:\!tracking-\[-1\.2px\] {
@@ -5770,6 +5771,10 @@ body[data-template="blog"] sticky-header header{
     letter-spacing: -3.5px;
   }
 
+  .xl\:tracking-\[-3\.8px\] {
+    letter-spacing: -3.8px;
+  }
+
   .xl\:tracking-\[-3px\] {
     letter-spacing: -3px;
   }
@@ -5788,17 +5793,6 @@ body[data-template="blog"] sticky-header header{
 
   .xl\:tracking-\[-8\.1px\] {
     letter-spacing: -8.1px;
-  }
-
-  .xl\:tracking-\[-3\.8px\] {
-    letter-spacing: -3.8px;
-  }
-}
-
-@media (min-width: 1440px) {
-  .\32xl\:text-3xl {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
   }
 }
 
@@ -5842,26 +5836,6 @@ body[data-template="blog"] sticky-header header{
     line-height: 1.5rem;
   }
 
-  .\33xl\:text-5xl {
-    font-size: 3rem;
-    line-height: 1;
-  }
-
-  .\33xl\:text-lg {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-  }
-
-  .\33xl\:text-xl {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
-
-  .\33xl\:text-4xl {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-  }
-
   .\33xl\:tracking-\[-0\.8px\] {
     letter-spacing: -0.8px;
   }
@@ -5876,10 +5850,6 @@ body[data-template="blog"] sticky-header header{
 
   .\33xl\:tracking-\[-3\.8px\] {
     letter-spacing: -3.8px;
-  }
-
-  .\33xl\:tracking-\[-1\.5px\] {
-    letter-spacing: -1.5px;
   }
 }
 
