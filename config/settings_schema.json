@@ -1481,7 +1481,6 @@
         "type": "text",
         "id": "landing_page_path",
         "label": "Landing Page Path",
-        "default": "/pages/day-shrooms",
         "info": "Enter the path to your landing page (e.g., /pages/day-shrooms). Leave empty to disable redirect."
       }
     ]
