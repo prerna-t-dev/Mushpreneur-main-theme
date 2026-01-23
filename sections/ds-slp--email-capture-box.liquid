@@ -126,6 +126,17 @@
     letter-spacing: -0.7px;
   }
   
+  .ds-slp-email-capture__response-message {
+    font-size: 14px;
+    letter-spacing: -0.7px;
+    margin-top: 16px;
+    font-weight: 600;
+  }
+  
+  .cf-turnstile {
+    margin: 20px auto 2px;
+  }
+  
   .ds-slp-email-capture__image {
     width: 100%;
     height: auto;
@@ -175,22 +186,19 @@
           </ul>
         {% endif %}
         
-        <form class="ds-slp-email-capture__form" action="#" method="post" accept-charset="UTF-8">
-          <div class="ds-slp-email-capture__form-row">
-            <input
-              type="email"
-              name="contact[email]"
-              id="ds-slp-email-{{ section.id }}"
-              class="ds-slp-email-capture__input"
-              placeholder="{{ section.settings.email_placeholder | default: 'Your email address' }}"
-              required
-              autocomplete="email"
-            >
-            <button type="submit" class="ds-slp-email-capture__btn">
-              {{ section.settings.button_text | default: 'Join the List' }}
-            </button>
-          </div>
-        </form>
+        {% render 'email-validation-form',
+          form_id: 'ds-slp-email-capture-form-' | append: section.id,
+          email_input_id: 'ds-slp-email-' | append: section.id,
+          response_message_id: 'ds-slp-email-capture-response-' | append: section.id,
+          form_classes: 'ds-slp-email-capture__form',
+          form_row_classes: 'ds-slp-email-capture__form-row',
+          email_input_classes: 'ds-slp-email-capture__input',
+          button_classes: 'ds-slp-email-capture__btn',
+          email_placeholder: section.settings.email_placeholder | default: 'Your email address',
+          button_text: section.settings.button_text | default: 'Join the List',
+          success_message: section.settings.success_message | default: 'Thank you for joining the Day Shrooms Launch List! Your first email is on its way to your inbox.',
+          response_message_classes: 'ds-slp-email-capture__response-message'
+        %}
         
         {% if section.settings.tagline != blank %}
           <p class="ds-slp-email-capture__tagline mt-4">
@@ -259,6 +267,12 @@
       "id": "tagline",
       "label": "Tagline",
       "default": "Skip the crash. Score the upgrade. Start your flow."
+    },
+    {
+      "type": "textarea",
+      "id": "success_message",
+      "label": "Success Message",
+      "default": "Thank you for joining the Day Shrooms Launch List! Your first email is on its way to your inbox."
     },
     {
       "type": "image_picker",

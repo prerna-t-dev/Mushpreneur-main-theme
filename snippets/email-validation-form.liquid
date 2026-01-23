@@ -1,0 +1,236 @@
+{% comment %}
+  Reusable Email Validation Form with Turnstile
+  Parameters:
+  - form_id: Unique form ID
+  - email_input_id: Unique email input ID
+  - response_message_id: Unique response message element ID
+  - form_classes: CSS classes for the form (default: empty)
+  - form_row_classes: CSS classes for the form row container (default: empty)
+  - email_placeholder: Placeholder text for email input
+  - button_text: Submit button text
+  - email_input_classes: CSS classes for email input (default: empty)
+  - button_classes: CSS classes for submit button (default: empty)
+  - form_wrapper_classes: CSS classes for form wrapper (default: empty)
+  - response_message_classes: CSS classes for response message (default: empty)
+  - success_message: Success message to display after successful submission
+{% endcomment %}
+
+{% assign form_id = form_id | default: 'email-validation-form' %}
+{% assign email_input_id = email_input_id | default: 'email-input' %}
+{% assign response_message_id = response_message_id | default: 'response-message' %}
+{% assign email_placeholder = email_placeholder | default: 'Your email address' %}
+{% assign button_text = button_text | default: 'Join the List' %}
+{% assign success_message = success_message | default: 'Thank you for joining the Day Shrooms Launch List! Your first email is on its way to your inbox.' %}
+
+<div class="email-validation-form-wrapper {{ form_wrapper_classes }}">
+  <form id="{{ form_id }}" method="post" accept-charset="UTF-8" class="{{ form_classes }}" data-success-message="{{ success_message | escape }}">
+    <input type="hidden" name="form_type" value="customer">
+    <input type="hidden" name="utf8" value="✓">
+
+    <!-- Honeypot Field (Bots fill this, humans won't) -->
+    <input type="text" name="extra_field" id="honeypot-field-{{ form_id }}" style="display:none !important;" autocomplete="off">
+
+    <div class="{{ form_row_classes }}">
+      <input
+        type="email"
+        name="email"
+        id="{{ email_input_id }}"
+        placeholder="{{ email_placeholder }}"
+        class="{{ email_input_classes }}"
+        required
+        autocomplete="email"
+      >
+      <button type="submit" class="{{ button_classes }}">
+        {{ button_text }}
+      </button>
+    </div>
+
+    <!-- Cloudflare Turnstile -->
+    <div class="cf-turnstile email-validation-turnstile" data-sitekey="0x4AAAAAABeBT0ggatQ13Tpt" data-form-id="{{ form_id }}" style="display: none;"></div>
+  </form>
+  <p id="{{ response_message_id }}" class="{{ response_message_classes }}"></p>
+</div>
+
+<style>
+  .email-validation-turnstile {
+    display: none;
+  }
+  
+  .email-validation-turnstile.show {
+    display: block;
+  }
+</style>
+
+<script>
+  // Load Turnstile script only once
+  if (!document.querySelector('script[src="https://challenges.cloudflare.com/turnstile/v0/api.js"]')) {
+    var script = document.createElement('script');
+    script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
+  }
+</script>
+
+<script>
+(function() {
+  var formId = '{{ form_id }}';
+  var emailInputId = '{{ email_input_id }}';
+  var responseMessageId = '{{ response_message_id }}';
+  var honeypotFieldId = 'honeypot-field-' + formId;
+
+  document.addEventListener("DOMContentLoaded", function () {
+    var form = document.getElementById(formId);
+    var emailInput = document.getElementById(emailInputId);
+    var honeypotField = document.getElementById(honeypotFieldId);
+    var responseMessage = document.getElementById(responseMessageId);
+    var turnstileContainer = form ? form.querySelector('.email-validation-turnstile') : null;
+
+    if (!form || !emailInput || !honeypotField || !responseMessage) {
+      console.warn('Email validation form elements not found');
+      return;
+    }
+
+    // Show Turnstile when user starts typing in email input
+    if (emailInput && turnstileContainer) {
+      emailInput.addEventListener('input', function() {
+        if (emailInput.value.length > 0 && !turnstileContainer.classList.contains('show')) {
+          turnstileContainer.style.display = 'block';
+          turnstileContainer.classList.add('show');
+        }
+      });
+      
+      // Also show on focus as a fallback
+      emailInput.addEventListener('focus', function() {
+        if (!turnstileContainer.classList.contains('show')) {
+          turnstileContainer.style.display = 'block';
+          turnstileContainer.classList.add('show');
+        }
+      });
+    }
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      var email = emailInput.value;
+
+      // 1️⃣ Basic Email Validation (Regex)
+      var emailPattern = /^[a-zA-Z0-9.]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!emailPattern.test(email)) {
+        responseMessage.innerText = "Invalid email address.";
+        responseMessage.style.color = "#e45825";
+        return;
+      }
+      console.log("✅ Basic email format validation passed");
+
+      // 2️⃣ Honeypot Check (If filled, stop submission)
+      if (honeypotField.value) {
+        console.warn("Spam bot detected. Form submission aborted.");
+        return;
+      }
+      console.log("✅ Honeypot check passed");
+
+      // 3️⃣ Check If User is in the USA
+      try {
+        var geoResponse = await fetch("https://ipapi.co/json/");
+        var geoData = await geoResponse.json();
+        if (geoData.country !== "US" && geoData.country !== "IN") {
+          responseMessage.innerText = "Sorry! Submissions outside of US are not allowed at the moment.";
+          responseMessage.style.color = "#e45825";
+          return;
+        }
+        console.log("✅ Geolocation check passed - User is from allowed country");
+      } catch (error) {
+        console.error("Geolocation API failed", error);
+        responseMessage.innerText = "Unable to verify location. Please try again later.";
+        responseMessage.style.color = "#e45825";
+        return;
+      }
+
+      // 4️⃣ Get Turnstile token - find the one associated with this form
+      var formWrapper = form.closest('.email-validation-form-wrapper');
+      var turnstileResponse = formWrapper ? formWrapper.querySelector('[name="cf-turnstile-response"]') : document.querySelector('[name="cf-turnstile-response"]');
+      if (!turnstileResponse || !turnstileResponse.value) {
+        responseMessage.innerText = "Please verify the captcha before submitting.";
+        responseMessage.style.color = "#e45825";
+        return;
+      }
+      var turnstileToken = turnstileResponse.value;
+
+      // 5️⃣ ZeroBounce Email Validation and Turnstile Server-Side Validation (now also handles Klaviyo)
+      responseMessage.innerText = "Validating email and verification...";
+      responseMessage.style.color = "";
+
+      try {
+        // Using Netlify Function for all validation and Klaviyo subscription
+        var validationResponse = await fetch('https://mushpreneur-email-validation.netlify.app/.netlify/functions/validate-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: email,
+            turnstileToken: turnstileToken
+          })
+        });
+
+        if (!validationResponse.ok) {
+          throw new Error('HTTP error! status: ' + validationResponse.status);
+        }
+
+        var validationData = await validationResponse.json();
+
+        // Check if turnstile verification failed
+        if (validationData.turnstileError) {
+          responseMessage.innerText = "Verification challenge failed. Please try again.";
+          responseMessage.style.color = "#e45825";
+          if (window.turnstile) {
+            var formWrapper = form.closest('.email-validation-form-wrapper');
+            var turnstileWidget = formWrapper ? formWrapper.querySelector('.cf-turnstile') : null;
+            if (turnstileWidget && turnstileWidget.dataset && turnstileWidget.dataset.widgetId) {
+              window.turnstile.reset(turnstileWidget.dataset.widgetId);
+            } else if (turnstileWidget) {
+              // Fallback: reset all if widget ID not found
+              window.turnstile.reset();
+            }
+          }
+          return;
+        }
+        // Check if ZeroBounce failed
+        if (validationData.status !== "valid") {
+          responseMessage.innerText = "Invalid or undeliverable email address.";
+          responseMessage.style.color = "#e45825";
+          return;
+        }
+        // Check if Klaviyo failed
+        if (validationData.klaviyo && validationData.klaviyo.errors) {
+          responseMessage.innerText = "Klaviyo error: " + (validationData.klaviyo.errors[0]?.detail || "Something went wrong");
+          responseMessage.style.color = "#e45825";
+          return;
+        }
+
+        // Success!
+        responseMessage.style.color = "#4caf50";
+        var successMsg = form.dataset.successMessage || "Thank you for joining the Day Shrooms Launch List! Your first email is on its way to your inbox.";
+        responseMessage.innerText = successMsg;
+        emailInput.value = ''; // Clear just the email input
+        if (window.turnstile) {
+          var formWrapper = form.closest('.email-validation-form-wrapper');
+          var turnstileWidget = formWrapper ? formWrapper.querySelector('.cf-turnstile') : null;
+          if (turnstileWidget && turnstileWidget.dataset && turnstileWidget.dataset.widgetId) {
+            window.turnstile.reset(turnstileWidget.dataset.widgetId);
+          } else if (turnstileWidget) {
+            // Fallback: reset all if widget ID not found
+            window.turnstile.reset();
+          }
+        }
+      } catch (error) {
+        console.error("Validation error:", error);
+        responseMessage.innerText = "Validation failed. Please try again.";
+        responseMessage.style.color = "#e45825";
+        return;
+      }
+    });
+  });
+})();
+</script>
