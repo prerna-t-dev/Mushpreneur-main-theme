@@ -97,6 +97,7 @@
         "email_placeholder": "Your email address",
         "button_text": "Join the List",
         "tagline": "Skip the crash. Score the upgrade. Start your flow.",
+        "success_message": "Thank you for joining the Day Shrooms Launch List! Your first email is on its way to your inbox.",
         "background_color": "#ffffff",
         "brand_color": "#000000",
         "headline_color": "#000000",
@@ -170,7 +171,7 @@
         "ingredient_8gztgD": {
           "type": "ingredient",
           "settings": {
-            "ingredient_image": "shopify://shop_images/Placeholder_Image.png",
+            "ingredient_image": "shopify://shop_images/Placeholder_Image_8_a8c06e9d-cb09-4660-8373-dd5952c245b8.png",
             "title": "Raw Cacao",
             "ingredient_benefit": "Mood Elevation"
           }
@@ -178,7 +179,7 @@
         "ingredient_LyNtVz": {
           "type": "ingredient",
           "settings": {
-            "ingredient_image": "shopify://shop_images/Placeholder_Image_1_96caf26a-537d-4219-970c-36bf3100dcca.png",
+            "ingredient_image": "shopify://shop_images/Placeholder_Image_9_cd981a43-7c99-4e0f-a95c-498ee78c980c.png",
             "title": "Lion's Mane",
             "ingredient_benefit": "Sharper Focus & Clarity"
           }
@@ -186,7 +187,7 @@
         "ingredient_bahMxj": {
           "type": "ingredient",
           "settings": {
-            "ingredient_image": "shopify://shop_images/Placeholder_Image_2_54a6062f-0d89-4ead-8e43-c1d2465cb46d.png",
+            "ingredient_image": "shopify://shop_images/Placeholder_Image_10_0600da1a-f2fb-4840-8023-33504da9552b.png",
             "title": "Cordyceps",
             "ingredient_benefit": "Energy & Stamina"
           }
@@ -194,7 +195,7 @@
         "ingredient_tmTDNc": {
           "type": "ingredient",
           "settings": {
-            "ingredient_image": "shopify://shop_images/Placeholder_Image_4_0f73c940-06bd-4905-9286-aae95053cc8e.png",
+            "ingredient_image": "shopify://shop_images/Placeholder_Image_11_761dfab2-a3f4-4bea-8b32-9fa0a5b5b051.png",
             "title": "Ashwagandha",
             "ingredient_benefit": "Stress Relief"
           }
@@ -202,7 +203,7 @@
         "ingredient_r8yGLa": {
           "type": "ingredient",
           "settings": {
-            "ingredient_image": "shopify://shop_images/l-theanine_1_2973381a-5961-4723-9f23-9d080bca1cc7.png",
+            "ingredient_image": "shopify://shop_images/l-theanine_1_1.png",
             "title": "L-Theanine",
             "ingredient_benefit": "Calm Alertness"
           }
@@ -267,6 +268,7 @@
         "email_placeholder": "Your email address",
         "button_text": "Join the List",
         "tagline": "Skip the crash. Score the upgrade. Start your flow.",
+        "success_message": "Thank you for joining the Day Shrooms Launch List! Your first email is on its way to your inbox.",
         "lifestyle_image": "shopify://shop_images/Content.png",
         "background_color": "#fdf1e9",
         "headline_color": "#000000",
