@@ -40,6 +40,14 @@
     background: #00000080;
     margin: 48px 0;
   }
+
+
+  @media (min-width: 1800px) {
+    .ds-slp-dayshroom-ingredients__divider {
+      max-width: 85%;
+      margin: 48px auto;
+    }
+  }
   
   .ds-slp-dayshroom-ingredients__whats-inside {
     color: {{ section.settings.title_color | default: '#000000' }};
@@ -47,6 +55,12 @@
     margin-bottom: 48px;
   }
   
+  .ingredients-grid{
+    max-width: 1400px;
+    margin: 0 auto 40px;
+  }
+
+
   .ds-slp-dayshroom-ingredients__ingredient-card {
     display: flex;
     flex-direction: column;
@@ -125,7 +139,7 @@
       
       {% comment %} Ingredients Grid {% endcomment %}
       {% if section.blocks.size > 0 %}
-        <div class="grid grid-cols-2 lg:grid-cols-5 gap-x-5 gap-y-10 lg:gap-x-5 lg:gap-y-10">
+        <div class="ingredients-grid grid grid-cols-2 lg:grid-cols-5 gap-x-5 gap-y-10 lg:gap-x-5 lg:gap-y-10 mb-10">
           {% for block in section.blocks %}
             {% case block.type %}
               {% when 'ingredient' %}
@@ -159,7 +173,7 @@
 
 
         {% if section.settings.more_ingredients_label != blank %}
-          <p class="text-center text-base font-bold leading-loose tracking-[-0.8px]">
+          <p class="text-center text-base xl:text-[20px] font-bold leading-loose tracking-[-0.8px] xl:tracking-[-1.2px]">
             {{ section.settings.more_ingredients_label }}
           </p>
         {% endif %}

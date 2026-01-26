@@ -859,14 +859,14 @@
           "type": "faq_item",
           "settings": {
             "question": " When should I drink Day Shrooms?",
-            "answer": "<p>Morning is ideal, but it’s also great before deep work, creative sessions, or long afternoons when coffee usually betrays you.</p><p>It’s designed for focus, not frenzy so it won’t wreck your sleep when used earlier in the day.</p>"
+            "answer": "<p>Morning or early afternoon works best. Many people use it as a replacement for their second or third cup of coffee. Because it’s designed for steady focus, it’s not recommended late in the evening.</p>"
           }
         },
         "faq_item_eNeWR6": {
           "type": "faq_item",
           "settings": {
-            "question": "What are adaptogens and nootropics again?",
-            "answer": "<p>Adaptogens help your body respond to stress more smoothly.<br/>Nootropics support focus, clarity, and cognitive performance.</p><p>In Day Shrooms, they work together to help you stay calm, clear, and productive without overstimulation.</p>"
+            "question": "How is Day Shrooms different from other mushroom drinks?",
+            "answer": "<p>Most mushroom drinks try to replace coffee.<br/>Day Shrooms was built to replace the productivity system behind coffee.</p><p>We combine clean caffeine, nootropics, adaptogens, and functional mushrooms to support focus, mood, and clarity. The goal isn’t to feel wired. It’s to feel steady, clear, and in control of your energy.</p>"
           }
         },
         "faq_item_Xiw7qJ": {
@@ -915,7 +915,7 @@
           "type": "faq_item",
           "settings": {
             "question": "How can I contact you?",
-            "answer": "<p>Email us anytime at hey@mushpreneur.com.<br/> A real human reads every message and most replies come directly from the founder.</p>"
+            "answer": "<p>Email us anytime at hey@mushpreneur.com.<br/>We read every message and most replies come directly from the founder or co-founder.</p>"
           }
         }
       },

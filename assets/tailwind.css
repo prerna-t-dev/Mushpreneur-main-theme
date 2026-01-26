@@ -5617,6 +5617,10 @@ body[data-template="blog"] sticky-header header{
     line-height: 1.75rem;
   }
 
+  .xl\:text-\[20px\] {
+    font-size: 20px;
+  }
+
   .xl\:\!tracking-\[-1\.2px\] {
     letter-spacing: -1.2px !important;
   }
@@ -5810,6 +5814,19 @@ body[data-template="blog"] sticky-header header{
     line-height: 1.5rem;
   }
 
+  .\33xl\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
+  .\33xl\:text-\[32px\] {
+    font-size: 32px;
+  }
+
+  .\33xl\:text-\[20px\] {
+    font-size: 20px;
+  }
+
   .\33xl\:tracking-\[-0\.8px\] {
     letter-spacing: -0.8px;
   }
@@ -5824,6 +5841,10 @@ body[data-template="blog"] sticky-header header{
 
   .\33xl\:tracking-\[-3\.8px\] {
     letter-spacing: -3.8px;
+  }
+
+  .\33xl\:tracking-\[-1\.6px\] {
+    letter-spacing: -1.6px;
   }
 }
 
