@@ -7,20 +7,35 @@
         background-position: center 33%;
     }
 
+    #mush--benefits-overview .bg-mustard{
+        background: linear-gradient(0deg, #FEAA0B, #FEAA0B),
+                    linear-gradient(180deg, #FEAA0B 11.8%, rgba(255, 193, 7, 0) 41.27%),
+                    linear-gradient(179.83deg, rgba(255, 193, 7, 0) 69.68%, #FFAB0A 92.51%);
+    }
+
     @media (min-width: 990px) {
         #mush--benefits-overview .section-bg{
             background-image: url({{ section.settings.desktop_background_image | image_url }});background-size: 100%; 
             background-repeat: no-repeat;
             background-position: center bottom 25%;
         }
+
+        #mush--benefits-overview .bg-mustard{
+        background: linear-gradient(0deg, #FEA30C, #FEA30C),
+                    linear-gradient(180deg, #FEA30C 4.9%, rgba(255, 193, 7, 0) 41.27%),
+                    linear-gradient(180deg, rgba(255, 193, 7, 0) 69.74%, #FEA30C 94.18%);
+
+        }
     }
+
+    
 </style>
 
 
 <section id="mush--benefits-overview">
     <div class="section-wrapper pt-[32px] lg:pt-[75px] bg-mustard">
 
-        <div class="px-5 lg:px-[54px] pb-12 lg:pb-[300px] 3xl:pb-[380px] text-center section-bg" 
+        <div class="px-5 lg:px-[54px] pb-12 lg:pb-[300px]_ 3xl:pb-[380px]_ text-center section-bg" 
         >
             <h2 class="text-black text-center text-[28px] lg:text-[64px] font-bold mb-2 lg:mb-5 tracking-[-1.4px] lg:tracking-[-3.2px] leading-none
             {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}
@@ -29,12 +44,22 @@
                 {{ section.settings.main_heading | newline_to_br }}
             </h2>
 
-            <p class="lg:px-20 text-black text-base lg:text-[28px] tracking-[-0.8px] lg:tracking-[-1.4px] leading-[1.1] pb-[393px] lg:pb-[164px]">
+            <p class="lg:px-20 text-black text-base lg:text-[28px] tracking-[-0.8px] lg:tracking-[-1.4px] leading-[1.1] pb-[393px]_ lg:pb-[164px]">
                 {{ section.settings.main_description }}
             </p>
 
+            {% if section.settings.product_image != blank %}
+                <div class="product-image lg:hidden py-6">
+                    <img src="{{ section.settings.product_image | image_url }}" alt="{{ section.settings.product_image.alt }}" class="w-full h-full object-cover">
+                </div>
+            {% endif %}
 
-            <div class="flex justify-between gap-6 lg:gap-20 {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
+
+            <div class="flex justify-between lg:grid lg:grid-cols-[1fr_1.5fr_1fr] gap-6 lg:gap-4 {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
+
+
+            
+
                 <div class="text-black">
                     <div class="mb-6 lg:mb-[64px]">
                         <h3 class="text-base lg:text-2xl xl:text-[34px] text-black font-semibold tracking-[-0.8px] lg:tracking-[-1.2px] xl:tracking-[-1.7px] leading-none mb-1 lg:mb-2 xl:mb-2.5">
@@ -53,6 +78,12 @@
                         </p>
                     </div>
                 </div>
+
+                {% if section.settings.product_image != blank %}
+                    <div class="product-image hidden lg:block">
+                        <img src="{{ section.settings.product_image | image_url }}" alt="{{ section.settings.product_image.alt }}" class="w-full h-full object-cover">
+                    </div>
+                {% endif %}
 
 
                 <div class="text-black">
@@ -98,6 +129,11 @@
                 "id": "desktop_background_image",
                 "label": "Desktop Background Image",
                 "info": "Recommended size: 1920x1080px"
+            },
+            {
+                "type": "image_picker",
+                "id": "product_image",
+                "label": "Product Image",
             },
             {
                 "type": "textarea",

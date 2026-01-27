@@ -24,8 +24,9 @@
     "mush_benefits_overview_f6QziP": {
       "type": "mush__benefits-overview",
       "settings": {
-        "mobile_background_image": "shopify://shop_images/Benefits_Overview_1.png",
-        "desktop_background_image": "shopify://shop_images/Group_12351_3.jpg",
+        "mobile_background_image": "shopify://shop_images/Image_1fc138c1-28fa-4d05-a05c-9da031928630.png",
+        "desktop_background_image": "shopify://shop_images/BG_Image.png",
+        "product_image": "shopify://shop_images/Placeholder_Image_1_f2e15d03-d68e-45d5-b5ca-bb7471a71ce5.png",
         "main_heading": "Coffee Is Canceled.\nIt's Time for Day Shrooms.",
         "main_description": "Tired of coffee's jitters, crashes, and chaos? Day Shrooms rewrites the rules with a powerful blend of functional mushrooms, nootropics, adaptogens, and vitamins to fuel your focus, energy, and calm—all without the side effects.",
         "benefit_1_title": "Focus Without the Chaos",
@@ -58,6 +59,65 @@
     "mush_comparison_table_cmDJGq": {
       "type": "mush__comparison-table",
       "settings": {}
+    },
+    "mush_ugc_section_3VdQBm": {
+      "type": "mush__ugc-section",
+      "blocks": {
+        "ugc_video_htHeAM": {
+          "type": "ugc_video",
+          "settings": {
+            "video_thumbnail": "shopify://shop_images/Video_1_Thumb_d7e12177-78d4-4117-8d34-064527a30920.gif",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/900ea1ccb5394313884d63953b3670bc.mp4",
+            "video_alt": "Video testimonial"
+          }
+        },
+        "ugc_video_VfUJhG": {
+          "type": "ugc_video",
+          "settings": {
+            "video_thumbnail": "shopify://shop_images/Video_2_Thumb_892cb7be-bf51-43ce-b492-f8d0259b14da.gif",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/eaafdddf965747dea16af67a9f64ac97.mp4",
+            "video_alt": "Video testimonial"
+          }
+        },
+        "ugc_video_gBPmNJ": {
+          "type": "ugc_video",
+          "settings": {
+            "video_thumbnail": "shopify://shop_images/Video_4_Thumb_16e663f6-bd74-4a31-bcd8-690a0bdf845a.gif",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/bb0e2fa4ffa34d2f883e2253820075b7.mp4",
+            "video_alt": "Video testimonial"
+          }
+        },
+        "ugc_video_4rTtAp": {
+          "type": "ugc_video",
+          "settings": {
+            "video_thumbnail": "shopify://shop_images/Video_3_Thumb_3f015fa8-a7b2-488f-bf22-31392ed5d650.gif",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/6d4ffd54858f4f33824826f9ecce1f1d.mp4",
+            "video_alt": "Video testimonial"
+          }
+        },
+        "ugc_video_QbXARh": {
+          "type": "ugc_video",
+          "settings": {
+            "video_thumbnail": "shopify://shop_images/Video_5_Thumb_31b46e33-1823-4d43-9e1c-062c9dd1f537.gif",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/9c488f3e53e4421585420a0b9a193a72.mp4",
+            "video_alt": "Video testimonial"
+          }
+        }
+      },
+      "block_order": [
+        "ugc_video_htHeAM",
+        "ugc_video_VfUJhG",
+        "ugc_video_gBPmNJ",
+        "ugc_video_4rTtAp",
+        "ugc_video_QbXARh"
+      ],
+      "name": "UGC Section",
+      "settings": {
+        "label": "",
+        "label_color": "#ec008c",
+        "headline": "",
+        "tagline": ""
+      }
     },
     "mush_lifestyle_section_QmgCm6": {
       "type": "mush__lifestyle-section",
@@ -191,6 +251,7 @@
     "mush_benefits_overview_f6QziP",
     "mush_product_highlights_CygcxX",
     "mush_comparison_table_cmDJGq",
+    "mush_ugc_section_3VdQBm",
     "mush_lifestyle_section_QmgCm6",
     "mush_image_with_text_gLBtzW",
     "mush_usp_marquee_scroll_Xit33t",

@@ -73,7 +73,11 @@
     transform: none !important;
   }
   
-  /* Gallery Navigation Arrows */
+  /* Gallery Navigation Arrows - buy box uses its own .ds-lp-gallery-arrow; hide snippet's .product-media-gallery__arrow */
+  #ds-lp--prod-buy-box .product-media-gallery__arrow {
+    display: none !important;
+  }
+
   #ds-lp--prod-buy-box .ds-lp-gallery-wrapper {
     position: relative;
   }
