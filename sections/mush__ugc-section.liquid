@@ -1,0 +1,454 @@
+<style>
+  .mush-ugc-section {
+    padding: 0 20px 40px;
+    position: relative;
+  }
+
+  .mush-ugc-section__video-carousel-wrapper {
+    position: relative;
+    margin-left: -20px;
+    margin-right: -20px;
+    width: calc(100% + 40px);
+    overflow: hidden;
+  }
+
+  .mush-ugc-section__video-carousel {
+    width: 100%;
+    overflow: visible;
+  }
+
+  .mush-ugc-section__video-carousel .slick-list {
+    overflow: visible;
+  }
+
+  .mush-ugc-section__video-carousel .slick-track {
+    display: flex !important;
+  }
+
+  .mush-ugc-section__video-carousel .slick-list .slick-slide {
+    padding: 0 8px;
+    height: inherit !important;
+  }
+
+  .mush-ugc-section__video-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+  }
+
+  .mush-ugc-section__video-item.is-playing .mush-ugc-section__video-thumbnail,
+  .mush-ugc-section__video-item.is-playing .mush-ugc-section__play-button {
+    display: none;
+  }
+
+  .mush-ugc-section__inline-video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 12px;
+    background: #000000;
+    object-fit: cover;
+  }
+
+  .mush-ugc-section__video-thumbnail {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+
+  .mush-ugc-section__play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 2;
+    border: none;
+    background: transparent;
+    padding: 0;
+  }
+
+  .mush-ugc-section__play-button:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+
+  .mush-ugc-section__play-button svg {
+    width: 52px;
+    height: 52px;
+    display: block;
+    pointer-events: none;
+  }
+
+  .mush-ugc-section__video-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 0;
+    display: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .mush-ugc-section__video-arrow:hover {
+    opacity: 0.7;
+  }
+
+  .mush-ugc-section__video-arrow--prev {
+    left: 0;
+  }
+
+  .mush-ugc-section__video-arrow--next {
+    right: 0;
+  }
+
+  .mush-ugc-section__video-arrow svg {
+    display: block;
+    width: 48px;
+    height: 48px;
+  }
+
+  @media (min-width: 768px) {
+    .mush-ugc-section__video-carousel {
+      overflow: hidden;
+    }
+    .mush-ugc-section__video-carousel .slick-list {
+      overflow: hidden;
+    }
+    .mush-ugc-section__video-carousel .slick-list .slick-slide {
+      padding: 0 12px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .mush-ugc-section {
+      padding: 64px 65px 0px;
+    }
+
+    /* Full viewport bleed on desktop (same edge-to-edge effect as mobile) */
+    .mush-ugc-section__video-carousel-wrapper {
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+    }
+
+    .mush-ugc-section__video-carousel .slick-list .slick-slide {
+      padding: 0 12px;
+    }
+
+    .mush-ugc-section__video-arrow {
+      display: block;
+    }
+
+    .mush-ugc-section__video-arrow--prev {
+      left: 24px;
+    }
+
+    .mush-ugc-section__video-arrow--next {
+      right: 24px;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .mush-ugc-section__video-arrow {
+      display: none !important;
+    }
+  }
+</style>
+
+<section class="mush-ugc-section" id="mush--ugc-section">
+  <div class="mx-auto">
+    {% if section.settings.label != blank %}
+      <div class="text-center text-sm font-bold leading-[1.5] tracking-[-0.7px] mb-4" style="color: {{ section.settings.label_color | default: '#EC008C' }};">
+        {{ section.settings.label }}
+      </div>
+    {% endif %}
+
+    {% if section.settings.headline != blank %}
+      <div class="w-4/5 max-w-xl mx-auto text-center text-[32px] lg:text-[48px] font-bold leading-[1.2] tracking-[-1.6px] lg:tracking-[-2.4px] mb-6 lg:mb-10 text-black">
+        {{ section.settings.headline }}
+      </div>
+    {% endif %}
+
+    {% if section.settings.tagline != blank %}
+      <div class="w-3/5 mx-auto text-center text-base lg:text-lg text-black leading-[1.5] tracking-[-0.8px] lg:tracking-[-0.9px] mb-12 lg:mb-20">
+        {{ section.settings.tagline }}
+      </div>
+    {% endif %}
+
+    {% assign video_blocks = section.blocks | where: 'type', 'ugc_video' %}
+    {% if video_blocks.size > 0 %}
+      <div class="mush-ugc-section__video-carousel-wrapper">
+        <button type="button" class="mush-ugc-section__video-arrow mush-ugc-section__video-arrow--prev" aria-label="Previous video">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.5" y="0.5" width="47" height="47" rx="23.5" stroke="black"/>
+            <path d="M32 23H19.83L25.42 17.41L24 16L16 24L24 32L25.41 30.59L19.83 25H32V23Z" fill="black"/>
+          </svg>
+        </button>
+        <div class="mush-ugc-section__video-carousel slick--ugc-videos">
+          {% for block in video_blocks %}
+            <div class="mush-ugc-section__video-item" data-block-id="{{ block.id }}">
+              {% assign fallback_video_thumb = '' %}
+              {% if block.settings.video_thumbnail == blank and block.settings.video_url != blank %}
+                {% assign raw_video_url = block.settings.video_url %}
+                {% if raw_video_url contains 'youtu.be/' %}
+                  {% assign fallback_video_thumb = raw_video_url | split: 'youtu.be/' | last | split: '?' | first %}
+                  {% assign fallback_video_thumb = 'https://img.youtube.com/vi/' | append: fallback_video_thumb | append: '/hqdefault.jpg' %}
+                {% elsif raw_video_url contains 'youtube.com/watch' %}
+                  {% assign fallback_video_thumb = raw_video_url | split: 'v=' | last | split: '&' | first %}
+                  {% assign fallback_video_thumb = 'https://img.youtube.com/vi/' | append: fallback_video_thumb | append: '/hqdefault.jpg' %}
+                {% elsif raw_video_url contains 'vimeo.com/' %}
+                  {% assign fallback_video_thumb = raw_video_url | split: 'vimeo.com/' | last | split: '?' | first | split: '/' | last %}
+                  {% assign fallback_video_thumb = 'https://vumbnail.com/' | append: fallback_video_thumb | append: '.jpg' %}
+                {% endif %}
+              {% endif %}
+
+              {% if block.settings.video_thumbnail != blank %}
+                {% assign thumb_img = block.settings.video_thumbnail %}
+                {% if thumb_img.src contains '.svg' or thumb_img.width == blank %}
+                  <img
+                    src="{{ thumb_img | image_url }}"
+                    alt="{{ block.settings.video_alt | default: 'Video testimonial' | escape }}"
+                    class="mush-ugc-section__video-thumbnail"
+                    width="400"
+                    height="300"
+                    loading="lazy"
+                  >
+                {% else %}
+                  <img
+                    src="{{ thumb_img | image_url: width: 800 }}"
+                    srcset="{{ thumb_img | image_url: width: 400 }} 400w, {{ thumb_img | image_url: width: 800 }} 800w"
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                    alt="{{ block.settings.video_alt | default: 'Video testimonial' | escape }}"
+                    class="mush-ugc-section__video-thumbnail"
+                    width="{{ thumb_img.width }}"
+                    height="{{ thumb_img.height }}"
+                    loading="lazy"
+                  >
+                {% endif %}
+              {% elsif fallback_video_thumb != blank %}
+                <img
+                  src="{{ fallback_video_thumb }}"
+                  alt="{{ block.settings.video_alt | default: 'Video testimonial' | escape }}"
+                  class="mush-ugc-section__video-thumbnail"
+                  width="400"
+                  height="300"
+                  loading="lazy"
+                >
+              {% elsif block.settings.video_url != blank %}
+                <video
+                  class="mush-ugc-section__video-thumbnail"
+                  muted
+                  playsinline
+                  preload="metadata"
+                  aria-hidden="true"
+                >
+                  <source src="{{ block.settings.video_url }}" type="video/mp4">
+                </video>
+              {% endif %}
+
+              {% if block.settings.video_url != blank %}
+                <button type="button" class="mush-ugc-section__play-button" onclick="openVideoUgc(event, '{{ block.settings.video_url }}')" aria-label="Play video">
+                  <svg width="111" height="111" viewBox="0 0 111 111" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                    <path d="M55.1749 0C24.7026 0 0 24.7026 0 55.1749C0 85.6472 24.7026 110.35 55.1749 110.35C85.6472 110.35 110.35 85.6472 110.35 55.1749C110.35 24.7026 85.6472 0 55.1749 0ZM40.0995 79.1728V31.1771L81.6649 55.1749L40.0995 79.1728Z" fill="#E74937"/>
+                  </svg>
+                </button>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+        <button type="button" class="mush-ugc-section__video-arrow mush-ugc-section__video-arrow--next" aria-label="Next video">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.5" y="0.5" width="47" height="47" rx="23.5" stroke="black"/>
+            <path d="M24 16L22.59 17.41L28.17 23H16V25H28.17L22.59 30.59L24 32L32 24L24 16Z" fill="black"/>
+          </svg>
+        </button>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<script>
+(function() {
+  var sectionId = '{{ section.id }}';
+  var videoCarouselSelector = '#shopify-section-' + sectionId + ' .slick--ugc-videos';
+
+  $(document).ready(function() {
+    if ($(videoCarouselSelector).length && !$(videoCarouselSelector).hasClass('slick-initialized')) {
+      var $videoCarousel = $(videoCarouselSelector);
+      var $videoWrapper = $videoCarousel.closest('.mush-ugc-section__video-carousel-wrapper');
+      var $videoPrevArrow = $videoWrapper.find('.mush-ugc-section__video-arrow--prev');
+      var $videoNextArrow = $videoWrapper.find('.mush-ugc-section__video-arrow--next');
+
+      $videoCarousel.slick({
+        infinite: true,
+        centerMode: true,
+        speed: 300,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: false,
+        arrows: true,
+        prevArrow: $videoPrevArrow,
+        nextArrow: $videoNextArrow,
+        mobileFirst: true,
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 1,
+              infinite: true,
+              centerMode: false,
+              dots: false
+            }
+          },
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 5,
+              slidesToScroll: 1,
+              infinite: true,
+              centerMode: false,
+              dots: false
+            }
+          }
+        ]
+      });
+    }
+  });
+})();
+
+function openVideoUgc(event, url) {
+  if (event && event.preventDefault) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+
+  var button = event && event.currentTarget ? event.currentTarget : null;
+  var container = button ? button.closest('.mush-ugc-section__video-item') : null;
+  var isInlineVideo = url && (url.indexOf('cdn.shopify.com') !== -1 || /\.(mp4|mov|webm)(\?|$)/i.test(url));
+
+  if (isInlineVideo && container) {
+    container.classList.add('is-playing');
+    var existingPlayer = container.querySelector('.mush-ugc-section__inline-video');
+    var videoEl = existingPlayer;
+
+    if (!existingPlayer) {
+      videoEl = document.createElement('video');
+      videoEl.className = 'mush-ugc-section__inline-video';
+      videoEl.setAttribute('playsinline', '');
+      videoEl.setAttribute('controls', '');
+      videoEl.setAttribute('muted', '');
+      videoEl.src = url;
+      container.appendChild(videoEl);
+    }
+
+    videoEl.currentTime = 0;
+    var playPromise = videoEl.play();
+    if (playPromise && playPromise.catch) {
+      playPromise.catch(function() {
+        videoEl.muted = true;
+        videoEl.play();
+      });
+    }
+    return;
+  }
+
+  if (url && (url.includes('youtube.com') || url.includes('youtu.be'))) {
+    var videoId = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/);
+    if (videoId && videoId[1]) {
+      window.open('https://www.youtube.com/embed/' + videoId[1] + '?autoplay=1', '_blank');
+      return;
+    }
+  } else if (url && url.includes('vimeo.com')) {
+    var vimeoId = url.match(/vimeo\.com\/(\d+)/);
+    if (vimeoId && vimeoId[1]) {
+      window.open('https://player.vimeo.com/video/' + vimeoId[1] + '?autoplay=1', '_blank');
+      return;
+    }
+  }
+
+  if (url) {
+    window.open(url, '_blank');
+  }
+}
+</script>
+
+{% schema %}
+{
+  "name": "UGC Section",
+  "tag": "section",
+  "class": "mush-ugc-section-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Section Label"
+    },
+    {
+      "type": "color",
+      "id": "label_color",
+      "label": "Label Color",
+      "default": "#EC008C"
+    },
+    {
+      "type": "richtext",
+      "id": "headline",
+      "label": "Headline"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ugc_video",
+      "name": "UGC Video",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "video_thumbnail",
+          "label": "Video Thumbnail"
+        },
+        {
+          "type": "url",
+          "id": "video_url",
+          "label": "Video URL",
+          "info": "YouTube, Vimeo, or direct MP4 URL"
+        },
+        {
+          "type": "text",
+          "id": "video_alt",
+          "label": "Alt Text",
+          "default": "Video testimonial"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "UGC Section",
+      "blocks": [
+        { "type": "ugc_video" },
+        { "type": "ugc_video" },
+        { "type": "ugc_video" },
+        { "type": "ugc_video" },
+        { "type": "ugc_video" }
+      ]
+    }
+  ]
+}
+{% endschema %}

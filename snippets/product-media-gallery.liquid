@@ -55,6 +55,85 @@
   aria-label="{{ 'products.product.media.gallery_viewer' | t }}"
   data-desktop-layout="{{ section.settings.gallery_layout }}"
 >
+  <style>
+    .product-media-gallery__wrapper {
+      position: relative;
+    }
+
+    .product-media-gallery__arrow {
+      position: absolute;
+      top: 40%;
+      transform: translateY(-50%);
+      z-index: 10;
+      width: 48px;
+      height: 48px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      opacity: 0.8;
+      background: transparent;
+      border: none;
+      padding: 0;
+    }
+
+    .product-media-gallery__arrow:hover {
+      opacity: 1;
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    .product-media-gallery__arrow:active {
+      transform: translateY(-50%) scale(0.95);
+    }
+
+    .product-media-gallery__arrow--prev {
+      left: 16px;
+    }
+
+    .product-media-gallery__arrow--next {
+      right: 16px;
+    }
+
+    .product-media-gallery__arrow svg {
+      width: 48px;
+      height: 48px;
+      display: block;
+    }
+
+    .product-media-gallery__arrow[disabled] {
+      opacity: 0.3;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .product-media-gallery__arrow--prev svg {
+      transform: rotate(180deg);
+    }
+
+    @media (min-width: 750px) {
+      .product-media-gallery__arrow {
+        display: flex;
+        width: 56px;
+        height: 56px;
+      }
+
+      .product-media-gallery__arrow--prev {
+        left: 24px;
+      }
+
+      .product-media-gallery__arrow--next {
+        right: 24px;
+      }
+
+      .product-media-gallery__arrow svg {
+        width: 56px;
+        height: 56px;
+      }
+    }
+  </style>
+
+  <div class="product-media-gallery__wrapper">
   <div id="GalleryStatus-{{ section.id }}" class="visually-hidden" role="status"></div>
   <slider-component id="GalleryViewer-{{ section.id }}" class="slider-mobile-gutter">
     <a class="skip-to-content-link button visually-hidden quick-add-hidden" href="#ProductInfo-{{ section.id }}">
@@ -333,4 +412,108 @@
       </button>
     </slider-component>
   {%- endif -%}
+
+  {% if media_count > 1 %}
+    <button 
+      type="button"
+      class="product-media-gallery__arrow product-media-gallery__arrow--prev"
+      aria-label="{{ 'general.slider.previous_slide' | t }}"
+      data-pmg-prev
+    >
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="24" r="23.5" fill="white" stroke="#2D2D2D"></circle>
+        <rect width="25.6" height="25.6" transform="translate(36.2656 11.7334) rotate(89.5172)" fill="white"></rect>
+        <path d="M15.574 24.7075L31.5735 24.5726M31.5735 24.5726L25.5197 18.2234M31.5735 24.5726L25.6276 31.023" stroke="#2D2D2D" stroke-width="2.53333" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </button>
+    <button 
+      type="button"
+      class="product-media-gallery__arrow product-media-gallery__arrow--next"
+      aria-label="{{ 'general.slider.next_slide' | t }}"
+      data-pmg-next
+    >
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="24" r="23.5" fill="white" stroke="#2D2D2D"></circle>
+        <rect width="25.6" height="25.6" transform="translate(36.2656 11.7334) rotate(89.5172)" fill="white"></rect>
+        <path d="M15.574 24.7075L31.5735 24.5726M31.5735 24.5726L25.5197 18.2234M31.5735 24.5726L25.6276 31.023" stroke="#2D2D2D" stroke-width="2.53333" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </button>
+  {% endif %}
+  </div>
 </media-gallery>
+
+<script>
+  (function() {
+    function initPmgGalleryArrows() {
+      const wrappers = document.querySelectorAll('.product-media-gallery__wrapper');
+
+      wrappers.forEach(function(galleryWrapper) {
+        if (galleryWrapper.dataset.pmgArrowsInited) return;
+        galleryWrapper.dataset.pmgArrowsInited = '1';
+
+        var mediaGallery = galleryWrapper.closest('media-gallery');
+        var viewer = galleryWrapper.querySelector('[id^="GalleryViewer"]');
+        var prevButton = galleryWrapper.querySelector('[data-pmg-prev]');
+        var nextButton = galleryWrapper.querySelector('[data-pmg-next]');
+        if (!viewer || !prevButton || !nextButton) return;
+
+        var mediaItems = viewer.querySelectorAll('.product__media-item[data-media-id]');
+        if (!mediaItems.length) return;
+
+        function updateArrowStates() {
+          var activeIndex = -1;
+          for (var i = 0; i < mediaItems.length; i++) {
+            if (mediaItems[i].classList.contains('is-active')) { activeIndex = i; break; }
+          }
+          prevButton.disabled = activeIndex <= 0;
+          nextButton.disabled = activeIndex === -1 || activeIndex >= mediaItems.length - 1;
+        }
+
+        function navigateGallery(direction) {
+          var activeItem = viewer.querySelector('.product__media-item.is-active');
+          if (!activeItem) return;
+
+          var currentMediaId = activeItem.getAttribute('data-media-id');
+          var allMediaItems = Array.prototype.slice.call(viewer.querySelectorAll('.product__media-item[data-media-id]'));
+          var currentIndex = allMediaItems.findIndex(function(item) {
+            return item.getAttribute('data-media-id') === currentMediaId;
+          });
+
+          var targetIndex = direction === 'next' ? currentIndex + 1 : currentIndex - 1;
+          if (targetIndex < 0 || targetIndex >= allMediaItems.length) return;
+
+          var targetMediaId = allMediaItems[targetIndex].getAttribute('data-media-id');
+
+          if (mediaGallery && typeof mediaGallery.setActiveMedia === 'function') {
+            mediaGallery.setActiveMedia(targetMediaId, false);
+          } else {
+            allMediaItems.forEach(function(item) { item.classList.remove('is-active'); });
+            allMediaItems[targetIndex].classList.add('is-active');
+          }
+
+          setTimeout(updateArrowStates, 150);
+        }
+
+        prevButton.addEventListener('click', function(e) {
+          e.preventDefault();
+          navigateGallery('prev');
+        });
+        nextButton.addEventListener('click', function(e) {
+          e.preventDefault();
+          navigateGallery('next');
+        });
+
+        updateArrowStates();
+        setTimeout(updateArrowStates, 400);
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initPmgGalleryArrows);
+    } else {
+      initPmgGalleryArrows();
+    }
+
+    document.addEventListener('shopify:section:load', initPmgGalleryArrows);
+  })();
+</script>

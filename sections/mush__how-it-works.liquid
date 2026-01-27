@@ -32,7 +32,7 @@
 </style>
 
 <section id="mush--how-it-works">
-    <div class="section-wrapper pt-[42px] lg:pt-[64px] px-7 lg:px-[94px] relative z-2 bg-skyblue">
+    <div class="section-wrapper pt-[42px] pb-[42px] lg:pt-[64px] lg:pb-[86px] px-7 lg:px-[94px] relative z-2 bg-skyblue">
 
         <h2 class="text-2xl lg:text-[42px] xl::text-[64px] font-medium mb-6 lg:mb-20 text-center tracking-[-1.206px] lg:tracking-[-2.1px] xl:tracking-[-3.2px] leading-none {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
             {{ section.settings.main_heading | newline_to_br }}
@@ -80,7 +80,7 @@
 
     </div>
 
-    <img class="translate-y-[1px]_" src="{{ section.settings.bottom_image | image_url }}" alt="{{ section.settings.bottom_image.alt | escape }}">
+    {% comment %} <img class="translate-y-[1px]_" src="{{ section.settings.bottom_image | image_url }}" alt="{{ section.settings.bottom_image.alt | escape }}"> {% endcomment %}
 
 </section>
 

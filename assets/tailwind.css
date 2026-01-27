@@ -1441,6 +1441,10 @@ body {
   max-width: 36rem;
 }
 
+.max-w-\[392px\] {
+  max-width: 392px;
+}
+
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -1498,6 +1502,11 @@ body {
 
 .translate-y-\[1px\] {
   --tw-translate-y: 1px;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.rotate-180 {
+  --tw-rotate: 180deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -2286,6 +2295,11 @@ body {
 .py-\[74px\] {
   padding-top: 74px;
   padding-bottom: 74px;
+}
+
+.py-\[42px\] {
+  padding-top: 42px;
+  padding-bottom: 42px;
 }
 
 .\!pb-2 {
@@ -3832,6 +3846,10 @@ body[data-template="blog"] sticky-header header{
     display: flex;
   }
 
+  .lg\:grid {
+    display: grid;
+  }
+
   .lg\:\!hidden {
     display: none !important;
   }
@@ -3950,6 +3968,10 @@ body[data-template="blog"] sticky-header header{
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 
+  .lg\:grid-cols-\[1fr_1\.5fr_1fr\] {
+    grid-template-columns: 1fr 1.5fr 1fr;
+  }
+
   .lg\:flex-row {
     flex-direction: row;
   }
@@ -4012,6 +4034,10 @@ body[data-template="blog"] sticky-header header{
 
   .lg\:gap-\[92px\] {
     gap: 92px;
+  }
+
+  .lg\:gap-4 {
+    gap: 1rem;
   }
 
   .lg\:gap-x-5 {
@@ -4402,6 +4428,22 @@ body[data-template="blog"] sticky-header header{
 
   .lg\:pt-\[78px\] {
     padding-top: 78px;
+  }
+
+  .lg\:pb-\[220px\] {
+    padding-bottom: 220px;
+  }
+
+  .lg\:pb-\[250px\] {
+    padding-bottom: 250px;
+  }
+
+  .lg\:pb-\[280px\] {
+    padding-bottom: 280px;
+  }
+
+  .lg\:pt-\[250px\] {
+    padding-top: 250px;
   }
 
   .lg\:text-left {
@@ -4926,6 +4968,18 @@ body[data-template="blog"] sticky-header header{
 
   .xl\:min-h-screen {
     min-height: 100vh;
+  }
+
+  .xl\:min-h-\[120vh\] {
+    min-height: 120vh;
+  }
+
+  .xl\:min-h-\[100vh\] {
+    min-height: 100vh;
+  }
+
+  .xl\:min-h-\[110vh\] {
+    min-height: 110vh;
   }
 
   .xl\:w-1\/2 {
@@ -5793,6 +5847,14 @@ body[data-template="blog"] sticky-header header{
 
   .\33xl\:pt-\[220px\] {
     padding-top: 220px;
+  }
+
+  .\33xl\:pb-\[320px\] {
+    padding-bottom: 320px;
+  }
+
+  .\33xl\:pt-\[280px\] {
+    padding-top: 280px;
   }
 
   .\33xl\:text-2xl {
