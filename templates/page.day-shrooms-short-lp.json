@@ -240,19 +240,19 @@
         "benefit_pxFM3h": {
           "type": "benefit",
           "settings": {
-            "text": "A deep dive into why mushrooms > coffee"
+            "text": "Why today’s productivity system is broken"
           }
         },
         "benefit_acjexw": {
           "type": "benefit",
           "settings": {
-            "text": "First dibs on our subscriber-only launch"
+            "text": "Founder-led insights into why mushrooms > coffee"
           }
         },
         "benefit_3UXLkM": {
           "type": "benefit",
           "settings": {
-            "text": "Launch-only Buy 2, Get 1 Free offer"
+            "text": "Inner-circle access to early releases and special offers"
           }
         }
       },
@@ -264,10 +264,10 @@
       "name": "DS SLP Email Capture",
       "settings": {
         "headline": "Still wondering if it's for you?",
-        "sign_up_label": "Sign up and receive:",
+        "sign_up_label": "Join the inner circle and get:",
         "email_placeholder": "Your email address",
-        "button_text": "Join the List",
-        "tagline": "Skip the crash. Score the upgrade. Start your flow.",
+        "button_text": "Get the First Email",
+        "tagline": "No noise. No spam. Just smarter productivity, delivered.",
         "success_message": "Thank you for joining the Day Shrooms Launch List! Your first email is on its way to your inbox.",
         "lifestyle_image": "shopify://shop_images/Content.png",
         "background_color": "#fdf1e9",

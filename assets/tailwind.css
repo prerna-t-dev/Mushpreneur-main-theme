@@ -1433,16 +1433,16 @@ body {
   max-width: 350px;
 }
 
+.max-w-\[392px\] {
+  max-width: 392px;
+}
+
 .max-w-full {
   max-width: 100%;
 }
 
 .max-w-xl {
   max-width: 36rem;
-}
-
-.max-w-\[392px\] {
-  max-width: 392px;
 }
 
 .flex-1 {
@@ -1502,11 +1502,6 @@ body {
 
 .translate-y-\[1px\] {
   --tw-translate-y: 1px;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.rotate-180 {
-  --tw-rotate: 180deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -2295,11 +2290,6 @@ body {
 .py-\[74px\] {
   padding-top: 74px;
   padding-bottom: 74px;
-}
-
-.py-\[42px\] {
-  padding-top: 42px;
-  padding-bottom: 42px;
 }
 
 .\!pb-2 {
@@ -4020,6 +4010,10 @@ body[data-template="blog"] sticky-header header{
     gap: 0.75rem;
   }
 
+  .lg\:gap-4 {
+    gap: 1rem;
+  }
+
   .lg\:gap-6 {
     gap: 1.5rem;
   }
@@ -4034,10 +4028,6 @@ body[data-template="blog"] sticky-header header{
 
   .lg\:gap-\[92px\] {
     gap: 92px;
-  }
-
-  .lg\:gap-4 {
-    gap: 1rem;
   }
 
   .lg\:gap-x-5 {
@@ -4318,6 +4308,10 @@ body[data-template="blog"] sticky-header header{
     padding-bottom: 236px;
   }
 
+  .lg\:pb-\[250px\] {
+    padding-bottom: 250px;
+  }
+
   .lg\:pb-\[300px\] {
     padding-bottom: 300px;
   }
@@ -4394,6 +4388,10 @@ body[data-template="blog"] sticky-header header{
     padding-top: 184px;
   }
 
+  .lg\:pt-\[250px\] {
+    padding-top: 250px;
+  }
+
   .lg\:pt-\[48px\] {
     padding-top: 48px;
   }
@@ -4430,20 +4428,20 @@ body[data-template="blog"] sticky-header header{
     padding-top: 78px;
   }
 
-  .lg\:pb-\[220px\] {
-    padding-bottom: 220px;
+  .lg\:pb-0 {
+    padding-bottom: 0px;
   }
 
-  .lg\:pb-\[250px\] {
-    padding-bottom: 250px;
+  .lg\:pb-\[64px\] {
+    padding-bottom: 64px;
   }
 
-  .lg\:pb-\[280px\] {
-    padding-bottom: 280px;
+  .lg\:pt-10 {
+    padding-top: 2.5rem;
   }
 
-  .lg\:pt-\[250px\] {
-    padding-top: 250px;
+  .lg\:pt-20 {
+    padding-top: 5rem;
   }
 
   .lg\:text-left {
@@ -4962,24 +4960,12 @@ body[data-template="blog"] sticky-header header{
     height: 98px;
   }
 
-  .xl\:min-h-\[80vh\] {
-    min-height: 80vh;
-  }
-
-  .xl\:min-h-screen {
-    min-height: 100vh;
-  }
-
   .xl\:min-h-\[120vh\] {
     min-height: 120vh;
   }
 
-  .xl\:min-h-\[100vh\] {
+  .xl\:min-h-screen {
     min-height: 100vh;
-  }
-
-  .xl\:min-h-\[110vh\] {
-    min-height: 110vh;
   }
 
   .xl\:w-1\/2 {
@@ -5555,6 +5541,10 @@ body[data-template="blog"] sticky-header header{
     font-size: 162px;
   }
 
+  .xl\:text-\[20px\] {
+    font-size: 20px;
+  }
+
   .xl\:text-\[22px\] {
     font-size: 22px;
   }
@@ -5669,10 +5659,6 @@ body[data-template="blog"] sticky-header header{
   .xl\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
-  }
-
-  .xl\:text-\[20px\] {
-    font-size: 20px;
   }
 
   .xl\:\!tracking-\[-1\.2px\] {
@@ -5837,6 +5823,10 @@ body[data-template="blog"] sticky-header header{
     padding-bottom: 280px;
   }
 
+  .\33xl\:pb-\[320px\] {
+    padding-bottom: 320px;
+  }
+
   .\33xl\:pb-\[380px\] {
     padding-bottom: 380px;
   }
@@ -5847,10 +5837,6 @@ body[data-template="blog"] sticky-header header{
 
   .\33xl\:pt-\[220px\] {
     padding-top: 220px;
-  }
-
-  .\33xl\:pb-\[320px\] {
-    padding-bottom: 320px;
   }
 
   .\33xl\:pt-\[280px\] {
@@ -5867,6 +5853,14 @@ body[data-template="blog"] sticky-header header{
     line-height: 2.25rem;
   }
 
+  .\33xl\:text-\[20px\] {
+    font-size: 20px;
+  }
+
+  .\33xl\:text-\[32px\] {
+    font-size: 32px;
+  }
+
   .\33xl\:text-\[72px\] {
     font-size: 72px;
   }
@@ -5874,19 +5868,6 @@ body[data-template="blog"] sticky-header header{
   .\33xl\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
-  }
-
-  .\33xl\:text-4xl {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-  }
-
-  .\33xl\:text-\[32px\] {
-    font-size: 32px;
-  }
-
-  .\33xl\:text-\[20px\] {
-    font-size: 20px;
   }
 
   .\33xl\:tracking-\[-0\.8px\] {
@@ -5901,12 +5882,12 @@ body[data-template="blog"] sticky-header header{
     letter-spacing: -1.4px;
   }
 
-  .\33xl\:tracking-\[-3\.8px\] {
-    letter-spacing: -3.8px;
-  }
-
   .\33xl\:tracking-\[-1\.6px\] {
     letter-spacing: -1.6px;
+  }
+
+  .\33xl\:tracking-\[-3\.8px\] {
+    letter-spacing: -3.8px;
   }
 }
 
