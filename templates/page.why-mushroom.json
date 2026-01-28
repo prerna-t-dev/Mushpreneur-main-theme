@@ -58,7 +58,7 @@
         "mushroom_MR4m9h": {
           "type": "mushroom",
           "settings": {
-            "image": "shopify://shop_images/Chaga_cropped.png",
+            "image": "shopify://shop_images/chaga.png",
             "name": "Chaga",
             "subheader": "The Resilient One",
             "description": "Superpower: Packed with antioxidants to fight stress and combat signs of aging.\n\nWhy It Matters: Chaga fortifies your defenses so you can bounce back from whatever the day throws at you."
@@ -211,35 +211,40 @@
               "settings": {
                 "title": "Three Reasons Fungi Are Not Plants",
                 "link": "https://asm.org/Articles/2021/January/Three-Reasons-Fungi-Are-Not-Plants"
-              }
+              },
+              "blocks": {}
             },
             "reference_w768qg": {
               "type": "reference",
               "settings": {
                 "title": "Medicinal Mushrooms: Ancient Remedies Meet Modern Science",
                 "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4684114/"
-              }
+              },
+              "blocks": {}
             },
             "reference_fVEcXq": {
               "type": "reference",
               "settings": {
                 "title": "Medicinal Mushroom: Boon For Therapeutic Applications",
                 "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6056353/"
-              }
+              },
+              "blocks": {}
             },
             "reference_p3zB7J": {
               "type": "reference",
               "settings": {
                 "title": "Neuronal Health – Can Culinary And Medicinal Mushrooms Help?",
                 "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3924982/"
-              }
+              },
+              "blocks": {}
             },
             "reference_eAdUc6": {
               "type": "reference",
               "settings": {
                 "title": "Immune Modulation From Five Major Mushrooms: Application To Integrative Oncology",
                 "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4684115/"
-              }
+              },
+              "blocks": {}
             }
           },
           "block_order": [
@@ -262,21 +267,24 @@
               "settings": {
                 "title": "Effects Of Adaptogens On The Central Nervous System And The Molecular Mechanisms Associated With Their Stress—Protective Activity",
                 "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3991026/"
-              }
+              },
+              "blocks": {}
             },
             "reference_PQfLA4": {
               "type": "reference",
               "settings": {
                 "title": "Nootropics As Cognitive Enhancers: Types, Dosage And Side Effects Of Smart Drugs",
                 "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9415189/"
-              }
+              },
+              "blocks": {}
             },
             "reference_qErEgF": {
               "type": "reference",
               "settings": {
                 "title": "Benefits And Harms Of 'Smart Drugs' (Nootropics) In Healthy Individuals",
                 "link": "https://pubmed.ncbi.nlm.nih.gov/35366192/"
-              }
+              },
+              "blocks": {}
             }
           },
           "block_order": [
@@ -297,28 +305,32 @@
               "settings": {
                 "title": "Active Compound In Lion’s Mane Mushroom Improves Nerve Growth And Memory",
                 "link": "https://www.news-medical.net/news/20230213/Active-compound-in-Lione28099s-Mane-mushroom-improves-nerve-growth-and-memory.aspx"
-              }
+              },
+              "blocks": {}
             },
             "reference_QAc9V4": {
               "type": "reference",
               "settings": {
                 "title": "Chemistry, Nutrition, And Health-Promoting Properties Of Hericium Erinaceus (Lion's Mane) Mushroom Fruiting Bodies And Mycelia And Their Bioactive Compounds",
                 "link": "https://pubmed.ncbi.nlm.nih.gov/26244378/"
-              }
+              },
+              "blocks": {}
             },
             "reference_WGxxxN": {
               "type": "reference",
               "settings": {
                 "title": "Therapeutic Potential Of Hericium Erinaceus For Depressive Disorder",
                 "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6982118/"
-              }
+              },
+              "blocks": {}
             },
             "reference_frphEz": {
               "type": "reference",
               "settings": {
                 "title": "Reduction Of Depression And Anxiety By 4 Weeks Hericium Erinaceus Intake",
                 "link": "https://pubmed.ncbi.nlm.nih.gov/20834180/"
-              }
+              },
+              "blocks": {}
             }
           },
           "block_order": [
@@ -340,14 +352,16 @@
               "settings": {
                 "title": "Pharmacological And Therapeutic Potential Of Cordyceps With Special Reference To Cordycepin",
                 "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3909570/"
-              }
+              },
+              "blocks": {}
             },
             "reference_8HFVCh": {
               "type": "reference",
               "settings": {
                 "title": "Improvement Of Learning And Memory Induced By Cordyceps Polypeptide Treatment And The Underlying Mechanism",
                 "link": "https://onlinelibrary.wiley.com/doi/10.1155/2018/9419264"
-              }
+              },
+              "blocks": {}
             }
           },
           "block_order": [
@@ -367,21 +381,24 @@
               "settings": {
                 "title": "Inonotus Obliquus Protects Against Oxidative Stress-Induced Apoptosis And Premature Senescence",
                 "link": "https://pubmed.ncbi.nlm.nih.gov/21359681/"
-              }
+              },
+              "blocks": {}
             },
             "reference_GkGkMf": {
               "type": "reference",
               "settings": {
                 "title": "Chaga Mushroom Extract Inhibits Oxidative DNA Damage In Human Lymphocytes As Assessed By Comet Assay ",
                 "link": "https://pubmed.ncbi.nlm.nih.gov/15630179/"
-              }
+              },
+              "blocks": {}
             },
             "reference_qfBw4F": {
               "type": "reference",
               "settings": {
                 "title": "High-Performance Biochar Derived From The Residue Of Chaga Mushroom (Inonotus Obliquus) For Pollutants Removal.",
                 "link": "https://read.qxmd.com/read/34737052/high-performance-biochar-derived-from-the-residue-of-chaga-mushroom-inonotus-obliquus-for-pollutants-removal"
-              }
+              },
+              "blocks": {}
             }
           },
           "block_order": [
@@ -402,14 +419,16 @@
               "settings": {
                 "title": "A Randomized, Double-Blind And Placebo-Controlled Study Of A Ganoderma Lucidum Polysaccharide Extract In Neurasthenia",
                 "link": "https://pubmed.ncbi.nlm.nih.gov/15857210/"
-              }
+              },
+              "blocks": {}
             },
             "reference_63zUyg": {
               "type": "reference",
               "settings": {
                 "title": "Health-Promoting Of Polysaccharides Extracted From Ganoderma Lucidum",
                 "link": "https://www.mdpi.com/2072-6643/13/8/2725"
-              }
+              },
+              "blocks": {}
             }
           },
           "block_order": [
@@ -429,21 +448,24 @@
               "settings": {
                 "title": "Immunomodulatory Properties Of Coriolus Versicolor: The Role Of Polysaccharopeptide",
                 "link": "https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2017.01087/full"
-              }
+              },
+              "blocks": {}
             },
             "reference_nPHhYh": {
               "type": "reference",
               "settings": {
                 "title": "Medicinal Mushrooms As An Attractive New Source Of Natural Compounds For Future Cancer Therapy",
                 "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6044372/"
-              }
+              },
+              "blocks": {}
             },
             "reference_ziQYTJ": {
               "type": "reference",
               "settings": {
                 "title": "In Vitro Bioactivity, Antimicrobial And Anti-Inflammatory Efficacy Of Modified Solvent Evaporation Assisted Trametes Versicolor Extract",
                 "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7447717/"
-              }
+              },
+              "blocks": {}
             }
           },
           "block_order": [
