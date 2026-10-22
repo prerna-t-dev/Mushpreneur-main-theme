@@ -192,19 +192,7 @@
           </ul>
         {% endif %}
         
-        {% render 'email-validation-form',
-          form_id: 'ds-slp-email-capture-form-' | append: section.id,
-          email_input_id: 'ds-slp-email-' | append: section.id,
-          response_message_id: 'ds-slp-email-capture-response-' | append: section.id,
-          form_classes: 'ds-slp-email-capture__form',
-          form_row_classes: 'ds-slp-email-capture__form-row',
-          email_input_classes: 'ds-slp-email-capture__input',
-          button_classes: 'ds-slp-email-capture__btn',
-          email_placeholder: section.settings.email_placeholder | default: 'Your email address',
-          button_text: section.settings.button_text | default: 'Join the List',
-          success_message: section.settings.success_message | default: 'Thank you for joining the Day Shrooms Launch List! Your first email is on its way to your inbox.',
-          response_message_classes: 'ds-slp-email-capture__response-message'
-        %}
+        {% render 'email-validation-form', form_id: 'ds-slp-email-capture-form-', append: section.id, email_input_id: 'ds-slp-email-', response_message_id: 'ds-slp-email-capture-response-', form_classes: 'ds-slp-email-capture__form', form_row_classes: 'ds-slp-email-capture__form-row', email_input_classes: 'ds-slp-email-capture__input', button_classes: 'ds-slp-email-capture__btn', email_placeholder: section.settings.email_placeholder, default: 'Thank you for joining the Day Shrooms Launch List! Your first email is on its way to your inbox.', button_text: section.settings.button_text, success_message: section.settings.success_message, response_message_classes: 'ds-slp-email-capture__response-message' %}
         
         {% if section.settings.tagline != blank %}
           <p class="ds-slp-email-capture__tagline mt-4">
@@ -367,3 +355,33 @@
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% render 'email-validation-form',
+              form_id: 'ds-slp-email-capture-form-' | append: section.id,
+              email_input_id: 'ds-slp-email-' | append: section.id,
+              response_message_id: 'ds-slp-email-capture-response-' | append: section.id,
+              form_classes: 'ds-slp-email-capture__form',
+              form_row_classes: 'ds-slp-email-capture__form-row',
+              email_input_classes: 'ds-slp-email-capture__input',
+              button_classes: 'ds-slp-email-capture__btn',
+              email_placeholder: section.settings.email_placeholder | default: 'Your email address',
+              button_text: section.settings.button_text | default: 'Join the List',
+              success_message: section.settings.success_message | default: 'Thank you for joining the Day Shrooms Launch List! Your first email is on its way to your inbox.',
+              response_message_classes: 'ds-slp-email-capture__response-message'
+            %}
+  to: "{% render 'email-validation-form', form_id: 'ds-slp-email-capture-form-', append:
+    section.id, email_input_id: 'ds-slp-email-', response_message_id: 'ds-slp-email-capture-response-',
+    form_classes: 'ds-slp-email-capture__form', form_row_classes: 'ds-slp-email-capture__form-row',
+    email_input_classes: 'ds-slp-email-capture__input', button_classes: 'ds-slp-email-capture__btn',
+    email_placeholder: section.settings.email_placeholder, default: 'Thank you for
+    joining the Day Shrooms Launch List! Your first email is on its way to your inbox.',
+    button_text: section.settings.button_text, success_message: section.settings.success_message,
+    response_message_classes: 'ds-slp-email-capture__response-message' %}"
+  position: 5340..6042
+{% endcomment %}
